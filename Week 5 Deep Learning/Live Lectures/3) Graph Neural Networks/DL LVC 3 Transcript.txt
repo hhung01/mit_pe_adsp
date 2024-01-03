@@ -1,0 +1,2952 @@
+[Faculty (Olympus)] 19:59:52
+Hello everyone. Good morning. Good afternoon. Good evening to everybody.
+
+[Faculty (Olympus)] 19:59:57
+I see a lot of messages in the chat section here. A couple of reminders. Again, do not, raise your hands during the class, and do not put anything in the QA section.
+
+[Faculty (Olympus)] 20:00:10
+Put all of your questions in the chat and make sure that you are sending it to everyone and not just hosts and panelists.
+
+[Faculty (Olympus)] 20:00:19
+That being said, we are going to be covering transfer learning and neural networks for graphs based models today.
+
+[Faculty (Olympus)] 20:00:27
+So with that being said I hand over the session to professor. I look forward to this session.
+
+[Faculty (Olympus)] 20:00:34
+Thank you. And hello, everyone. I hope you're all having a good day. So let's get started.
+
+[Faculty (Olympus)] 20:00:42
+We have a lot of ground to cover today. I'm so let me just start with the outline for today.
+
+[Faculty (Olympus)] 20:00:50
+So just as a little Recap where we stand, so we talked about what is in your network. How does it represent data, what is good about in your network?
+
+[Faculty (Olympus)] 20:00:59
+Then we saw one example on Wednesday about neural network architecture that's tailored to a specific type of data type and that it images.
+
+[Faculty (Olympus)] 20:01:11
+And so today we will build on these 2. We will talk about yet another architecture that's tailored to a different data type and that is graphs and I'll tell you like why this is important.
+
+[Faculty (Olympus)] 20:01:23
+And what are applications and how this actually works. But before that I want to touch upon another very important topic these days in machine learning and that's the idea of transfer learning.
+
+[Faculty (Olympus)] 20:01:33
+And that's basically how all the big neural networks these days are trained like LLMs and the big vision models they're all trained with transfer learning.
+
+[Faculty (Olympus)] 20:01:43
+So, I want to start with that because it also directly builds on the CNNs and the neural networks for images that we saw in the last lecture.
+
+[Faculty (Olympus)] 20:01:54
+Alright, so the motivation is as follows that As you probably know, neural networks are very powerful, but they do need a lot of data because they really learn a meaningful representation of the data together with a prediction model.
+
+[Faculty (Olympus)] 20:02:11
+So they do need a lot of data. And if you look at the breakthroughs in deep learning, so this is the example of computer vision and if you look at language it's even more.
+
+[Faculty (Olympus)] 20:02:23
+These models are trained with a lot of data. So here the example is Imagenet, which was trained with the neural networks that were trained on the Imagenet challenge are With 1.2 million labeled images and these were basically the ones that achieve state of the art
+
+[Faculty (Olympus)] 20:02:45
+So the question is what if I do not have so much label data if you think about it having a million images with actual labels that are accurately.
+
+[Faculty (Olympus)] 20:02:55
+That's a lot of work and they have to come from somewhere. So what if I have a task where I do not have so much data?
+
+[Faculty (Olympus)] 20:03:02
+And in those cases it may be that you do not have enough data to train in your network and we've talked about this also in the Q&A's, etc. In the past 2 lectures.
+
+[Faculty (Olympus)] 20:03:12
+And it may be that it's actually better to try a method that's not on your network and that just relies on less data, like a linear classify or kernel method, a decision tree, like a random forest model, something like that.
+
+[Faculty (Olympus)] 20:03:27
+But there are also cases where we really have data like images like texture. So we really want to use a deep learning model because it much better captures the the structure that's in the image.
+
+[Faculty (Olympus)] 20:03:38
+The important features that are in the image. But we just do not have that amount of label. So this could be because these are actually medical images.
+
+[Faculty (Olympus)] 20:03:47
+They come from some scientific experiments. Where an expert has to go and label or maybe sell. It could be something like sentimental analysis and text for someone actually has to read this and label it, etc.
+
+[Faculty (Olympus)] 20:03:58
+So these are basically tasks where it's expensive to get labels, so we do not have a lot of labels.
+
+[Faculty (Olympus)] 20:04:07
+But we'd still like to use. A deep learning model because deep learning can do a lot of things if it works well.
+
+[Faculty (Olympus)] 20:04:14
+So let's think about this a little bit and to think about it, I want to get back to my two-stage picture that I've been showing you throughout those lectures.
+
+[Faculty (Olympus)] 20:04:23
+So what do we actually do when we learn with a deep model? Well, as I said, we have our input, which could be images or text or graphs or whatever.
+
+[Faculty (Olympus)] 20:04:33
+And we want to encode that, in, at that import, like find a good representation of that.
+
+[Faculty (Olympus)] 20:04:39
+Input. That's the encoding part and that's the part where you have these convolutional layers for images and you will see what other things you can do.
+
+[Faculty (Olympus)] 20:04:50
+And then After that, we have basically a simple classifier step so that classifiers that could be a small neural network like a few layers of a fully connected network.
+
+[Faculty (Olympus)] 20:05:03
+It could also sometimes just be a linear classifier. So that second part is relatively simple. And the idea is that the main part of the work happens here.
+
+[Faculty (Olympus)] 20:05:12
+The first stage when we find a good representation of the data. So what does it even mean to be a good presentation?
+
+[Faculty (Olympus)] 20:05:20
+I'm just saying this, like, oh yeah, this is a good representation, it captures all the information, but what is that actually?
+
+[Faculty (Olympus)] 20:05:25
+So to make it a bit more concrete, if you think about how you probably learn ideas from linear classification, etc, you drew like these plots, say in 2 dimensions.
+
+[Faculty (Olympus)] 20:05:36
+And you have like some different classes of data points and you want to classify them. So you want to draw like straight lines or simple lines to separate them.
+
+[Faculty (Olympus)] 20:05:47
+So a good encoding is such that The classes in your data are well separated. So here you see the I have 3 classes and they're kind of sitting.
+
+[Faculty (Olympus)] 20:05:57
+Very far apart and the classes are kind of compact. If my data looks like this after the transformations that my neural network has done here this is a good encoding so it won't be in twod.
+
+[Faculty (Olympus)] 20:06:12
+It will be in higher dimensions because this usually lives in a high dimensional space but after all they are vectors so we can just think of it this way.
+
+[Faculty (Olympus)] 20:06:18
+And this kind of thing, it would be very easy to learn a linear classifier to separate those classes.
+
+[Faculty (Olympus)] 20:06:25
+You need 2 classifiers because they have 3 classes. This is very easy. So that part, if this first part works well, the second part is actually not that hard.
+
+[Faculty (Olympus)] 20:06:37
+If the first part works, then this is also very robust and nice representation. It'll generalize well.
+
+[Faculty (Olympus)] 20:06:44
+So This second part actually is not that hard if the first part works well. So the part where we need a lot of data is the first part, the encoding part.
+
+[Faculty (Olympus)] 20:06:54
+And this is where the idea of transfer learning starts. And the idea is as follows, well what? If we would need our small amount of data only to learn the second step.
+
+[Faculty (Olympus)] 20:07:07
+But we learned the first step independently. Well, sort of independently, we'll see. So if I would actually learn the first part.
+
+[Faculty (Olympus)] 20:07:20
+From some other data set. Then my small amount of data, may actually be enough to just learn that simple classifier here.
+
+[Faculty (Olympus)] 20:07:30
+So this is kind of the idea, the main idea why we would want to use transfer learning. So the transfer happens basically that we learn that encoder.
+
+[Faculty (Olympus)] 20:07:41
+From a different larger data set. We have a lot of data. And of course maybe the task will be different because I Don't have so much label for that task that I want to my actual trust that I'm interested in.
+
+[Faculty (Olympus)] 20:07:56
+I just take that encoder and I port it. I transfer it through the data set that I'm actually interested in.
+
+[Faculty (Olympus)] 20:08:04
+So that's the main idea of transfer learning. Let me just illustrate this to you. In another picture. This is saying the same thing.
+
+[Faculty (Olympus)] 20:08:12
+It's just like to really drive it in. So what we are gonna do now is we are going to do training in 2 stages.
+
+[Faculty (Olympus)] 20:08:18
+In the first stage, we are actually really just learning the encoder. But to learn the encoder, we need some kind of loss function.
+
+[Faculty (Olympus)] 20:08:26
+And some kind of data. So we'll take some data set that's larger. It'll be the same data type.
+
+[Faculty (Olympus)] 20:08:34
+So if I work with images, this will also be images. But it's still gotta be a lot larger set of images.
+
+[Faculty (Olympus)] 20:08:40
+And I'm going to learn the encoder, but to learn that encoder I need some kind of prediction task or some kind of task.
+
+[Faculty (Olympus)] 20:08:47
+So that I have a loss and I can actually guide that to learn a meaningful encoder. And the way we do this is that we design a different task.
+
+[Faculty (Olympus)] 20:08:56
+A so-called pretext task. That's a tough that I don't actually really care about.
+
+[Faculty (Olympus)] 20:09:02
+It's just something that helps me learn. So once I have them learned that pretext task with these different labels W, so these are the levels of that pretext task that I don't actually care about.
+
+[Faculty (Olympus)] 20:09:16
+They help me learn the encoder. Then I take my encoder. And I transfer it.
+
+[Faculty (Olympus)] 20:09:22
+I fix it. So this one is just a data transformation. It's just basically sending your data through the first part of your neural network.
+
+[Faculty (Olympus)] 20:09:29
+Then I freeze the weights and manual network. And I chop off basically the top. I chop off that planted fire part or whatever this one is.
+
+[Faculty (Olympus)] 20:09:39
+And I just retain the encoder part. Now I use the encoder on the actual data that I care about.
+
+[Faculty (Olympus)] 20:09:47
+And now what I learned is that just that classifier part. To get the output I want. So why is the label that I actually want?
+
+[Faculty (Olympus)] 20:09:56
+So this is my target task and the idea is that once I have a good encoder I just use it.
+
+[Faculty (Olympus)] 20:10:03
+I don't learn it, I use it. And what I'm learning is the classifier.
+
+[Faculty (Olympus)] 20:10:07
+And that classifier part is simple. That one I can learn. It's more like a linear classifier channel on a board that works with.
+
+[Faculty (Olympus)] 20:10:16
+Small amount of thing now. So that's something I that part I can learn with a small amount of data.
+
+[Faculty (Olympus)] 20:10:27
+Okay.
+
+[Faculty (Olympus)] 20:10:30
+So. The other benefit that is there is that I, I took that encoder and that expensive part was getting that in quarter.
+
+[Faculty (Olympus)] 20:10:42
+And I, I trained it. It was very tedious. I used a lot of data. I used a lot of compute.
+
+[Faculty (Olympus)] 20:10:47
+But the good thing is this encoder may actually work for my multiple target tasks. Because I trained this kind of independently, maybe I can actually port it and use it.
+
+[Faculty (Olympus)] 20:10:59
+For different target tasks. So I spent the effort once of training that big encoder and then I reuse it multiple times.
+
+[Faculty (Olympus)] 20:11:08
+So the advocates are amortized. That's actually a big advantage too. So we actually could use it for multiple times.
+
+[Faculty (Olympus)] 20:11:17
+Now let me get a bit more into that step of the actual transfer what that could look like.
+
+[Faculty (Olympus)] 20:11:27
+So what I said is we take that encoder. And we transfer it to the new task. And now how do I use that?
+
+[Faculty (Olympus)] 20:11:36
+Encoder in the new task? It's called fine tune. And there's basically 2 ways you can do this.
+
+[Faculty (Olympus)] 20:11:43
+So this is just a different illustration that's made by a colleague, Philip. So here is your encoder, that's the thing that you're learning and here is This is basically the classifier, the thing that's called prediction head here.
+
+[Faculty (Olympus)] 20:11:58
+And here is your classes of the auxiliary, the pretext task. So this thing you have trained now, so you are porting the F part.
+
+[Faculty (Olympus)] 20:12:09
+And z is that latent representation they encoding. So you're porting that F part and there's 2 things you could do.
+
+[Faculty (Olympus)] 20:12:15
+The first thing you could do is that's the simplest. You just take that part of your neural network and you freeze the weights.
+
+[Faculty (Olympus)] 20:12:22
+You don't update them anymore. And you just use it as is as a fixed transformation of your data essentially.
+
+[Faculty (Olympus)] 20:12:29
+And then you're learning just a linear classifier. On your target data. That's kind of what I described here, earlier also.
+
+[Faculty (Olympus)] 20:12:38
+The other option is to actually keep updating that. Encoder so that's called fine-tuning so we take that encoder we keep up the and we learn the linear classifier but we keep updating the encoder.
+
+[Faculty (Olympus)] 20:12:53
+The idea is that that encoder starts out from a really good solution already. It's not arbitrary.
+
+[Faculty (Olympus)] 20:13:01
+It's not a random initialization. It's a really, really good initialization. And so hence a few steps of gradient descent that I'm doing here to adapt to that data that I actually care about.
+
+[Faculty (Olympus)] 20:13:11
+That's all right. That doesn't cost me that much. So and that still like just makes it a little bit better.
+
+[Faculty (Olympus)] 20:13:19
+So that that update is not expensive as learning the full encoder.
+
+[Faculty (Olympus)] 20:13:26
+So that's the fine tuning part. So again, either you can freeze it. And that's called linear adaptation because we are really just using that.
+
+[Faculty (Olympus)] 20:13:34
+In quarter and we are adapting by learning the kind of Just a predictor on top or you're updating both.
+
+[Faculty (Olympus)] 20:13:43
+Then it's called fine team. But the idea is kind of the thing. We learn that encoder on the large data set and then we just transplant.
+
+[Faculty (Olympus)] 20:13:58
+Okay, okay, someone asked what that's like, neural and this like mean here.
+
+[Faculty (Olympus)] 20:14:05
+So what you see here is this is depicting the output classes. So in the train in the pretext task here, this is a music classification task here.
+
+[Faculty (Olympus)] 20:14:15
+Classifying basically what kind of music, And then in the actual task you care about, this is more like a will a user like or dis like this maybe.
+
+[Faculty (Olympus)] 20:14:27
+So this is the like in New Orleans. It's like these are the class labels here that you're and this should probably be called neutral not neural.
+
+[Faculty (Olympus)] 20:14:35
+I'm seeing that now so this should be a neutral here. So these are just the 3 classes.
+
+[Faculty (Olympus)] 20:14:45
+Okay. So Let me see, there's a few questions here, about the general setup maybe.
+
+[Faculty (Olympus)] 20:14:55
+And.
+
+[Faculty (Olympus)] 20:15:03
+Let me just answer some of these questions here.
+
+[Faculty (Olympus)] 20:15:18
+Oh, there's a question about how do you choose the encoding? 2 things could be similar because, for instance, their cities, their geographically similar or there may be similar by their demographics or something like that.
+
+[Faculty (Olympus)] 20:15:31
+And then what you want to Team closer is actually. It depends, right? It's the same thing.
+
+[Faculty (Olympus)] 20:15:39
+2 people could be similar because they have similar age or because they come from the same place or because they have the same interests.
+
+[Faculty (Olympus)] 20:15:46
+Or because they have the same skill level at something or because they have the same disease and Which version of similar?
+
+[Faculty (Olympus)] 20:15:54
+What's the matter of similarity, depends on your task. So. This is this is actually a tricky thing here and so for neural networks we let the neural network basically learn that what would be a good similarity measure.
+
+[Faculty (Olympus)] 20:16:08
+And if you care about, say, the medical predictions, you'd care about their medical parts and not so much about other things.
+
+[Faculty (Olympus)] 20:16:14
+And if you care about selling them products maybe you'll hear more about their interests and so on. So it depends on the top.
+
+[Faculty (Olympus)] 20:16:22
+So here, maybe the idea also is that your pretext talk is general enough that you're encoding in NAFTA information that your classifier later can determine which of these you'd want.
+
+[Faculty (Olympus)] 20:16:35
+So if you're in coding still has all of that information. Then your classifier in the adaptation or fine tuning part could actually choose which one is useful for the talk that you actually care about.
+
+[Faculty (Olympus)] 20:16:50
+Okay.
+
+[Faculty (Olympus)] 20:17:00
+So when whether people use a model to predict the weather, they're likely to use a pre-trained system.
+
+[Faculty (Olympus)] 20:17:07
+They're not one that was trained for Nortel. Yeah. I don't actually know how they do it.
+
+[Faculty (Olympus)] 20:17:14
+It's possible. But yeah, in the pre training they may have to then.
+
+[Faculty (Olympus)] 20:17:22
+Cover enough diversity that it's easy to adapt to the different locations. And I mean the weather prediction models, they usually take a lot into account a lot of things.
+
+[Faculty (Olympus)] 20:17:34
+They probably take into account some global information as well, a lot of the dynamics and they kind of like.
+
+[Faculty (Olympus)] 20:17:39
+Trying to forecast those dynamics. So difficult problem, but they're usually pretty large scale.
+
+[Faculty (Olympus)] 20:17:51
+If your company that has built a large effective encode can you just license it out to whoever? In some sense, yes.
+
+[Faculty (Olympus)] 20:18:01
+And in some sense, if you think about say chat, GPT, or so it's a big pre trade model in some sense.
+
+[Faculty (Olympus)] 20:18:09
+The weights are not public. So it's kind of like if you own that model, others can maybe build on it.
+
+[Faculty (Olympus)] 20:18:15
+They can use it. But yeah, you could also sell it.
+
+[Faculty (Olympus)] 20:18:22
+Potentially yeah so you that could be done. Also, the thing is, There's that thing that may not everyone has maybe the compute power to train that encoder.
+
+[Faculty (Olympus)] 20:18:33
+So. Because it needs a lot and lot of data and a lot a lot of computer. Not everyone can run that.
+
+[Faculty (Olympus)] 20:18:41
+So some people run them and then you can just. Many other people can use them who could not train that model from scratch.
+
+[Faculty (Olympus)] 20:18:49
+And that's why when I said that you can download basically. Pre trained models. So you can download vision models.
+
+[Faculty (Olympus)] 20:18:57
+You can download language models that have been 3 trained, but they're like they're open source.
+
+[Faculty (Olympus)] 20:19:03
+You can actually use that. So they are trained like that. They are trained on some pretext task.
+
+[Faculty (Olympus)] 20:19:07
+I'll show you in a minute what they are, the tasks. And you can use them so it's actually very good.
+
+[Faculty (Olympus)] 20:19:12
+That we can all use them without having to rerun that whole process.
+
+[Faculty (Olympus)] 20:19:21
+How does one gain access to a pretext model? Doesn't that assume that the pre trained neural network is made available for, that's true.
+
+[Faculty (Olympus)] 20:19:30
+So these are the weights of the neural network that you're using. So you have to be able to access them.
+
+[Faculty (Olympus)] 20:19:34
+That's right. But it's possible to do that. They are like, there are many cases where they are available.
+
+[Faculty (Olympus)] 20:19:43
+Can we have an actual example? So I'll show you some examples about what this pretext task actually looks like.
+
+[Faculty (Olympus)] 20:19:57
+Okay.
+
+[Faculty (Olympus)] 20:20:02
+General encoder in fine-tuning sounds like an LLM, that's right, and LLMs are trained like that.
+
+[Faculty (Olympus)] 20:20:11
+How far apart can and should be W and W prime? That's a good question. So that's basically the question.
+
+[Faculty (Olympus)] 20:20:18
+How different is our pretext task from our target task? And I'll show you some examples of pretext task that you can use for like object detection or like, vision tasks.
+
+[Faculty (Olympus)] 20:20:36
+They can be quite different actually. Even if you think about the language models, the pretext task, I'll show you later is actually just predict the next word.
+
+[Faculty (Olympus)] 20:20:44
+Very very simple. But it learns actually quite a lot of things. So the important thing is that it's not so much that the W and W prime have to be very similar.
+
+[Faculty (Olympus)] 20:20:57
+They can be very different, but what is important is that you capture and retain enough information in this encoding.
+
+[Faculty (Olympus)] 20:21:04
+That the encoder works for both of them. Because the W prime is really trained again from scratch.
+
+[Faculty (Olympus)] 20:21:11
+So And that one is cheap. It's all right. It's not that. Part.
+
+[Faculty (Olympus)] 20:21:18
+The hard part is the encoder and what we want is that the encoder doesn't forget important and information that would be important for our target task.
+
+[Faculty (Olympus)] 20:21:24
+So we want it to be pretty general. In in encoding like information that's probably useful for a large range of downstream tasks.
+
+[Faculty (Olympus)] 20:21:35
+And I'll show you some examples of what this could look like.
+
+[Faculty (Olympus)] 20:21:42
+Where can I find the encoder? There's websites where you can download it.
+
+[Faculty (Olympus)] 20:21:46
+So for instance, for language models, there's hugging fees. You can download it.
+
+[Faculty (Olympus)] 20:21:51
+From that and there's pre-trained vision models as well.
+
+[Faculty (Olympus)] 20:22:03
+Okay, so this is a question specific to this task. If for music where classical track track is much longer than the popular music types.
+
+[Faculty (Olympus)] 20:22:14
+Would you just subsample a subset of the track and then process it? Yeah, so likely they're same roughly the same length.
+
+[Faculty (Olympus)] 20:22:22
+But you can do that. Otherwise you can just decide by length that's much easier. But that's not a very good feature.
+
+[Faculty (Olympus)] 20:22:31
+Oh, there's a question is W, our neural network model here. So the neural network is really the full thing.
+
+[Faculty (Olympus)] 20:22:37
+The neural network is that full box. So this box is the neural network. The input is some music and the output is some labels and our neural network.
+
+[Faculty (Olympus)] 20:22:48
+Basically consists of that in colder part and the classification part, which is like the prediction head here.
+
+[Faculty (Olympus)] 20:22:56
+This is just a classification part. So both of them are part of the neural network and we kind of chop that neural network apart.
+
+[Faculty (Olympus)] 20:23:02
+So in the vision models you could think of it that the encoder is the CNN part.
+
+[Faculty (Olympus)] 20:23:06
+The convolute the thing with the convolutions and the pooling layers and then the W is just the fully connected layers after that.
+
+[Faculty (Olympus)] 20:23:16
+The input different on pre trading and fine-tuning. So it's the same data type.
+
+[Faculty (Olympus)] 20:23:21
+You cannot, it's hard, it would be hard to go from say an image model to a language model.
+
+[Faculty (Olympus)] 20:23:27
+So it's the same data type, but it doesn't have to be exactly the same data.
+
+[Faculty (Olympus)] 20:23:42
+Are both pre trading and fine tuning supervised. They can be. I will so the fine tuning is often.
+
+[Faculty (Olympus)] 20:23:54
+Supervised the Read training doesn't have to be, I'll show you. Okay. It's a few questions about the pre training.
+
+[Faculty (Olympus)] 20:24:04
+So maybe let's continue with that.
+
+[Faculty (Olympus)] 20:24:10
+Okay.
+
+[Faculty (Olympus)] 20:24:23
+Okay, good.
+
+[Faculty (Olympus)] 20:24:34
+Okay.
+
+[Faculty (Olympus)] 20:24:38
+Alright, so let me, continue a little bit and I'll get back to the remaining questions afterwards.
+
+[Faculty (Olympus)] 20:24:44
+Because I want you to also see what the actual pretext task could look like. So what is the pretext task?
+
+[Faculty (Olympus)] 20:24:51
+And I'll start with computer vision. And I'll go on later to some other things. So.
+
+[Faculty (Olympus)] 20:24:56
+What could be the pretext task? So it needs to be something where I have a lot of data and I have some kind of thing that can give me feedback.
+
+[Faculty (Olympus)] 20:25:06
+So some kind of labels or something else that can give me a signal that The Neil Lapwork is learning a meaningful thing.
+
+[Faculty (Olympus)] 20:25:13
+Like exactly like maybe not just the length of the input sequence, but it's actually capturing something about the properties of that sequence.
+
+[Faculty (Olympus)] 20:25:20
+Something that's meaningful for other tasks as well.
+
+[Faculty (Olympus)] 20:25:24
+So in the first like attempts off to like ideas of pre-training and transfer learning. This was usually a supervised task too.
+
+[Faculty (Olympus)] 20:25:35
+So the pretext task was fully supervised. And for images, for instance, you can use that big Imagenet challenge so that Imagenet data set, which has like more than a million images of more than a thousand classes.
+
+[Faculty (Olympus)] 20:25:49
+And you can train your model on this. So the model has seen a huge variety of images. And then you can find tune it on.
+
+[Faculty (Olympus)] 20:25:58
+Which our image processing task you have. So this could even be a medical task. So the images don't have to be the same.
+
+[Faculty (Olympus)] 20:26:09
+Often formatically want a little bit of additional things that are not in those data sets, but it may, it still could actually help you.
+
+[Faculty (Olympus)] 20:26:20
+So We do if you want to supervise task, we could maybe use Imagenet as an example.
+
+[Faculty (Olympus)] 20:26:25
+So some data that that you can get from somewhere that's very large. It doesn't have to have the same labels as we saw in the previous slide.
+
+[Faculty (Olympus)] 20:26:32
+The labels can be different. But it just needs to be large enough and have enough variety. To capture important.
+
+[Faculty (Olympus)] 20:26:41
+Features. So now if we think about computer vision, why would this help? Well, if I'm learning to do object classification on that Imagenet task.
+
+[Faculty (Olympus)] 20:26:51
+Well, we saw last lecture what I'm actually learning. I'm learning edge features. I'm learning to detect edges.
+
+[Faculty (Olympus)] 20:26:58
+I'm learning to detect little shapes and textures and so on. And all of this is important for most image processing tasks is to detect edges, to detect little shapes and patterns and and textures and such things.
+
+[Faculty (Olympus)] 20:27:13
+So those layers that I'm actually learning, they may be reusable on many different tasks because that's the important thing.
+
+[Faculty (Olympus)] 20:27:21
+Of extracting kind of meaningful patterns. So those are, that's essentially the reason why this is portable also to other tasks because that ability to recognize essentially objects and parts of object, etc.
+
+[Faculty (Olympus)] 20:27:37
+Is important in many tasks.
+
+[Faculty (Olympus)] 20:27:39
+But now the thing is that We still only have so much labeled data. Image NET. Also, it's a big task to actually build it.
+
+[Faculty (Olympus)] 20:27:50
+And we have even more images out there. On the web that do not have labels or at least not precise labels maybe there's some caption floating around somewhere that's kind of like a coarse thing that give you some of the meaning but it's not really
+
+[Faculty (Olympus)] 20:28:08
+It's not really like fully a labeled data set out there. So the question is could we actually even leverage?
+
+[Faculty (Olympus)] 20:28:18
+More data that we have, but That doesn't have labels. Now the thing is if I don't have labels I still have to create a task because I want to train this neural network.
+
+[Faculty (Olympus)] 20:28:30
+And I want to give it some feedback to update the weights to actually learn and guide it to learn a good representation.
+
+[Faculty (Olympus)] 20:28:37
+And the question is how would I do this? And one idea that people have come up with is to say, well, Maybe we can just create labels automatically.
+
+[Faculty (Olympus)] 20:28:49
+We make up a task. We're kind of Makeup like almost like a game, a learning game for that neural network.
+
+[Faculty (Olympus)] 20:28:57
+So will make up. Labels in a way that a human doesn't have to sit down and actually look at these images and label them by hand.
+
+[Faculty (Olympus)] 20:29:06
+But in a way that they are still useful for guiding the neural network in learning to extract useful features.
+
+[Faculty (Olympus)] 20:29:14
+And this is the area of so-called self-supervised learning. So self-supervised because the It's kind of like a supervised task, but the supervision is not coming from a human.
+
+[Faculty (Olympus)] 20:29:26
+So that's kind of the idea. And, and that's actually that has that big potential that we can now train the neural network on very very large amounts of data.
+
+[Faculty (Olympus)] 20:29:38
+Hopefully learn a very rich model because also as we saw in the last lecture, the more variation you have seen in the data.
+
+[Faculty (Olympus)] 20:29:45
+The more likely you are to know that Sky is not the thing to just look out for, but there is a lot more in the world like shapes, etc, that you should be looking at.
+
+[Faculty (Olympus)] 20:29:54
+So this is actually very helpful to see a big variety. And now the only The only question is How, what is that task?
+
+[Faculty (Olympus)] 20:30:07
+So I have that big pile of data, it doesn't have labels. But what could that task look like?
+
+[Faculty (Olympus)] 20:30:16
+And let me just show you a few examples of what these tasks could look like. And I'll start with some of the Earlier ideas and I'll go to like some other ideas that are more like the state of the art these days.
+
+[Faculty (Olympus)] 20:30:30
+But this is hopefully going to give you an impression of what the tasks could look like. So here is one way I can create.
+
+[Faculty (Olympus)] 20:30:40
+It's almost like a game for the neural network to play. That I can do even if I don't have label.
+
+[Faculty (Olympus)] 20:30:47
+So the thing is as follows, I get an image, so in this case it's an image of a cat.
+
+[Faculty (Olympus)] 20:30:51
+And now I'm gonna try to create some task for my new network from that image without actually having to look at it and recognize what's in it.
+
+[Faculty (Olympus)] 20:31:01
+So what I'll do is I chop up that image into 9 patches. This you can do without looking at it.
+
+[Faculty (Olympus)] 20:31:07
+We can just write a script to do that. And then I'll take the center patch. That's the first input for my new network.
+
+[Faculty (Olympus)] 20:31:18
+And then I'll take. Randomly one of the other patches. That's the second input to my new network.
+
+[Faculty (Olympus)] 20:31:25
+So the input to my new network is going to be these 2. That's my X. So this is the X, it's these 2 images.
+
+[Faculty (Olympus)] 20:31:33
+Now what is the why? What is the thing it's gonna? Predict. So what I am asking it to predict this, where did that second patch come from?
+
+[Faculty (Olympus)] 20:31:42
+The first one is the center patch and now I'm giving you the second one and from which position did the second one come from and then you can just label those positions, right?
+
+[Faculty (Olympus)] 20:31:52
+It's 1, 2, 3, 4, 5, etc. So you have.
+
+[Faculty (Olympus)] 20:31:57
+A choice is here. Of different positions. So it's a classification task again. The neural network has to output a number.
+
+[Faculty (Olympus)] 20:32:07
+The number for the position.
+
+[Faculty (Olympus)] 20:32:11
+No, I do this of course with a lot of images and a neural network learns to solve that task.
+
+[Faculty (Olympus)] 20:32:16
+So it's that jigsaw task. Now, why does this, why is this a meaningful task for if I want to later do say object detection?
+
+[Faculty (Olympus)] 20:32:26
+Or some visual data mining like searching for objects. Why is that useful? And the idea is that, well, what do I actually need to understand of that image or capture of that image to understand where that patch belongs to.
+
+[Faculty (Olympus)] 20:32:47
+Well, I have to be able to predict something about the relationship of these 2 patches and to be able to do that I have to recognize something about The patterns in these patches.
+
+[Faculty (Olympus)] 20:32:57
+And so basically, implicitly, With a lot of examples, the neural network is probably learning that this looks kind of like a face here.
+
+[Faculty (Olympus)] 20:33:07
+Just there. And that this looks like an ear and an ear. For a animal goes like above the head and then you can maybe by the the shape see whether it's the left or the right ear.
+
+[Faculty (Olympus)] 20:33:23
+But to be able to do this, the neural network needs to be able to detect those edges. It needs to be able to detect maybe the fur and the pattern here of eyes and nose and mouth, etc.
+
+[Faculty (Olympus)] 20:33:33
+So, the neural network needs to actually detect a lot of things. And these are exactly also the kinds of things you need to encode when you do want to do object.
+
+[Faculty (Olympus)] 20:33:43
+That's exactly the similar thing that in your network learns when it learns to do object detection.
+
+[Faculty (Olympus)] 20:33:49
+And recognition. So these are actually the same kinds of features that I could be reusing and that is one reason why this actually works.
+
+[Faculty (Olympus)] 20:34:03
+Okay. So there's a few, comments here. Can we use correlation in this image to detect?
+
+[Faculty (Olympus)] 20:34:11
+So yeah, maybe in some sense you are using some kind of correlations in there that like continuities.
+
+[Faculty (Olympus)] 20:34:17
+Something that you're learning. I mean the big correlation here is that if you get another cat It looks similar in the center and then the ears are gonna look similar so you're kind of learning how they relate.
+
+[Faculty (Olympus)] 20:34:29
+You could also maybe if there's a continuation of patterns, right? Like it goes in a certain direction or orientation or so, you could also use that of course.
+
+[Faculty (Olympus)] 20:34:41
+Are we starting from a complete picture of the cat? Yes, we do. So we started with a full picture.
+
+[Faculty (Olympus)] 20:34:46
+We chop it apart, but then we only give the new network 2 patches. But since we created this, we know where the patch is coming from.
+
+[Faculty (Olympus)] 20:34:54
+So I'm just right, I just basically one can write a script that takes an image. It partitions the image, randomly picks a patch, remembers what that location was and that's your label Y.
+
+[Faculty (Olympus)] 20:35:04
+So the why here is basically.
+
+[Faculty (Olympus)] 20:35:10
+The location.
+
+[Faculty (Olympus)] 20:35:20
+Okay, so there's still some confused. What does the neural network output? So the neural network here outputs.
+
+[Faculty (Olympus)] 20:35:25
+The number. So the neural network would get the X, the 2 images as input and would output the class.
+
+[Faculty (Olympus)] 20:35:32
+One to one to 8. So 6 7 8. And this is the class basically the position of that second patch.
+
+[Faculty (Olympus)] 20:35:45
+Can you show the full example with the full image? I don't have the image, but I can try to draw it.
+
+[Faculty (Olympus)] 20:35:50
+So basically what you have is You start out with an image of a cat so there's some cat sitting here. Maybe the eyes are here.
+
+[Faculty (Olympus)] 20:35:57
+So this is the cat. There are the ears in here, etc. This is your original image then you actually partition it.
+
+[Faculty (Olympus)] 20:36:04
+This, the neural network doesn't know that. That's your data set. You have like 1 million of such images, you each of these images you partition it up and then you randomly pick a patch.
+
+[Faculty (Olympus)] 20:36:18
+So you know you're picking the center and then you're randomly picking a patch, some other patch.
+
+[Faculty (Olympus)] 20:36:22
+It could be even this one here. And then you're showing the neural network those 2 patches.
+
+[Faculty (Olympus)] 20:36:27
+And then you asked in your network, where did the second patch come from? Here, you have a choice between one to 8, those are the positions.
+
+[Faculty (Olympus)] 20:36:35
+And then your neural network has to. Figure out the right position. So the classification task is here.
+
+[Faculty (Olympus)] 20:36:42
+The input is these. 2 images here and the output is just the label. Let the position of that second.
+
+[Faculty (Olympus)] 20:36:52
+Okay, so let me show you a few other examples. Here is another example. So here you have an image that looks kind of like the image of the right and what you do is your mask it.
+
+[Faculty (Olympus)] 20:37:04
+You basically mask out a part of the image and you ask the neural network what is please complete the image.
+
+[Faculty (Olympus)] 20:37:11
+So fill in basically the mask part.
+
+[Faculty (Olympus)] 20:37:15
+So that's actually a popular kind of task. These days. And now this is actually a bit different.
+
+[Faculty (Olympus)] 20:37:20
+So this is not no longer a classification task because now the neural network has to output. A part of that image so it has to generate an image.
+
+[Faculty (Olympus)] 20:37:29
+That's a bit harder. But if you have to generate an image, you have to learn a lot about images.
+
+[Faculty (Olympus)] 20:37:36
+First you have to recognize What's the patterns surrounding that patch, right? If you I had would ask you to fill it in you'd probably also draw some kind of windows in there, you'd probably complete the edges, etc.
+
+[Faculty (Olympus)] 20:37:52
+Like maybe complete that.
+
+[Faculty (Olympus)] 20:37:53
+That's great that is out there like there's something written in it, etc. So you can because you recognize there's windows in there and usually like the windows would continue in a regular fashion.
+
+[Faculty (Olympus)] 20:38:07
+And then and so on and the edges would continue and so on and that's kind of what the neural network learns to.
+
+[Faculty (Olympus)] 20:38:13
+Again, it learns to detect edges and patterns and so on and to kind of fill in these patterns and it learns what typically these things look like.
+
+[Faculty (Olympus)] 20:38:23
+What is a natural thing to fill in there? Is it like this looks like a house and you like put windows, etc.
+
+[Faculty (Olympus)] 20:38:30
+This needs a generative model, so it actually now this is a neural network that can also make images.
+
+[Faculty (Olympus)] 20:38:37
+So it's kind of like the inverse of the CNN. It takes an encoding and generates an image out of it.
+
+[Faculty (Olympus)] 20:38:44
+That's what it's doing. And what I like just want to stress here is that that idea off.
+
+[Faculty (Olympus)] 20:38:55
+Feel that masking a part of the input and filling it in is actually very very broadly applicable. So you can do this actually for images, you can do it for texts, you can do it for molecules.
+
+[Faculty (Olympus)] 20:39:08
+You basically remove part of the molecule and say what should be the in there. You can do it for many things.
+
+[Faculty (Olympus)] 20:39:16
+Some other things you can do with images is to say, for instance, You're cutting off a part of the image that's here, the mask is black.
+
+[Faculty (Olympus)] 20:39:24
+That's kind of the same similar to the one we did here. We here we just have the center piece.
+
+[Faculty (Olympus)] 20:39:30
+You put it like you're cutting off a random. Piece of it, you could do something like, Live smaller pieces, but more of them so not a consecutive thing and you're just predicting then fill in the gaps basically.
+
+[Faculty (Olympus)] 20:39:48
+Or you could remove a channel, so you only give it maybe the green and blue channels and not the red channel and it has to figure out what would be in the red channel, So there's many ways you can do this marketing.
+
+[Faculty (Olympus)] 20:40:02
+And you can do this masking also with text. And the way the modern large language models are trained is exactly this way.
+
+[Faculty (Olympus)] 20:40:10
+That you could. If it's a bi-directional and you can mask like something in the middle of the sentence.
+
+[Faculty (Olympus)] 20:40:18
+The way that GPT for instance is trained is basically Always predict the next word. So it's like masking the the end of the sentence essentially.
+
+[Faculty (Olympus)] 20:40:30
+So you give it just the beginning of The sentence and it has to fill in the next word and it always has to predict the next word.
+
+[Faculty (Olympus)] 20:40:38
+So what do you learn from doing that? Well, first you learn a lot about the correlations in the language.
+
+[Faculty (Olympus)] 20:40:44
+Like there's an article, so, so maybe a noun should be following. But you also have to to actually make this meaningful you have to understand more about the meaning of that sentence.
+
+[Faculty (Olympus)] 20:40:54
+This particular one would be actually pretty difficult if the model hadn't read Harry Potter. But In general, like it would actually understand like this is whatever.
+
+[Faculty (Olympus)] 20:41:11
+It's a country and then the city like the capital has to be a city and then it kind of learns those correlations or whatever.
+
+[Faculty (Olympus)] 20:41:18
+There is a chair and what do people do with the chair and then like typically they sit on it or so so it would like basically have to understand the context and some of the semantics the meaning of that sentence to actually meaningfully predict like what follows.
+
+[Faculty (Olympus)] 20:41:31
+So, and that's that way indirectly. We are actually teaching the model a lot. Because to correctly fill in the gap, I have to kind of understand the context.
+
+[Faculty (Olympus)] 20:41:42
+That's the idea of it. And as we see, and it actually can learn to understand a lot about the context.
+
+[Faculty (Olympus)] 20:41:51
+Of course it also like sometimes it Hello, something that sounds very reasonable. It it's just generated according to the same patterns.
+
+[Faculty (Olympus)] 20:42:01
+But that actually that's kind of what the task is. And it has been very successful.
+
+[Faculty (Olympus)] 20:42:06
+And you see it's actually very simple. A lot of this is very simple and the good thing is now I don't have to go in and label anything because masking out parts of my input, that's something I can do very easily.
+
+[Faculty (Olympus)] 20:42:23
+For instance, that this is something you can do automatically predict the next word and you know what the sentence is so it's kind of like really hard.
+
+[Faculty (Olympus)] 20:42:35
+It's really easy to do it, sorry, really hard. Okay.
+
+[Faculty (Olympus)] 20:42:43
+So before I go on, let me see if there's any more questions about the fill in the gap in the masking part.
+
+[Faculty (Olympus)] 20:43:01
+I think there was still some confusion about the labeling the positions. In that. Example, so because I'm starting out with a With an image, I my computer can detect that a computer chops, of them in the computer chose chooses the location that it will show.
+
+[Faculty (Olympus)] 20:43:20
+So I don't have to label it. The computer does it by itself. So that's why it's self-supervised and not supervised.
+
+[Faculty (Olympus)] 20:43:33
+Would the jigsaw approach approach also work in a sentence? It may be a bit harder in a sentence because sometimes in a sentence you can put in like subclauses.
+
+[Faculty (Olympus)] 20:43:45
+So the actual position is a bit harder. And it really depends on the language and how regular the language is.
+
+[Faculty (Olympus)] 20:43:50
+So in some languages you can put a lot in between. The noun and the verb or so like and then it's a bit harder to predict like where exactly it would be if you just see 2 of them.
+
+[Faculty (Olympus)] 20:44:01
+So for language, we often do the fill in the gap kind of tasks.
+
+[Faculty (Olympus)] 20:44:07
+Okay.
+
+[Faculty (Olympus)] 20:44:22
+Okay.
+
+[Faculty (Olympus)] 20:44:25
+What is the math behind the completion pre-task? So essentially what we have is we have a neural network.
+
+[Faculty (Olympus)] 20:44:34
+That now, it like consists of an encoder part and a decoder part. So the decoder is another new, it's another part of the neural network.
+
+[Faculty (Olympus)] 20:44:44
+It's kind of like an inverse of the other of the encoder one. And that learns to basically generate either it generates images but the text model does is it basically generates a probability for each word.
+
+[Faculty (Olympus)] 20:44:58
+Of being the next word. So it's actually again kind of almost like a classifier. It's a lot of words that we have in the language and it, but it predicts kind of like which of these words would come next.
+
+[Faculty (Olympus)] 20:45:11
+So it's in the end, it actually looks. Kind of like a classification. Model in the end when you look at the text.
+
+[Faculty (Olympus)] 20:45:19
+And that classification model indeed does look at like, that other part of the sentence and how that word and it tries to figure out how that word would relate to like These are which of these other words would be meaningful to predict that position.
+
+[Faculty (Olympus)] 20:45:35
+So this is done by our attention and I can explain to you after the graph nets what attention is because then it's easier to understand.
+
+[Faculty (Olympus)] 20:45:44
+So this is kind of the math behind it and then we just have a loss function that basically gives a penalty of how well does what the model predicts match what's actually there.
+
+[Faculty (Olympus)] 20:45:58
+So it's again the math is just our neural network mass and lost functions.
+
+[Faculty (Olympus)] 20:46:05
+Okay.
+
+[Faculty (Olympus)] 20:46:16
+Yourself, civilized, it's important to remove the effects of shortcut features too like watermarks.
+
+[Faculty (Olympus)] 20:46:22
+Yes, self-supervised learning can help you for that too. For the also for the reason because it has seen a lot more data than you would usually have in your label task.
+
+[Faculty (Olympus)] 20:46:33
+And just the mere fact of having more data often teaches you a lot. About different like what this data could look like and to Prevent some of the shortcuts.
+
+[Faculty (Olympus)] 20:46:42
+It cannot fully always prevent them, but it can help a lot.
+
+[Faculty (Olympus)] 20:47:04
+Right, the next word prediction could be nonlinear. There will be more choices. If the context and the sentence is different, that's right.
+
+[Faculty (Olympus)] 20:47:12
+There's often more than one useful choice. For instance, if I had just given it in the first book, right, there could be like there could be many series where there's a first book.
+
+[Faculty (Olympus)] 20:47:22
+So that's right, there's often not a single true one, but you give the feedback from what is there.
+
+[Faculty (Olympus)] 20:47:33
+So here, okay, can you give real pretext examples? So this is the real pretext example.
+
+[Faculty (Olympus)] 20:47:40
+It's just that you and these are also real ones that are actually used. This is what's used to train language models that looks like that.
+
+[Faculty (Olympus)] 20:47:49
+It's just that you take like a ton of text from the internet and like you basically For each sentence, you give it like the first word, the first 2 words, the first 3 words, etc, and you make it predict the next word.
+
+[Faculty (Olympus)] 20:48:05
+Okay.
+
+[Faculty (Olympus)] 20:48:17
+Okay, I'll give you the slide, there's a question about having a slide deck. I'll give you the annotated one, Yeah.
+
+[Faculty (Olympus)] 20:48:31
+Okay.
+
+[Faculty (Olympus)] 20:48:38
+Alright, so let me continue with the lecture. I'll get back to your questions later. It's great that you have so many.
+
+[Faculty (Olympus)] 20:48:47
+So I want to just introduce you to yet another form of. Pre training that has also been used very very successfully in vision and in, in multimodal models like vision plus text and so on video plus text.
+
+[Faculty (Olympus)] 20:49:07
+More video blast sound.
+
+[Faculty (Olympus)] 20:49:10
+So this is a bit different from the other pretext. Tasks that we've seen and it's called contractive learning.
+
+[Faculty (Olympus)] 20:49:18
+And the idea is the following that this one as opposed the other ones kind of act on the output so the neural network encodes something from the encoding, it decode some output and then on that output I'm using the last function and I'm giving some feedback.
+
+[Faculty (Olympus)] 20:49:33
+So this one is likely different in that we are giving more direct feedback on the encoding itself. So what will we do is the following.
+
+[Faculty (Olympus)] 20:49:43
+We do it. Let's use images as an example. We take these images and we encode them to live in some latent space.
+
+[Faculty (Olympus)] 20:49:50
+And so here this latent space, it's actually a sphere. And so each image ends up being a point in that little space.
+
+[Faculty (Olympus)] 20:49:59
+In that representation space and now what I do is I give the neural network pairs of images. And I say, these images are closed and these images are not closed.
+
+[Faculty (Olympus)] 20:50:12
+So close by semantics by meaning, not necessarily by the actual appearance. And then I tell in your network these 2 should be close you should put them close together in your latent space because presumably they're from the same class.
+
+[Faculty (Olympus)] 20:50:27
+So we want the classes to be sitting together. And these 2 are different. So you should put them far apart because presumably they are from different classes.
+
+[Faculty (Olympus)] 20:50:37
+So, we always go with pairs and we basically tell the neon effort to classify like similar pairs of similar versus pairs of dissimilar images.
+
+[Faculty (Olympus)] 20:50:48
+Someone else is this like clustering in a sense. Yes, you're basically clustering by class.
+
+[Faculty (Olympus)] 20:50:55
+And what does it teach the neural network? It teaches it that, okay, this monkey is different from the dog.
+
+[Faculty (Olympus)] 20:51:00
+So maybe don't just look at the colors because the colors are kind of similar. You have to look at the shapes also to distinguish these 2.
+
+[Faculty (Olympus)] 20:51:08
+So don't just look at color. And for these 2, it teaches us, and then, well, these are actually both dogs.
+
+[Faculty (Olympus)] 20:51:15
+They don't look exactly the same, but try to figure out what is similar about them because that's what makes and not again not maybe the color itself.
+
+[Faculty (Olympus)] 20:51:27
+So how is this actually done? This looks a bit scary. This is the loss function. What it basically means is it's indeed like actually using that negative log like.
+
+[Faculty (Olympus)] 20:51:38
+It's called to contrast if loss. It's like this negative log likelihood loss. To basically distinguish.
+
+[Faculty (Olympus)] 20:51:50
+The positive meaning the similar from the dissimilar peers. And is essentially if you just look at this, you'll have an anchor image from which you derive the positive and negative partners like let's say this is the anchor, then this is the positive partner.
+
+[Faculty (Olympus)] 20:52:06
+This is the negative partner. And then you compare that anchor image basically to these other ones and what this green part is saying is basically how similar are they?
+
+[Faculty (Olympus)] 20:52:16
+This is some some inner product, f of x is the encoding of XF is the encoder.
+
+[Faculty (Olympus)] 20:52:21
+And the inner product means that Essentially the vectors that encode them point in the same direction.
+
+[Faculty (Olympus)] 20:52:30
+But what that really means is that they are close in your latent space in the representation space. That means the network would likely classify them as a similar thing.
+
+[Faculty (Olympus)] 20:52:40
+If you later do a fine-tuning for some classification task. And what we want is we want that them to be very similar if they are actually similar.
+
+[Faculty (Olympus)] 20:52:51
+That's the green part. We want this thing to be small. If they are dissimilar.
+
+[Faculty (Olympus)] 20:52:56
+So that's why it's here like, at the bottom of the fraction.
+
+[Faculty (Olympus)] 20:53:02
+And in fact, this yeah, what this does is it basically aligns the positive pairs.
+
+[Faculty (Olympus)] 20:53:09
+It puts them close together in the negative peers that pushes them far apart. In your representation.
+
+[Faculty (Olympus)] 20:53:17
+Now, why it was this method like? Becoming popular because this was the first time that Basically an unsupervised free training.
+
+[Faculty (Olympus)] 20:53:29
+Could outperform a supervised training like the Imagenet free training and actually work better than that. And later on people have actually looked at this and like they have used it in many different ways.
+
+[Faculty (Olympus)] 20:53:44
+Because now the idea is what I'm really doing is I'm aligning. The ones that I want that I think have the same meaning and I'm pushing apart the ones that I think don't have the same meaning.
+
+[Faculty (Olympus)] 20:53:57
+And here I'm aligning 2 images. But what I could also do is I could take a image and I could take text.
+
+[Faculty (Olympus)] 20:54:04
+So I'm aligning an image, a piece of image and a piece of an image and a piece of text.
+
+[Faculty (Olympus)] 20:54:10
+Or I could align a video and sound or text that corresponds to it. What do I gain from this?
+
+[Faculty (Olympus)] 20:54:20
+Now I have a multimodal model. So in that mighty model model. I would have a text encoder and an image encoder, but they kind of end up in the same.
+
+[Faculty (Olympus)] 20:54:30
+Encoding space. So I'm aligning them there and now I basically say, okay, here's a text.
+
+[Faculty (Olympus)] 20:54:36
+That's a text prompt maybe. What would be an image that's close to it? That's how I could use it.
+
+[Faculty (Olympus)] 20:54:43
+So for instance, the clip model, that's what it's doing. It's aligning text and images.
+
+[Faculty (Olympus)] 20:54:48
+And this way I could use that for instance if I want to do image generation. I have my prompt and I'm asking a generate a dog for me, maybe a brown dog on grass or something.
+
+[Faculty (Olympus)] 20:55:00
+And then that text I can see what would be an image that's close in representation to the text.
+
+[Faculty (Olympus)] 20:55:08
+So I can generate it or I can search for it.
+
+[Faculty (Olympus)] 20:55:12
+So this is very useful if you want to do this multi modal alignment as well if you want to have a multimodal model.
+
+[Faculty (Olympus)] 20:55:19
+So this contrasted learning is actually very useful, in many different ways. But for the moment, let's stick with having these 2 images and just wanting to learn a good encoding just of images.
+
+[Faculty (Olympus)] 20:55:32
+By their semantics.
+
+[Faculty (Olympus)] 20:55:35
+Now, the question, as I said, this is super, this is not supervised. But I actually also told you, I'm telling it, these are 2 images with a dog.
+
+[Faculty (Olympus)] 20:55:48
+And I mean, this is an image that does not have a dog. It has something else. That's sounds a lot like labelling.
+
+[Faculty (Olympus)] 20:55:53
+So where did I get that information from? If not from labels that I gave to the method. So that's.
+
+[Faculty (Olympus)] 20:56:06
+That's kind of tricky. Because I don't want to label the images.
+
+[Faculty (Olympus)] 20:56:13
+So. That's the thing we still have to figure out like how do I know that these images have the same content and these don't.
+
+[Faculty (Olympus)] 20:56:22
+So the way we do this is that we don't actually, we still don't look at the images, but what we do is we create the positive pairs in a way that we can be relatively sure that they contain the same thing.
+
+[Faculty (Olympus)] 20:56:37
+And the way we do this is that we take an image and what we actually do is we do random data augmentations.
+
+[Faculty (Olympus)] 20:56:44
+So we do things like this to that image. And so now I do 2 random. Data augmentation sequences, so I rotate it, I clip it and what not.
+
+[Faculty (Olympus)] 20:56:54
+And then whatever the other one I blur and change the color or something. So I have 2 images that are derived from the same image.
+
+[Faculty (Olympus)] 20:57:01
+Then this is what someone actually recognized. What was kind of already shown here is that they are actually derived from the same image.
+
+[Faculty (Olympus)] 20:57:10
+Because they're direct from the same image, I'm pretty sure that they still contain, they contain even the same dog.
+
+[Faculty (Olympus)] 20:57:17
+That they actually are the same. They mean the same. They have the same type of object. So that's how I can create these positive pairs the similar pairs.
+
+[Faculty (Olympus)] 20:57:27
+Hmm.
+
+[Faculty (Olympus)] 20:57:31
+Now.
+
+[Faculty (Olympus)] 20:57:36
+How do I create negative pairs? So the negative pairs I just draw randomly from my data, so I have my dog still or some augmented version of it.
+
+[Faculty (Olympus)] 20:57:46
+And then I just draw some other image. From my data set. And usually if I have a very large data set, there's a lot of variation in what's actually in those images.
+
+[Faculty (Olympus)] 20:57:56
+And hence, most likely this is not going to be a dawn.
+
+[Faculty (Olympus)] 20:58:02
+And of course there are some of them that are like more of a learning signal than others because I'll say all the dog is different from that truck.
+
+[Faculty (Olympus)] 20:58:10
+They look pretty different, but maybe I could also say the dog is different from that horse and by color they are actually looking pretty close.
+
+[Faculty (Olympus)] 20:58:18
+So this would be a pretty hard example to this. You have to look at the shape actually. But I could choose them randomly.
+
+[Faculty (Olympus)] 20:58:25
+I can focus on those harder ones. As well, that's kind of an like an augmentation to that method.
+
+[Faculty (Olympus)] 20:58:32
+So that's the basic idea. There's many improvements I can do to this.
+
+[Faculty (Olympus)] 20:58:37
+I can actually focus on the more meaningful pairs. And typically I need to have a lot of pairs for that.
+
+[Faculty (Olympus)] 20:58:44
+So a lot of negative peers in particular to actually train that model. And then it works really well.
+
+[Faculty (Olympus)] 20:58:51
+And I need to do a lot of data. Augmentation for the positive images.
+
+[Faculty (Olympus)] 20:58:57
+And I just want to develop this. For a second, so why do I need a lot of the documentation?
+
+[Faculty (Olympus)] 20:59:03
+For those positive images. Before the positive peers.
+
+[Faculty (Olympus)] 20:59:09
+Well. Okay, the thing is what am I actually teaching the model? Well, I'm teaching the model with the positive peers is that These are some transformations of an image that do not carry meaning.
+
+[Faculty (Olympus)] 20:59:24
+So you should ignore them. So for instance, if you see a part of a dog or a dog, that's still a dog.
+
+[Faculty (Olympus)] 20:59:31
+If you change the color, but the shape remains the same, it's still a dog. So don't put too much weight just on the color and so on.
+
+[Faculty (Olympus)] 20:59:40
+So I'm actually or like rotation. I'm teaching it. What to not use, what features not to encode.
+
+[Faculty (Olympus)] 20:59:47
+And then with the negative images, I'm teaching it, well, what should it be looking at?
+
+[Faculty (Olympus)] 20:59:53
+Maybe here just teaches it, it should look at the shape. This and this teaches it, it does like a lot of differences anyways like color and shape and so on.
+
+[Faculty (Olympus)] 21:00:01
+So And the more augmentations I do, the more I teach my model. These are all things that are not that you do not need to encode.
+
+[Faculty (Olympus)] 21:00:11
+Don't think code them. It's gonna be spurious. You should be robust to these transformations.
+
+[Faculty (Olympus)] 21:00:16
+And hence having more of these data a It's actually useful because It teaches the model more about what it should not care about.
+
+[Faculty (Olympus)] 21:00:27
+Which is also useful signal.
+
+[Faculty (Olympus)] 21:00:31
+So if you're interested in contrastive learning, there is a blog that tells you basically that summarizes a lot of the Reason contrasted learning models, also some of the more historical ideas.
+
+[Faculty (Olympus)] 21:00:46
+So that like gives a broader like they all follow that same idea that I taught you. And then they just like to basically variations of that.
+
+[Faculty (Olympus)] 21:00:56
+Team.
+
+[Faculty (Olympus)] 21:00:58
+Okay, so to kind of stay in time, let me answer a few of your questions. Before I move on.
+
+[Faculty (Olympus)] 21:01:09
+Whether from the pre-training. Okay.
+
+[Faculty (Olympus)] 21:01:28
+Someone else is just the same as when we use cosine similarity within embeddings and LLMs.
+
+[Faculty (Olympus)] 21:01:35
+I think that was relating to the inner product here. That's right. The cosine similarity is exactly the in our product.
+
+[Faculty (Olympus)] 21:01:40
+It tells you how similar or 2 vectors, how much they point in the same direction.
+
+[Faculty (Olympus)] 21:01:47
+How do you choose the size of the encoder? That's again an architectural choice. That's like a trial and error one.
+
+[Faculty (Olympus)] 21:01:54
+And in fact, this is actually something that is very difficult with like these large language models for instance. Because these language models are so big that You can't just train like a hundred of them.
+
+[Faculty (Olympus)] 21:02:08
+And see which one works the best. Because it's so expensive you need so much data so you have to kind of First calculate what can you actually do computationally and there's trade-offs should you do more you use more data should you have a bigger model because you have whatever that big compute super computer cluster or whatever like for that much time.
+
+[Faculty (Olympus)] 21:02:32
+And so people try to like extrapolate and see if I would use like more data or make the model that much larger.
+
+[Faculty (Olympus)] 21:02:39
+This is what I would gain in terms of the accuracy, etc. The Then you have to do a lot of calculations and like estimations of what you could actually do.
+
+[Faculty (Olympus)] 21:02:48
+And then I train it a bit and they see how it works and they change like parameters on the go essentially.
+
+[Faculty (Olympus)] 21:02:54
+But a lot of like prior knowledge and calculations go into that kind of stuff. At the end it's essentially again a hyper parameter choice.
+
+[Faculty (Olympus)] 21:03:04
+So it would be trial and error, it's only that sometimes the models are so huge that there is a not too much trial that you can actually do in like.
+
+[Faculty (Olympus)] 21:03:13
+The actual architecture of the thing.
+
+[Faculty (Olympus)] 21:03:16
+So there's expertise going in as well.
+
+[Faculty (Olympus)] 21:03:24
+What would happen if the monkey was on all force in a similar stance as the dog? When the facial features become the main difference.
+
+[Faculty (Olympus)] 21:03:33
+So in this case that becomes harder for the model so it would really have to search hard to see what are the differences it would maybe really focus on the faith you'd maybe see that.
+
+[Faculty (Olympus)] 21:03:42
+That it would really learn to focus really on the face because the rest is very similar.
+
+[Faculty (Olympus)] 21:03:59
+Okay.
+
+[Faculty (Olympus)] 21:04:09
+How do you generate the examples for the data augmentation? Is this automatic? So yeah, so the data augmentation is done automatically.
+
+[Faculty (Olympus)] 21:04:18
+So you basically have a Kind of a menu of different transformations you can do. And then what is that is that you just choose a few randomly.
+
+[Faculty (Olympus)] 21:04:28
+So the training method basically does that it takes your image, it shows it some randomly. It augment those images and uses them.
+
+[Faculty (Olympus)] 21:04:36
+Next image, it does some random augmentations and so on. And so like. And all these other like tensor flow, etc.
+
+[Faculty (Olympus)] 21:04:46
+They have these basically code it in so you can just use them as tools.
+
+[Faculty (Olympus)] 21:05:02
+Isn't supervised and unsupervised different. It seems to me the supervised model outputs a class with probability.
+
+[Faculty (Olympus)] 21:05:10
+Like dog versus the unsupervised one will output similar images from the same class. Without identifying which class it is.
+
+[Faculty (Olympus)] 21:05:19
+That may still not be enough. So that is true. The model does still not understand that this is a dog.
+
+[Faculty (Olympus)] 21:05:26
+It just knows these 2 images are similar. These 2 images are different. You give them some other ones.
+
+[Faculty (Olympus)] 21:05:34
+It'll map them kind of to images that are similar by some hopefully semantics. So, and, map new dogs to dogs, etc.
+
+[Faculty (Olympus)] 21:05:41
+Why why can I do classification that model by itself bit hopefully what it does is it puts the classes the objects from images from the same class close together in that they are encoding.
+
+[Faculty (Olympus)] 21:05:56
+Once you have that you are basically back at the situation that you have a good encoder where I claim that a good encoder puts your classes compactly together, then what we still need is something that knows what the classes are and that will be a linear classifier that you train with actual labels.
+
+[Faculty (Olympus)] 21:06:15
+But so that would be happening in the fine tuning part that you take that model. That's your encoder that you have learned and now you just run a linear classifier on top.
+
+[Faculty (Olympus)] 21:06:27
+And that basically learns to divide the data into the actual classes.
+
+[Faculty (Olympus)] 21:07:10
+Awesome, part of the data augmentation basically cuts off. The actual object so it's just a forest.
+
+[Faculty (Olympus)] 21:07:19
+Or a game with just the. One tree or something that can happen. So there can be some mistakes with your if you crop the images or so and like some you actually crop out the the actual object that can happen.
+
+[Faculty (Olympus)] 21:07:34
+But it basically And the same thing that can also kind of happen is that you're negative example actually is still a dog.
+
+[Faculty (Olympus)] 21:07:42
+It's just a different dog image. The reason this still works is that these mistakes are not too frequent.
+
+[Faculty (Olympus)] 21:07:48
+There's a bit of correction you can do for them by using some ideas from so-called positive unsupervised learning and some robust learning.
+
+[Faculty (Olympus)] 21:07:58
+But mostly because it's a most of the examples I show it are correct. It still works.
+
+[Faculty (Olympus)] 21:08:06
+And if you improve it a bit. It works better.
+
+[Faculty (Olympus)] 21:08:21
+Okay. Okay, so let me move on. I'll answer the rest of the questions.
+
+[Faculty (Olympus)] 21:08:35
+In the Q&A.
+
+[Faculty (Olympus)] 21:08:41
+And I want to move on to the second part of the lecture because you're kind of like halfway.
+
+[Faculty (Olympus)] 21:08:46
+And I want to talk a little bit about yet another neural network architecture. And, and that is an architecture that works on graph inputs.
+
+[Faculty (Olympus)] 21:08:57
+So now we are again talking more about the encoder part. What could that encoder look like?
+
+[Faculty (Olympus)] 21:09:05
+So the way I will structure this is that I'll first give you some examples of learning tasks with graphs and then I'll give you an overview of what some of these graph neural networks could look like.
+
+[Faculty (Olympus)] 21:09:16
+And that if we have time, I'll give you an actual like application of this. So let's start with what are applications of learning on graphs.
+
+[Faculty (Olympus)] 21:09:29
+So what's a graph? The graph is basically something that has notes, which are some entities. And edges that are relationships between those.
+
+[Faculty (Olympus)] 21:09:38
+And there's many applications of graphs. So this could be, for instance, a social network where the nodes are the users and the edges are their friendships or who's following who and so on.
+
+[Faculty (Olympus)] 21:09:49
+There could be traffic networks, interaction networks of proteins or drugs or something. Climate networks for each node is the location and then you have correlations between the locations.
+
+[Faculty (Olympus)] 21:10:01
+This is also what's used for weather forecasting. The brain is a graph. You have citations, networks, internet and many, many other examples.
+
+[Faculty (Olympus)] 21:10:12
+So what could be learning tasks on graphs? What may I want to predict on a graph? Let me show you some examples.
+
+[Faculty (Olympus)] 21:10:21
+So my first example is that the input graph is actually a molecule. So here the atoms are the notes and then the edges are the bonds in that molecule.
+
+[Faculty (Olympus)] 21:10:30
+And what I and what I want is I want to predict some properties of this molecule. So for instance, how well would it work as a certain material?
+
+[Faculty (Olympus)] 21:10:41
+Would it be toxic? Would it work as a drug? Etc. Would it be soluble in a certain way?
+
+[Faculty (Olympus)] 21:10:47
+What are some other properties? And so on. And why is this? It's very useful in material science and in drug design.
+
+[Faculty (Olympus)] 21:10:57
+Where people essentially search for molecules, they say this is something that I'm looking for, maybe this should work as a drug, it should bind to a certain protein.
+
+[Faculty (Olympus)] 21:11:06
+Or Or this is something that I want a material with this and these properties. Should be very stable like with a smelting point at or whatever.
+
+[Faculty (Olympus)] 21:11:18
+And now I want to. Find something that fits that what I'm desired profile. And so then what I'll start doing is I'll go and search and have try out like they try out a lot of candidates.
+
+[Faculty (Olympus)] 21:11:33
+There's expertise in the candidates and then you try them out in the lab. And that's a very costly process.
+
+[Faculty (Olympus)] 21:11:38
+Very time intense process. And so if you have a machine learning model that can pre score, score your molecules.
+
+[Faculty (Olympus)] 21:11:46
+It'll actually help you select a few that you'll actually try out in the lab and the rest.
+
+[Faculty (Olympus)] 21:11:50
+Like you'll discard. So it helps you pre screen basically your potential molecules. And this is something that has already been used successfully.
+
+[Faculty (Olympus)] 21:12:01
+For instance, this is an example of the discovery of a new antibiotic which was done with the help of a graphnial network.
+
+[Faculty (Olympus)] 21:12:08
+The antibiotic is called halithin, so the graph neural network recognized that this drug, which was actually a drug for something else, originally also was a good candidate to be an antibiotic and it turned out to actually be an effective antibiotic too.
+
+[Faculty (Olympus)] 21:12:28
+Here's another, oh yeah, and one other thing I wanted to mention is that here the input One data point is basically one graph and the output is a label.
+
+[Faculty (Olympus)] 21:12:39
+This is like a Regression or classification depending on what the property is. You want to predict.
+
+[Faculty (Olympus)] 21:12:48
+Okay, so. My next example is predicting properties of nodes. So the input like Your access basically a node in a graph and of y is predicting some properties of the node.
+
+[Faculty (Olympus)] 21:13:03
+So maybe you want to predict some interests of a user in a social network. Given some information about the connections of this user and presumably knowing something about that user's friends helps you infer something about that user.
+
+[Faculty (Olympus)] 21:13:20
+It themselves.
+
+[Faculty (Olympus)] 21:13:23
+Similar things are also used in recommended systems, where here we can build a graph of users and products that they are choosing.
+
+[Faculty (Olympus)] 21:13:30
+And now we make an edge between a user whenever he selects a product.
+
+[Faculty (Olympus)] 21:13:35
+And now what we want to predict is basically new edges. In this network, so we want to predict edges between users and items.
+
+[Faculty (Olympus)] 21:13:46
+And so the input is actually essentially to my prediction problem is to Notes a user in the product and I want to give it basically a probability that the user would be interested in this product.
+
+[Faculty (Olympus)] 21:13:57
+And why would you formulate this as a graph? Because if you have that graph, you basically capture information about the user in the product in the following way.
+
+[Faculty (Olympus)] 21:14:08
+If you have the user, you know what other products the user chose. And same for other users and and you can basically compare them on that level.
+
+[Faculty (Olympus)] 21:14:16
+For a product, I know what kind of people bought these products. This product. So, and now I can compare this product to other products at that level.
+
+[Faculty (Olympus)] 21:14:26
+What are the types of people that buy this product and so on? And I can do this in a multi-level way as well like this product was bought by these people who also bought these other products and so on.
+
+[Faculty (Olympus)] 21:14:36
+So that gives me some idea about like what are kind of types of products and users by what their behavior.
+
+[Faculty (Olympus)] 21:14:48
+Another example is again from pharmacy and this is the idea the question of Are there interactions between drugs?
+
+[Faculty (Olympus)] 21:15:00
+So in many cases when you have a more complicated medical issue, you will get more than one drug. And what can happen is that if you would take each of these drugs in isolation, you'd be fine.
+
+[Faculty (Olympus)] 21:15:11
+But if you combine those drugs and take them together, then you actually get bad side effects. Now these side effects are rare and that's why it's very hard to find all of them and they do like the initial medical testing of the drugs.
+
+[Faculty (Olympus)] 21:15:28
+But they are very important because you don't want to have them. So what you'd like is you'd like a machine learning model to predict whether if you take those 2 drugs together, that would be actually an interaction between them and some bad side effects.
+
+[Faculty (Olympus)] 21:15:43
+And this can also be encoded as a graph. Prediction problem where you have a graph that consists of drugs.
+
+[Faculty (Olympus)] 21:15:51
+And proteins in the body. And basically what you're trying to predict here is an edge. Between 2 drugs and the edge would mean that there is a side effect if they basically they have an interaction.
+
+[Faculty (Olympus)] 21:16:06
+So the edges here, again, you interact in mean that there's an interaction.
+
+[Faculty (Olympus)] 21:16:10
+So this will be my example that I'll show you a little bit more in a little bit more detail later.
+
+[Faculty (Olympus)] 21:16:18
+Let me show you 2 more. Applications. One is to learn and basically physics. Learning the loss of physics essentially.
+
+[Faculty (Olympus)] 21:16:28
+So for instance for simulations. So here I have like the system of these particles and they are moving and what I'll try to predict is the next state of this dynamical, this physical system.
+
+[Faculty (Olympus)] 21:16:40
+So we are these moving. And the way I can do this with a graph is that I take essentially all the positions of these particles.
+
+[Faculty (Olympus)] 21:16:49
+And then I compute their interactions and that capturing of interactions I can do with a graph neural network.
+
+[Faculty (Olympus)] 21:16:57
+Which would predict, so I have some information about their velocities, their maths, etc, their positions, and based on that I get interactions.
+
+[Faculty (Olympus)] 21:17:06
+But And so I basically predict there interactions, how they would. I can do the forecasting. How that would move.
+
+[Faculty (Olympus)] 21:17:14
+And then I can extract basically that dynamics in 4 and make the prediction. So we are making a prediction, well, essentially at the node level.
+
+[Faculty (Olympus)] 21:17:25
+But for all of the notes in here.
+
+[Faculty (Olympus)] 21:17:31
+Now here's my last example and this is an example many of you must have used. This is an example of basically map applications.
+
+[Faculty (Olympus)] 21:17:39
+So for instance, if you use Google Maps and you say, oh, today, show me the way to that restaurant, what's the shortest way?
+
+[Faculty (Olympus)] 21:17:48
+So what the system does is it actually computes estimated travel times on different paths. And based on those travel times it will tell you this one is going to take like 30 min this one is going to take 35 min etc.
+
+[Faculty (Olympus)] 21:18:01
+So how does it get these traveled times? So it basically gets, I mean, it knows some, it has some history of like.
+
+[Faculty (Olympus)] 21:18:08
+Traffic, etc. And then it does it actually at it computed like a graph. It build it has the system of streets basically build an ethic graph so it divides the streets in super sequence segments.
+
+[Faculty (Olympus)] 21:18:23
+Here and then it processes them with a Graphian network. Compute the traffic times and once that you have those traffic times then you can do like a shortest path etc. and routes and rank them.
+
+[Faculty (Olympus)] 21:18:37
+So this is where the neural network actually comes in. That prediction.
+
+[Faculty (Olympus)] 21:18:43
+And of course there's many many other tasks where you may have a graph and you want to make predictions on a graph.
+
+[Faculty (Olympus)] 21:18:56
+Okay, so I hope I have given you a little bit of an idea of what could be applications of neural networks.
+
+[Faculty (Olympus)] 21:19:05
+On graphs. Let me know show you what those could actually look like. So basically what we want is we want that encoder part.
+
+[Faculty (Olympus)] 21:19:13
+So the input is a graph, some graph, and then we have some black box that gives me some encoding, some vector that represents and captures a lot of the information of that graph.
+
+[Faculty (Olympus)] 21:19:24
+And what is the information we want to capture? It's basically something about the structure. Who's connected to whom?
+
+[Faculty (Olympus)] 21:19:32
+What's that connectivity pattern? And we want something about the extra information that we have on each note.
+
+[Faculty (Olympus)] 21:19:38
+So usually each node comes with some input features like the in the molecule case what kind of atom is this, kinds of bonds would it make.
+
+[Faculty (Olympus)] 21:19:48
+Then there is like in the social network this could be like some information you have about the users and so on and so forth.
+
+[Faculty (Olympus)] 21:19:55
+So I have that graph, the so-called attributed graph, and I want to encode it with a new.
+
+[Faculty (Olympus)] 21:20:02
+How could I do this? And to think about that I want to go back to Wednesday's lecture because an image you could actually also view an image as a graph.
+
+[Faculty (Olympus)] 21:20:13
+You take your pixels and then you connect the pixels that are next to each other. By edges.
+
+[Faculty (Olympus)] 21:20:19
+That's a graph. And how did we process it? In the last lecture.
+
+[Faculty (Olympus)] 21:20:28
+So what we did was with our CNNs, the convolutional networks, we looked at local patches.
+
+[Faculty (Olympus)] 21:20:34
+This is like essentially like a node and its neighbor somehow some kind of local neighborhood in that graph. And then we process the patch by patch.
+
+[Faculty (Olympus)] 21:20:44
+And then we did something later. So I'm pooling operations. So we are actually going to build on this idea and Like some of these networks are also called graph convolutional networks for that reason that they also do some kind of convolution operation but on a graph.
+
+[Faculty (Olympus)] 21:21:02
+So the questions, how can we do this on a an arbitrary graph, that's not an image.
+
+[Faculty (Olympus)] 21:21:10
+What's the difference? So on an arbitrary graph, the difference is that it doesn't look like a grid.
+
+[Faculty (Olympus)] 21:21:15
+So for instance Not every node has the same number of connections. So in a social network, you'll have some people who have 2 friends and you'll have some people who have a hundred friends.
+
+[Faculty (Olympus)] 21:21:27
+And so on. So we have to define what is actually this patch. So the way we typically define this patch is that we say, well, a patch may be all the nodes that are connected in one step, so directly connected or reachable in 2 steps.
+
+[Faculty (Olympus)] 21:21:46
+Or reachable in 3 steps or something like that. So it's kind of like defined by the number of steps or hops you have to go from the node to reach at some other node.
+
+[Faculty (Olympus)] 21:21:56
+And now the difference is because of the different like numbers of neighbors here, the numbers of connections.
+
+[Faculty (Olympus)] 21:22:04
+The size of that patch varies from note to note. So you'll have one patch centered at each note just like we have here essentially.
+
+[Faculty (Olympus)] 21:22:14
+But they don't have the same size. The other difference is that here I know like I basically processed this really as a two-D pattern.
+
+[Faculty (Olympus)] 21:22:23
+I said this is the upper left corner, this is the upper right corner, etc. Here, there is nothing like an upper or lower corner or something like that because there's no natural ordering in these friends.
+
+[Faculty (Olympus)] 21:22:36
+There's In general, there's no coordinates in there. So there's no way I can say this is friend number one friend number 2 and you should treat them differently.
+
+[Faculty (Olympus)] 21:22:46
+So we'll treat them all the same. That's a difference. Nat show you what this actually looks like.
+
+[Faculty (Olympus)] 21:22:53
+How do we actually process a patch? But the idea of processing it in patches is the same.
+
+[Faculty (Olympus)] 21:23:00
+So here's what this would look like. Basically, I, for each note, I look at it's local patch and I encode that patch.
+
+[Faculty (Olympus)] 21:23:08
+That's like that would be what the filters are doing in the CNN. And this is called a node embedding here.
+
+[Faculty (Olympus)] 21:23:16
+So for each node I look at its neighborhood. I encode basically that notes features and its neighbors features.
+
+[Faculty (Olympus)] 21:23:23
+And who's connected to it. And I do this for all the notes, so for each note I get one such vector.
+
+[Faculty (Olympus)] 21:23:30
+Just like in the CNN, I get one output for each patch that I'm placing.
+
+[Faculty (Olympus)] 21:23:35
+And so now what if I wanted so this gives me basically some encoding for each node and I want to if I want to make predictions on nodes I can just directly go from those vectors.
+
+[Faculty (Olympus)] 21:23:47
+If I want a prediction on the entire graph, I have to do something else because now I'm just have that bunch of vectors here and I want a single embedding for that graph.
+
+[Faculty (Olympus)] 21:23:58
+So what I'll do is I'll collect all of them. And now I'll compress all of them into a single vector.
+
+[Faculty (Olympus)] 21:24:05
+How do I do this? This is essentially a pooling operation. So I put to an average of them, I could sum them up.
+
+[Faculty (Olympus)] 21:24:14
+I could take a coordinate vice maximum or something like that. So usually this is just some operation that takes a bunch of factors.
+
+[Faculty (Olympus)] 21:24:23
+And compresses it into one vector.
+
+[Faculty (Olympus)] 21:24:27
+But the actual order in which the vectors are coming doesn't matter. Because there's no order, no real order in these notes here.
+
+[Faculty (Olympus)] 21:24:36
+So this is basically an average would be fine averaging on whatever order I'm putting them. It's all right.
+
+[Faculty (Olympus)] 21:24:43
+So this is also called the readout. Then I have a single vector that encodes my entire graph.
+
+[Faculty (Olympus)] 21:24:53
+So how do I the question I still have to answer is how do I actually compute that encoding of a node neighborhood.
+
+[Faculty (Olympus)] 21:25:00
+So I have this node and it's neighbors, but how do I actually make this into a vector?
+
+[Faculty (Olympus)] 21:25:08
+And the way this is done is I already see it actually in the chat. It's called neighborhood hood aggregation.
+
+[Faculty (Olympus)] 21:25:17
+So what the way this is done is by what's called message planting or neighborhood aggregation.
+
+[Faculty (Olympus)] 21:25:24
+And so what's happening is that these nodes are sending each other messages and these messages are essentially their current representations.
+
+[Faculty (Olympus)] 21:25:35
+So this note here collects the representations of all its neighbours and it processes them to update its own representation to incorporate the neighbors information.
+
+[Faculty (Olympus)] 21:25:46
+And the way it does that is by sending that, essentially doing that processing with a small neural network.
+
+[Faculty (Olympus)] 21:25:54
+And the aggregation part is essentially like summing up over those neighbors.
+
+[Faculty (Olympus)] 21:26:00
+So there's actually you could really think of this now, like I'm viewing my graph, it's a little like processing network.
+
+[Faculty (Olympus)] 21:26:07
+And in within each processing unit so within each notes it's a little It's usually a very small neural network.
+
+[Faculty (Olympus)] 21:26:15
+That processes the neighbor's information. And each node is running the same network, actually, the same neural network inside.
+
+[Faculty (Olympus)] 21:26:24
+So they share that. And this is the same in in the same way that I'm processing each patch in my image in the same way when I do the the filtering in the CN and the convolution.
+
+[Faculty (Olympus)] 21:26:38
+Okay. Let me tell you how this works like at a large scale. And then, Larry, some questions and then I'll show you like how actually this aggregation operation works.
+
+[Faculty (Olympus)] 21:26:53
+So the message passing, this is just a more formal way of writing it here. Works as follows.
+
+[Faculty (Olympus)] 21:27:00
+That we go at rounds. In rounds of message passing. So in each round each node Collects the vectors from its neighbors.
+
+[Faculty (Olympus)] 21:27:09
+These are these in current encodings of their neighbors. So this is the aggregation operation. So this is some operation we are going to learn.
+
+[Faculty (Olympus)] 21:27:17
+That's the learnable part. And it takes as input The current representations of all the neighbours are the current encodings.
+
+[Faculty (Olympus)] 21:27:25
+So, and of, means then all the notes connected to V, so the neighbors of we.
+
+[Faculty (Olympus)] 21:27:32
+And this aggregation function basically processes them and pulls them into a single vector. And then we use that to update the representation of the center node.
+
+[Faculty (Olympus)] 21:27:46
+So this could be just a weighted combination of the neighbors features and the current feature or representation of that node.
+
+[Faculty (Olympus)] 21:27:55
+That's the combined operation. So the aggregation and combine is what will have parameters that we are learning.
+
+[Faculty (Olympus)] 21:28:01
+And that's going to be the learnable, of our new network. And then we decide a priori how many rounds we go usually.
+
+[Faculty (Olympus)] 21:28:09
+So we do this rounds of message passing and then each node ends up. With a vector that represents the notes, input features and the neighbors, the neighborhoods.
+
+[Faculty (Olympus)] 21:28:22
+And again, this is written down for one note here, but we really do this. For each note in parallel.
+
+[Faculty (Olympus)] 21:28:38
+Okay. And what happens also is that in the first iteration this way. Each node collects information from its direct neighbors.
+
+[Faculty (Olympus)] 21:28:47
+The second iteration its neighbors also have collected information from their neighbors. So I'm asking my friends and my friends have also asked their friends.
+
+[Faculty (Olympus)] 21:28:57
+And now I'm asking my friends again. That means now my friends know about their friends. So now I'm actually getting information from a to hop neighborhood.
+
+[Faculty (Olympus)] 21:29:06
+Because my friends also got information from their friends, so I'm actually reaching out like tool hops away and in the next iteration I'm reaching out even further.
+
+[Faculty (Olympus)] 21:29:18
+So the more iterations you go, the further it's kind of the reach. Of the neighborhood that you're encoding.
+
+[Faculty (Olympus)] 21:29:25
+Okay, so let me quickly see. The questions here. And then I'll tell you what exactly this aggregation looks like.
+
+[Faculty (Olympus)] 21:30:12
+Does each encode look similar to the adjacency matrix? That's actually exactly right. So this aggregation operation.
+
+[Faculty (Olympus)] 21:30:20
+If basically doing some processing of each neighbor by itself and then it'll sum up over their neighbours and summing up over the neighbors is exactly what would happen.
+
+[Faculty (Olympus)] 21:30:33
+If you have a matrix of the node features and you multiply that matrix of node features with the adjacency matrix of the graph.
+
+[Faculty (Olympus)] 21:30:40
+This is the exactly going to basically sum over your neighbors. So yes, this is very related to the adjacent multiplying some vectors.
+
+[Faculty (Olympus)] 21:30:48
+With the adjacency matrix of the graph.
+
+[Faculty (Olympus)] 21:30:53
+Does the node embedding include link details as well? You can indeed do that if you have some features about the edges.
+
+[Faculty (Olympus)] 21:31:01
+Such as maybe this is a single bond or a double. Bond or maybe this is the type of interaction you have the type of side effect so you can include that in the aggregation operation as well.
+
+[Faculty (Olympus)] 21:31:17
+Does an LLM use a GNN where each node is a word in the English language and then the connections are probabilities that a certain word is preceded or followed by another word.
+
+[Faculty (Olympus)] 21:31:30
+In some sense it's building something like that. That's right. That's what it's actually learning.
+
+[Faculty (Olympus)] 21:31:37
+It's typically not set up as a GNN, but an LM. It's very similar to a GNN in that it's essentially doing a GNN operation on a graph of your sentence.
+
+[Faculty (Olympus)] 21:31:53
+So you have your sentence, your building basically a fully connected graph. You connect each word with each other word.
+
+[Faculty (Olympus)] 21:31:59
+And then it's doing something like the GNN aggregation. Where it's learning what should be the edges.
+
+[Faculty (Olympus)] 21:32:06
+What what are the important connections? And I can explain this in a bit more. In the Q&A later, please ask me again.
+
+[Faculty (Olympus)] 21:32:15
+And I'll once I have explained the aggregation operations, I can tell you how they relate to the transformer models that the LLMs are using.
+
+[Faculty (Olympus)] 21:32:30
+Could we use GNNs to describe objects? So yes, they have also been used in computer vision.
+
+[Faculty (Olympus)] 21:32:36
+You could also use them to relate objects. What is contained in the representation of a node? It's basically information about the input features of the nodes that you have.
+
+[Faculty (Olympus)] 21:32:56
+And the connections of the notes. So if you think about this aggregation, let's look for instance at the Recommender system.
+
+[Faculty (Olympus)] 21:33:05
+So let's say this one is actually your user. And then its neighbors, users, neighbors are products.
+
+[Faculty (Olympus)] 21:33:12
+So you basically after the aggregation, you know something. About what kinds of products does this user buy and any kind of site information you have about them.
+
+[Faculty (Olympus)] 21:33:24
+If you do it to hop, what happens? Each product gets information about what kinds of users buy it.
+
+[Faculty (Olympus)] 21:33:32
+So now and round 2, what you know is basically this user bought these products and the products they bought, they are typically bought by these other users.
+
+[Faculty (Olympus)] 21:33:42
+And so on. So that would be one example. Another example could be that molecule where you know this is maybe a a carbon atom and then this is bound to some hydrogen atoms and these it bond to another carbon atom.
+
+[Faculty (Olympus)] 21:33:57
+And then there's another carbon atom. So maybe there's actually some kind of backbone or there is some kind of like ring or something like that.
+
+[Faculty (Olympus)] 21:34:06
+And you know something about the single and double bonds it has and so on. So this is the kind of information you would have in there.
+
+[Faculty (Olympus)] 21:34:16
+How many hops do we need to consider because I see that the rates change based on our decision of hops.
+
+[Faculty (Olympus)] 21:34:23
+So this is also something we have to decide and it depends on the tasks. It depends a little bit on how local do you think.
+
+[Faculty (Olympus)] 21:34:33
+The information lies that you're looking at. So for instance, if you look at the recommender system, maybe one or 2 hubs, it's actually enough.
+
+[Faculty (Olympus)] 21:34:40
+If you know like what like 10 hops away some person bought and what product that is is probably not so related anymore to what you actually are interested in.
+
+[Faculty (Olympus)] 21:34:51
+So one or 2 hops is enough. It's pretty local. If you want to do something else like there's you can also use these for computing paths or routing or something, then you have to actually do a lot of a lot of rounds to.
+
+[Faculty (Olympus)] 21:35:05
+Capture more about the. More global information about the graph. That maybe in the molecule as well, you may actually want to do a few more hubs to actually get more of the structural information here.
+
+[Faculty (Olympus)] 21:35:16
+So it depends on your task, how how many of these iterations you want to go.
+
+[Faculty (Olympus)] 21:35:28
+With the first round of aggregation for the red node in the image be the blue notes, that's right, so the direct neighbors.
+
+[Faculty (Olympus)] 21:35:37
+And someone says this is Cool how much this looks like a fluid dynamic simulation. I did a few years ago.
+
+[Faculty (Olympus)] 21:35:44
+This is actually very true. And this is why you can learn fluid dynamics. Graph neural networks because these are exactly like here how how you're actually interacting.
+
+[Faculty (Olympus)] 21:35:56
+So this is exactly the reason why this is a good architecture. For learning like physical systems and learning and they can actually learn some loss of physical systems indeed.
+
+[Faculty (Olympus)] 21:36:09
+Okay, so let me move on in the interest of time. Okay, one more question.
+
+[Faculty (Olympus)] 21:36:16
+What is? U and V in this V is the know like kind of the note we are looking at here and you is some other neighbor node.
+
+[Faculty (Olympus)] 21:36:25
+So it's basically you. This here means all denotes you that are connected to the node v.
+
+[Faculty (Olympus)] 21:36:33
+So this is just the indices of the novels essentially.
+
+[Faculty (Olympus)] 21:36:38
+Okay. So let me show you also what actually these aggregations look like. So here is an example.
+
+[Faculty (Olympus)] 21:36:48
+So basically what an aggregation function again is. It's a function that gets us input a set of vectors.
+
+[Faculty (Olympus)] 21:36:54
+So these are all the need first representations. And it makes them into a single vector. That's essentially what this aggregation does.
+
+[Faculty (Olympus)] 21:37:02
+And so the easiest way to do this is to do some kind of pooling. So I could just sum over them.
+
+[Faculty (Olympus)] 21:37:09
+Or I could do a coordinate vice, max pooling because these are vectors. Something like that.
+
+[Faculty (Olympus)] 21:37:15
+I could average them or something.
+
+[Faculty (Olympus)] 21:37:19
+So this is the easiest, but it doesn't actually have any learnable. Parts in it.
+
+[Faculty (Olympus)] 21:37:27
+It's not adaptable. It's just what it is. So you could make this learnable and when you learn it you could basically focus on the important features.
+
+[Faculty (Olympus)] 21:37:35
+Of the neighbors. You could learn what they are. And here is Kosovo the most generic way of writing this, the most general way.
+
+[Faculty (Olympus)] 21:37:43
+So what is this doing? It's kind of a variation of the pooling operation that we see up here.
+
+[Faculty (Olympus)] 21:37:48
+So here is what it's doing. You take each neighbors vector. Hu is the. Representation of the neighbor, the current encoding of that neighbor and then You apply an MLP.
+
+[Faculty (Olympus)] 21:38:01
+So, MLP is just a fully connected neural network. So this is just a.
+
+[Faculty (Olympus)] 21:38:09
+Fully connected. You. So the kind of thing that we talked about in lecture one. And this is usually small.
+
+[Faculty (Olympus)] 21:38:18
+It's like one or 2 layers or something like that. We're kind of small thing. And you apply to each neighbor independently because there is no order in the neighbor.
+
+[Faculty (Olympus)] 21:38:30
+You don't have a first trend in the second friend or first item or second item or something. They like they are saying.
+
+[Faculty (Olympus)] 21:38:35
+So you just apply it to each individually. And what this MLP can do is it can extract the features that are most important for your task.
+
+[Faculty (Olympus)] 21:38:46
+And then you sum it up so you average over the neighbors and that now you have collected and summarized the information from all the neighbors.
+
+[Faculty (Olympus)] 21:38:54
+And then you could maybe process it again with a nonlinear function, which is another MLP over here.
+
+[Faculty (Olympus)] 21:39:00
+And this is the most general way you can write this aggregation function. That one can express in principle.
+
+[Faculty (Olympus)] 21:39:07
+All possible functions you want. You could want in there.
+
+[Faculty (Olympus)] 21:39:14
+And what is the update operation? It's basically as I said, a weighted combination of the input from the neighbors, that is that message here and center, no, the basically the node for which we are aggregating.
+
+[Faculty (Olympus)] 21:39:31
+This should actually be V. This is a typo in here. So this you should actually be.
+
+[Faculty (Olympus)] 21:39:40
+And then we may have another nonlinearity or activation function here like a sigmoid or relu or something like that.
+
+[Faculty (Olympus)] 21:39:48
+So this could be a, or, or something like that. So this could be a little here. Just wait to send.
+
+[Faculty (Olympus)] 21:39:53
+So this is what this could look like. So what are we learning here? We are learning basically. The weights of these neural networks and the weights in this way, the communication here.
+
+[Faculty (Olympus)] 21:40:07
+Oh, much you should use the neighbors update.
+
+[Faculty (Olympus)] 21:40:11
+And so that's it. That's the aggregation function. Now let me talk a little bit, give you a different view of this as well.
+
+[Faculty (Olympus)] 21:40:24
+So here is the same operation. But now I actually just draw it a bit differently. So here, let's say we are computing currently the encoding of node A.
+
+[Faculty (Olympus)] 21:40:35
+What we'll use is you'll use these neighbors PC and D. We are severe, like getting the messages from BCD about their current encoding.
+
+[Faculty (Olympus)] 21:40:45
+And so the way I'll write this here is that A gets input from B and C and D.
+
+[Faculty (Olympus)] 21:40:50
+And it, basically processes it why are this aggregation and combine function that is here that greatly blocks.
+
+[Faculty (Olympus)] 21:40:59
+This is how you get from the neighbors vectors to the updates. Now in the previous round, if we just go backwards now.
+
+[Faculty (Olympus)] 21:41:09
+B got input from its neighbors and C got input from its neighbors and D got input from its neighbors. So we can draw that also in so B got input from its neighbors A and C.
+
+[Faculty (Olympus)] 21:41:24
+And C got input from its neighbor, C has a lot of neighbors, A, BE, and F, and so on.
+
+[Faculty (Olympus)] 21:41:31
+And so maybe that was round 0 here. And again, this was processed by this aggregation function, which is again depicted by these grey boxes.
+
+[Faculty (Olympus)] 21:41:41
+So now if we draw it this way it looks more like layers. And each layer is essentially one round of message passing.
+
+[Faculty (Olympus)] 21:41:49
+So the number of rounds of message passing is essentially the depth of that neural network. So we could really now view it as layers.
+
+[Faculty (Olympus)] 21:41:58
+And now in each layer, each note has a representation. This is the initial input representation. This is the representation of the in round one.
+
+[Faculty (Olympus)] 21:42:07
+And this is the representation of A in round. And so long. So you see that computation flow from right to left.
+
+[Faculty (Olympus)] 21:42:17
+The other important thing is that within around each node uses the same type of processing. So these gray boxes here.
+
+[Faculty (Olympus)] 21:42:27
+These are the aggregation. They are the same for each node. So we learn them once and then we reapply them.
+
+[Faculty (Olympus)] 21:42:34
+So this is like we learn our filters. Once and we reapply them to each patch. Every patch does the same thing.
+
+[Faculty (Olympus)] 21:42:47
+Okay, so these are the shared shared
+
+[Faculty (Olympus)] 21:42:53
+So how do we train a GNM? So this looks more like a neural network now. Where the output is essentially the embedding of this or the encoding of this node.
+
+[Faculty (Olympus)] 21:43:06
+And the input is like all basically the notes neighborhood. How do we train it? Well, let's say we are making a prediction on each node.
+
+[Faculty (Olympus)] 21:43:15
+We would actually send this into a prediction like a classifier and a loss function. And then from that we can back propagate again through this thing here.
+
+[Faculty (Olympus)] 21:43:26
+To obtain gradients. This would be essentially one data point here. And we can do just stochastic gradient descent with updates.
+
+[Faculty (Olympus)] 21:43:36
+So that's essentially how it works. So the data point could either be a node in the graph if I want to do a node-level prediction.
+
+[Faculty (Olympus)] 21:43:46
+Or a pair of notes if I want to predict an edge. Or it could be the photograph. Like the full graph here.
+
+[Faculty (Olympus)] 21:43:53
+It's one data point, so that would be the case if I make predictions on molecules.
+
+[Faculty (Olympus)] 21:44:01
+But I have to specify is the aggregation function. So do I want to be learnable?
+
+[Faculty (Olympus)] 21:44:07
+How many layers should that internet work have and so on what functional form should it have? Also should it get any input on the edges or not?
+
+[Faculty (Olympus)] 21:44:16
+It can use input from the edge. Well, as well as the neighbors feature. So it would use like the input from the neighbour and the edge to the neighbor.
+
+[Faculty (Olympus)] 21:44:25
+In and process that together and then for the next one. And what last do I want? So the loss functions are the same that we use for all other neural networks.
+
+[Faculty (Olympus)] 21:44:34
+If we do rigression, we'll use the least squares loss typically. And in if we do classification, we use cross entropy.
+
+[Faculty (Olympus)] 21:44:43
+Or like the negative look, likely lost. The classification loss.
+
+[Faculty (Olympus)] 21:44:50
+And then we train it with stochastic gradient descendant back propagation like the other neural networks.
+
+[Faculty (Olympus)] 21:44:59
+Okay, so this is what I wanted to say about the graph new network model.
+
+[Faculty (Olympus)] 21:45:07
+It's basically the important part is that it operates with this message, passing the local message passing to encode local neighborhoods.
+
+[Faculty (Olympus)] 21:45:15
+And. That's also where the learning happens and that makes it very powerful and encoding these local patterns and comparing notes that are even not closing the graph but that kind of look alike by their neighborhoods.
+
+[Faculty (Olympus)] 21:45:32
+So. I think they were just a few more questions in here.
+
+[Faculty (Olympus)] 21:45:42
+There is one question, how does a loop get captured in layers? So that your graph could have a loop and in fact the graph I think I have here is captured in a in so this one has a loop here right and the way it's captured in the layers is that the node A reappears.
+
+[Faculty (Olympus)] 21:46:00
+If you look at the node A, Actually, it would always be, actually, that that loop is a interesting thing.
+
+[Faculty (Olympus)] 21:46:06
+So A would always reappear loop or not because you see As neighbors D and D is neighbor is A, so A reappears.
+
+[Faculty (Olympus)] 21:46:14
+Actually capturing the loop is a little tricky. And it cannot always be done. That's the truth.
+
+[Faculty (Olympus)] 21:46:24
+If you hear all your notes on labels, you can actually capture it. Because you see as a neighbor which is p which has a neighbor which is c and C's neighbour is A.
+
+[Faculty (Olympus)] 21:46:37
+And with that, I know I have completed a loop if I would do one more level here. So it comes basically the loop comes sequentially here.
+
+[Faculty (Olympus)] 21:46:46
+But what can happen is that you cannot distinguish. Between a loop and something that would look like. Basically having the see over here.
+
+[Faculty (Olympus)] 21:46:56
+So if you have something that is like very symmetric, you can construct examples where the loop is not so easy to recognize.
+
+[Faculty (Olympus)] 21:47:03
+But it doesn't have any effect on the like. Processing in the end because, unleagin graphical models here, we decide how many rounds we go.
+
+[Faculty (Olympus)] 21:47:15
+So we just go these rounds and everyone always looks at their neighbors. It's stable and then we stop.
+
+[Faculty (Olympus)] 21:47:20
+So we don't like the loop doesn't matter in log terminating or something like that.
+
+[Faculty (Olympus)] 21:47:28
+Yeah, so if here's another question, if the weighted A input is reintroduced again and again.
+
+[Faculty (Olympus)] 21:47:34
+In the A in coding, will this not cause it to outweigh the other node information? So this could potentially happen, but you can downate the center A from the other notes.
+
+[Faculty (Olympus)] 21:47:46
+So these Our outer ones here are a bit downloaded compared to this one usually.
+
+[Faculty (Olympus)] 21:47:52
+Because they are averaged with like more neighbors. But yes, it does. Reappear so that information is definitely there.
+
+[Faculty (Olympus)] 21:48:01
+Usually it still works. But yes, that that information reappears and maybe though the A information is also important.
+
+[Faculty (Olympus)] 21:48:14
+So the GNN you described is essentially an encoder that we find tune with a classifier.
+
+[Faculty (Olympus)] 21:48:20
+So usually, you could do it with free training as well, but when you train it, You use your G and M, so here is really the This is me at GNN and then this basically gives me some embedding of A.
+
+[Faculty (Olympus)] 21:48:34
+Which then I put some classifier.
+
+[Faculty (Olympus)] 21:48:38
+And then I could put this into a loss for instance. So it gives me an encoding. And then that encoding goes into a classifier and it's trained end to end.
+
+[Faculty (Olympus)] 21:48:48
+So we train all of it together. And we could of course port again the encoder level.
+
+[Faculty (Olympus)] 21:48:54
+That's possible as well.
+
+[Faculty (Olympus)] 21:49:00
+Okay. What would be an example of these messages? So these messages.
+
+[Faculty (Olympus)] 21:49:08
+Yeah, so these messages. Basically I'm sorry about that.
+
+[Faculty (Olympus)] 21:49:18
+And they are capturing information about the nodes neighbors. So for instance, if you look in the social network, They could tell you something about the statistics of your friends.
+
+[Faculty (Olympus)] 21:49:28
+Professions. You have so if you just say each profession like they're encoded in one hot features, then you average that.
+
+[Faculty (Olympus)] 21:49:36
+That will tell you okay in your. Friends there are so many who whatever our bus drivers whom so many are lawyers so many who are teachers and so on and so forth.
+
+[Faculty (Olympus)] 21:49:49
+So that's one example of what it could capture. It capture something in the molecule about the atoms that it is bound like an atom is bound to.
+
+[Faculty (Olympus)] 21:49:58
+Some statistics about that. So you can think of it as basically neighborhood statistics. In the recommended system it would be like what kind of products did I buy?
+
+[Faculty (Olympus)] 21:50:09
+And what kinds of people bought these products and so on. So that's kind of encoded in in those features.
+
+[Faculty (Olympus)] 21:50:19
+In which sense of it's shared so it basically means I have that aggregation operation that I'm learning.
+
+[Faculty (Olympus)] 21:50:26
+And then what I'm doing, so this is the aggregation operation I'm learning, it has some parameters.
+
+[Faculty (Olympus)] 21:50:33
+I'm using that, so that's a function that takes a set of vectors as input and outputs a vector.
+
+[Faculty (Olympus)] 21:50:39
+So I'm using that same function on all the nodes to do the aggregation for all the nodes.
+
+[Faculty (Olympus)] 21:50:44
+That's the weight sharing here. And it's the same thing as I'm taking my filter and I'm using the same filter on each patch.
+
+[Faculty (Olympus)] 21:50:53
+I'm using the same aggregation on each patch here, essentially.
+
+[Faculty (Olympus)] 21:50:58
+Okay. So the
+
+[Faculty (Olympus)] 21:51:03
+There's another question about the LAMPS versus Transformers. I'll tell it in like 10 min in the Q&A.
+
+[Faculty (Olympus)] 21:51:10
+What I'll maybe now do, we have. 10 more minutes.
+
+[Faculty (Olympus)] 21:51:17
+I'll answer one more question that is here and then I'll tell you just like in a nutshell basically that application about the poly.
+
+[Faculty (Olympus)] 21:51:27
+So the question here was CNN does a weighted average. DNN treats each neighbor the same.
+
+[Faculty (Olympus)] 21:51:34
+So the reason is that in a CNN you basically know this is the top pixel whatever the top left pixel the middle pick top pick middle pixel the top right pixel So they all get different weights in your filter.
+
+[Faculty (Olympus)] 21:51:49
+And then you average in your GNN, each neighbor. There is not like a there's no difference between the neighbors per se.
+
+[Faculty (Olympus)] 21:51:59
+Your could learn some differences by the features of the neighbors so you could actually learn. Then you would treat whatever the lawyers differently from.
+
+[Faculty (Olympus)] 21:52:07
+The teachers or something like that. But does this you would learn basically basically in the aggregation function. And hence, because there's a priority or difference, you're learning.
+
+[Faculty (Olympus)] 21:52:19
+To a function that you apply to each neighbor independently and then you sum them up. So the timing is the same as the weighted sum, but you treat them.
+
+[Faculty (Olympus)] 21:52:29
+You first treat them with a nonlinear function.
+
+[Faculty (Olympus)] 21:52:34
+So that treating each neighbor the same is basically. This part here. Here. So we are some each name for each.
+
+[Faculty (Olympus)] 21:52:43
+We are applying some function on the neighbor that's a learned function. That takes a vector to a vector.
+
+[Faculty (Olympus)] 21:52:51
+And then we are summing over the new. To transform neighbors essentially. So each neighbor here gets the same function that's applied to it.
+
+[Faculty (Olympus)] 21:52:59
+There's no different weights.
+
+[Faculty (Olympus)] 21:53:04
+Okay. So let me just, the years like some. Thing in the slides about if you actually want to try it out there's specific toolboxes you could use.
+
+[Faculty (Olympus)] 21:53:17
+Let me just briefly go back to that. Example to make it a bit like more illustrative what I could actually do with a graphical network.
+
+[Faculty (Olympus)] 21:53:26
+So let's go back to our poly pharmacy example and the ideas that I would like to predict.
+
+[Faculty (Olympus)] 21:53:33
+Given to drugs whether I would get potentially an interaction of these drugs in the body if I take them together and what kind of interaction so what kind of side effect would this be?
+
+[Faculty (Olympus)] 21:53:43
+Would it be like a fever, would it be a stomach egg or something like that. So this is essentially a classification problem given to drugs as input I want to Learn a type of side effect.
+
+[Faculty (Olympus)] 21:54:01
+And so the first question you have to think about is what kind of data would you use for this? So maybe you'd have some information about each of the drugs and what side effects they have.
+
+[Faculty (Olympus)] 21:54:12
+But what you really need is something about their interactions. And the problem, the other problem is that we don't have, don't have a lot of data on these drug interactions.
+
+[Faculty (Olympus)] 21:54:24
+So the idea then that this work followed is that you'd actually use a lot of site information here.
+
+[Faculty (Olympus)] 21:54:33
+And if you actually think about how this process works is that Well, a drug interacts with a some kinds of proteins in the body, right?
+
+[Faculty (Olympus)] 21:54:46
+And these proteins in the body interact so that drugs may be interacting directly but usually they may be actually interacting indirectly in the body.
+
+[Faculty (Olympus)] 21:54:55
+Through some pathways. So you actually want to include that information as well. Unless they really target kind of the same protein, but most of them don't.
+
+[Faculty (Olympus)] 21:55:05
+So if you look at the data, that's what happens. So that basically Leeds you to include not only drug drug interactions that we know but interactions between drugs and proteins and between proteins in the body.
+
+[Faculty (Olympus)] 21:55:21
+So we'll be using multiple data sources. And we will be building this big graph built from multiple data from multiple data bases basically from their databases that have that information about these interactions.
+
+[Faculty (Olympus)] 21:55:36
+So this is the graph and I have now interactions between proteins, some information about each protein, each drug, and interactions between drugs and proteins, which .
+
+[Faculty (Olympus)] 21:55:48
+And does it interact with and different types of side-effect edges. And you see this is actually a pretty large graph.
+
+[Faculty (Olympus)] 21:55:55
+With like millions of edges and almost 20,000 notes.
+
+[Faculty (Olympus)] 21:56:04
+Okay, so this is the graph we have and now what we want is we want to predict given to drugs.
+
+[Faculty (Olympus)] 21:56:11
+Whether they would interact and in what way. And this we will do with a graph new network. So here is the outline of the full model.
+
+[Faculty (Olympus)] 21:56:22
+So we have our graph and now we take like 2 nodes in this graph. And then our encoder is a graph nil network that will encode these 2 drugs.
+
+[Faculty (Olympus)] 21:56:32
+Into some. Meaningful vectors. And then we'll have a decoder and what this decoder does is it basically makes a prediction for each class.
+
+[Faculty (Olympus)] 21:56:44
+So each class here is a type of interaction. So a type of interaction means like this is a fever, this is a stomach ache.
+
+[Faculty (Olympus)] 21:56:51
+And so on. So there are different types of things that could happen. And we'll get a probability for each of these.
+
+[Faculty (Olympus)] 21:57:00
+Okay, so I will talk less about the decoder. It uses some matrix model and we'll talk more about matrix.
+
+[Faculty (Olympus)] 21:57:07
+Models next week. So I'll really focus on the encoder and the graph neural network.
+
+[Faculty (Olympus)] 21:57:12
+So what did Could this graph neural network look like? Well, it's basically going to do some message passing and the only difference to the model we've seen.
+
+[Faculty (Olympus)] 21:57:24
+Before is that now we actually have different types of edges we have the drug and protein edges we have the drug drug exit and we have the protein protein edges.
+
+[Faculty (Olympus)] 21:57:36
+And maybe we should somehow treat these edges not on the same footing because they're like they have different meaning.
+
+[Faculty (Olympus)] 21:57:45
+And so what we'll do is we'll actually aggregate them separately. So we'll aggregate by type of edge so we'll have one aggregation operation for the protein neighbors.
+
+[Faculty (Olympus)] 21:57:57
+And then we have one aggregation operation for the first type of interaction, the second type of interaction and so on.
+
+[Faculty (Olympus)] 21:58:05
+And then after that, we'll pull them all together. So this is what this looks like in pictures and formula.
+
+[Faculty (Olympus)] 21:58:13
+So this is the. Drug truck edges of the first type so this is some kind of gastrointestinal bleeding this is another type of side effect between drugs and this is the drugs and protein edges.
+
+[Faculty (Olympus)] 21:58:28
+So what this depicts is the proteins all send their messages. And and then we combine them and then this is like the join message that we have and then we combine the information from all these 3 sources.
+
+[Faculty (Olympus)] 21:58:39
+But it looks like in a formula lies as follows. So we This is a sum over the type of relationship, so we have here 3 different relationship types.
+
+[Faculty (Olympus)] 21:58:49
+And when we look at the neighbors of each relation separately and we have a different M, so this is not in your network transformation.
+
+[Faculty (Olympus)] 21:59:00
+This is just a linear transformation with a matrix here. This would be like my MLP here. MLT here is just.
+
+[Faculty (Olympus)] 21:59:04
+Linear. And so we have one different essentially MLP or weight matrix for each type of interaction or.
+
+[Faculty (Olympus)] 21:59:15
+And then we sum that all together and then we take a weighted combination of that stuff with our center node here, that particular drug.
+
+[Faculty (Olympus)] 21:59:25
+So this is the same, depicted here crispy aggregate for each type of edge separately and then we combine all of this.
+
+[Faculty (Olympus)] 21:59:34
+And let me train it. So let me skip the training here. Because you're almost out of time.
+
+[Faculty (Olympus)] 21:59:41
+And let me just go to the evaluation. How do you evaluate such a model?
+
+[Faculty (Olympus)] 21:59:47
+So we evaluate of course by prediction performance. How well does they do in predicting these interactions that we know?
+
+[Faculty (Olympus)] 21:59:55
+You can also look at where does it make mistakes and this is related to what I said in the last lecture is that look where your model is making mistakes.
+
+[Faculty (Olympus)] 22:00:03
+Does it make some systematic mistakes that it's always mispredicts on a certain type of interaction or so then you know that it's not working very well for that one.
+
+[Faculty (Olympus)] 22:00:12
+And you know for which ones it's working pretty well.
+
+[Faculty (Olympus)] 22:00:17
+And that could be a problem with like the way you set up the model, the information that the model has, etc.
+
+[Faculty (Olympus)] 22:00:23
+And then the third thing here is that most of these interactions graphs from biology. We don't actually really know the photograph.
+
+[Faculty (Olympus)] 22:00:34
+We don't actually really know what all drugs may interact because we don't have that information. We have a method, all of it.
+
+[Faculty (Olympus)] 22:00:42
+So it may, the neural network may predict some interactions and there is not actually an engineering data set.
+
+[Faculty (Olympus)] 22:00:48
+But maybe it's still a true prediction, it's just that we haven't. It's not yet in the literature, essentially.
+
+[Faculty (Olympus)] 22:00:55
+It's not in that database that we're trained with. So then what the authors did is they actually searched in the more recent literature.
+
+[Faculty (Olympus)] 22:01:03
+Whether there was evidence for that kind of interaction that the neural network predicted. So it's really predicting something new that's not yet in the data.
+
+[Faculty (Olympus)] 22:01:11
+And indeed, this is the like for many of those, they actually did find some recent works that did observe these kind of interactions.
+
+[Faculty (Olympus)] 22:01:21
+So, another thing you could of course do is you could actually try it out in the lab.
+
+[Faculty (Olympus)] 22:01:26
+Or like I mean here it's in a hospital setting so it's a bit harder. To get that data, you can't just randomly try this out.
+
+[Faculty (Olympus)] 22:01:33
+But in principle if this was like just some interaction between some molecules, you could actually do that.
+
+[Faculty (Olympus)] 22:01:41
+So this is how you like a bit also like how you actually evaluate such a model.
+
+[Faculty (Olympus)] 22:01:48
+So with that, let me stop here and summarize. So we saw what our graph neural networks with the essential idea of passing messages and encoding local neighborhoods.
+
+[Faculty (Olympus)] 22:01:59
+We saw there's a lot of applications of these. And the other thing we saw also with the hopefully with a small case study that I showed you in the very end is That when you actually use such models in the real world, there's still some thought that has to go.
+
+[Faculty (Olympus)] 22:02:17
+And what kind of data do I actually want to use? Where does that data come from? What are the properties of this data?
+
+[Faculty (Olympus)] 22:02:23
+And what are the properties of the model that I actually am learning this. So let me stop here and then we can open the Q&A and in the Q&A, I can also answer this LLM question.
+
+[Faculty (Olympus)] 22:02:38
+So let me first see if there's some specific questions about that.
+
+[Faculty (Olympus)] 22:02:45
+That case study here. So there's one question about learning. The function means the whole function is learned as opposed to just the coefficients.
+
+[Faculty (Olympus)] 22:02:53
+So learned function I meant that you have like a neural network architecture fixed architecture and you're learning the ways in that network.
+
+[Faculty (Olympus)] 22:03:01
+The same way or it's a linear function and you're learning that linear function. So the same way we always learned is we have some fixed model and we learn essentially the parameters.
+
+[Faculty (Olympus)] 22:03:15
+Okay, so maybe since there was that question twice, let me first take the time to answer that LLM question and then we can go through the rest of the questions.
+
+[Faculty (Olympus)] 22:03:25
+So the question was. Doesn't add, well, how do like LLMs, do they actually maybe also build a graph and like process data like a Graph Neil network?
+
+[Faculty (Olympus)] 22:03:37
+And
+
+[Faculty (Olympus)] 22:03:41
+I said that it's kind of true, so let me just show you how LLAMS relate to these aggregation functions that we talked about.
+
+[Faculty (Olympus)] 22:03:48
+So if you remember about this aggregation function was doing. Is it was looking at the notes neighbor so I like update the representation of node by summing over its neighbors.
+
+[Faculty (Olympus)] 22:04:03
+In the neighborhood and then I'm applying some function to the neighbors so this was my MLP on the neighbor.
+
+[Faculty (Olympus)] 22:04:14
+And step T minus one. Okay, so this is the aggregation function. So what we could also do is here we are just summing over all neighbors.
+
+[Faculty (Olympus)] 22:04:26
+Because as I said, there is no actual preference we have over the neighbours. What sometimes we can do is we can use a method that's called attention.
+
+[Faculty (Olympus)] 22:04:35
+To select which neighbors are more important. So I would actually have some importance measure that says For the node, Which node is more important?
+
+[Faculty (Olympus)] 22:04:47
+So this is this alpha VU. And this measure can be learned by looking at the features of V and U and learning like maybe I want to The edges that.
+
+[Faculty (Olympus)] 22:04:59
+For like our neighbors that relate by whatever geographic locations are more meaningful in this context than neighbors that relate by age or something like that.
+
+[Faculty (Olympus)] 22:05:07
+So this is what this attention rate would actually tell me. So now what do I do in the language model?
+
+[Faculty (Olympus)] 22:05:15
+So I have my sentence like Harry Potter lives.
+
+[Faculty (Olympus)] 22:05:23
+In a cupboard or something like that.
+
+[Faculty (Olympus)] 22:05:28
+Okay, so to hear I have different words. So the words are kind of essentially like the nodes in my graph.
+
+[Faculty (Olympus)] 22:05:37
+They are the entities. Might still token. So let's just say these other words. It's a little bit more complicated, but for the moment, let's say these are my words.
+
+[Faculty (Olympus)] 22:05:46
+So each word will be a encoded as some feature vector. And now what I do is what did I do in a graph neural network?
+
+[Faculty (Olympus)] 22:05:52
+I encoded a node as a function of its neighbors. I included some information from the neighbors and averaged over the neighbors.
+
+[Faculty (Olympus)] 22:06:01
+So what I'll do here is I'll do the same thing actually. So for instance, I will look at the words.
+
+[Faculty (Olympus)] 22:06:10
+Lives and I will. Now update the representation of a lives. And what I do is I'll include all the other words in the sentence in this thing.
+
+[Faculty (Olympus)] 22:06:23
+And now I will do exactly that kind of sum over the neighbors type of thing, but I'll process the neighbors a bit and what I'll also do is I will learn Which of these neighbors are more important?
+
+[Faculty (Olympus)] 22:06:36
+So for instance, if I look at lives, maybe the cupboard is more important, maybe Harry Potter, like the noun of the word, the subject of the word is important.
+
+[Faculty (Olympus)] 22:06:45
+So I would basically learn these. And so this is basically this is node I this is no J so I like some weight alpha Ij.
+
+[Faculty (Olympus)] 22:06:57
+And I'll sum over the neighbors. So the way this alpha ij here is is that I'm basically this is gonna be with like some in a product.
+
+[Faculty (Olympus)] 22:07:06
+It's basically an inner product of the I and the J feature. And with some weights. So I have some matrix that is like the query matrix.
+
+[Faculty (Olympus)] 22:07:15
+So I do actually an inner product between the query matrix with HJ. And the Oh, this is the key and the value that's called.
+
+[Faculty (Olympus)] 22:07:28
+And some value matrix with a . So this is the alpha ij and the matrices are learned.
+
+[Faculty (Olympus)] 22:07:36
+So this is kind of the similarities that you learned the relevance measure that you learn. And then you're taking a rated combination and instead of this MLT, or just have another linear function there.
+
+[Faculty (Olympus)] 22:07:49
+But otherwise it really looks like a fully connected graph. Where you learn something about the important of the importance of the different.
+
+[Faculty (Olympus)] 22:07:56
+Edges. So we do this for all the way all the words in parallel to update them step by step.
+
+[Faculty (Olympus)] 22:08:03
+And this is the transformer model does that. And is underlying in like GPT and many of these language models.
+
+[Faculty (Olympus)] 22:08:13
+Okay, this was the transformer here. In a nutshell kind of what's the main idea of that model.
+
+[Faculty (Olympus)] 22:08:21
+Okay, so now I want to go back and answer the other questions that we skipped along the lecture that all of them get answered.
+
+[Moderator - Ankit Agrawal] 22:08:31
+Thank you so much, Professor, for that lecture. We can, start the QA and go through questions in the sequence.
+
+[Faculty (Olympus)] 22:08:32
+Okay.
+
+[Moderator - Ankit Agrawal] 22:08:40
+We, have, the, sequence, we have, hey, N, how are you?
+
+[[gl mentor] Niruppam] 22:08:43
+Good. I'm good. Good morning guys.
+
+[Faculty (Olympus)] 22:08:45
+Bye.
+
+[Moderator - Ankit Agrawal] 22:08:49
+So we'll get started. This, this question, there are some questions related to the transfer learning part.
+
+[Moderator - Ankit Agrawal] 22:08:56
+So how does the process of encoding look like? What tools can you use and can we build an encoder manually?
+
+[Faculty (Olympus)] 22:09:04
+So the encoder is usually dependent on the data type. So if you have images, this would be your CNN or a vision transformer.
+
+[Faculty (Olympus)] 22:09:15
+If you have a graph, it would be a graph new network. If you have text, it would be a transform or an RNN or something like that.
+
+[Faculty (Olympus)] 22:09:21
+So it's basically some model that can take your input depending on the type. And encode it into some vector.
+
+[Faculty (Olympus)] 22:09:29
+That and so it's typically a new network that has some weights and during the pre-training we are learning those weights.
+
+[Faculty (Olympus)] 22:09:35
+We are not handcrafting that.
+
+[Moderator - Ankit Agrawal] 22:09:40
+Just, do that for some data set, especially text data. We have a lot of different methods available that provide free train weights to us.
+
+[Moderator - Ankit Agrawal] 22:09:50
+Recall that's where the term GPD comes from, right? And the free train, transformations or recordings are available.
+
+[Moderator - Ankit Agrawal] 22:09:59
+So.
+
+[Moderator - Ankit Agrawal] 22:10:03
+Are there different encoders for audio and text data? But, their predict, can we have a situation where we have different encoders for audio index, but their predictors can be the same at the end.
+
+[Faculty (Olympus)] 22:10:19
+He, so you could match audio and text. And so basically you like, well, we, I talked about this alignment in the.
+
+[Faculty (Olympus)] 22:10:29
+Like of you could have like an image and text that you align. So in this case you have like some audio and you have some text.
+
+[Faculty (Olympus)] 22:10:38
+And so you have an audio encoder, like this is some box here and the text encoder.
+
+[Faculty (Olympus)] 22:10:43
+They could be actually going into the same in code representation space. They actually kind of go into the same space.
+
+[Faculty (Olympus)] 22:10:52
+And then you could have a classifier that goes out of this. So in principle that classifier could predict from both from either the audio or the text.
+
+[Faculty (Olympus)] 22:11:03
+What do you actually learning with this is that you're basically what text corresponds to which audio. So then even if you have just one of the inputs, you could actually maybe make a meaningful prediction.
+
+[Faculty (Olympus)] 22:11:14
+That could be one example I could think of how you could have a classifier that can work on both audio and text.
+
+[Faculty (Olympus)] 22:11:22
+But you'd need these 2 more specific encoders. And so you send it through like whichever is the fitting encoder.
+
+[Moderator - Ankit Agrawal] 22:11:39
+In the pretext model does it have to be a super wise model? Can it be unsupervised as well?
+
+[Moderator - Ankit Agrawal] 22:11:46
+Is transfer learning specific only to neural networks?
+
+[Faculty (Olympus)] 22:11:53
+So, you can do unsupervised pre training. In fact, all the fill in the gap, type of pre training like the masking.
+
+[Faculty (Olympus)] 22:12:03
+It's, it's called, it's considered self-supervisor and supervised.
+
+[Faculty (Olympus)] 22:12:09
+Because you're kind of feeling in the gap but you don't have a hand label for that.
+
+[Faculty (Olympus)] 22:12:14
+The contrastive learning is also called considered self. Self-supervised and which is considered closer to unsupervised because we don't have hand like labels by a human even though There is some information going in.
+
+[Faculty (Olympus)] 22:12:30
+So they can be unsupervised in that way. It's pre-training.
+
+[Faculty (Olympus)] 22:12:36
+Bye its nature is usually used with new networks because you're kind of partitioning the model now into an encoder and a prediction part.
+
+[Faculty (Olympus)] 22:12:46
+And if you say have a linear classic fire, there is only one thing that you cannot actually partition it.
+
+[Faculty (Olympus)] 22:12:53
+And you pre train usually just the encoder and the classifier that prediction part is Is like what you find tune and what you adapt later.
+
+[Faculty (Olympus)] 22:12:59
+So I the only setting where I can think of where this would be possible is neural networks, because you can partition them that way.
+
+[Faculty (Olympus)] 22:13:09
+And they do learn the recordings as well. Maybe someone else has a different. It's an example where just.
+
+[[gl mentor] Niruppam] 22:13:10
+Yes.
+
+[[gl mentor] Niruppam] 22:13:15
+No, I agree with that. I think I agree with that. Sells, so voice learning is the best example for that.
+
+[[gl mentor] Niruppam] 22:13:21
+Because you can give lot of samples where they learn about rotations. Positions, alignments and all, and they use that for some other task.
+
+[[gl mentor] Niruppam] 22:13:30
+So they can learn better features from the unlabeled data. But you use for something simple maybe.
+
+[Moderator - Ankit Agrawal] 22:13:38
+Yeah, I'm not familiar of, applications of transfer learning anywhere outside of neural network based approaches.
+
+[Moderator - Ankit Agrawal] 22:13:47
+So yeah, I mean, I've seen a lot of like transform or models and CNN based models for transfer learning, but not anything.
+
+[Moderator - Ankit Agrawal] 22:13:55
+More classical machine learning.
+
+[Faculty (Olympus)] 22:13:58
+Yeah, I think another thing is maybe that Most of the other models don't need as much data and pre trading really like tries to profit from the fact that you can use a lot of data and that helps especially with deep learning.
+
+[[gl mentor] Niruppam] 22:13:58
+Yeah.
+
+[Faculty (Olympus)] 22:14:13
+With the simpler models like medium amount of data, it's usually okay. And we don't gain that much more from it.
+
+[[gl mentor] Niruppam] 22:14:13
+Yeah.
+
+[Moderator - Ankit Agrawal] 22:14:26
+Yeah, again self-supervised learning be considered similar to clustering.
+
+[Faculty (Olympus)] 22:14:34
+I think the, contrastive learning where you have the similar and dissimilar peers. It had some similarities with clustering in that what you actually want to do with you want to essentially cluster the data by their semantic meaning.
+
+[Faculty (Olympus)] 22:14:51
+So in the end you do want to create some clusters where the points in a cluster have the same object in I'm essentially like or or the same meaning.
+
+[Faculty (Olympus)] 22:15:02
+So in that sense, it is somewhat related to clustering. It's not a typical, just not a typical blustering objective.
+
+[Faculty (Olympus)] 22:15:12
+We don't tell it what the similarity measure is. We tell it. We do it the opposite way.
+
+[Faculty (Olympus)] 22:15:17
+We say these 2 should be together. Now you learn. A similarity measure essentially that Matches that and in clustering typically what we do is we say this is the similarity measure so here is the vectors compare whatever the distance of the vectors.
+
+[Faculty (Olympus)] 22:15:31
+And you cluster them, you find groups in them. So it's kind of the opposite thing that we are doing but in both cases what we essentially want is a clustering of the data in like meaningful groups.
+
+[Moderator - Ankit Agrawal] 22:15:46
+Yeah, in some sense, self-supervised learning is you're given associations and you're trying to learn how those associations can be explained properly, right?
+
+[Moderator - Ankit Agrawal] 22:15:57
+Like what kind of vectors would you learn or what kind of property do you want to learn to justify that association?
+
+[Moderator - Ankit Agrawal] 22:16:08
+We have.
+
+[Moderator - Ankit Agrawal] 22:16:13
+If. Okay, these are very specific questions. Related to the example.
+
+[Moderator - Ankit Agrawal] 22:16:21
+Can you please give real pretext example used for text predictions? Are we in, in this case, are we talking about LLMs again?
+
+[Faculty (Olympus)] 22:16:31
+Yeah, so as I said one example of like how LLMs are trained is essentially this thinking that you take a sentence and you like first give it the first word for the all this predict the next word essentially in the sentence put it the next word have a sequence predict the next word so it's really always predict the last thing for some other models, you there's also this thing that like other another task that you take ascendant
+
+[Faculty (Olympus)] 22:16:59
+and you pull out a word and you say which word is the most likely to go in. So basically you pull out a word in the middle and you look at the context on both sides.
+
+[Faculty (Olympus)] 22:17:08
+So those are some examples of tasks. There is some other earlier ones where you say like here's a sentence what and you give it 2 choices, which is the most likely next sentence that follows after that.
+
+[Faculty (Olympus)] 22:17:21
+So to basically decide that you have to understand what the sentences are about. But nowadays a lot of it is exactly this the next word type of pre training.
+
+[[gl mentor] Niruppam] 22:17:32
+And it could also be used for building recommendation systems. So if you can look at radius products I explore.
+
+[[gl mentor] Niruppam] 22:17:38
+On a website and you can predict what are the next best items which I may visit. And you can show me maybe advertisements for them or you can show them to me on this screen when I log in and all.
+
+[Moderator - Ankit Agrawal] 22:17:52
+For people who are interested in LLMs, there is a very good article by Jay Almer.
+
+[Moderator - Ankit Agrawal] 22:17:59
+He's like very popular in explaining transformers. He wrote a blog article a few years ago with over 10 million hits on his blog article.
+
+[Moderator - Ankit Agrawal] 22:18:07
+He explains what the initial recordings and what the position and coding and transformers mean and how they relate into building transformer models for LLMs in great detail.
+
+[Moderator - Ankit Agrawal] 22:18:18
+So highly recommend that.
+
+[Moderator - Ankit Agrawal] 22:18:23
+We have another lot of questions. Around LLMs. So.
+
+[Moderator - Ankit Agrawal] 22:18:33
+Hmm
+
+[Moderator - Ankit Agrawal] 22:18:36
+So can we treat data augmentation here like bootstrapping method? I said this is related to data augmentations in CNN models when we're talking about transfer learning.
+
+[[gl mentor] Niruppam] 22:18:50
+So in boost wrapping, we are repeating the same samples, right? We are not modifying them.
+
+[[gl mentor] Niruppam] 22:18:57
+Here we are trying to bring some variations in the samples. So, rotating your image, adding a shift.
+
+[[gl mentor] Niruppam] 22:19:04
+Scaling up, scaling down. So your images are not exactly same as the previous image, but a modification of that.
+
+[[gl mentor] Niruppam] 22:19:13
+Right. So there are. Is the difference here?
+
+[Moderator - Ankit Agrawal] 22:19:20
+Can we apply the idea of contrasted learning to other problems than for images, example churned customer versus non turn customers, etc.
+
+[[gl mentor] Niruppam] 22:19:35
+Yeah, I think like there should make sense, right? Because again, as Professor said, you're saying these people have left the company.
+
+[[gl mentor] Niruppam] 22:19:44
+And you still have not left. Now you go about finding the patterns in them, right? So in essence it could be possible.
+
+[[gl mentor] Niruppam] 22:19:50
+Right. How would that could be really depends on the quality of features you have.
+
+[Moderator - Ankit Agrawal] 22:20:08
+Can you clarify what a DAG is and a real example how it is used? So we're in graphs now and DAG is directed basically so.
+
+[Faculty (Olympus)] 22:20:18
+Okay, so yeah, so in a DAG. So you can use a You're directed or undirected graphs in your neural network as input.
+
+[Faculty (Olympus)] 22:20:29
+It both is possible. If you have directions in the graph, usually it doesn't matter whether whether it's a DAG or just a directed graph arbitrary with loops or so.
+
+[Faculty (Olympus)] 22:20:42
+So what you in a directed graph, what you have to decide is how do you want to treat the direction of edges.
+
+[Faculty (Olympus)] 22:20:49
+So one option would be to just ignore it. And just say, OK, this is connected or not connected.
+
+[Faculty (Olympus)] 22:20:55
+The other option would be to say the direction has a meaning. And then what I could do is I could basically do the same thing that I did for my example.
+
+[Faculty (Olympus)] 22:21:03
+Here where I said I have different types of edges at a node. I'm So in that case, I, my different types of edges would be incoming and outgoing edges.
+
+[Faculty (Olympus)] 22:21:13
+So basically I would have like now my and I would have some H directions.
+
+[Faculty (Olympus)] 22:21:22
+So now. Okay, man, make it a bit bigger. There's some other thing here. So now if I look at this node here it has 2 incoming and one outgoing edge.
+
+[Faculty (Olympus)] 22:21:35
+So I could treat the incoming and outgoing edges separately. So I could have one aggregation for the incoming one and one for the outgoing ones.
+
+[Faculty (Olympus)] 22:21:43
+And treat those edges separately. Or I could only do the incoming or only outgoing ones depending on the application that I have.
+
+[Faculty (Olympus)] 22:21:52
+So that's that's how you could treat the directionality in the edges. But yes, it's possible to include that.
+
+[Moderator - Ankit Agrawal] 22:22:04
+What is contained in the representation of a node?
+
+[Faculty (Olympus)] 22:22:11
+So it basically contains information about. The nodes, input features and the features of its neighbors. So some information essentially about the node and some statistics of the neighbors.
+
+[Faculty (Olympus)] 22:22:26
+Some connectivity patterns. Essentially in the neighborhood. So who are you and who are? Let's take the summary statistics of your friends in some sense.
+
+[Faculty (Olympus)] 22:22:35
+That kind of thing.
+
+[Moderator - Ankit Agrawal] 22:22:37
+Yeah. What happens if the aggregation and the combination methods do not converge?
+
+[Faculty (Olympus)] 22:22:48
+So this is maybe if you would iterate them in iterate them until you think like the represent node representations have stabilized.
+
+[Faculty (Olympus)] 22:22:58
+So this is not an issue. And they put in general not converge. Unless like there's some specific mathematical conditions on those aggregations that their contractions.
+
+[Faculty (Olympus)] 22:23:10
+So the reason it doesn't matter is that we don't iterate them. Arbitrally many times.
+
+[Faculty (Olympus)] 22:23:17
+We iterate them only a few times. We say we go whatever for 5 rounds. And then we apply them 5 times and we stop.
+
+[Faculty (Olympus)] 22:23:23
+And that's okay. So they don't have to have converged or anything. Just aggregate over that 5 half neighborhood and that's all right.
+
+[Faculty (Olympus)] 22:23:32
+So we don't run into the issue that we run them until basically nothing changes. Specify we do whatever and you typically we don't do that many rounds it's like 2 3 or 5 or so in like most cases it's pretty small number.
+
+[Faculty (Olympus)] 22:23:49
+It's relatively local. So it doesn't matter.
+
+[Moderator - Ankit Agrawal] 22:23:58
+Can we use GNS for segmentation?
+
+[Faculty (Olympus)] 22:24:04
+For image segmentation, I'm guessing.
+
+[Moderator - Ankit Agrawal] 22:24:07
+They didn't specify it just says segmentation over here. Okay.
+
+[Faculty (Olympus)] 22:24:11
+You could maybe in the sense that you could use a GNN to cluster in a graph. So because a segmentation is like a clustering, could potentially do that.
+
+[Faculty (Olympus)] 22:24:25
+Typically for segmentation we would still use CNNs. Because for images we typically use CNNs.
+
+[Faculty (Olympus)] 22:24:32
+But it may be possible to do it with a GNN as well.
+
+[Moderator - Ankit Agrawal] 22:24:35
+Yeah. And if we're talking about like customers segmentation or something like that, then that should be possible.
+
+[Moderator - Ankit Agrawal] 22:24:43
+I mean, there are a lot of very famous problems around networks like Maxcut and so on and so forth where we can divide the graph into separate components depending on the strength of the connectivity of the graph or the sub components of the graph itself.
+
+[Moderator - Ankit Agrawal] 22:24:59
+So in that context, segmentations, like that on a graph data set can be done using.
+
+[Moderator - Ankit Agrawal] 22:25:07
+We could learn which are the important edges in the graph that if we break those then the graph kind of splits into strongly connected components and so on and so forth.
+
+[Moderator - Ankit Agrawal] 22:25:22
+So we have.
+
+[Moderator - Ankit Agrawal] 22:25:26
+Can you elaborate CNN does weighted average versus GN and treat each neighbor the same?
+
+[Faculty (Olympus)] 22:25:36
+Huh, yeah, so in a CNN, we basically what we do is because we have that filter, each filter has like essentially an entry for each node for each pixel.
+
+[Faculty (Olympus)] 22:25:48
+And then we do this way like just treated like. Waited in our product essentially. So each pixel gets a different.
+
+[Faculty (Olympus)] 22:25:57
+Wait. In the graph neural network, each neighbor is processed with the same function. And only if I do attention they get different ways but otherwise they don't they're just we're just summing our averaging over the neighbors.
+
+[Moderator - Ankit Agrawal] 22:26:17
+Can we use GNN for time series graphs?
+
+[Faculty (Olympus)] 22:26:24
+So what for instance you could use GNN for is let's say you have a set of time series.
+
+[Faculty (Olympus)] 22:26:31
+So an example. Could be pedestrians walking and you want to Tract them basically and you want to see so you could basically have like closeness as the edges and so if you want to forecast the trajectories you can use like the close by trajectories to predict where someone would be going because presumably if you're going with like people close by maybe you're actually going together and going in the same direction.
+
+[Faculty (Olympus)] 22:26:56
+We have used that kind of model also to predict drifters in the ocean because like if the these are like things that swim in the ocean and they use for measurements.
+
+[Faculty (Olympus)] 22:27:03
+And they are like, if they're close together, they are likely going with the same current.
+
+[Faculty (Olympus)] 22:27:08
+So they're like have their trajectories are correlated. So in that sense you can use a GNN over time series so each note would have a time series.
+
+[Faculty (Olympus)] 22:27:17
+And when you forecast you use the close by ones. That's one example. How you could use GNs with time series.
+
+[Faculty (Olympus)] 22:27:24
+You could also have dynamic graphs, so you would then have maybe a time component in your in your GNN.
+
+[Faculty (Olympus)] 22:27:32
+So maybe you would do some auto regressive thing that like builds on the previous graphs. And like predict the next graph based on your previous graphs.
+
+[Faculty (Olympus)] 22:27:39
+So this is a bit similar to the predicting the dynamics. In the dynamics essentially. Dynamics graph and then we will go and predict that.
+
+[Moderator - Ankit Agrawal] 22:27:50
+Yeah, one of the applications where I've used GNS for time series is load balancing on electrical grids.
+
+[Moderator - Ankit Agrawal] 22:27:59
+So because you have this electric city being generated through wind forms and solar forms and stuff but your grid can only capture so much load at a given time.
+
+[Moderator - Ankit Agrawal] 22:28:10
+So do you, Can you actually process this or do you need generators to store this because the grid is no longer balanced and things like that.
+
+[Moderator - Ankit Agrawal] 22:28:19
+So you weren't to understand which parts of US is producing, how much power and how is it flowing into the electrical grid.
+
+[Moderator - Ankit Agrawal] 22:28:25
+You can build, Craft based neural networks to understand that flow better and to balance that grid a little bit better.
+
+[Moderator - Ankit Agrawal] 22:28:35
+We'll take one more question here. Okay, we'll take 2 more.
+
+[Moderator - Ankit Agrawal] 22:28:40
+Can we can you recommend a good book or resource for in depth understanding of LST and model.
+
+[[gl mentor] Niruppam] 22:28:52
+Let me search for something.
+
+[Faculty (Olympus)] 22:28:57
+Yeah, I don't have anything for LSTM off the top of my head. That will be a book.
+
+[Moderator - Ankit Agrawal] 22:29:01
+Yeah
+
+[Faculty (Olympus)] 22:29:03
+Good explanation. Like I've taught it in lectures but mostly like from self-created material.
+
+[Moderator - Ankit Agrawal] 22:29:09
+Yeah, I have found N 2 NG had published his notes on RNN and LSTM a couple of months ago, I believe like a presentation and something, maybe that can be searched online.
+
+[Moderator - Ankit Agrawal] 22:29:28
+That's how I learned, about LSTMs and attention model through, Andrew and she's notes.
+
+[Moderator - Ankit Agrawal] 22:29:35
+But I don't have a book or a blog article on top of my right now either. Neropan, did you find anything?
+
+[[gl mentor] Niruppam] 22:29:42
+Yeah, otherwise a book buy in Goodfellow, right? The deep learning book. It has a chapter on that.
+
+[Moderator - Ankit Agrawal] 22:29:46
+Oh yeah, yeah.
+
+[[gl mentor] Niruppam] 22:29:50
+So I'm going to share a link for that.
+
+[Moderator - Ankit Agrawal] 22:29:55
+Yeah. Ian Goodfellas book talks about all different types of neural networks in general, and probabilistic approaches as well.
+
+[Moderator - Ankit Agrawal] 22:30:05
+So that's definitely a very strong reference book point. We'll take one more question here.
+
+[Moderator - Ankit Agrawal] 22:30:12
+We studied CNS, GNNs, and heard about RNNs and DNS as well.
+
+[Moderator - Ankit Agrawal] 22:30:17
+What are the usages for these neural networks? Different architectures.
+
+[Faculty (Olympus)] 22:30:24
+So I'd say that like which architecture you choose depends a lot on what data tape you have. So as we said, CNNs are really targeted to images.
+
+[Faculty (Olympus)] 22:30:35
+Or maybe sequences, you can use them as well, GNNs are targeted to graphs and then RNNs these are recurring neural networks they are also really targeted to sequences.
+
+[Faculty (Olympus)] 22:30:47
+So you would use them on text or time series or maybe audio data, etc. So Dana that comes in a sequence.
+
+[Faculty (Olympus)] 22:30:55
+And the general like fully connected networks we covered in the first lecture you would use them if you are data is really just vectors in the first place.
+
+[Faculty (Olympus)] 22:31:07
+So it doesn't have any other specific structure. They are also part as you saw in the graph network so they're kind of part of the other networks.
+
+[Faculty (Olympus)] 22:31:15
+Or at the classification part because they take vectors to vectors. So one if your input is just a vector you can just use.
+
+[Faculty (Olympus)] 22:31:22
+That to go like from a vector to a prediction.
+
+[Moderator - Ankit Agrawal] 22:31:29
+I think we're out of time, so I think this is a good point to stop.
+
+[Moderator - Ankit Agrawal] 22:31:33
+If you have any other questions, we do have a mentor learning sessions this weekend so please ask more questions to your mentors from if you need more clarifications.
+
+[Moderator - Ankit Agrawal] 22:31:43
+That being said, thank you so much, Professor, for all the wonderful lectures this week.
+
+[Moderator - Ankit Agrawal] 22:31:48
+These are very complicated topics and your lectures definitely help understand the material. Thank you, Neripo, for answering all the questions this week.
+
+[Moderator - Ankit Agrawal] 22:31:56
+And have a wonderful week. Take care.
+
+[[gl mentor] Niruppam] 22:31:59
+Hello everyone, take care.
+
+[Faculty (Olympus)] 22:32:01
+Thank you, Ankita, for moderating and answering questions. And thanks everyone for all your questions in the chat and all your answers and thanks everyone for all your questions in the chat and all your answers and participating.
+
+[Faculty (Olympus)] 22:32:12
+It was a lot of fun. Thank you. And enjoy the rest of the course.
+
+[[gl mentor] Niruppam] 22:32:16
+Thank you.
+

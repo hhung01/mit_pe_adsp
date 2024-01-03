@@ -1,0 +1,2865 @@
+[Moderator - Ankit Agrawal] 19:59:50
+Hello everyone. I'm sorry my video doesn't seem to be working. It says that the host has stopped the video for everybody else.
+
+[Moderator - Ankit Agrawal] 20:00:01
+For some reason. But I'll just get the session. Yeah.
+
+[Faculty (Olympus)] 20:00:03
+Okay.
+
+[Faculty (Olympus)] 20:00:07
+Let me see if I can sort of start it for you. But in either case. Yeah.
+
+[Moderator - Ankit Agrawal] 20:00:12
+Yeah, I'll just get the initial part done over here. So welcome everybody to the second last session of your program.
+
+[Moderator - Ankit Agrawal] 20:00:21
+The like lecture for your program. Quick reminder again, do not raise your hands during the lecture.
+
+[Moderator - Ankit Agrawal] 20:00:30
+Please put all of your questions in the chat section and make sure that you have enabled it for everybody.
+
+[Moderator - Ankit Agrawal] 20:00:37
+So do not send messages just to host their panelists, but send it to everyone. Also do not put any questions in the Q&A section.
+
+[Moderator - Ankit Agrawal] 20:00:46
+That being said, we'll continue our discussion on recommendation systems today. So with that being said, I'll hand over the session to you, Professor.
+
+[Moderator - Ankit Agrawal] 20:00:56
+I'm looking forward to today's session.
+
+[Faculty (Olympus)] 20:00:57
+Absolutely. Okay. It's 6 30. So typically I are just 30 passed.
+
+[Faculty (Olympus)] 20:01:07
+So typically I'd like to wait for few more minutes usually because everybody comes in. In a bit.
+
+[Faculty (Olympus)] 20:01:18
+But while everybody is coming in, let's see, there are lots of great good mornings from lots of good morning from California.
+
+[Faculty (Olympus)] 20:01:25
+Yeah, and definitely Shell is not happy about coming to conclusion that is a good sign. Folks from East Coast, Rhode Island, got somebody from Chile, Hamburg, Germany, But I mean, as it happens actually.
+
+[Faculty (Olympus)] 20:01:47
+I'm taking this call right now from Dubai. I'm pretty close to you, A.
+
+[Faculty (Olympus)] 20:01:54
+San Jose, Colorado, Spain, yes. Very good. And yes, Lalith, I am.
+
+[Faculty (Olympus)] 20:02:03
+I have in Vivica and hence I called it 6 30.
+
+[Faculty (Olympus)] 20:02:09
+Philly Queens, Switzerland, excellent, Mozambique.
+
+[Faculty (Olympus)] 20:02:17
+Excellent. Bangalore. So we got effectively and Senegal, we got a large number of time zones covered here.
+
+[Faculty (Olympus)] 20:02:29
+All right, in Florida, Venusiris, wow, okay. And somebody has 6 30 somewhere.
+
+[Faculty (Olympus)] 20:02:39
+While I'm on 6 30 pm. Okay. Let's see. We have roughly 200 people.
+
+[Faculty (Olympus)] 20:02:47
+There might be some more coming in. Some might wait for 30 more seconds. Just want to give chance for everybody to get in before.
+
+[Faculty (Olympus)] 20:02:54
+We get going, okay? Hmm. Alright, and somebody is from my actual my neighborhood, Rochester.
+
+[Faculty (Olympus)] 20:03:05
+If I were at home, I would be next to you, David. And
+
+[Faculty (Olympus)] 20:03:12
+Kuala Lumpur, awesome. And somebody from Riyadh. Great, my student.
+
+[Faculty (Olympus)] 20:03:19
+Who is from Riyadh. Defended his thesis. Last week and they did amazing. So congratulations to you.
+
+[Faculty (Olympus)] 20:03:28
+Yes, as your fellow countrymen did extremely well.
+
+[Faculty (Olympus)] 20:03:32
+Keep chord. Ali, I'm hoping that you're going to be watching your.
+
+[Faculty (Olympus)] 20:03:39
+Alright, okay. And now I see that if it's some more number of people. Okay, so I'm going to get started.
+
+[Faculty (Olympus)] 20:03:47
+So welcome back everyone. I hope you had a lovely night. All the homeworks and thinking that I gave you did not.
+
+[Faculty (Olympus)] 20:03:56
+But your sleep that much. Today we're going to continue from where we left. But as I always like to do I will briefly remind you of what we what we did.
+
+[Faculty (Olympus)] 20:04:11
+Okay, I mean, okay, I cannot sort of. Not stop but read this and the last distraction I will get to because yoghurt so let's read it so Dom says that a quote to start of the day on selecting a restaurant nobody goes there anymore.
+
+[Faculty (Olympus)] 20:04:27
+It's too crowded. The 1, 2, the one, the 2 of the yogi bed or at least.
+
+[Faculty (Olympus)] 20:04:33
+Attributed to Yogi, but the courts that I like, really, really like are one is in life when you come at fork when the life you commit fork your decision ticket and 2 is.
+
+[Faculty (Olympus)] 20:04:47
+Forecasting is really, really hard. Especially about future. Okay, so with that I'm going to get going now.
+
+[Faculty (Olympus)] 20:04:56
+So we go, pick up from where we left. I'm going to remind ourselves a little bit what we did in yesterday's lecture.
+
+[Faculty (Olympus)] 20:05:04
+So in case. You've forgotten. You're still, getting back into the zone.
+
+[Faculty (Olympus)] 20:05:09
+Don't worry. I'll give you plenty of things to remember. And then we'll get going.
+
+[Faculty (Olympus)] 20:05:14
+As promised. In today's lecture, we will be start, will be doing, lots of things.
+
+[Faculty (Olympus)] 20:05:21
+So, it will be a little bit more. Content dense compared to last lecture. But my hope is that you would be able to keep up with it.
+
+[Faculty (Olympus)] 20:05:32
+And I will introduce you to few more examples and applications. Of the basic question, basic prediction problem that we had distilled last lecture and that would help you think about why this basic prediction problem that we're talking about is not just a gimmick, but it's an excellent.
+
+[Faculty (Olympus)] 20:05:54
+Excellent. Model and a framework. Okay. In tomorrow's lecture, which will be the last lecture.
+
+[Faculty (Olympus)] 20:06:01
+We will see even more application at that stage my hope is that you will be convinced that anything you can do in terms of prediction problem you can do with.
+
+[Faculty (Olympus)] 20:06:10
+This framework. Okay, it's like mother of all prediction problem. So with that as a promise, let's get started.
+
+[Faculty (Olympus)] 20:06:16
+So this was the. What we did in part one. Okay. Yesterday's lecture was all about introducing the topic and discussing few simple methods.
+
+[Faculty (Olympus)] 20:06:27
+We spend time discussing background, then the problem statement and the simple solution. Okay. The crux of Yes, yesterday's lecture was coming to this basic version of the prediction problem.
+
+[Faculty (Olympus)] 20:06:43
+Which we can also call matrix completion. Okay. So matrix. Completion or complete.
+
+[Faculty (Olympus)] 20:06:53
+The matrix. Okay, where we have a matrix, we are observing noisy. Version of it, lots of the entries are not observed.
+
+[Faculty (Olympus)] 20:07:03
+We want to fill the missing values and we want to denounce observed values. So it's like saying that I've got a spreadsheet.
+
+[Faculty (Olympus)] 20:07:12
+Lots of holes. Some of the entries that we observed are not clean noisy we want to clean that so all of those things.
+
+[Faculty (Olympus)] 20:07:22
+Okay. A little bit more formally. This is the ground truth matrix L that we want to recover.
+
+[Faculty (Olympus)] 20:07:32
+But we observe why. We observe matrix y equals to y ij. And Yij is a random quantity.
+
+[Faculty (Olympus)] 20:07:42
+So if entry ij is observed, on average. It's equal to LIJ. That is if I observed this send you many many many times, then it's average would be LIKE, but I observe only one instance of it.
+
+[Faculty (Olympus)] 20:07:58
+It's like saying that I have a coin whose bias is point 7 5. If I tossed it many, many times, then, 75% of the time it will be head.
+
+[Faculty (Olympus)] 20:08:07
+25% of the time it will be tail. But what I'm going to observe is I'm going to just toss this coin once and I'm going to observe either head or tail.
+
+[Faculty (Olympus)] 20:08:16
+Okay. And that will be true for every IT. Why point 75? I'm just giving you an example, Christopher.
+
+[Faculty (Olympus)] 20:08:24
+It's there's nothing special about points. It's just an example. Think of Lij's number if LIG was point 75.
+
+[Faculty (Olympus)] 20:08:31
+Okay.
+
+[Faculty (Olympus)] 20:08:33
+If it's not observed, then of course the start it's question mark. It's missing value.
+
+[Faculty (Olympus)] 20:08:39
+From such a noisy setting we wanted to recover the entire matrix and that's why it was very hard.
+
+[Faculty (Olympus)] 20:08:46
+Okay, now Before we remind ourselves of some methods, let me give you few examples. Okay.
+
+[Faculty (Olympus)] 20:09:03
+But here is a simple example of a social network. Think of. Facebook, think of, LinkedIn.
+
+[Faculty (Olympus)] 20:09:09
+Where the people on left hand side people on right side. So it's about. Edges between them and entry one here means that these 2 individuals, for example, are connected.
+
+[Faculty (Olympus)] 20:09:23
+Okay, maybe I should have sort of.
+
+[Faculty (Olympus)] 20:09:26
+Okay. Entry one here means maybe this 2 individuals. So this one should be little shifted, okay?
+
+[Faculty (Olympus)] 20:09:35
+Entry question mark means that we don't know whether these 2 individuals want to connect or not.
+
+[Faculty (Olympus)] 20:09:41
+And based on this, what we want to do is for every pair of individuals who are not connected, we're to figure out.
+
+[Faculty (Olympus)] 20:09:48
+But what is the chance that if they were recommended to each other, they would like to connect to each other?
+
+[Faculty (Olympus)] 20:09:55
+Once we have this understanding. And then let's say this lady logs on at, in LinkedIn and LinkedIn wants to give it.
+
+[Faculty (Olympus)] 20:10:04
+Top 3 people to connect as a recommendation if it's interest is to get as many people connected as possible, then what LinkedIn might do at that stage is look at all the entries here that are not present.
+
+[Faculty (Olympus)] 20:10:17
+Find out their chances of this lady connecting to those people and then choose the one which are top 3 and recommend those individuals.
+
+[Faculty (Olympus)] 20:10:27
+Okay, that would be. Our way to do recommendation. So in a sense, solving this matrix completion would be the key prediction problem towards that.
+
+[Faculty (Olympus)] 20:10:37
+Now of course, LinkedIn might decide to apply some other decision on top of it that is it might know that well yes these are the John is of people connecting and it may not recommend the top 3.
+
+[Faculty (Olympus)] 20:10:51
+It might use some other function of it, depending on its objective. But No matter what function is. Knowing these chances are extremely important.
+
+[Faculty (Olympus)] 20:11:01
+Okay, so Judith what I'm said here is that look For example, if this, kid.
+
+[Faculty (Olympus)] 20:11:12
+I hope no kid is, that's my personal view by the way. I hope no kid is logging on to social media, but let's imagine that this kid does log in to the social media.
+
+[Faculty (Olympus)] 20:11:21
+And that social media wants to recommend. Top 3 individuals to connect for this kid. What that social media will say let me find out what is the chance for this kid to all those people who are not connected.
+
+[Faculty (Olympus)] 20:11:37
+To connect if they were offered to connect. And let's say this turns out to be point 7.
+
+[Faculty (Olympus)] 20:11:43
+This turns on a point 4. This turn point one is 0 point 9 and now If the goal is to.
+
+[Faculty (Olympus)] 20:11:51
+To maximize the chance of connections, then it might say I'm going to recommend this. This and these 3 people do this person.
+
+[Faculty (Olympus)] 20:11:58
+Okay.
+
+[Faculty (Olympus)] 20:12:00
+Alright, so, but again, to answer these kind of question. Finding out these answers is likelihood of connection is important and this is exactly the type of question we already discussed.
+
+[Faculty (Olympus)] 20:12:12
+A little bit more interesting would be, well. As we know, we connect to people socially depending on courts communities.
+
+[Faculty (Olympus)] 20:12:22
+Okay, there's been a classical model for community detection that came out from 1970, s especially in the context of biological sciences.
+
+[Faculty (Olympus)] 20:12:31
+It's called stochastic
+
+[Faculty (Olympus)] 20:12:35
+Okay, block. Model and this has been very well studied. And a great model for various topics.
+
+[Faculty (Olympus)] 20:12:45
+Okay. And what it says is that look if People are community. Okay, then within community, let's suppose that this is one community.
+
+[Faculty (Olympus)] 20:12:56
+Same as this and this is another community. So this is community one, community 2, community one, community 2.
+
+[Faculty (Olympus)] 20:13:05
+Within community, people connect with the very high chance P. Outside community that connect with the load chance queue.
+
+[Faculty (Olympus)] 20:13:12
+So people connecting between community one and community 2 which corresponds to all this is Q. Community one and community one that corresponds to this.
+
+[Faculty (Olympus)] 20:13:23
+At community 2 and community 2 that corresponds to this. Within community there is a high chance of connecting with each other outside community.
+
+[Faculty (Olympus)] 20:13:32
+There's a small chance of connecting with us. Now, of course, we don't know a priori what communities are.
+
+[Faculty (Olympus)] 20:13:38
+All we know is some edges present or absent. But if Ed is present or absent based on that, if we can find out for every entry, what is the chance of 2 things to connect?
+
+[Faculty (Olympus)] 20:13:50
+And if indeed underlying model was this kind of a model. Then for every IJ, either it's close to P or it's close to Q.
+
+[Faculty (Olympus)] 20:14:00
+Once we have that, then we can sort of reorder things and figure out. That, hey, this is community and this is community.
+
+[Faculty (Olympus)] 20:14:07
+Okay, so in a sense. Ability to solve. For matrix completion can help us detect community in this kind of a model.
+
+[Faculty (Olympus)] 20:14:18
+Okay. And yes, indeed, I clustered it, Veroni, and all happened is that because this is a simple model, I don't really need to cluster.
+
+[Faculty (Olympus)] 20:14:27
+I just need to find out. What things are similar and then just put them together.
+
+[Faculty (Olympus)] 20:14:32
+A little bit more interesting applications. Okay. So for example,
+
+[Faculty (Olympus)] 20:14:43
+And, Shell, yes, model becomes less reliable at fringes when, especially when P is close to Q.
+
+[Faculty (Olympus)] 20:14:52
+Okay.
+
+[Faculty (Olympus)] 20:14:53
+Because when P gets close to Q, then you can tell apart. Okay, but you can still be able to figure out at least there chances chances of connecting.
+
+[Faculty (Olympus)] 20:15:03
+Okay, so maybe you may not be able to tell the communities, but still chances of connecting, you'll be able to figure out.
+
+[Faculty (Olympus)] 20:15:10
+Here's a more interesting setting. Let's see. If you play for example online.
+
+[Faculty (Olympus)] 20:15:18
+For example, I play with. I play with Judith would ask the last question or comment.
+
+[Faculty (Olympus)] 20:15:25
+Judy plays with Varuni, Veroni pays with Shell, Shell plays with Ricardo and Ricardo plays with me again.
+
+[Faculty (Olympus)] 20:15:32
+Okay, so I have never played with Shell, but I have played with Shell effectively through Judith through So in a sense, when Not everybody is playing with each other, but sparse number of things are happening and we want to figure out what is the global score or global ranking of these kind of players.
+
+[Faculty (Olympus)] 20:15:54
+Happens in online gaming all the time in many other settings. We can again show apply matrix completion.
+
+[Faculty (Olympus)] 20:16:01
+So how? Let's see. So imagine these are players and these are players. So how? Let's see.
+
+[Faculty (Olympus)] 20:16:06
+So imagine these are players and these are players. What we are going to do is that for row i column j in particular for this row corresponding to this lady and column corresponding to this person will say.
+
+[Faculty (Olympus)] 20:16:17
+2 is the number of time when these 2 individuals played and this person won. Okay. On the other hand, Let's see this one suppose there is a 4 here.
+
+[Faculty (Olympus)] 20:16:30
+So when this person played with the same person here. They won 4 times. So that means that between these 2 people.
+
+[Faculty (Olympus)] 20:16:39
+2 plus 4, 6 such game. 6 such games happened out of which the lady in green 1 2 and this person 1 4 Okay, so in fact from this small number of data points we can say that whenever these 2 people play Do is to 4 is the chance for this lady to win.
+
+[Faculty (Olympus)] 20:17:06
+Which is saying that when these 2 people play, the lady in green would win with chance one third and lose with chance through 2 thirds, okay?
+
+[Faculty (Olympus)] 20:17:15
+So far so good. So that means that the chance of this person winning over this person is let's call it LIJ or L one.
+
+[Faculty (Olympus)] 20:17:27
+And then this one is one minus that LIG, right? In that sense, this is a nice anti-symmetric chance matrix.
+
+[Faculty (Olympus)] 20:17:37
+Now we see these some of these entries and from there we want to figure out. What is the chance for any 2 player?
+
+[Faculty (Olympus)] 20:17:44
+Let's say this person and this person who have never played. If they're played together, what is the chance that this lady would win with over this person?
+
+[Faculty (Olympus)] 20:17:52
+Matrix completion can help you answer that. Once you have all of that thing, then based on top of it, you can do apply some algorithm and come up with a global ranking.
+
+[Faculty (Olympus)] 20:18:02
+And I, that puts these 2 things together very nicely from directly from data. It's called rank.
+
+[Faculty (Olympus)] 20:18:10
+Centrality, centrality and if you like to Read these kind of things. Okay.
+
+[Faculty (Olympus)] 20:18:22
+If you like to sort of read these kind of things. Then, this is the manuscript that we had published in 2,012 2,030 okay and it has been utilized in all sorts of.
+
+[Faculty (Olympus)] 20:18:36
+There all sorts of decision making settings.
+
+[Faculty (Olympus)] 20:18:40
+Okay, so that's, that. Let's see, there's one more and then I will stop after that.
+
+[Faculty (Olympus)] 20:18:49
+Here is a crowd sourcing setting. It's also called micro task crowd sourcing.
+
+[Faculty (Olympus)] 20:18:56
+Things like Amazon. Mechanical Turk is a nice platform for that which many social scientists for example use to get Quick feedback from a large population.
+
+[Faculty (Olympus)] 20:19:10
+Okay. Here is an example of what sorts of things you can get. For example, let's suppose that you have a number of websites and you want to find out whether they're suitable for children or not.
+
+[Faculty (Olympus)] 20:19:21
+And Let's say sort of still chat GPT or something like that figures out. We want people to give you feedback, then what you will do is you would take this website and assign few people.
+
+[Faculty (Olympus)] 20:19:34
+Let's say a person like this and a person like that and ask them question, do you think it's suitable to children or not?
+
+[Faculty (Olympus)] 20:19:39
+And this person will say, no, this person will say yes. Okay, now at this stage, you have a problem because whom should you trust?
+
+[Faculty (Olympus)] 20:19:46
+One option is you can just go and check it, but then the whole purpose of giving it to somebody else got Defeated, right?
+
+[Faculty (Olympus)] 20:19:54
+Then you might as well do it yourself from day one. Okay, so then what do you do? Well, maybe here's what we can do.
+
+[Faculty (Olympus)] 20:20:01
+Can say, well, here's a set of answers that we've collected for a number of tasks.
+
+[Faculty (Olympus)] 20:20:05
+And let's assume that this answer is correct with probability. EIJ or Lij, actually let's just say this.
+
+[Faculty (Olympus)] 20:20:14
+Okay, so let's say. With probability. Lij, this is correct and one minus LIG.
+
+[Faculty (Olympus)] 20:20:21
+This is wrong. And based on this, we find out all LIKs. Once we found out alllij's and then we find out that well, this is true with chance.
+
+[Faculty (Olympus)] 20:20:31
+Point 9, this is true with chance point one. So. 90% chance this is correct, 10% chance this is correct at this stage.
+
+[Faculty (Olympus)] 20:20:40
+I might look at this and I would call what I would call a maximum likelihood estimator and then they'll say, well, this is the very highly like the answer, okay?
+
+[Faculty (Olympus)] 20:20:52
+And so on and so forth. And if you Okay, so if you will also read more about this type of algorithm, how matrix completion applies, and then you can sort of look at crowds sourcing.
+
+[Faculty (Olympus)] 20:21:06
+Low cost budget. Optimus. So those are the keywords and this is the manuscript that You'd published somewhere in 2,000. 13,040.
+
+[Faculty (Olympus)] 20:21:19
+Alright, so these are all different. Types of applications of Me matrix completion and now hopefully you can see that the matrix completion is not just a gimmick.
+
+[Faculty (Olympus)] 20:21:30
+It's not a caricature, actually it's something very real. But these type of algorithms are used in all sorts of.
+
+[Faculty (Olympus)] 20:21:37
+Peer grading platform, citizen science, some of the citizens science projects and many other places.
+
+[Faculty (Olympus)] 20:21:44
+Okay. And let's see the, okay. Okay, so that is a bunch of applications.
+
+[Faculty (Olympus)] 20:21:56
+Before I sort of, bunch of applications, before I sort of, let me sort of finish reminding everybody and then sort of laid up questions, the ones that I've not answered, okay?
+
+[Faculty (Olympus)] 20:22:03
+Okay, so one thing we had looked at was Yell data as an example. Hopefully you are still.
+
+[Faculty (Olympus)] 20:22:14
+Still remember it. It was a nice data set. It had lots of variations.
+
+[Faculty (Olympus)] 20:22:21
+The punchline was that We had users, businesses. All sorts of interactions between them, but it was extremely.
+
+[Faculty (Olympus)] 20:22:31
+Okay. And filling it up was a key problem that we worried about. Similarly, movie lands, we had movies, users and reviews between them, and this had lots of heterogeneity and it was sparse not as far as yellow but still sparse enough.
+
+[Faculty (Olympus)] 20:22:47
+And again, here also we concluded that we want to fill up those missing entrix. And that's what led us to defining the problem of completing the matrix.
+
+[Faculty (Olympus)] 20:22:57
+Okay.
+
+[Faculty (Olympus)] 20:23:02
+Okay, I'm Joseph. We discuss this. There's a more complicated version of the problem where multiple.
+
+[Faculty (Olympus)] 20:23:10
+Dimensions and with things changing over time. Today we are not getting that. We will get to both of these things.
+
+[Faculty (Olympus)] 20:23:16
+Tomorrow in the next lecture today. I'm just going to give you a more interesting algorithms to solve this problem.
+
+[Faculty (Olympus)] 20:23:22
+Okay. Now. Before I answer all your questions that are come up, I want to so remind you of the 2 solutions we covered.
+
+[Faculty (Olympus)] 20:23:37
+In last lecture, one was averaging. And one who is one homework, one thing to think about before you go to bed.
+
+[Faculty (Olympus)] 20:23:46
+I'd ask you to think about why this plus one over square root of 10. Now before. If you remember if you have given some thought.
+
+[Faculty (Olympus)] 20:23:55
+Please, feel free to type in. I'm going to sort of remind us why one over square root and first of all makes sense.
+
+[Faculty (Olympus)] 20:24:04
+And then, Remember the whole view was that some entry let's call it . That we want to estimate Okay.
+
+[Faculty (Olympus)] 20:24:21
+Suppose all entries are equal because we had discussed. Then Lij equals to L. Okay and then we said well we have some entries that we have observed.
+
+[Faculty (Olympus)] 20:24:31
+To 0 0 1 one and then from there we produced an estimate L hat which is saying that 2 over 4 because total 4 entries and 2 of them are ones.
+
+[Faculty (Olympus)] 20:24:42
+Okay, or half. Now the question is that How good is this estimate of L? The true out.
+
+[Faculty (Olympus)] 20:24:51
+Assuming all LGs are equal. Well, it's like a coin task, right?
+
+[Faculty (Olympus)] 20:24:56
+And we know that as we observe and coin tosses.
+
+[Faculty (Olympus)] 20:25:00
+Okay, coin tosses. Effectively the L of N that we construct which is and over number of ones that we have observed in these endings.
+
+[Faculty (Olympus)] 20:25:12
+This converges to actual answer L. And the between these 2 things scale like one over square root of n.
+
+[Faculty (Olympus)] 20:25:24
+Okay. Like a Gaussian distribution. Okay. Because of central limit theorem.
+
+[Faculty (Olympus)] 20:25:29
+Connection of standard error. Okay.
+
+[Faculty (Olympus)] 20:25:33
+So that means that when we produce these estimate. We know that this is the estimate we have produced. But true thing might lie between minus one over square root of and or plus one over squared of N or anywhere in between anywhere in between, okay?
+
+[Faculty (Olympus)] 20:25:54
+So the question is that what should we do? So I've given you effectively an uncertainty confidence interval, a distribution of what the true answer is.
+
+[Faculty (Olympus)] 20:26:04
+Now, that is, that is my, that was my responsibility as answering. Prediction problem and I'm done.
+
+[Faculty (Olympus)] 20:26:12
+Now, in a sense, that's the goal that we have set in this. Set of lectures in terms of.
+
+[Faculty (Olympus)] 20:26:20
+What is the type of answer we will produce? What do you do with that answer that prediction answer that distribution of thing that I have produced?
+
+[Faculty (Olympus)] 20:26:31
+Is your job as a decision maker. Okay, so your job is a decision maker. You might say, well, you know what, I want to choose.
+
+[Faculty (Olympus)] 20:26:40
+This one somebody says not no I want to choose This one is an answer. Somebody might say, well, I want to choose.
+
+[Faculty (Olympus)] 20:26:50
+This one is an answer. Question is that what are the implications of choosing these different answers? In terms of decisions.
+
+[Faculty (Olympus)] 20:26:58
+In particular, What is the implication of doing this addition plus which is like this part? Okay. Or if it was minus, what is this implication and so on, right?
+
+[Faculty (Olympus)] 20:27:09
+And that is the question that I had asked you yesterday. Okay, that y plus y minus or do nothing.
+
+[Faculty (Olympus)] 20:27:17
+Well, if I have And suppose number of observations that I've seen is only one, okay?
+
+[Faculty (Olympus)] 20:27:24
+Then what is the correction? The correction is one over square root of one, which is one.
+
+[Faculty (Olympus)] 20:27:31
+And if somebody had correctly pointed out if you have one and something, you know, and our answer was supposed to be between 0 and one.
+
+[Faculty (Olympus)] 20:27:35
+So you might want to. Restricted to one. Which means I'm gonna say, hey, if I only one data point about something or 0 data point for that matter about something.
+
+[Faculty (Olympus)] 20:27:45
+I'm going to say that my LIJ is one. Which means that If a recommendation system is using that.
+
+[Faculty (Olympus)] 20:27:53
+As a way to make decision, it will. Likely think that this is going to is very highly likely to happen.
+
+[Faculty (Olympus)] 20:28:02
+And hence it will be encouraged. To recommend that more, explore that more. So it's like doing plus means that when you have a restaurant, with very few reviews.
+
+[Faculty (Olympus)] 20:28:15
+Or no reviews for that matter. By default, your recommendation system would assume that it is a very high rating and hence people might actually get recommended that restaurant.
+
+[Faculty (Olympus)] 20:28:26
+People will go, they will actually. Check out food and based on that, their visits, they might actually give.
+
+[Faculty (Olympus)] 20:28:32
+Reading to it. Now, 100 people have gone already and then your one over square root of n starts looking like one over 100 which is point 1.
+
+[Faculty (Olympus)] 20:28:41
+So at this stage you're doing very little correction and then the true observation that you have starts playing the role.
+
+[Faculty (Olympus)] 20:28:48
+So that means you use plugs. To encourage exploration. Similarly, you do minus, it will have exactly opposite effect.
+
+[Faculty (Olympus)] 20:28:58
+That is having minus would discourage people who are gaming the system by giving initially artificially high reviews.
+
+[Faculty (Olympus)] 20:29:09
+Okay. And of course, you as a recommendation system, have to decide which one do you want as a decision maker.
+
+[Faculty (Olympus)] 20:29:16
+You want plus, you want minus, or you want nothing. So that's a difference between decision and prediction problem.
+
+[Faculty (Olympus)] 20:29:23
+And My hope is that through this simple example, I've explained you that decision is a much, much tougher problem.
+
+[Faculty (Olympus)] 20:29:31
+It is a context dependent and that's why we are not covering it. But prediction, generic, we can solve across.
+
+[Faculty (Olympus)] 20:29:38
+Alright, so with that, I want to sort of stop reminding everything we did for last lecture.
+
+[Faculty (Olympus)] 20:29:46
+Instead I want to know. Go through questions and then we'll start with the content for today's lecture.
+
+[Faculty (Olympus)] 20:29:50
+Alright, so you guys are really good. Bunch and hence there are lots of questions so let's see
+
+[Faculty (Olympus)] 20:30:01
+Okay, it's I'm Joseph. Okay, very good. So, today, okay, so Veroni's question was to determine the community we need to determine the community we need to cluster them on similarity that is correct.
+
+[Faculty (Olympus)] 20:30:12
+Okay. I'm going to look for and I see that sort of you guys are very clever about putting q.in the beginning when it's questioned versus other things that conversation.
+
+[Faculty (Olympus)] 20:30:24
+So that helps me now. Quickly. Browse through your comments, okay? So if you don't have, okay, very good.
+
+[Faculty (Olympus)] 20:30:34
+Thank you, Clauder. So if you don't have Q dot, I will assume that it's a comment and I will continue.
+
+[Faculty (Olympus)] 20:30:40
+Okay, so please feel free to
+
+[Faculty (Olympus)] 20:30:43
+But please do use Q if you want me to pay attention to it. Okay. So have you seen applications with tech support such as CSET, I customer satisfaction rate, applying completion.
+
+[Faculty (Olympus)] 20:30:54
+To find the correlation and recommendation around product category in cases. So actually, Clara, that's a brilliant.
+
+[Faculty (Olympus)] 20:31:01
+Application. I personally have not come across that, but definitely it's a very good.
+
+[Faculty (Olympus)] 20:31:09
+Very good application. Maya's question is how is probability calculated for crowd sourcing? Very good.
+
+[Faculty (Olympus)] 20:31:15
+So they have, but crowd sourcing again, what you want to do is you would think of it as a matrix completion problem.
+
+[Faculty (Olympus)] 20:31:22
+And once you think of matrix completion problem, then assuming you have a matrix completion algorithm, you can compute the probability.
+
+[Faculty (Olympus)] 20:31:28
+Veroni's question, can we use matrix completion to include missing values in simple regression problem as well?
+
+[Faculty (Olympus)] 20:31:34
+Very, very good. See now we are thinking about why and why now you're also thinking why Matrix completion is mother of all.
+
+[Faculty (Olympus)] 20:31:43
+Prediction problem. So yes, so let's sort of do once 1 min conversation about what we need's question.
+
+[Faculty (Olympus)] 20:31:53
+So remember regression. So actually.
+
+[Faculty (Olympus)] 20:31:58
+The park is usually good. Okay, so regression, right? So idea behind regression is that you have a notion of some feature acts.
+
+[Faculty (Olympus)] 20:32:07
+And then you label why and why is your thinking of some function of x, okay?
+
+[Faculty (Olympus)] 20:32:15
+What you would typically have is a data like this. So you've got feature. Features for data point one, data point 2.
+
+[Faculty (Olympus)] 20:32:23
+Data point, let's call it your and data points. And then you got labels. Why one to y and right?
+
+[Faculty (Olympus)] 20:32:33
+And then you are trying to learn relationship between them. Okay, now what might happen is that some of these features have missing values.
+
+[Faculty (Olympus)] 20:32:42
+Okay. So the first what you can do is you can apply a matrix completion method on top of it and let's call this x hat matrix now and then you'll do this regression.
+
+[Faculty (Olympus)] 20:32:54
+And indeed, you can do that. And what's this is called what's called friendship. Principal.
+
+[Faculty (Olympus)] 20:33:04
+Component regression or PCR. And if you search by this term or maybe just search, I think this is the title.
+
+[Faculty (Olympus)] 20:33:14
+Is a manuscript that me and some of my recent, graduate, students. One of there is no professor at Columbia.
+
+[Faculty (Olympus)] 20:33:23
+His name is Anisha, and Dennis Shen who is now at USC. These 2 thesis was built on this observation and of building out.
+
+[Faculty (Olympus)] 20:33:35
+Very nice, just to go TD and all that stuff. So indeed, you're absolutely right, Santiago's question, can you repeat the difference between prediction and decision problem?
+
+[Faculty (Olympus)] 20:33:47
+Okay. Let me repeat that. But I'll be quick, Santiago. Okay, and again, if I'm not able to answer your question, don't worry.
+
+[Faculty (Olympus)] 20:33:55
+We got very able, team here who can. Answer your questions after the session is over. So prediction produces.
+
+[Faculty (Olympus)] 20:34:04
+Let's say predictive distribution, okay, for each missing value, what we think as an estimation is and the distribution of it.
+
+[Faculty (Olympus)] 20:34:11
+How you utilize that distribution to make decision depends on your end objective. Constraints in many other things.
+
+[Faculty (Olympus)] 20:34:19
+And It's a context dependent decision depends on context. For example, just the way we are explaining to that simple algorithm.
+
+[Faculty (Olympus)] 20:34:29
+Producing estimate of L hat and plus or minus one over square root of N is a predictive distribution is the answer to prediction problem, whether you use Al hat plus one over square root 10 or I let minus one over.
+
+[Faculty (Olympus)] 20:34:44
+That's a decision. That's a thing based on decision objective.
+
+[Faculty (Olympus)] 20:34:49
+Sophia. Do we? Okay, sorry, what is it?
+
+[Faculty (Olympus)] 20:34:57
+But did I lose it? Okay, good. Do we, need some neighbor information to complete the matrix?
+
+[Faculty (Olympus)] 20:35:02
+Well, okay, so now we are talking about matrix completion method and neighbors and all that we're coming coming that today.
+
+[Faculty (Olympus)] 20:35:09
+Okay. So let's separate 2 things. What problem we are solving and how we are solving. You have a solution, what you can do with it.
+
+[Faculty (Olympus)] 20:35:20
+That's what we discussed with examples. Now let's go back and try to solve problem with more complicated algorithms.
+
+[Faculty (Olympus)] 20:35:25
+And maybe that's a good queue for me to get going with today's content. All right.
+
+[Faculty (Olympus)] 20:35:29
+Very good. I'm not going to cover this content based because you remember And. Okay. So today's topic.
+
+[Faculty (Olympus)] 20:35:43
+Evolve our solutions. We'll all call up matrix completion or matrix estimation. What that means is that This is our matrix.
+
+[Faculty (Olympus)] 20:35:55
+These are users. These are items. Okay. And these are values.
+
+[Faculty (Olympus)] 20:36:04
+All sorts of values. To fill up missing values or . No is observed values We are going to only use entries within the matrix.
+
+[Faculty (Olympus)] 20:36:15
+We are not going to use any attributes associated with user or any attribute associated with item. For us, users are just numbers, 1, 2, 3 up to n, items that are just numbers, one to up to M.
+
+[Faculty (Olympus)] 20:36:28
+We have no idea what those. Users mean no idea what those items mean. We only use matrix information.
+
+[Faculty (Olympus)] 20:36:34
+Check anonymous learning. That's the type of solution we are going to look at today.
+
+[Faculty (Olympus)] 20:36:41
+Content-based solutions actually use information about users or items that's not anonymous learning.
+
+[Faculty (Olympus)] 20:36:49
+Today we are not going to do any of those things. They will put that on hold. We'll come back tomorrow and put all of these things together.
+
+[Faculty (Olympus)] 20:36:59
+But today our focus is only going to be using information about revealed observations or revealed preferences, no information about user or no information about items.
+
+[Faculty (Olympus)] 20:37:10
+Okay. The 3 types of solutions that we're going to look at are. One is clustering.
+
+[Faculty (Olympus)] 20:37:20
+Second is. Personalized clustering or collaborative filtering. And then the third one is. Singular value decomposition based algorithm that is we are going to view matrix from an algebraic perspective and then solve the problem.
+
+[Faculty (Olympus)] 20:37:37
+Okay, there is a related notion of solving it through optimization, while I have things here.
+
+[Faculty (Olympus)] 20:37:46
+I don't think I will be able to get through it and that's by design. I will use this as a starting point from the next next lecture to very briefly remind you of what we did this lecture and then continue.
+
+[Faculty (Olympus)] 20:37:57
+Okay. Alright. So with that in mind. I'm going to start with clustering first.
+
+[Faculty (Olympus)] 20:38:05
+Okay, now let's just see. So if, those is a question that. Angela are posted for items do they have to be objects or can they be also related to ideas?
+
+[Faculty (Olympus)] 20:38:17
+They can be anything, literally. It's just I'm not gonna even ask you to tell me what they are.
+
+[Faculty (Olympus)] 20:38:24
+I'm just you could just go tell me here is item one here is item 2 it is item 20
+
+[Faculty (Olympus)] 20:38:34
+Hey.
+
+[Faculty (Olympus)] 20:38:38
+Alright, so let's get started. I'm going to spend quite a bit of time on this solution, by the way.
+
+[Faculty (Olympus)] 20:38:44
+Let's try. Actually, a good fraction of time will be spent on this. And then as we'll see.
+
+[Faculty (Olympus)] 20:38:54
+The next solution will naturally pop out of it. And the third solution would be actually very, very simple.
+
+[Faculty (Olympus)] 20:39:01
+Just reminding us of. Singular value. The composition.
+
+[Faculty (Olympus)] 20:39:07
+And yes, Taylor, these, these are just. 3 different approaches. For solving the same problem.
+
+[Faculty (Olympus)] 20:39:18
+Okay, so first is clustering. Well, you've seen clustering. What does clustering mean?
+
+[Faculty (Olympus)] 20:39:27
+Well, clustering means that If I show you data points like this.
+
+[Faculty (Olympus)] 20:39:35
+Okay, and suppose there are no colors. Colours are really indicative here. So this is a cluster one, cluster 2, cluster 3.
+
+[Faculty (Olympus)] 20:39:44
+In effect, cluster at least in words, it means that set of data points that are similar to each other then.
+
+[Faculty (Olympus)] 20:39:51
+More similar to each other than the rest. It's kind of a relative notion. Okay, you learned various clustering algorithm.
+
+[Faculty (Olympus)] 20:40:00
+Does anybody remember any one clustering algorithm that you looked at?
+
+[Faculty (Olympus)] 20:40:08
+Perfect. Thank you. K-mans. So think of your favorite clustering algorithm because I want you to utilize that.
+
+[Faculty (Olympus)] 20:40:19
+How does gaming work? Well, in,, suppose for this clustering algorithm, we said k equals to 3.
+
+[Faculty (Olympus)] 20:40:27
+And you say, dB scan, all of them are correct algorithm. I'm just going to think about K-mans right now.
+
+[Faculty (Olympus)] 20:40:33
+You can choose your own favorite algorithm. Okay. Came in says the well choose 3 initially cluster centers at random.
+
+[Faculty (Olympus)] 20:40:40
+Let's say it's one of them is this. One of them is this and one of them is this, okay?
+
+[Faculty (Olympus)] 20:40:44
+And then each.
+
+[Faculty (Olympus)] 20:40:48
+Of the other data point. Connects to the closest of these 3 cluster points. For example, all of these will go to this one.
+
+[Faculty (Olympus)] 20:40:56
+This guy will go to this one, this guy will go to this one. All of this will go to this one.
+
+[Faculty (Olympus)] 20:41:02
+Maybe some of these will go to this 1. 2 and maybe all of these will go to this one.
+
+[Faculty (Olympus)] 20:41:07
+Once you have that, you have to now new clusters. You find a cluster center. Maybe you'll find new clusters entered here.
+
+[Faculty (Olympus)] 20:41:15
+Maybe here and maybe here and then repeat the process. Till you find. Stable separation or stable clusters.
+
+[Faculty (Olympus)] 20:41:24
+That's K me. How do you choose K? How did I choose K equals to 3? Well, you use elbow method, right?
+
+[Faculty (Olympus)] 20:41:32
+That is you start with small K and then keep increasing until you find that. The gains are not proportionate to increase in complexity.
+
+[Faculty (Olympus)] 20:41:40
+Okay. It's not what does clustering how to do with. Our world, right? Well, here is what clustering how to do with.
+
+[Faculty (Olympus)] 20:41:53
+Okay, so let's go back. So. So remember we have this bunch of users. Bunch of items.
+
+[Faculty (Olympus)] 20:42:04
+Okay. And you know, the Suppose there was a world in which we know that These are the users.
+
+[Faculty (Olympus)] 20:42:16
+As users all of them are like exactly same to each other. These are another set of features who are identical to each other.
+
+[Faculty (Olympus)] 20:42:24
+And these are other set of users who are identical. So I've got 3 clusters of users, users.
+
+[Faculty (Olympus)] 20:42:31
+There are 3 clusters. For items, I have similarly, this is a cluster of items.
+
+[Faculty (Olympus)] 20:42:38
+This is another cluster.
+
+[Faculty (Olympus)] 20:42:41
+And this is another cluster. Okay, I've got floor 4 clusters of items and 3 clusters of users.
+
+[Faculty (Olympus)] 20:42:53
+And what do I mean by that? All the users and items in this cluster behave same way because See all of these users are replica of each other.
+
+[Faculty (Olympus)] 20:43:03
+All of these items are also replica of each other. That's what I mean by they belong to same cluster.
+
+[Faculty (Olympus)] 20:43:07
+I was taking very strong view.
+
+[Faculty (Olympus)] 20:43:10
+And because all of these users are interchangeable. If I, all of these rows should look the same.
+
+[Faculty (Olympus)] 20:43:18
+All of these items are interchangeable. All of these items should, column should look the same, which means that All entries here might be, let's call it L.
+
+[Faculty (Olympus)] 20:43:29
+All entries here might be, let's call it L 1 one. All entries here might be called L 1 2.
+
+[Faculty (Olympus)] 20:43:39
+Here all entries might be called L 3. 3 all of them here.
+
+[Faculty (Olympus)] 20:43:47
+Which means that for users, Who belonged to same cluster and items were belong to same cluster.
+
+[Faculty (Olympus)] 20:43:55
+The sub, this rectangle that we have out of this big matrix. The entries are constant here.
+
+[Faculty (Olympus)] 20:44:03
+That constant might be different from this constant, might be different from this constant. But within these rectangles.
+
+[Faculty (Olympus)] 20:44:11
+They are constants. Same. Okay. Now you might say that well, 2 questions.
+
+[Faculty (Olympus)] 20:44:21
+One. Does this really make sense and if so How do we find clusters to begin with because we don't even know all entries if we knew all entries then we would not be solving matrix completion problem.
+
+[Faculty (Olympus)] 20:44:33
+There's kind of a chicken in there. Okay. So 2 problems. One.
+
+[Faculty (Olympus)] 20:44:37
+Does this model even have a merit? . And 2 Even if it had married, how are we going to find clusters?
+
+[Faculty (Olympus)] 20:44:46
+Because to find clusters, we need to have understanding that All of these rows look the same, but we don't have an idea of how those rows look because we only observed some zeros in some one.
+
+[Faculty (Olympus)] 20:44:57
+So how are we going to do clustering? Okay, so we're gonna answer those 2 questions in that order, one at a time.
+
+[Faculty (Olympus)] 20:45:05
+Okay, so first question, can be answered by looking at movie lens data. So here this is a, pieces of George.
+
+[Faculty (Olympus)] 20:45:21
+Chin is my former student. Now he's a professor at CMU. So George, what he did.
+
+[Faculty (Olympus)] 20:45:31
+He took the movie lens data set.
+
+[Faculty (Olympus)] 20:45:35
+To keep keep entries dense, you chose top 200 and top 500 items to minor detail if you don't want just ignore that.
+
+[Faculty (Olympus)] 20:45:46
+Then what he did, he clustered them. Okay, and then what he did is that he said, well, users from the same cluster, these are users from first cluster.
+
+[Faculty (Olympus)] 20:45:59
+Users from second cluster users from third cluster. Fourth cluster. Fifth cluster and so on.
+
+[Faculty (Olympus)] 20:46:05
+So he effectively reordered user or rows so that. Users from same cluster are together. Okay?
+
+[Faculty (Olympus)] 20:46:13
+He did the same thing for movies. Movies from the same cluster are together, same cluster and so on.
+
+[Faculty (Olympus)] 20:46:20
+Okay. I'm not telling you how he did clustering, okay? I will tell you that later.
+
+[Faculty (Olympus)] 20:46:26
+But after he clustered, He reordered columns. Reorder Rose, how did he do that?
+
+[Faculty (Olympus)] 20:46:35
+He found out. Clusters of users and items.
+
+[Faculty (Olympus)] 20:46:41
+Users in the same cluster where put together. Okay, that's how your drink was done. Similarly, I movies from the same cluster was put together.
+
+[Faculty (Olympus)] 20:46:52
+Now, let's focus on this.
+
+[Faculty (Olympus)] 20:46:57
+What's happening? Well, the way this was done is that the dark was when ratings were very high.
+
+[Faculty (Olympus)] 20:47:06
+Light was when reading were very small or . As you can see Everything is dark here and almost equally likely, equally dark.
+
+[Faculty (Olympus)] 20:47:19
+Similarly, everything is dark here too. Because this cluster of movies in this cluster of users Everything here is constant.
+
+[Faculty (Olympus)] 20:47:29
+But then for the same sort of keep users same but change your movie cluster and entries change, right?
+
+[Faculty (Olympus)] 20:47:35
+You see now you've got this chequered pattern just like a chessboard. Okay, what that is showing is indeed.
+
+[Faculty (Olympus)] 20:47:44
+The type of model I was mentioning is true. That is things in this. Things in the same cluster of users and items are very, very similar.
+
+[Faculty (Olympus)] 20:47:56
+Okay. Well, it's really nearly constant. Okay. So, and that's a reality.
+
+[Faculty (Olympus)] 20:48:04
+Nothing in life is perfect. Okay. And that's what sort of this looks like. Okay, so but then the question is, how does this help me?
+
+[Faculty (Olympus)] 20:48:18
+Suppose it is the case. 2 things. One is how am I going to find clusters? But suppose I did find clusters.
+
+[Faculty (Olympus)] 20:48:25
+How is it going to help? But here's how it's going to help. If indeed.
+
+[Faculty (Olympus)] 20:48:31
+If indeed. Things are let's suppose that these are the 2 user cluster in 3 item cluster.
+
+[Faculty (Olympus)] 20:48:39
+Suppose these are the clusters. So this is cluster one, cluster 2. Let's cluster one cluster 2 cluster 3.
+
+[Faculty (Olympus)] 20:48:46
+And here, let's say we observe 101-11-0010ne and.
+
+[Faculty (Olympus)] 20:48:57
+1 0 1 0 and so on. Then what we'll do is it for this square. We'll look at all entries that are observed.
+
+[Faculty (Olympus)] 20:49:08
+Take that average. Okay. And here the average would be 1 0 1 1 one. So it's 4 out of 5.
+
+[Faculty (Olympus)] 20:49:17
+And then replace all the entries in this one by 4 out of 5. Okay.
+
+[Faculty (Olympus)] 20:49:25
+Similarly here. We will replace all the entries. By 2 out of 5. Here will replace all entries by half and so on.
+
+[Faculty (Olympus)] 20:49:37
+Okay, and that means that now after we found clustering, we just applied global averaging within that those boxes.
+
+[Faculty (Olympus)] 20:49:45
+And that's the algorithm.
+
+[Faculty (Olympus)] 20:49:50
+So, we look at the data, somehow miraculously, if we figure out clusters of users and items and once we figured that out then we just replaced by constants.
+
+[Faculty (Olympus)] 20:50:00
+And so Raj, we are not filling only with ones or zeros. We are saying that all of these entries are are 2 over 5.
+
+[Faculty (Olympus)] 20:50:09
+All of these entries are one half, all of these entries now are 4 by 5. And so on.
+
+[Faculty (Olympus)] 20:50:15
+The probabilities. Okay. Very good. And exactly Taylor, you're absolutely right.
+
+[Faculty (Olympus)] 20:50:26
+These are like local average rather than global average. And. Okay.
+
+[Faculty (Olympus)] 20:50:31
+And indeed, that's exactly right. That's in there. Kelly Andrews question. We have to replace even the previous data point or just fill the gaps.
+
+[Faculty (Olympus)] 20:50:40
+Well, you do want to replace even the previous data point or just fill the caps. Well, you do want to, replace the observed entries to because observed entries are zeros or ones and we believe that true underlying ground truth is a number between 0 and one not 0 or one.
+
+[Faculty (Olympus)] 20:50:50
+Okay.
+
+[Faculty (Olympus)] 20:50:54
+Great. So now the key question is that How do we? Do. Glustering.
+
+[Faculty (Olympus)] 20:51:07
+Okay.
+
+[Faculty (Olympus)] 20:51:10
+All right. Philippos question is can we use all types of everything so Philip at this stage If we believe that cluster is constant, then no point of sort of using all types of averaging, but you are absolutely right.
+
+[Faculty (Olympus)] 20:51:26
+There's no harm in trying those all types of averaging to see if you can. Okay.
+
+[Faculty (Olympus)] 20:51:34
+Excellent. How do we feel empty cluster? That's a great question, Jamie.
+
+[Faculty (Olympus)] 20:51:40
+If we don't have, suppose there is no entry that is observed here what do you do well this is where then you might want to rely on global averaging maybe global averaging across this cluster or global averaging across this cluster for example.
+
+[Faculty (Olympus)] 20:51:52
+Okay. So for example, maybe let's suppose that sort of This is missing, okay? And let's suppose this is 4 over 5.
+
+[Faculty (Olympus)] 20:52:02
+And this is 3 over 5. And here this is. Half. You'll say, well, one way we can do this is to say that 4 over 5 plus 3 over 5 divided by 2.
+
+[Faculty (Olympus)] 20:52:16
+Okay, that will be what? 7 over 10.
+
+[Faculty (Olympus)] 20:52:21
+And this one is half. So here I will take 7 over 10 plus half and then take half and then maybe put it like this.
+
+[Faculty (Olympus)] 20:52:29
+Kind of a meta averaging algorithm.
+
+[Faculty (Olympus)] 20:52:34
+Okay. Alright, so now I need to help you find. Good question. Okay.
+
+[Faculty (Olympus)] 20:52:44
+So. Let's just sort of use the notes. You'd have slides, you would know.
+
+[Faculty (Olympus)] 20:52:51
+Okay, so.
+
+[Faculty (Olympus)] 20:52:52
+Actually, before I use the slides,
+
+[Faculty (Olympus)] 20:52:59
+Actually, let's first do this. Okay. So I've got data that looks like this, right?
+
+[Faculty (Olympus)] 20:53:05
+So good users, items, and some of these are observed. And many are not observed. Right? And what I want to do.
+
+[Faculty (Olympus)] 20:53:16
+Is I'm gonna describe you an algorithm for clustering users, okay?
+
+[Faculty (Olympus)] 20:53:24
+You can apply the same algorithm to columns and you will get clustering of items. So. Let's just focus on how do we cluster users.
+
+[Faculty (Olympus)] 20:53:33
+Now. If I had a nice world in which you know users, I could sort of map these end users, let's say a two-dimensional play, space.
+
+[Faculty (Olympus)] 20:53:45
+Where these are my user one, user 2, user 3. User 4 5 dot dot dot user and And if I can put them in plane or 3 dimensional space or.
+
+[Faculty (Olympus)] 20:53:58
+A 7 dimensional space or some d dimensional space that we call it. Then I can apply my K-means algorithm and do the clustering.
+
+[Faculty (Olympus)] 20:54:07
+The problem is that These users are not in that kind of a representation. So what I really need to do is I need to figure out how do I Take these end users.
+
+[Faculty (Olympus)] 20:54:20
+And map them. There's some space like this.
+
+[Faculty (Olympus)] 20:54:26
+Because once I have done that mapping I can apply my K-m's algorithm and I'm done.
+
+[Faculty (Olympus)] 20:54:32
+Or you can apply your own favorite algorithm if you like DBs can do, be scan. If you like something else, you do something else.
+
+[Faculty (Olympus)] 20:54:38
+So really the key question is given data like this. How do I map users to this kind of a?
+
+[Faculty (Olympus)] 20:54:49
+D dimensional or 2 dimensional finite dimensional space. And yeah, users are not ordered.
+
+[Faculty (Olympus)] 20:54:56
+Users are just users. Okay. Because just effectively they're represented by what what things that they have expressed to me.
+
+[Faculty (Olympus)] 20:55:03
+What entries that they have revealed.
+
+[Faculty (Olympus)] 20:55:06
+Okay, so far so good. So the question is, how do we do this mapping?
+
+[Faculty (Olympus)] 20:55:13
+. And These are the 2 steps that we're going to follow to do that mapping because the third step is just a K Okay, so in a sense first what I'm going to do is I'm going to compute between every pair of users some notion of similarity.
+
+[Faculty (Olympus)] 20:55:33
+So somehow I will take every pair of users and then I will generate this. One top to n, 1 2 up to N.
+
+[Faculty (Olympus)] 20:55:41
+And SIJ of this matrix. Let's say I've got a matrix S equals to Sij.
+
+[Faculty (Olympus)] 20:55:49
+But SIG is similarity between user I and user J. And of course, similarity between i and j is same as similarity between J and I.
+
+[Faculty (Olympus)] 20:56:02
+So this will be a symmetric matrix, okay?
+
+[Faculty (Olympus)] 20:56:06
+Once I find that symmetric matrix somehow. Then I will apply. Just basically PCA that you've already seen before and I will remind you.
+
+[Faculty (Olympus)] 20:56:18
+To this S. To find out. The dimensional presentation of users.
+
+[Faculty (Olympus)] 20:56:26
+So, have to take user data. Somehow I will compute similarity with matrix of these users. Once I have computed similarity matrix of these users.
+
+[Faculty (Olympus)] 20:56:38
+Have a apply PCA on top of them.
+
+[Faculty (Olympus)] 20:56:42
+If you remember your earlier lectures, you have looked at BCA. Prince of the component analysis, take some matrix.
+
+[Faculty (Olympus)] 20:56:52
+Or high dimensional dataset. And for each role, let's say it's a data point, it maps it to low-dimensional database.
+
+[Faculty (Olympus)] 20:57:01
+Once I do that, and I will remind you by the way, don't worry. Once I did the PCA, once I found the representation of users in low dimensional space, then I can apply my K.
+
+[Faculty (Olympus)] 20:57:14
+And I'm done. Okay, so let's see, there's a question by Laura.
+
+[Faculty (Olympus)] 20:57:21
+First question is that do we apply PC for optimization then so Laura I'm not sure which optimization.
+
+[Faculty (Olympus)] 20:57:28
+You mean if you could specify that will be helpful. Veroni's questions are we doing PC on similarity matrix?
+
+[Faculty (Olympus)] 20:57:35
+Absolutely, So step one somehow is computing similarity matrix between users. And once we do that. Then we can apply PCA on it to find out lower dimension representation.
+
+[Faculty (Olympus)] 20:57:49
+Once we find out lower dimension, we are in a fat city. Where we can apply our favorite clustering algorithms like K
+
+[Faculty (Olympus)] 20:57:57
+So Herman asked the most important question. How do we build this similarity matrix? And that is going to be the most next important thing.
+
+[Faculty (Olympus)] 20:58:06
+But before I do that, I want to clear a few questions and then it's exactly the right time to take a break and then we'll come back and then we'll do that.
+
+[Faculty (Olympus)] 20:58:15
+Okay. So let's see. Judith question in clustering in clustering, is this based on contacts?
+
+[Faculty (Olympus)] 20:58:24
+I understand today we will not use context. No, yes, Judith, we will not use contacts, but you are right.
+
+[Faculty (Olympus)] 20:58:27
+Maybe you could also do clustering using context too, but then it will be. Content or context using the driven algorithm.
+
+[Faculty (Olympus)] 20:58:38
+Theories question, what happens if user, if 2 users have no observer rating in common? Well, We'll come to that theory.
+
+[Faculty (Olympus)] 20:58:45
+You are jumping few steps ahead. First let me get to similarity and then we'll get to that very good.
+
+[Faculty (Olympus)] 20:58:50
+Based on what can we find similarity? That's going to be the goal. And last question, can we use other dimensionality reduction matter?
+
+[Faculty (Olympus)] 20:59:01
+Absolutely, absolutely. Yeah, suspense, no, it won't be much of a suspense, we'll see it.
+
+[Faculty (Olympus)] 20:59:08
+Gpca KPCA, if you mean by KPC, that is using K parameter K for the PC, yes, you will do that.
+
+[Faculty (Olympus)] 20:59:16
+That's exactly what you'll do is you will choose the. Parameter. Okay. Alright so this is exactly the midpoint.
+
+[Faculty (Olympus)] 20:59:27
+7 29. 7 30 going. We'll come back at exactly. In plus 5 min. Okay.
+
+[Faculty (Olympus)] 20:59:35
+And I will pick up from. Computing the similarity matrix. And then we will conclude this part because everything else you know I will of course remind you briefly of PCA because it'll be very useful for me.
+
+[Faculty (Olympus)] 20:59:49
+To describe the actually based algorithms. Similarity is what will help us do collaborative filtering.
+
+[Faculty (Olympus)] 20:59:55
+And so in effect, what have done? I'll set us up so that we can sort of finish all the 3 algorithms in next.
+
+[Faculty (Olympus)] 21:00:03
+50 min or so. Alright, so no music, nothing. I'm just going to mute myself and stop the video, take a 5 min break, see you in 5 min.
+
+[Faculty (Olympus)] 21:05:36
+All right, let's get going. We're gonna get started from. Computing now, similarity matrix.
+
+[Faculty (Olympus)] 21:05:52
+Hmm. I hope you all can. Okay, great. Mama says thanks and I hope you all can hear me now.
+
+[Faculty (Olympus)] 21:05:59
+I'm back.
+
+[Faculty (Olympus)] 21:06:02
+So to do this similarity calculation. Let's take an example. Okay, and for the purpose of this example and to make things simple, I'm going to.
+
+[Faculty (Olympus)] 21:06:16
+Assume that We are observing things. So one as before is one and 0 is minus one.
+
+[Faculty (Olympus)] 21:06:25
+Okay. So we observe. Comes up, which is one. Minus one which is thumbs down.
+
+[Faculty (Olympus)] 21:06:34
+Previously we had 0. Okay. And question marks our question.
+
+[Faculty (Olympus)] 21:06:40
+Let's look at one example data point data set to actually make it easy for us to calculate this.
+
+[Faculty (Olympus)] 21:06:48
+Similarities. So let's have got 3 users.
+
+[Faculty (Olympus)] 21:06:56
+And then let's say 5 items. Suppose user one has one. Question mark. Minus one minus one question mark.
+
+[Faculty (Olympus)] 21:07:12
+User 2 has question mark. Minus one minus 1. One and then maybe question mark user 3 as one or let's say minus 1 1, one.
+
+[Faculty (Olympus)] 21:07:29
+Question mark. And then question mark. Okay, so these are the 3 users we have and we're going to compute similarities between all 3 of them.
+
+[Faculty (Olympus)] 21:07:41
+So similarity between one and 2, one in 3, 2 and 3. Okay, so that's the matrix.
+
+[Faculty (Olympus)] 21:07:46
+We want to calculate. Of course, your similarity with yourself is one. You're fully similar.
+
+[Faculty (Olympus)] 21:07:51
+So the way we're going to do this similarity calculation is we're going to use notion of what's called cosine similarity.
+
+[Faculty (Olympus)] 21:07:58
+Okay, to introduce that notion, I want to think about each user as a vector in some space. So in a sense, ideally, each user should be if all the entries were observed, each user would be in this example a vector in five-dimensional space.
+
+[Faculty (Olympus)] 21:08:16
+The thing though is that some of the entries are missing. And so we cannot compare to users. What do I mean by that?
+
+[Faculty (Olympus)] 21:08:23
+So let's suppose it's if I want to compute. Similarity between user one and 2.
+
+[Faculty (Olympus)] 21:08:30
+Okay. Well, if I want to compute similarity between users one and 2, user one, okay.
+
+[Faculty (Olympus)] 21:08:38
+Well, user ones whole vector is this. But for the purpose, what I'm gonna do is that I'm gonna look at only those columns in which both user one and user to have expressed their preference.
+
+[Faculty (Olympus)] 21:08:51
+In this case, it only happens these 2. Because if you look at this column, the both are missing.
+
+[Faculty (Olympus)] 21:08:59
+Here, user 2 is missing. Here user one is missing. This is the only place where both of them have this.
+
+[Faculty (Olympus)] 21:09:04
+Which means that for the purpose of this calculation, user ones vector restricting to these 2 columns is minus 1 1.
+
+[Faculty (Olympus)] 21:09:12
+User twos vector is also minus 1 1.
+
+[Faculty (Olympus)] 21:09:17
+Okay, and if I'm thinking of vector representation. So this is let's say one minus one minus 1 1.
+
+[Faculty (Olympus)] 21:09:26
+This is user ones vector. And user twos vector is actually exactly sitting on top. Okay. Fully aligned.
+
+[Faculty (Olympus)] 21:09:38
+And hence the angle between them is 0 and it's the how far the angle is is what we want to use, okay, to determine that similarity.
+
+[Faculty (Olympus)] 21:09:48
+Here angle is 0, which means they're fully similar. One way to capture that is what's called cosine.
+
+[Faculty (Olympus)] 21:09:53
+So in this case. Cosine between user vector one and user vector 2. He's nothing but the inner product between user one and 2.
+
+[Faculty (Olympus)] 21:10:06
+Divided by. The norm of U one. And norm of YouTube. So what's his inner product between one and 2?
+
+[Faculty (Olympus)] 21:10:16
+Well, this is equal to. These 2 multiplied plus these 2 multiply. Okay, which is minus one times minus one plus minus one times minus one.
+
+[Faculty (Olympus)] 21:10:29
+That's a newator and denominator is minus one square plus minus one square square square root that is user ones norm.
+
+[Faculty (Olympus)] 21:10:38
+Same is user choose non, right?
+
+[Faculty (Olympus)] 21:10:42
+Well, this number is one plus 1 2. So numerator is 2. Denominator as you can see this is square root of 2 multiplied by square root of 2 so it's 2 2.
+
+[Faculty (Olympus)] 21:10:53
+So that's why it gives us one.
+
+[Faculty (Olympus)] 21:10:57
+Okay, Cloud, yes, you can use rating one to 5 star and that's fine. I'm just giving you this example to sort of actually it makes it nicely expressible when you have minus one in one.
+
+[Faculty (Olympus)] 21:11:07
+When things are centered, so even if you have rating one to 5 star, you can always shift them so that one is minus.
+
+[Faculty (Olympus)] 21:11:15
+2.5 and 5 is. Plus 2.5 for example.
+
+[Faculty (Olympus)] 21:11:23
+Okay, so that's similarity between user one and 2 Okay, let's try to do similarity between user 2 and 3.
+
+[Faculty (Olympus)] 21:11:34
+I'm gonna copy this. Thing. Okay. Copy.
+
+[Faculty (Olympus)] 21:11:42
+Go to the next one. Bench based. Okay, and now let's do similarity. Between.
+
+[Faculty (Olympus)] 21:11:54
+2 and 3. So like before, for the computing, computation of similarity between 2 and 3 for the purpose of.
+
+[Faculty (Olympus)] 21:12:04
+The similarity between them. What are these vectors? Well, they might change, right? Here, user vector was this because we were comparing these 2.
+
+[Faculty (Olympus)] 21:12:14
+Now we are comparing these 2 so it might change. Pretty particular. This is the only common part Everywhere else either 2 is missing or 3 is missing.
+
+[Faculty (Olympus)] 21:12:27
+So which means that for the purpose of this calculation, user vector is user a 2 vector is minus one, user 3 vector is one.
+
+[Faculty (Olympus)] 21:12:34
+Okay, it's one dimension, which means it's just one dimension. This is One for user 3.
+
+[Faculty (Olympus)] 21:12:44
+And this is user 2, which is minus one. And in which case Cosine between vectors U 2 and U 3.
+
+[Faculty (Olympus)] 21:12:55
+Is simply the inner product which is minus one times one and then the norm which is 1 one which is equal to minus one.
+
+[Faculty (Olympus)] 21:13:02
+Okay, so exactly. Now in the opposite direction as expected. And similarly, we can compute similarity between one and 3 also.
+
+[Faculty (Olympus)] 21:13:14
+And when we compute similarity. Between one and 3, we will. Choose this and this.
+
+[Faculty (Olympus)] 21:13:20
+Okay, and that will give us the answer. Right? So at this stage. We are using what data is available.
+
+[Faculty (Olympus)] 21:13:29
+To compute similarities between user one, user 2, user 3. At the end. As you would be able to verify the similarity bit matrix between user 1, 2, and 3, 1, 2, and 3 would look something like this.
+
+[Faculty (Olympus)] 21:13:46
+So while similarity between one is 1, 2 2 is 1, 3 3 is one. Okay. Self-similarity.
+
+[Faculty (Olympus)] 21:13:54
+We computed similarity between one and 2 to be one. Okay, so we put one here. We computed similarity between 2 and 3.
+
+[Faculty (Olympus)] 21:14:03
+To be minus one. Okay, and similarly can conclude that similarity between Let's say.
+
+[Faculty (Olympus)] 21:14:13
+One and 3 would be also minus one. Okay, so this will be my. This will be my similarity matrix S.
+
+[Faculty (Olympus)] 21:14:24
+Between users 1, 2, and 3.
+
+[Faculty (Olympus)] 21:14:28
+Any questions? Right, so I'm going to sort of look at these questions one at a time.
+
+[Faculty (Olympus)] 21:14:37
+Okay, so Christopher's question, I think is answered. Go sign the case. So the question by cloud you is could be okay.
+
+[Faculty (Olympus)] 21:14:47
+VI answered that question. Lot ask question aren't aren't missing values replaced by the local average first So, no, Laura, so far, a lot of one request, if you don't mind, just direct question or repose the question for everyone.
+
+[Faculty (Olympus)] 21:15:01
+And Laura's question is aren't missing values replaced by the local average first? So since we are computing similarity and we only want to use the actual data.
+
+[Faculty (Olympus)] 21:15:09
+Available, we are not doing that. Okay.
+
+[Faculty (Olympus)] 21:15:13
+Okay. How do we use this similarity matrix? Create question. It almost feels like you forgot that we forgot the forest while looking at trees little too much.
+
+[Faculty (Olympus)] 21:15:27
+So let's get back to the forest.
+
+[Faculty (Olympus)] 21:15:31
+So just to remind ourselves. We will we have computed the similarity matrix.
+
+[Faculty (Olympus)] 21:15:38
+Now we will use PCA on that to map each user to. The-dimensional space so that we can do our key means or whatever our favorite clustering algorithm is.
+
+[Faculty (Olympus)] 21:15:51
+Once we have clustering algorithm, then we can do averaging. Local averaging in.
+
+[Faculty (Olympus)] 21:15:55
+So the whole question is Left the only step I will not explain to you is PCA. Of course you know that but it'll be worth reminding you of PCA.
+
+[Faculty (Olympus)] 21:16:06
+Santiago's question is what if both users don't have common items without question, right?
+
+[Faculty (Olympus)] 21:16:13
+Brilliant question, Santiago. Tough question. Let's for the time being a zoom that we can always find it and when we have that sparsity problem we'll talk about that in a second.
+
+[Faculty (Olympus)] 21:16:25
+Short answer to that question would be And I'll double click on it a little later. Is that?
+
+[Faculty (Olympus)] 21:16:32
+If I don't know how similar you are to me because of question mark, that's fine.
+
+[Faculty (Olympus)] 21:16:38
+There's no common place. It's like you and I, let's say live in 2 different cities.
+
+[Faculty (Olympus)] 21:16:43
+So I have not gone to your restaurants and you're not gone to your restaurants and you've not gone to my restaurant.
+
+[Faculty (Olympus)] 21:16:47
+You've not gone to my restaurant. So there's no way to know. Our commonality but turns out that There are few restaurants of my city Ankitas come to.
+
+[Faculty (Olympus)] 21:16:54
+And few restaurants of your city that Ankita has come to. So now I know my similarity with Ankit and you know your similarity with Ankit.
+
+[Faculty (Olympus)] 21:17:03
+So maybe we can stitch those 2 things together to compute. For similarity between you and me. Take Die friend is my friend.
+
+[Faculty (Olympus)] 21:17:10
+Okay, and we'll formalize that a little bit in a second. But that's roughly how you can overcome the.
+
+[Faculty (Olympus)] 21:17:16
+The sparsity iteratively. When those iterations stop and things are completely separate, then these are 2 separate walls and no method can help you.
+
+[Faculty (Olympus)] 21:17:27
+Okay. Kiri's question is it so back to my earlier question, what happens if 2 users have no common and I answered that question.
+
+[Faculty (Olympus)] 21:17:36
+Okay, great. Leon Rose question, Leonardo's question is that I do not understand why you one equals to minus 1 1.
+
+[Faculty (Olympus)] 21:17:45
+Well minus 1 one in the case of computing similarity between one and 3 or fair.
+
+[Faculty (Olympus)] 21:17:56
+Oh, you're right. No, hang on. Not really. So.
+
+[Faculty (Olympus)] 21:18:03
+In this case, What we said is that let's look at user one and 2. Let's look at columns in which both of them have ratings.
+
+[Faculty (Olympus)] 21:18:11
+So this is not allowed because this there is missing entry in here. This is not allowed because both have missing.
+
+[Faculty (Olympus)] 21:18:19
+This is not allowed because one is missing. So really I'm only focusing on these 2 columns. Now this is you one.
+
+[Faculty (Olympus)] 21:18:25
+And this is you too. So hopefully that answers your question. Landro. Okay.
+
+[Faculty (Olympus)] 21:18:36
+Laura's question, meaning if, the items are similar, the same similarity can be inferred off to users, something like that, yes.
+
+[Faculty (Olympus)] 21:18:45
+Excellent. So now, at this stage. Oh, broadly answered everybody's question, similarity matrix.
+
+[Faculty (Olympus)] 21:18:52
+Good. So now. Let's talk about how we do the PC on it. Can you remember it?
+
+[Faculty (Olympus)] 21:18:59
+But I'll just remind you.
+
+[Faculty (Olympus)] 21:19:01
+Okay, so we have matrix called. S, which is Sij asymmetric matrix. Well, since it's a symmetric matrix, it has a singular value decomposition.
+
+[Faculty (Olympus)] 21:19:17
+What that says is that it is something like this. Let's suppose this is this is an end by end matrix because end user and n items Okay.
+
+[Faculty (Olympus)] 21:19:30
+Okay, and users and items. So it would look something like this. Sigma I. UI, UI transpose because symmetrics matrix so left and right singular vectors are the same.
+
+[Faculty (Olympus)] 21:19:47
+And UI is and dimensional vector. So so far so good. Question where now if you look at the sigmas So sigma one square and okay, so let's sorry.
+
+[Faculty (Olympus)] 21:20:04
+I'm going to assume that these sigma is I said that sigma one is greater than signal.
+
+[Faculty (Olympus)] 21:20:07
+I just ordered that.
+
+[Faculty (Olympus)] 21:20:08
+Okay. Now, sigma one square dot dot plus sigma n square. Turns out to be the same as what people call Frobenius Narn.
+
+[Faculty (Olympus)] 21:20:23
+Okay.
+
+[Faculty (Olympus)] 21:20:26
+Okay, that means that some of the squares of these singular values is the total energy of the matrix.
+
+[Faculty (Olympus)] 21:20:34
+Okay. Very good. Now, what I would like to do is I would like to look at these sigmas and understand.
+
+[Faculty (Olympus)] 21:20:41
+What is, what is a good? What is the top few of these that actually capture most energy?
+
+[Faculty (Olympus)] 21:20:48
+For example, you might say most is for you most is 90% of the energy okay and this is some parameter.
+
+[Faculty (Olympus)] 21:20:56
+So I will look for R. Said that sigma one square dot dot sigma r square Do, divided by sigma one square dot dot sigma n square.
+
+[Faculty (Olympus)] 21:21:08
+That is. Take the summation, squared summation of top R entries. That is greater than equal to point 9.
+
+[Faculty (Olympus)] 21:21:17
+And you find the smallest such are. So that this happens. And I will use this.
+
+[Faculty (Olympus)] 21:21:26
+Are as a way to keep my top singular vectors. Okay. So again, sigma is are my singular values.
+
+[Faculty (Olympus)] 21:21:36
+Okay, so these are my
+
+[Faculty (Olympus)] 21:21:38
+Singular values. This is my singular value decomposition. Okay. In this case, yes, it's because it's a symmetric matrix, coincides with the eigenvalue.
+
+[Faculty (Olympus)] 21:21:52
+Okay, so in particular if I'm plotting something like this, let's say 1 2 dot dot dot up to n and let's say this is my sigma one square.
+
+[Faculty (Olympus)] 21:22:02
+This is my sigma 2 square and so on. What I'm saying is that trying to find the smallest are.
+
+[Faculty (Olympus)] 21:22:10
+So that this summation greater than equal to point 9 times. The the whole summation. Okay, so point 9 times this whole summation.
+
+[Faculty (Olympus)] 21:22:24
+So. So that's basically what I'm looking for. Now, why point 9? Well, that's my belief that I want to capture that.
+
+[Faculty (Olympus)] 21:22:32
+You might. What do you decide to keep it point 7? It's a parameter. It's a threshold.
+
+[Faculty (Olympus)] 21:22:37
+Okay. I'm just explaining that this is a choice of threshold. And Constable absolutely right.
+
+[Faculty (Olympus)] 21:22:45
+What Christopher is saying is that if I choose our such this way. Then what will happen? What am I going to do with this? Well, this is what I'm doing.
+
+[Faculty (Olympus)] 21:22:53
+I'm saying that Let me look at estidel of R which is summation. I equals to one to up to r Sigma I, UI, UI transpose.
+
+[Faculty (Olympus)] 21:23:05
+So this. Is effectively saying that. I took my singular value decomposition and instead of going all the way to end terms.
+
+[Faculty (Olympus)] 21:23:15
+If you're going through all the way to end terms, I only restricted myself to our terms.
+
+[Faculty (Olympus)] 21:23:19
+That's what I did is I stopped. And when I do that, what turns out With this choice of.
+
+[Faculty (Olympus)] 21:23:29
+The between this truncation that is this is the difference between the true S and the truncated as.
+
+[Faculty (Olympus)] 21:23:40
+This is going to be less than equal to point one. Good? Because I chose this way. So if I choose this as a T, this is going to be one minus T.
+
+[Faculty (Olympus)] 21:23:51
+Okay. That's the point. So. Larger energy I'm capturing that's what this means.
+
+[Faculty (Olympus)] 21:24:00
+Now. If we choose R like this. Or whatever you have chosen. This gives me our dimensional representation, right?
+
+[Faculty (Olympus)] 21:24:11
+Because I got this you one to you are the top singular vectors. Each of them is and dimension.
+
+[Faculty (Olympus)] 21:24:21
+So this is U 1 one to U one N. Then there is a YouTube. So U 2 one to U 2 and
+
+[Faculty (Olympus)] 21:24:31
+And then that is UR one. You ought to PIN it. Okay. Now if you look at all of these.
+
+[Faculty (Olympus)] 21:24:40
+These are my. Our coordinates for user one. These are my our coordinates for user 2. These are my R coordinates for user and.
+
+[Faculty (Olympus)] 21:24:52
+And now I can map each of these users into this. Our dimensional space. If RS 2 for example then it will be a two-dimensional mapping.
+
+[Faculty (Olympus)] 21:25:03
+Once I have that two-dimensional mapping, I can do clustering on. Okay.
+
+[Faculty (Olympus)] 21:25:09
+Okay, so that is. Long algorithm. Let's take a pause and see if there are questions.
+
+[Faculty (Olympus)] 21:25:18
+I'm going to repeat it quickly in a second, but I want to just take a pause.
+
+[Faculty (Olympus)] 21:25:33
+Okay, so what has happened? Use what has happened.
+
+[Faculty (Olympus)] 21:25:40
+We took the original data, used this cosine similarity based approach to compute similarity matrix S. Then we applied PCA.
+
+[Faculty (Olympus)] 21:25:51
+And found out some, okay, here it's the in my example I chose R. Okay, so d dimensional representation.
+
+[Faculty (Olympus)] 21:25:59
+The way I chose D. One way to choose D is to choose a threshold of energy you want to capture and keep those many top singular values.
+
+[Faculty (Olympus)] 21:26:08
+Or those singular components of S matrix. And then use the eigen top singular vectors or eigenvectors.
+
+[Faculty (Olympus)] 21:26:17
+That will induce the coordinates for each of the user. That embedded into, d dimensional space.
+
+[Faculty (Olympus)] 21:26:24
+Now on that d dimensional space representation of users, you can do your favorite. Clustering algorithm.
+
+[Faculty (Olympus)] 21:26:30
+Once you got user clusters in item clusters, then you can do averaging. Okay, that local averaging.
+
+[Faculty (Olympus)] 21:26:36
+And then you are done.
+
+[Faculty (Olympus)] 21:26:40
+Okay, so that is the clustering algorithm. Now you've got roughly 30 min left. And I'm going to spend that those 30 min explaining your 2 remaining algorithms collaborative filtering.
+
+[Faculty (Olympus)] 21:26:56
+And. Singular value decomposition. The meat of both algorithms we've already covered.
+
+[Faculty (Olympus)] 21:27:04
+So, but I'm going to use them to. So now we can really. You can sort of.
+
+[Faculty (Olympus)] 21:27:12
+We don't need to stress Here enough.
+
+[Faculty (Olympus)] 21:27:20
+See if there are questions that I have not answered. Are there questions that you want to answer? Okay, so I think most of the question that I think I have not answered are
+
+[Faculty (Olympus)] 21:27:32
+Responded and Laura's question is about dimensionality reduction. Well, Laura, you can use other dimension. That's fine.
+
+[Faculty (Olympus)] 21:27:40
+Hmm
+
+[Faculty (Olympus)] 21:27:45
+Okay, all right, very good. Energy is equal to variance explained in the component that's correct.
+
+[Faculty (Olympus)] 21:27:53
+That is correct. Oh, I see. Okay, great. So now let's.
+
+[Faculty (Olympus)] 21:28:01
+Do collaborative filtering.
+
+[Faculty (Olympus)] 21:28:05
+Okay. It is a very little bit difficult. Difficult homework.
+
+[Faculty (Olympus)] 21:28:18
+I'll bring some of my homework that I would have already before. But in case you want to do this.
+
+[Faculty (Olympus)] 21:28:24
+Okay, so collaborative filtering.
+
+[Faculty (Olympus)] 21:28:31
+So let's sort of again, so let's look at that example. Okay, so in clustering means algorithm, what we said is we'll find the clusters and within cluster will average and that's how we'll determine.
+
+[Faculty (Olympus)] 21:28:44
+Okay, what if we don't want to cluster? What if we want to do a localized cluster that is for every ij or person like cluster?
+
+[Faculty (Olympus)] 21:28:54
+We will create our own cluster and then average. So how do we go about doing that? So let's suppose there's an entry.
+
+[Faculty (Olympus)] 21:29:01
+And J, let's call this. This is what I want to find out, okay?
+
+[Faculty (Olympus)] 21:29:08
+So how do I find that? How do I find cluster for that? Well, Cluster for I.
+
+[Faculty (Olympus)] 21:29:16
+Would be all the users which are like it. Cluster for J would be all the users that are like it.
+
+[Faculty (Olympus)] 21:29:23
+So that's suppose I choose some parameter. Let's say call K. So I went ahead and found.
+
+[Faculty (Olympus)] 21:29:29
+Key closest user do I and without loss of generality, like I'm calling them that their user number 1 2 K.
+
+[Faculty (Olympus)] 21:29:36
+Okay. I'm just renaming that. And similarly, let's say you item number 1 2 K are Key items that are closest to J.
+
+[Faculty (Olympus)] 21:29:47
+How did I find them? Well, remember we had computed this similarity matrix. So we used similarity matrix.
+
+[Faculty (Olympus)] 21:29:55
+Between users. And items. To find out key closest users or came most similar. To user to i and key closest to J.
+
+[Faculty (Olympus)] 21:30:13
+Okay.
+
+[Faculty (Olympus)] 21:30:17
+So I found this. Hi, I found that. Okay, and let's say this is my this rectangle or square in this case.
+
+[Faculty (Olympus)] 21:30:27
+Of key closest users in K closest item K closes to I. And key closes to J. Now in this cluster, let's suppose it turns out that here is the I got few entries.
+
+[Faculty (Olympus)] 21:30:40
+I observed 1 0 1 1. 0 one. Okay, so these are the 6 entries I've observed and everything else.
+
+[Faculty (Olympus)] 21:30:47
+Is not observed. Well, then how would I? Use this to. Fill this one or estimate this one well.
+
+[Faculty (Olympus)] 21:30:58
+Since I believe that all of these are. Effectively same as I and same as J. We can assume that they should be constant in this cluster.
+
+[Faculty (Olympus)] 21:31:09
+Which means we average and then we Use that to estimate this. Which means that in this case, our estimate for IJ would be Let's see.
+
+[Faculty (Olympus)] 21:31:22
+Got 6 entries, 4 R one and 2 are 0, which means it's a 4 over 6 or 2 over 3.
+
+[Faculty (Olympus)] 21:31:28
+And that's it. This is called. Key. User item collaborative will drink.
+
+[Faculty (Olympus)] 21:31:43
+Now. Mikhail is asking an interesting question and actually he's asking not just one question in my mind he's asking many questions.
+
+[Faculty (Olympus)] 21:31:53
+So let's read these questions first, then let's paraphrase it. He's question says that is, isn't parameter K likely to be different from different users and items?
+
+[Faculty (Olympus)] 21:32:03
+So absolutely. So, and actually let's add that. So you may have. K one for use given for users, K 2 for items.
+
+[Faculty (Olympus)] 21:32:13
+That's all fine. You can also say, well, you know what, I don't wanna choose K closest.
+
+[Faculty (Olympus)] 21:32:21
+How are choose as many users who are within similarity point 9 of me. Okay. That's another way to do it.
+
+[Faculty (Olympus)] 21:32:31
+You might also say, well, actually, you know what, both of these approaches are useless because somebody is assuming K and that is saying that between point 9, what if there is neither of those things makes sense because If I'm choosing K one and what if K is 10 in my tenth, similar user is very far from me.
+
+[Faculty (Olympus)] 21:32:48
+So how do we make it robust? So where we say, okay, that's fine. Maybe when we took this weighted average of these things.
+
+[Faculty (Olympus)] 21:32:57
+Actually, we might weigh them. With how similar is I or how similar is J to this this entry.
+
+[Faculty (Olympus)] 21:33:05
+So for example, if G to this is not too similar, but one is very similar to this. Then we wait this entry accordingly.
+
+[Faculty (Olympus)] 21:33:16
+Okay, that's a multiplication of similarities between items and users. And then multiplied by the entry.
+
+[Faculty (Olympus)] 21:33:23
+So we do weighted averaging. I said, how do I wait it? Well, there are all sorts of functions around it.
+
+[Faculty (Olympus)] 21:33:28
+They're called kernels effectively. So there are a ton of variations of this simple team. But in the point that I'm trying to make is the core algorithm is this.
+
+[Faculty (Olympus)] 21:33:41
+And then you can have all sorts of complications around this thing. And when we go talk about those complications.
+
+[Faculty (Olympus)] 21:33:48
+But you got the key concept. Okay. So, Mika, you're absolutely right. There are all sorts of different ways to make it.
+
+[Faculty (Olympus)] 21:33:58
+More effective by going from this vanilla version. But this in a nutshell is the user item collaborative will train.
+
+[Faculty (Olympus)] 21:34:11
+Okay. Sure. So, Avad's question is that can I, remind how we came up with 2 thirds.
+
+[Faculty (Olympus)] 21:34:30
+Absolutely. So what we said here is that for this entry. Let me find key closest users. How are you, how did I find them?
+
+[Faculty (Olympus)] 21:34:43
+Remember, we computed similarity matrix between users. Time Similarly for given J, let me find K closest.
+
+[Faculty (Olympus)] 21:34:53
+Items. Again, how do we find it? Just the way we computed similarity matrix for users, we could compute similarity matrix for items using that.
+
+[Faculty (Olympus)] 21:35:05
+We find K closest. Items. Okay. Once we found those key closest users and items for this IG of interest.
+
+[Faculty (Olympus)] 21:35:15
+Let's look at what are the entries that are observed between these. Users and items. Some number of them.
+
+[Faculty (Olympus)] 21:35:25
+Okay, and for Now we take the average of these entries. In this case, I've got 6 entries, 4 of them are ones and 2 of them are zeros.
+
+[Faculty (Olympus)] 21:35:38
+So if I take average of this, I will get 4 over 6 or 2 over 3. Okay. Very good.
+
+[Faculty (Olympus)] 21:35:48
+Now, one question that should come up again. Okay, for some reason my laptop is dying again.
+
+[Faculty (Olympus)] 21:35:57
+Give me 1 s.
+
+[Faculty (Olympus)] 21:36:01
+This time I had plugged my laptop, but I forgot to switch on the Switch. Very, habituated when you stay in, Northern America.
+
+[Faculty (Olympus)] 21:36:14
+Okay. I just need to be mindful, not the charge there, but good point. Okay. Judith yes K is a hyper parameter.
+
+[Faculty (Olympus)] 21:36:27
+Shannon's question is, should K, come at JB in the same cluster?
+
+[Faculty (Olympus)] 21:36:33
+So. You mean Sharon?
+
+[Faculty (Olympus)] 21:36:37
+These are the users who are closest to this. These are the items who are closest to that and that's how we would determine this personalized cluster, okay?
+
+[Faculty (Olympus)] 21:36:47
+Okay. One question that we did not discuss is.
+
+[Faculty (Olympus)] 21:36:54
+What if we can't? Compute similarities between pair of users or pet off items because of sparsity of data.
+
+[Faculty (Olympus)] 21:37:02
+I promised you a proximate answer, but let's go through that in a second. Yes, it has a question.
+
+[Faculty (Olympus)] 21:37:09
+We have used users rating for the, based on the similarity view process. Can we use? Users features to find similarity.
+
+[Faculty (Olympus)] 21:37:16
+So again, you can. yes, sir. And that would be a reasonable thing to do when you're trying to put content based and rating based recommendations together and maybe that's something we can will try to bring together in the next lecture.
+
+[Faculty (Olympus)] 21:37:33
+But in that case, you really have to be careful that You know, these features are truly. Predictive of the of the their underlying ratings and they may not be.
+
+[Faculty (Olympus)] 21:37:47
+Okay. So that's where sort of I think we ought to be get.
+
+[Faculty (Olympus)] 21:37:51
+Alright, so let me answer that sparsity. This is just a caricature of sewing how you can answer.
+
+[Faculty (Olympus)] 21:37:58
+This is the cooperative filtering, but here is how I would think about.
+
+[Faculty (Olympus)] 21:38:06
+Think about sort of doing iterative version.
+
+[Faculty (Olympus)] 21:38:11
+So in a picture what I'm showing is that so I'm a user. Who has rated some something.
+
+[Faculty (Olympus)] 21:38:19
+Who has been rated by somebody else who has rated something else? So to compute similarity between, let's say an item.
+
+[Faculty (Olympus)] 21:38:29
+Here. Through different users, what I would say is that I will take the. Product of ratings.
+
+[Faculty (Olympus)] 21:38:37
+That are connecting me from this to. An item. So that is. I have rated, let's say, so I've gone to a pizza place one and I rated that.
+
+[Faculty (Olympus)] 21:38:49
+So I go to pizza place when I rotated 5 star. My friend, has gone to the same pizza place.
+
+[Faculty (Olympus)] 21:38:58
+And has rated 4. And then sort of, so I will multiply that along with. And my similarity using that.
+
+[Faculty (Olympus)] 21:39:08
+Okay, so that's basically what's happening. Kind of a product is a little bit involved in the simply what I'm describing.
+
+[Faculty (Olympus)] 21:39:18
+And this kind of iterative collaborative filtering algorithm, overcomes the sparsity issue.
+
+[Faculty (Olympus)] 21:39:25
+Again, this was.
+
+[Faculty (Olympus)] 21:39:30
+Part of, one of my former student, Christina Lee used PhD thesis.
+
+[Faculty (Olympus)] 21:39:36
+Now she's a professor at Cornell. And I think from her website you might be able to find the thesis and all the manuscript associated with that.
+
+[Faculty (Olympus)] 21:39:43
+Okay. So there is a natural way to sort of. Extend this. Now, before I move on from collaborative filtering to other.
+
+[Faculty (Olympus)] 21:40:01
+Algorithm I won't also make few remarks. There are a few reasons why I am really big fan of this algorithm personally.
+
+[Faculty (Olympus)] 21:40:12
+One is. Has very nice scalable computation implementation. Incremental so that you don't have to recompute things.
+
+[Faculty (Olympus)] 21:40:22
+It's kind of naturally allows itself to update as time goes. It's related to the best possible.
+
+[Faculty (Olympus)] 21:40:30
+Statistically best possible algorithm for this underlying problem. That's what Christina's thesis, for example, explains.
+
+[Faculty (Olympus)] 21:40:38
+It is very robust that is few data points are wrong. It can still continue. And then finally, it has a nice interpretation in lineage, right?
+
+[Faculty (Olympus)] 21:40:47
+So for example, You are recommended goodfellas because you like Godfather and people who have like Godfather have like good fellas.
+
+[Faculty (Olympus)] 21:40:57
+So now if you like this recommendation and let's say you want to pay to somebody for your recommendation or provide some credit for that or whatever.
+
+[Faculty (Olympus)] 21:41:06
+Now you can trace it to those. Like these people that you use as a part of algorithm. And made recommendation.
+
+[Faculty (Olympus)] 21:41:16
+It's like right now things like Chat GPT is making money by asking to pay for premium service using the data that it has used to train its model on top of the data that you put it out on the internet.
+
+[Faculty (Olympus)] 21:41:29
+At some point of time, some form of regulation is going to ask them to share those revenues.
+
+[Faculty (Olympus)] 21:41:37
+To people who are responsible for those data. This style of algorithm provide the lineage. To say that well things have come from so that sort of right sets of Maybe economic model can be set up.
+
+[Faculty (Olympus)] 21:41:52
+Right. So there's lots lots that's going on for this algorithm and that's why I really like it.
+
+[Faculty (Olympus)] 21:41:58
+And this style of algorithms are not specific to recommendation system. They're a lot more general than just this.
+
+[Faculty (Olympus)] 21:42:04
+Okay. Alright, and of course a nice difficult exercise now is for you to implement it and test it with all other algorithms.
+
+[Faculty (Olympus)] 21:42:16
+I'll take a flip post question before I go to the last algorithm. Singular value based, thresholding.
+
+[Faculty (Olympus)] 21:42:23
+So Philippos question is.
+
+[Faculty (Olympus)] 21:42:26
+And iterative similarity matrix can be obtained by doing S to power N. It is effectively a certain form of, certain form of, iteration of the matrix, but instead of just doing the basic similarity, what you do is that you take users and items and Do product of that bipartite graph It's a little bit more involved than that, but your intuition is right.
+
+[Faculty (Olympus)] 21:42:57
+Okay. Good luck, Owen. With the client meeting. Get them.
+
+[Faculty (Olympus)] 21:43:05
+Alright. Now I'm going to move to the last algorithm, the singular value threshold.
+
+[Faculty (Olympus)] 21:43:11
+If you have any question, any burning question, please ask now. Otherwise I'm going to move.
+
+[Faculty (Olympus)] 21:43:19
+Hey. Stick it around and you can sort of, answer, you can get answers from, some of the learning facilitators is about the Python library.
+
+[Faculty (Olympus)] 21:43:33
+Okay.
+
+[Faculty (Olympus)] 21:43:35
+Great.
+
+[Faculty (Olympus)] 21:43:45
+Right, let me tell Jamie and Jan, let me come to your questions after I'm done explaining this, okay?
+
+[Faculty (Olympus)] 21:43:52
+I want a sort of donors of push this out too much. Alright, so now we're going to look at the.
+
+[Faculty (Olympus)] 21:44:00
+Matrix completion from the lens of May traces. Okay, so what do we have? Okay, so we have which is Y Iij.
+
+[Faculty (Olympus)] 21:44:11
+And what is YI. Well, Vijay is 1, 0 or question marker. Okay.
+
+[Faculty (Olympus)] 21:44:19
+So in a sense, we've got.
+
+[Faculty (Olympus)] 21:44:25
+We got matrix that has zeros and ones but then the question mark also. What we'll do for the purpose of this algorithm will replace question mark by some constant.
+
+[Faculty (Olympus)] 21:44:41
+Here I'm going to go and replace it to 0. Later we will discuss. This specific choice, okay?
+
+[Faculty (Olympus)] 21:44:46
+For the time being, let's call it 0. When I replace it by 0, let's say y becomes white.
+
+[Faculty (Olympus)] 21:44:53
+Okay, but a white middle equals to white little I. And white little IJ is Yij.
+
+[Faculty (Olympus)] 21:45:01
+If it's observed, if it's why I just question manic is white, will IJ is 0.
+
+[Faculty (Olympus)] 21:45:06
+Yes, so that's my white with light.
+
+[Faculty (Olympus)] 21:45:09
+So now I've got this matrix Y twiddle which I obtained from Y. By filling missing values by 0.
+
+[Faculty (Olympus)] 21:45:17
+So now I've got this whole matrix full, right? This matrix. Is a matrix with dimension n times m.
+
+[Faculty (Olympus)] 21:45:27
+And so I can actually compute it singular value decomposition. So I will have this equals to i equals to 1 2 up to minimum of N.
+
+[Faculty (Olympus)] 21:45:40
+Sigma I. I VI transpose. And let's see, what is UI?
+
+[Faculty (Olympus)] 21:45:49
+UIs are left singular vectors so they're n dimensional. VI are right.
+
+[Faculty (Olympus)] 21:45:58
+Singular vectors. So they are Em dimensional. And this is how Each of this is. And time, and matrix, and we are adding them up.
+
+[Faculty (Olympus)] 21:46:11
+With weights up to the rank of the matrix to get our original matrix. It's classic singular value.
+
+[Faculty (Olympus)] 21:46:18
+Decomposition. Okay, now like before, what we can do. Is we can find Are such that?
+
+[Faculty (Olympus)] 21:46:30
+Sigma one square dot dot sigma r square. Oh what? Sigma one square dot dot dot.
+
+[Faculty (Olympus)] 21:46:38
+Sigma square minimum of m comma and is greater than or equal to some threshold T. Again T we could choose it at point 9 or whatever you like.
+
+[Faculty (Olympus)] 21:46:48
+Okay.
+
+[Faculty (Olympus)] 21:46:50
+So far so good.
+
+[Faculty (Olympus)] 21:46:54
+Now they're going to sort of threshold it that is Now are you choosing that? I'm going to generate.
+
+[Faculty (Olympus)] 21:47:03
+My estimate of L hat matrix as summation of i equals to one to up to r. Okay.
+
+[Faculty (Olympus)] 21:47:13
+Not this one, but I'm going to restrict it to our chosen as per something like this.
+
+[Faculty (Olympus)] 21:47:21
+Sigma i. UI, VI transport. So really I'm just truncating it.
+
+[Faculty (Olympus)] 21:47:29
+And then I'll do one more thing. One would be at. Okay, so p head is a number that I'll calculate.
+
+[Faculty (Olympus)] 21:47:39
+And I'll tell you in a second, so I'm dividing it by a number.
+
+[Faculty (Olympus)] 21:47:43
+But other than that, I'm just truncating it. And my claim is that this L hat is a very good estimation of original L.
+
+[Faculty (Olympus)] 21:47:54
+Okay.
+
+[Faculty (Olympus)] 21:47:57
+So after I tell you what, Effectively, all I've done is I took the original matrix.
+
+[Faculty (Olympus)] 21:48:05
+Replace missing values by 0. Now it's a full matrix for that now I can do singular value decomposition like if you're doing Python you can do NP dot or numpire or linear alge.
+
+[Faculty (Olympus)] 21:48:19
+Svd and you can get all of these things. You find sigma one sigma 2 sigma whatever they're ordered As before as we are doing for PCA.
+
+[Faculty (Olympus)] 21:48:28
+We find the top are things smallest art that is greater than threshold. Choose your threshold to be point.
+
+[Faculty (Olympus)] 21:48:34
+9 or whatever. And Once you have that.
+
+[Faculty (Olympus)] 21:48:41
+Then you truncated by that R and then divide by one word B hat.
+
+[Faculty (Olympus)] 21:48:48
+And that's your estimation for your matrix.
+
+[Faculty (Olympus)] 21:48:54
+Great. So what is, what is, Be hat. But B hat is. In original matrix in original.
+
+[Faculty (Olympus)] 21:49:07
+Matrix Y. What is the fraction of entries that for observed? So in original matrix Y, you can look at number of.
+
+[Faculty (Olympus)] 21:49:17
+Entries that were observed that is they were not question mark. Divided by m times n. And that's it.
+
+[Faculty (Olympus)] 21:49:27
+So if, for example, your Y was one, let's say there were 2 users in 3 items.
+
+[Faculty (Olympus)] 21:49:35
+And you had observed one question mark 0. Question mark, question mark one. Ds out there are 6 possible entries.
+
+[Faculty (Olympus)] 21:49:45
+Out of which 3 are observed so your p hat is equal to 3 over 6 or half. Here you are dividing by the.
+
+[Faculty (Olympus)] 21:49:56
+And that will give you your L hat. And that's it. That's your singular value.
+
+[Faculty (Olympus)] 21:50:03
+Thresholding algorithm.
+
+[Faculty (Olympus)] 21:50:06
+Okay. Alright, so what only ask the most important question, what is the purpose of dividing by p head.
+
+[Faculty (Olympus)] 21:50:15
+And I will tell you that in a second. Let's see if there are other questions. Bass has any recommendation.
+
+[Faculty (Olympus)] 21:50:20
+We use literature and clustering specifically in rack system filtering. Somebody has given recommendations of YouTube links.
+
+[Faculty (Olympus)] 21:50:28
+Excellent. And Jamie's. Okay, right. Okay, great.
+
+[Faculty (Olympus)] 21:50:36
+And when do we apply SVD versus collaborative? Just a lot of entries that are missing.
+
+[Faculty (Olympus)] 21:50:40
+So, Paula, those are good questions. It's a question of few covered so many algorithms by now, right?
+
+[Faculty (Olympus)] 21:50:47
+Forgetting content base, we got averaging global averaging then. Row column averaging.
+
+[Faculty (Olympus)] 21:50:54
+Then clustering then personalized clustering or collaborative between, and creative collaborative will bring SVD.
+
+[Faculty (Olympus)] 21:51:02
+When so many algorithms, well, these algorithms are of different complexities. And so given data, some of the algorithms may not actually make sense because they may require a lot more data to be accurate.
+
+[Faculty (Olympus)] 21:51:15
+So really what you do want to do is that you want to Choose, from the suite of algorithm given data using cross validation and things like that, which works better for you.
+
+[Faculty (Olympus)] 21:51:31
+And yes, Daniel, that's exactly right.
+
+[Faculty (Olympus)] 21:51:36
+Okay, and Christopher, yes, with SVD, there's no similarity needed. With K and that is needed, yes.
+
+[Faculty (Olympus)] 21:51:42
+Okay. All right, so now let me answer the Veroni's question about why we had. Okay.
+
+[Faculty (Olympus)] 21:51:56
+So simple idea is this, that is. Okay, the assumption here is that you observe. So this is a simplistic assumption, but you observe each entry.
+
+[Faculty (Olympus)] 21:52:06
+With some unknown probability P.
+
+[Faculty (Olympus)] 21:52:10
+Okay, so that means that is observed. With probability B. And not observed. With probability one minus p.
+
+[Faculty (Olympus)] 21:52:26
+Now, as you remember, when it's observed on average.
+
+[Faculty (Olympus)] 21:52:32
+This is equal to Lij, right?
+
+[Faculty (Olympus)] 21:52:36
+So what that means is that, or let me just say that when observed in expectation, it is equal to Lij.
+
+[Faculty (Olympus)] 21:52:45
+So that means that expectation of. Why I or more precise is equal to
+
+[Faculty (Olympus)] 21:52:54
+With probability P, it's LIJ. With probability one minus p. Remember, we replaced it, question marked by zeros, a question mark.
+
+[Faculty (Olympus)] 21:53:03
+One minus bit was question, but you replace it by 0. So that means that is equal to LIJ.
+
+[Faculty (Olympus)] 21:53:08
+That means that expectation of y matrix. Is p times expectation of L matrix. Okay. And the singular value thresholding of white widow matrix tries to compute this.
+
+[Faculty (Olympus)] 21:53:25
+And we want to estimate this, or not expectation, it's just hell is deterministic.
+
+[Faculty (Olympus)] 21:53:33
+We want to compute this. So we get this by singular value thresholding that's the Believe or that's the goal.
+
+[Faculty (Olympus)] 21:53:42
+But we want to get this. So we have to. And what is the best estimation of P?
+
+[Faculty (Olympus)] 21:53:48
+With this model best estimation of fees what fraction of entries are observed.
+
+[Faculty (Olympus)] 21:53:54
+Okay. Very good. Let's see. I'll try to answer last few questions and we can wrap it up.
+
+[Faculty (Olympus)] 21:54:03
+L, can we apply KL divergence to different trusting to check the distribution?
+
+[Faculty (Olympus)] 21:54:12
+So I guess, what you're saying is that is there a way to use the observed data? Between different clusters.
+
+[Faculty (Olympus)] 21:54:23
+I guess in principle you could do that. I'm not sure how exactly you would operationalize it though.
+
+[Faculty (Olympus)] 21:54:29
+Okay. Constable, how do we test accuracy of invitation? Well, you would test accuracy of imputation by cross validation that is hide some of the data and try to see how well you can.
+
+[Faculty (Olympus)] 21:54:44
+Estimated and that's basically just a classical cost validation approach.
+
+[Faculty (Olympus)] 21:54:53
+Okay, then no more questions on this algorithm. Let me see if I can actually. Try to answer some of the earlier questions that.
+
+[Faculty (Olympus)] 21:55:05
+Jamie had Jamie's question was why K is the same for users and items again Jimmy as I had mentioned before key could be different for users and items we are just variations of team.
+
+[Faculty (Olympus)] 21:55:17
+There's no reason why they should be the same
+
+[Faculty (Olympus)] 21:55:23
+Okay. That we had answered Philippos questions. Yes, I don't think I'll left anything there.
+
+[Faculty (Olympus)] 21:55:33
+Okay.
+
+[Faculty (Olympus)] 21:55:37
+To what other question.
+
+[Faculty (Olympus)] 21:55:42
+She had his question. Is there a minimum percent of observation? Let's say for a good recommendation. This is great.
+
+[Faculty (Olympus)] 21:55:50
+So on one hand, If you want globally consistent recommendation system, then what you do want is somehow things to be connected.
+
+[Faculty (Olympus)] 21:56:00
+Okay, for these kind of algorithms to work.
+
+[Faculty (Olympus)] 21:56:05
+That is for me to figure out what my. Estimation should be for a given entry. Through me and entries I rated to the people who have rated that entries to the entries that they have rated through that, somehow I need to be able to reach.
+
+[Faculty (Olympus)] 21:56:22
+That. So that's one way to think about it as a observation pattern rather than just percentage. For specific class of models.
+
+[Faculty (Olympus)] 21:56:33
+There has been lots of mathematical work in effect what these mathematical work tried to say is that If you have, let's say, a matrix which is the supposed just to be simple, it's n by n, that's n equals to m equals 2. Okay.
+
+[Faculty (Olympus)] 21:56:47
+So same number of rows and columns. The number of entries you need to observe should scale like N.
+
+[Faculty (Olympus)] 21:56:53
+Times some logarithm of n times the rank of the matrix or complexity of the model. Okay.
+
+[Faculty (Olympus)] 21:57:03
+And now there are more general approaches for which collaborative filtering works, then you need more functional space.
+
+[Faculty (Olympus)] 21:57:14
+Characterization and so on.
+
+[Faculty (Olympus)] 21:57:16
+Okay. Alright. So QR decomposition is just a matrix decomposition, I guess. And I'm not sure why you would apply that.
+
+[Faculty (Olympus)] 21:57:29
+Here we're trying to Do this. Okay.
+
+[Faculty (Olympus)] 21:57:33
+Varuni's question is that so when do we do SVD? We get USV where S is the diagonal, which is singular vectors, singular values.
+
+[Faculty (Olympus)] 21:57:43
+But with SWT we are not using as no no we are using very we are using S right
+
+[Faculty (Olympus)] 21:57:52
+This is what you're calling S. So. When you do singular value decomposition, these are like.
+
+[Faculty (Olympus)] 21:57:59
+Use these are the V's and these are the S's. Okay.
+
+[Faculty (Olympus)] 21:58:07
+So Judith's question is could this model be used to recommend a care to school? I'm not sure exactly what do you mean by that care oh carrier I presume sorry yes.
+
+[Faculty (Olympus)] 21:58:20
+Is an interesting point that is can you use this to help people figure out what carrier should do? Well, if you have enough historic data and what carriers are worked out, maybe.
+
+[Faculty (Olympus)] 21:58:29
+And put it together in this form, maybe you can do that. I mean, at some point of time, some of the undergrads who are working with me, they try to use this.
+
+[Faculty (Olympus)] 21:58:39
+To help recommend. The sequence of courses that students should take under their undergraduate based on the courses that they've already taken or interested they're expressed.
+
+[Faculty (Olympus)] 21:58:49
+Our combination of that. All right, we're nearly at the end. So. If there are no more other questions, then let's wrap this up.
+
+[Faculty (Olympus)] 21:59:02
+Starting again starting next lecture what I will do is that I will quickly remind you of this Start with the view of optimization of this.
+
+[Faculty (Olympus)] 21:59:13
+Singular value thresholding based approach. From that we will build and we'll conclude with putting everything together.
+
+[Faculty (Olympus)] 21:59:23
+So really exciting. Next lecture is going to be a fun field. The reason is will be fun field is because Yes.
+
+[Faculty (Olympus)] 21:59:32
+All the pieces of the LEGO boxes. Now all we're going to do is we're gonna just put pieces together in a different way to find all sorts of amazing things.
+
+[Faculty (Olympus)] 21:59:43
+We do a lot of stuff in next lecture. We'll look at exciting new applications. Then we will look at how matrix completion can be used to solve problems like generic time.
+
+[Faculty (Olympus)] 21:59:53
+Imputation in forecasting and will also solve the most general version of matrix completion. So
+
+[Faculty (Olympus)] 22:00:00
+Lots of things coming. So hopefully you are all set. All excited and ready to go for your last and final lecture tomorrow.
+
+[Faculty (Olympus)] 22:00:08
+All right, with that I'm going to leave you in the able hands of, and the facilitators again if you have questions from this today's session or other things don't.
+
+[Faculty (Olympus)] 22:00:18
+Disappear stick around. The support staff here works extremely hard to help you. So please. Stick around there.
+
+[Faculty (Olympus)] 22:00:29
+Alright, thank you, everyone.
+
+[Moderator - Ankit Agrawal] 22:00:30
+Thank you so much, Professor, for that wonderful lecture. Hello, how are you doing?
+
+[[gl mentor] nirupam sharma] 22:00:38
+Hello and good, how are you?
+
+[Moderator - Ankit Agrawal] 22:00:40
+Doing well. Let's get started. We don't have, I mean, Professor answered a lot of questions today, so we don't have a lot of questions that we need to go through.
+
+[Moderator - Ankit Agrawal] 22:00:49
+But we can probably talk a little bit about generalizations as well. So Ricardo asked earlier, can you provide an example of a retail based recommendation system and how to deal with biases due to purchases that come from gift or any other purchase.
+
+[Moderator - Ankit Agrawal] 22:01:06
+That don't represent the customer preference.
+
+[[gl mentor] nirupam sharma] 22:01:09
+Hmm. Good question. See often times, in retail. Can implement the market basket analysis.
+
+[[gl mentor] nirupam sharma] 22:01:18
+Which uses the A. Pair algorithm to understand. Which pair or triple of products are often purchased together.
+
+[[gl mentor] nirupam sharma] 22:01:27
+For example, If I purchase bread and butter, I'm more likely to purchase this or that, right?
+
+[[gl mentor] nirupam sharma] 22:01:32
+So you can create such rules and all in retail which can help you. Good pay a sort of basket of products to sell together.
+
+[[gl mentor] nirupam sharma] 22:01:41
+Like that's an example of that. Now how do you prevent biases where you are selling a number of products all together even though some of them may not be relevant.
+
+[[gl mentor] nirupam sharma] 22:01:50
+Well, you got to exclude such kind of transactions from your analysis. You got to think of them as individual products being sold.
+
+[[gl mentor] nirupam sharma] 22:02:00
+How often is that product sold to the giving customer? And then you can see that if a product is sold not too often, you can exclude that from the analysis.
+
+[[gl mentor] nirupam sharma] 22:02:09
+And the other techniques also we applied here, right? They can also be applied in retail as well.
+
+[Moderator - Ankit Agrawal] 22:02:14
+Yeah, just to add on that, like if you go on, let's say Amazon.
+
+[Moderator - Ankit Agrawal] 22:02:19
+Dot com, then Amazon asks you if this product is a gift or not. So internally, Amazon creates a flag saying that this is this may or may not be users direct preference.
+
+[Moderator - Ankit Agrawal] 22:02:29
+This is a gift if you actually say yes it's a it's a gift based product. Also a lot of companies are now starting to create allow users to create different profiles under the same account.
+
+[Moderator - Ankit Agrawal] 22:02:45
+So that we can actually distinguish whether it's a part of the user's profile or not. So, so that the so that the recommendations can be a little bit more targeted in that context.
+
+[Moderator - Ankit Agrawal] 22:03:00
+So.
+
+[Moderator - Ankit Agrawal] 22:03:05
+So, Can you use clustering methods to predict L IJ? So I think this question was related to can we use clustering methods to fill in the missing values in the recommendation system data matrix.
+
+[[gl mentor] nirupam sharma] 22:03:27
+You can you can definitely use it And a common example is by clustering where you can look at all my neighbors and a group of items together and whatever is the average meeting of given by my neighbors to the given group of items that can be used to fill every missing data.
+
+[[gl mentor] nirupam sharma] 22:03:47
+In that segment of a matrix for those items and. Users. You can use it.
+
+[Moderator - Ankit Agrawal] 22:04:00
+We can use features about the users that make them similar to do the mapping. Do we have features about the users in order to do this.
+
+[[gl mentor] nirupam sharma] 22:04:10
+Yes, definitely. I mean, if you think about it, right? For example, if you are in US, the recommendations you may get, may be very different to when you are in India, right?
+
+[[gl mentor] nirupam sharma] 22:04:21
+So oftentimes some other factors are definitely included and normally you'll see that when you log in to certain websites they ask you your preferences at the beginning yourself.
+
+[[gl mentor] nirupam sharma] 22:04:32
+So that they can cluster you with other users or filter your profiles and only the data which is relevant for people such as you.
+
+[[gl mentor] nirupam sharma] 22:04:41
+I use for recommendations to you.
+
+[Moderator - Ankit Agrawal] 22:04:46
+Yeah. Just to add to that a little bit, it no longer. It remains as a basic clustering method it becomes like a content of where or a context of where clustering based methods.
+
+[Moderator - Ankit Agrawal] 22:04:58
+So you have to be more careful about, I think during the lecture professor also mentioned that you have to make sure that the features that you're including can actually be used for grouping of the users together, right?
+
+[Moderator - Ankit Agrawal] 22:05:10
+You don't want to add redundant features into your data set. So as long as you can do that, yes, definitely using features about the users or even about the items is a very good way.
+
+[Moderator - Ankit Agrawal] 22:05:23
+To improve upon clustering basement. As and we call these types of methods as content of it or context of where based methods.
+
+[Moderator - Ankit Agrawal] 22:05:33
+So somebody asked, could we also use ratings? one through 5 stars instead of one and minus one.
+
+[Moderator - Ankit Agrawal] 22:05:41
+So during the lecture professor was talking about the ratings. Instead of being 0 and one, he converted it to minus one and one.
+
+[Moderator - Ankit Agrawal] 22:05:49
+So somebody's asking, can we also do one through 5 stars for that?
+
+[[gl mentor] nirupam sharma] 22:05:53
+Yeah, yeah, I mean you can use all of that, Definitely.
+
+[Moderator - Ankit Agrawal] 22:05:59
+Yeah, just to kinda elaborate on that Claudia, mathematics, becomes easier if you're dealing with like a normal distribution.
+
+[Moderator - Ankit Agrawal] 22:06:08
+So for one through 5 you can make it as minus 2 minus 1 0 one and 2 and then make predictions based on that and then rescale your data back into one through 5 ridge.
+
+[Moderator - Ankit Agrawal] 22:06:19
+That is usually how we do recommendation systems.
+
+[Moderator - Ankit Agrawal] 22:06:27
+Hmm.
+
+[Moderator - Ankit Agrawal] 22:06:30
+After other dimensionality reduction methods we can use, like, NMF, DC, the best method and then why.
+
+[[gl mentor] nirupam sharma] 22:06:42
+So, I mean, we are. Doing PC exactly right We are trying to reduce dimensions.
+
+[[gl mentor] nirupam sharma] 22:06:52
+So. Using SVD, it's not necessary PCA. So yes, you can use other techniques also, which are nonlinear in nature.
+
+[[gl mentor] nirupam sharma] 22:06:59
+Definitely you can try that. Ultimately, you have to make sure your army season all are. Reduced you are able to capture enough information.
+
+[[gl mentor] nirupam sharma] 22:07:08
+So that your estimates are. Efficient.
+
+[[gl mentor] nirupam sharma] 22:07:14
+May not be the right one because it's more of a exploration technique. Is not trying to capture information as such, write a variance and all.
+
+[Moderator - Ankit Agrawal] 22:07:23
+Yeah, I was about to say the same thing that DC is usually not preferred, but we have other methods like IDA, LDA, PCA.
+
+[Moderator - Ankit Agrawal] 22:07:33
+We can definitely use those kind of methods instead of PCF to perform this.
+
+[Moderator - Ankit Agrawal] 22:07:48
+I need recommended videos or literature or clustering specifically in recommendation systems or collaborative filtering.
+
+[[gl mentor] nirupam sharma] 22:07:57
+Hmm. I mean there are lot of videos and all right so Are you studying the book I suggested?
+
+[[gl mentor] nirupam sharma] 22:08:07
+You can definitely look at that. It mentioned these things. I have a check if there is a good YouTube video on this.
+
+[[gl mentor] nirupam sharma] 22:08:16
+That let me check that.
+
+[Moderator - Ankit Agrawal] 22:08:32
+Ky asks, where do we find these algorithms? I don't know what you mean.
+
+[Moderator - Ankit Agrawal] 22:08:39
+Like, are you talking about in Python or in what context. If you're asking for about these algorithms in Python, then we have.
+
+[Moderator - Ankit Agrawal] 22:08:50
+Extension of Psychic Learn Library, where these algorithms are available to us.
+
+[Moderator - Ankit Agrawal] 22:08:56
+We will look at them during the case study. So the case study will actually include popularity recommendation system, pie clustering, collaborative filtering, and content based recommendation system.
+
+[Moderator - Ankit Agrawal] 22:09:12
+So we'll implement these 4 different types of clustering methods. I mean the deduction of the algorithm.
+
+[Moderator - Ankit Agrawal] 22:09:24
+Do you have any resources, N, where can we find like deduction of these algorithms?
+
+[[gl mentor] nirupam sharma] 22:09:33
+Yeah, I think I just shared a link with you all, right? The link is from the, MIT Opencourseware.
+
+[[gl mentor] nirupam sharma] 22:09:42
+It has various other chapters where they have explained many of these things which you are asking right now So try to look at the link.
+
+[[gl mentor] nirupam sharma] 22:09:51
+It has many chapters there. Each chapter is trying to explain a different different kind of method.
+
+[Moderator - Ankit Agrawal] 22:10:02
+How do we test the accuracy of the imputation?
+
+[[gl mentor] nirupam sharma] 22:10:07
+So, remember initially you have a training test data. So even though you have certain values available.
+
+[[gl mentor] nirupam sharma] 22:10:15
+You are thinking of them as missing? And then try to estimate that. So you know the real ratings, you know the estimates.
+
+[[gl mentor] nirupam sharma] 22:10:23
+You can compare them and K with your MAC and all and see how high or low it is which can give you an idea about what you can expect to see on really unseen data.
+
+[Moderator - Ankit Agrawal] 22:10:38
+Could these recommendation models be used to recommend a career to school students?
+
+[[gl mentor] nirupam sharma] 22:10:48
+Okay, I mean, see. The systems work very well when you have lot of options, lot of users interacting with them right in real time or purchasing them right.
+
+[[gl mentor] nirupam sharma] 22:10:59
+Here, I mean, think about it. If I choose a career option, is there a way that I can choose something else later on?
+
+[[gl mentor] nirupam sharma] 22:11:05
+How easy is that for me? Secondly, how do I decide whether it was correct or not? So I think this is more about data set.
+
+[[gl mentor] nirupam sharma] 22:11:14
+I don't know if you will have a relevant data set here. Because you not have many options for a user, right?
+
+[[gl mentor] nirupam sharma] 22:11:21
+You'll not have multiple purchase behaviors and all. Who compare. You will mostly have very sparse data or you will have certain people.
+
+[Moderator - Ankit Agrawal] 22:11:29
+Okay.
+
+[[gl mentor] nirupam sharma] 22:11:29
+Having specific. Good. We'll not have multiple paths.
+
+[[gl mentor] nirupam sharma] 22:11:36
+So for example, I'm my engineer. To see me in engineering background. Do not see me trying medical as well or ours as well.
+
+[[gl mentor] nirupam sharma] 22:11:43
+So I think data set limitations may be there if you think about it.
+
+[Moderator - Ankit Agrawal] 22:11:47
+Yeah, just to add on that I have a friend. Her name is the Pishapatel.
+
+[Moderator - Ankit Agrawal] 22:11:54
+She lives out of New York. She's actually working on a startup to actually build a, model like this right now where she can take, where you do like a QA based kind of like a quiz at the beginning and then it basically recommends or tries to recommend you what could be the top choices of our career for you.
+
+[Moderator - Ankit Agrawal] 22:12:15
+Again, one of the biggest challenges over there as Naroka mentioned is the variety in the data.
+
+[Moderator - Ankit Agrawal] 22:12:20
+A lot of people who want to like necessarily if you do not have like school education or like proper course work done in the past.
+
+[Moderator - Ankit Agrawal] 22:12:29
+Then it becomes increasingly difficult to recommend you a specific career in that sense. So the data challenges, definitely.
+
+[Moderator - Ankit Agrawal] 22:12:37
+Are a big issue over there.
+
+[[gl mentor] nirupam sharma] 22:12:40
+And that would be more like a traditional machine learning task, right? Which path to follow. Right.
+
+[Moderator - Ankit Agrawal] 22:12:48
+Yeah. Can we use SVD or collaborative filtering in other use cases like location data represented in polygons?
+
+[[gl mentor] nirupam sharma] 22:12:59
+Let's understand, collaborative meeting all day, assuming that each row vector may have some similarity, right?
+
+[[gl mentor] nirupam sharma] 22:13:07
+They may have some similarities to group them together or to create local clusters. Same goes for the columns and all.
+
+[[gl mentor] nirupam sharma] 22:13:13
+Each column represents a vector. And we assume certain columns may have similar behaviors so you can group them together to find other relevant.
+
+[[gl mentor] nirupam sharma] 22:13:24
+Columns and all. Is that really represented in your own data or not? Right, that's the thing you need to check.
+
+[[gl mentor] nirupam sharma] 22:13:34
+If your data is very, very independent. If you're vocation data is independent and all you draw robo's are not.
+
+[[gl mentor] nirupam sharma] 22:13:37
+Dependent or similar. You may have some inefficiencies in the users. But you are definitely open to try that.
+
+[Moderator - Ankit Agrawal] 22:13:47
+Yeah. So somebody asked with, SVD, We do not need to use similarity and KAY nearest neighbor.
+
+[Moderator - Ankit Agrawal] 22:13:59
+Is that correct?
+
+[[gl mentor] nirupam sharma] 22:14:02
+Yes, in SVD you don't need to use K here as neighbor or similarity as such.
+
+[[gl mentor] nirupam sharma] 22:14:08
+Right. The simply finding the latent factors for each item and each user. Once you have them ready.
+
+[[gl mentor] nirupam sharma] 22:14:17
+I' to estimate the ratings simply to a dot product of the latent factor of the user. And the latent factor of the item.
+
+[Moderator - Ankit Agrawal] 22:14:30
+Is it right to think that recommendation systems are more geographical dependent than other models?
+
+[[gl mentor] nirupam sharma] 22:14:42
+I mean, yes, geography will always play important role here, right? It could play important role in other algorithms also.
+
+[[gl mentor] nirupam sharma] 22:14:50
+It really depends on your application, but definitely geography does play a very important role. In these systems it can really influence for example if I'm an East Coast I may have very severe winters.
+
+[[gl mentor] nirupam sharma] 22:15:02
+But if I'm in California and all, I may not have severe winter so you may not recommend to me snow boots or snow tires and all right so location can be very very crucial
+
+[Moderator - Ankit Agrawal] 22:15:13
+Yeah, one more question, which is kind of like a repeat question, but, we had several questions if we need to mentionality reduction step in collaborative filtering if we need this step, why and which dimensionality reduction algorithm is most suitable.
+
+[Moderator - Ankit Agrawal] 22:15:28
+And why.
+
+[[gl mentor] nirupam sharma] 22:15:31
+So why, why do we need this? I mean, think about it. If you Open up a system which has hundreds of thousands of users.
+
+[[gl mentor] nirupam sharma] 22:15:39
+And hundreds of thousands of items. Imagine the scale of your data, right? How difficult it could be to handle vectors of such high lent.
+
+[[gl mentor] nirupam sharma] 22:15:50
+And running it across multiple rows and columns and running it in real right. It can be very, very, very difficult.
+
+[[gl mentor] nirupam sharma] 22:15:57
+For the devices and all. To overcome that. You can definitely use these. Dimensional reduction techniques and all.
+
+[[gl mentor] nirupam sharma] 22:16:06
+Another advantage is data sparsity. If you think about yourself, How many unique items have you really purchased in your life, right?
+
+[[gl mentor] nirupam sharma] 22:16:15
+Not a lot. So majority of the times. Data is very sparse. Which means I can actually summarize all information.
+
+[[gl mentor] nirupam sharma] 22:16:24
+Within few latent features itself, right? So that's again another advantage that you don't require huge number of features to estimate.
+
+[[gl mentor] nirupam sharma] 22:16:33
+Very few features will lead to reduction in the time complexity, reduction in the amount of space occupied and how quickly you can run computations and all.
+
+[[gl mentor] nirupam sharma] 22:16:43
+Now, can we use Other, I mean, you feel to try other ones as well. So there are a lot of linear and all in their techniques to reduce it.
+
+[[gl mentor] nirupam sharma] 22:16:55
+You can try many of them and see which one works. Most. Right
+
+[Moderator - Ankit Agrawal] 22:17:00
+Yeah, yeah, I just so kind of elaborate on what NATO comes say. You can think of Amazon as a website, right, with 10 million plus users and 1 million plus products.
+
+[Moderator - Ankit Agrawal] 22:17:12
+Storing that entire matrix and recommending products in real time like every page that you go through on Amazon, you see recommended items.
+
+[Moderator - Ankit Agrawal] 22:17:21
+Amazon cannot build recommendation systems to that scale. If you are looking at the original data, right?
+
+[Moderator - Ankit Agrawal] 22:17:30
+What Amazon does is it tries to compress this data using PCR SPD, tries to come up with some latent representation that, oh, these are grocery products.
+
+[Moderator - Ankit Agrawal] 22:17:39
+These are household products. These are gardening products, so on and so forth. And then make recommendations based on that latent variable.
+
+[Moderator - Ankit Agrawal] 22:17:49
+So, to be able to run that kind of data or and that kind of sparsity in real time becomes very difficult if you do not apply.
+
+[Moderator - Ankit Agrawal] 22:17:56
+Dimensionality reduction algorithm.
+
+[Moderator - Ankit Agrawal] 22:18:01
+Unfortunately, it seems majority of recommendation systems are used for marketing to sell more products and not provide the best recommendation for the user.
+
+[[gl mentor] nirupam sharma] 22:18:12
+Not necessarily, right? I mean, ultimately the core is how users interact with the items is not about how much money they are spending and all that is less important.
+
+[Moderator - Ankit Agrawal] 22:18:15
+Yeah.
+
+[[gl mentor] nirupam sharma] 22:18:25
+So you are actually trying to focus more on user experience optimization. Right. Obviously, you do try to fix the products.
+
+[[gl mentor] nirupam sharma] 22:18:35
+Which a user is already purchased depending on the category. For example, if I recently purchase a laptop, you will not recommend it to me again.
+
+[[gl mentor] nirupam sharma] 22:18:44
+On the other end, if it's a grassy product. You may recommend it again, right?
+
+[[gl mentor] nirupam sharma] 22:18:47
+So. It's not just about trying to find more sellable items. Obviously that's the ultimate aim of every business.
+
+[[gl mentor] nirupam sharma] 22:18:55
+But But in doing so, you want to optimize the experience so that when a user lands on the page, they can see what they would really like to see.
+
+[[gl mentor] nirupam sharma] 22:19:04
+Right? They will not have a search too much. And more often them not. People don't want to spend too much time, right?
+
+[[gl mentor] nirupam sharma] 22:19:12
+Exploring they want to see. This is what I want to buy and if I sit on the fourth page That's a great experience.
+
+[Moderator - Ankit Agrawal] 22:19:21
+We apply a dimensionality reduction for computational optimization. So yes, Laura, computational optimization storage as well, right?
+
+[Moderator - Ankit Agrawal] 22:19:30
+Because if you have smaller matrices, it's easier to store them on memory than if you have a very big.
+
+[Moderator - Ankit Agrawal] 22:19:35
+Data set to store. So storage, computational optimization and runtime. Yeah, as well.
+
+[Moderator - Ankit Agrawal] 22:19:43
+These are the 3 reasons why dimensional reduction is used. In case of Amazon, I've seen several use cases when after purchasing a product, I received recommendations of variations of the same product.
+
+[Moderator - Ankit Agrawal] 22:19:57
+Given that I have made my purchase already, why do you think these recommendations are made? So there can be 2 reasons and your call might might be able to correct me, on this.
+
+[Moderator - Ankit Agrawal] 22:20:06
+The first reason is that people also tend to return products on Amazon. So Amazon kind of estimates that a user might return that particular product.
+
+[Moderator - Ankit Agrawal] 22:20:17
+And so you might get recommendations because they are. And so you might get recommendations because they are, that particular product.
+
+[Moderator - Ankit Agrawal] 22:20:24
+And so you might get recommendations because they are, you're anticipating that your return rate for that product will be very high.
+
+[Moderator - Ankit Agrawal] 22:20:29
+Second, it might be a subscription based product, meaning that something that you require, repeatedly after it's at certain period of time.
+
+[Moderator - Ankit Agrawal] 22:20:34
+And in that context, you might be more interested in trying out different brands to find which one works the best for you.
+
+[Moderator - Ankit Agrawal] 22:20:42
+And same those 2 conditions. It, works in Amazon's paper to recommend you different products.
+
+[Moderator - Ankit Agrawal] 22:20:48
+Of something that you have already purchased.
+
+[[gl mentor] nirupam sharma] 22:20:51
+Yeah, I agree with what it is saying, right? Another reason would be like it may take a while for feedback to be effective right.
+
+[[gl mentor] nirupam sharma] 22:21:00
+So, you may see as I'm going to think it is a chance for you to return something.
+
+[[gl mentor] nirupam sharma] 22:21:02
+So they may estimate, OK, maybe let's wait for 10 days or 15 days and keep on showing these new options.
+
+[[gl mentor] nirupam sharma] 22:21:09
+Ultimately, after 10 days, 15 days, you're pretty sure they're not returning it.
+
+[[gl mentor] nirupam sharma] 22:21:15
+They can now update the cycle and not show you the same address anymore. Okay.
+
+[Moderator - Ankit Agrawal] 22:21:25
+How to evaluate recommendation systems?
+
+[[gl mentor] nirupam sharma] 22:21:33
+So there are different ways. Like when you're creating the algorithm, you can look at RMSC precision recall from score, but ultimately oftentimes you look at certain KPIs and all.
+
+[[gl mentor] nirupam sharma] 22:21:43
+Like for example, it through rate, right? Before I applied this algorithm for the given user. What was the click-through rate?
+
+[[gl mentor] nirupam sharma] 22:21:53
+What was the amount of time spent on the product pages which was shown on the screen and now has it increased or decreased?
+
+[[gl mentor] nirupam sharma] 22:22:01
+So you can have certain KPIs. Running, tracking lot of information. And see if the KPIs are improving or Coming down, right, which can be used to see if recommendations are really working for the given user or not.
+
+[Moderator - Ankit Agrawal] 22:22:20
+Yeah, personally I use, AB testing quite a bit because it's very, even if you get a low RMC score, it could be because of a sample bias in most cases.
+
+[Moderator - Ankit Agrawal] 22:22:32
+So We do deploy different recommendation systems in parallel and test them out simultaneously next to each other.
+
+[Moderator - Ankit Agrawal] 22:22:40
+Also we do have hybrid systems as well. Which are combinations of different recommendation systems put together.
+
+[Moderator - Ankit Agrawal] 22:22:48
+So, generally we. Try to learn a weighted system on given a certain user or given a certain data set.
+
+[Moderator - Ankit Agrawal] 22:22:58
+Which recommendation system does a better job in recommending products for those users. And we can learn a way to system, weighted hybrid system in that context.
+
+[Moderator - Ankit Agrawal] 22:23:07
+To be able to do that. How and where? These recommendation systems are allocated or integrated with CRM ERP margins.
+
+[[gl mentor] nirupam sharma] 22:23:27
+So these think of them as extra data points for your users and items, right? So we can obviously integrate these systems with these data sources to further.
+
+[[gl mentor] nirupam sharma] 22:23:40
+It has the filtering of your results, right? You can filter it better, you can, find better ways to reach out and all.
+
+[[gl mentor] nirupam sharma] 22:23:49
+Right. Then. Outputs, right? So when you are looking at the output of the systems integrated with the CRM, it's very useful because see If I know that I have a certain customer and I want to improve my, you can see frequency of purchase and all.
+
+[[gl mentor] nirupam sharma] 22:24:08
+I can definitely run, go through every user in my CRM. And find the most likely products for them, maybe send them emails and all.
+
+[[gl mentor] nirupam sharma] 22:24:18
+Pretty good email as soon as I create a list on a monthly basis or a weekly basis for people in my CRM at all.
+
+[[gl mentor] nirupam sharma] 22:24:25
+Where you send them buckets of products together to buy.
+
+[Moderator - Ankit Agrawal] 22:24:31
+Are there any other use cases of recommendation systems in health care? Like can we predict or recommend a sickness by the symptoms or similarity of users using this technique.
+
+[Moderator - Ankit Agrawal] 22:24:46
+Method face, and ethical issues around this.
+
+[[gl mentor] nirupam sharma] 22:24:47
+Yeah, that's a good point. I think ethical issues are very crucial here. I mean you can have some health suggestions like remember.
+
+[[gl mentor] nirupam sharma] 22:24:55
+You want to holistically improve the health. So you can have some suggestions and all but it's very hard to say you can predict the disease.
+
+[[gl mentor] nirupam sharma] 22:25:02
+And then we show to them for that, right? Very difficult. But what you can say is like you can find out.
+
+[[gl mentor] nirupam sharma] 22:25:09
+Well, these people have similar behaviors. And some of them were very likely to have diabetes.
+
+[[gl mentor] nirupam sharma] 22:25:17
+So maybe these people may be prone as well. So maybe you can suggest some holistic voice to them, reach out to them to further.
+
+[[gl mentor] nirupam sharma] 22:25:24
+Make sure they can have a consultation call with you so just to make sure they're taking care of themselves and having some precautionary measures and all.
+
+[[gl mentor] nirupam sharma] 22:25:34
+But But yeah, I'm not a medicinal practitioner, so I can't tell you the exact attics of that, deeply you can go and reach out to people and their health care data.
+
+[[gl mentor] nirupam sharma] 22:25:43
+Right.
+
+[Moderator - Ankit Agrawal] 22:25:45
+Yeah. Also, like as, mentioned, there are a lot of regulations, but you can basically come up with the system where you can recommend like dot 5 or top 10 essential.
+
+[Moderator - Ankit Agrawal] 22:25:59
+It can help the doctors and the patients. Understand what they might have. And these kind of systems do exist, right?
+
+[Moderator - Ankit Agrawal] 22:26:07
+Like let's say you have a mental health problem, you can go to an app and it can recommend you top 10.
+
+[Moderator - Ankit Agrawal] 22:26:12
+Health, mental health practitioners in your neighborhood or something like that, right? It will not essentially give you one exact answer because, ethically that can, you may not get along with that person or that person might not specialize in the domain of where you are seeking.
+
+[Moderator - Ankit Agrawal] 22:26:30
+So you these recommendations. Do exist. It's just that. We cannot make recommendations concretely in this case.
+
+[Moderator - Ankit Agrawal] 22:26:38
+You have a wide variety of, range available and then you get to pick what make your choice.
+
+[Moderator - Ankit Agrawal] 22:26:45
+Somebody said it's cricket world cup 7 final tomorrow yes it is we'll have to watch the highlights for that.
+
+[Moderator - Ankit Agrawal] 22:26:53
+Because we have the we see it out that time towards the end of the game it seems But yeah, those are all the questions that we have for today.
+
+[Moderator - Ankit Agrawal] 22:27:02
+So we'll stop here. Thank you. And, for answering all those questions and providing that inside.
+
+[Moderator - Ankit Agrawal] 22:27:10
+Industry inside on different topics. Thank you everybody. For attending the session today is this our last week of classes yes this is and tomorrow is the last session in this program you'll have capsule after this.
+
+[Moderator - Ankit Agrawal] 22:27:24
+So you'll have some inter learning sessions related to that in the future. On recommendation systems this weekend.
+
+[Moderator - Ankit Agrawal] 22:27:32
+But yes, in terms of live lectures, this is the last week and tomorrow is the last lecture.
+
+[Moderator - Ankit Agrawal] 22:27:39
+For this program. So
+

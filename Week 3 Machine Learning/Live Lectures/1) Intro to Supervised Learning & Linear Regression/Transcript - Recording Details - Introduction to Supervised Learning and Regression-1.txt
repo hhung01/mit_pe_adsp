@@ -1,0 +1,2505 @@
+[Faculty (Olympus)] 19:03:57
+So the X's are the attributes of an individual. But also each person has a certain label.
+
+[Faculty (Olympus)] 19:03:57
+You have a bunch of individuals or objects and each one is characterized by certain attributes. Let's call them X.
+
+[Faculty (Olympus)] 19:04:04
+Call it Y. So Y is the label. And we're given lots of examples and in those examples we're given both the attributes of a person and their labels.
+
+[Faculty (Olympus)] 19:04:20
+And then a new person comes in. And we're told the attributes of that person and we want to make a guess or a prediction of their label.
+
+[Faculty (Olympus)] 19:04:31
+So the examples are labeled, but when a new person comes in, we do not know the label and we want to want to guess it.
+
+[Faculty (Olympus)] 19:04:40
+And you could do that, for example, by drawing a line through the examples that we have. As in this diagram, and then making a prediction by taking whatever that line is is giving you.
+
+[Faculty (Olympus)] 19:04:52
+So that would be our prediction. Linear regression is the business of building that particular line that we're going to be using to make those predictions.
+
+[Faculty (Olympus)] 19:05:02
+And this applies to the case where the labels are continuous variables. By the way, when you draw a line, we call that linear regression, and there is of course extensions where instead of a line we have a more general curve and that would go under the name of nonlinear regression.
+
+[Faculty (Olympus)] 19:05:20
+But we're going to start with linear regression. And then slowly also talk about ways that you move forward to the more general case where things are non-linear.
+
+[Faculty (Olympus)] 19:05:33
+But there's going to be also a second type of problems that we're going to consider. These are the so-called classification types.
+
+[Faculty (Olympus)] 19:05:37
+Here it's each individual is described by 2 attributes. Let's call them x one and x 2.
+
+[Faculty (Olympus)] 19:05:46
+So x one and x 2 tell you something about that person. And then, so a typical person would correspond to a.in this diagram, but each person also has a label, but the label in this case The labels are discrete.
+
+[Faculty (Olympus)] 19:06:02
+So it's either blue or brown objects. And we're given the labels. These are the data that we're working with.
+
+[Faculty (Olympus)] 19:06:10
+And then a new person comes in and our problem is to guess the label of that person or object. Do we think it is blue or do we think?
+
+[Faculty (Olympus)] 19:06:21
+Do we think it is brown? So that's the business of classification. It's a similar problem of predicting a label.
+
+[Faculty (Olympus)] 19:06:28
+The difference between the 2 cases is that in regression the labels are continuous variables, whereas in the classification the labels take one out of a few.
+
+[Faculty (Olympus)] 19:06:41
+One out of a few values. So this is what we are going to do. Now these days any high school students can take a dataset.
+
+[Faculty (Olympus)] 19:06:51
+Put it in a spreadsheet. Go on the internet, find the piece of software, hit the button and find the piece of software, hit the piece of software, hit the button and get the solution to the regression classification problem.
+
+[Faculty (Olympus)] 19:07:03
+And get a solution to the regression classification problem. So anyone can do it. What makes the difference is between those who know what they're, hit the button and get a solution to the regression classification problem. So anyone can do it.
+
+[Faculty (Olympus)] 19:07:10
+What makes the difference is between those who know what they're doing versus those who just used as a black box and have no idea whether they can trust the results or what the results mean.
+
+[Faculty (Olympus)] 19:07:15
+And we want to be in the second category. We want to be in the category where we understand what's going on.
+
+[Faculty (Olympus)] 19:07:23
+And a big part of that is the so-called performance assessment. That is, once we run a method, how good do we think it is?
+
+[Faculty (Olympus)] 19:07:31
+Do we trust it? Do we trust the predictions and the models that we're getting out of out of the software.
+
+[Faculty (Olympus)] 19:07:40
+And that has also to do with the so-called testing and validation. Once you get the predictor going, you want to see how good is it.
+
+[Faculty (Olympus)] 19:07:49
+You want to validate on the data that you have available.
+
+[Faculty (Olympus)] 19:07:53
+Okay, so now more concretely, let's talk about today's agenda. We're going to start with the for.
+
+[Faculty (Olympus)] 19:08:03
+We're going to start with the formulation of the regression problem and to be more accurate. We're going to start with the formulation of the regression problem.
+
+[Faculty (Olympus)] 19:08:08
+And to be more accurate, it's going to be the formulation of the the linear regression problem.
+
+[Faculty (Olympus)] 19:08:12
+We're going to talk about how it gets solved. We will spend a little bit of time on interpreting what is it that we're actually doing and then get into the business of performance assessment.
+
+[Faculty (Olympus)] 19:08:25
+Actually, there's going to be more on performance assessment next in the next session, but today we're going to get a start on this.
+
+[Faculty (Olympus)] 19:08:31
+We're going to continue the subject of linear regression next time on Wednesday and cover various topics, see that things can sometimes go wrong, understand what can go wrong, and then start moving towards the nonlinear direction.
+
+[Faculty (Olympus)] 19:08:47
+And finally, you also talk about important issues. Overfitting, regularization, and so on.
+
+[Faculty (Olympus)] 19:08:56
+Okay, so now let's get a little closer to our subject. Before I continue, let me say something about how I'm going to be running this session.
+
+[Faculty (Olympus)] 19:09:08
+Please enter your questions in the chat and then'm going to be monitoring the chat as I speak. And I will sometimes choose to answer some questions in real time.
+
+[Faculty (Olympus)] 19:09:19
+This will have to do more with low level details if somebody is asking what does this symbol mean or can you repeat that sentence I will do it on the spot.
+
+[Faculty (Olympus)] 19:09:28
+For more conceptual questions that ask about the broader picture of what is going on, I will have short breaks and answer those questions all together.
+
+[Faculty (Olympus)] 19:09:39
+So that we're not breaking the continuity. Of the discussion too much. No, let's see.
+
+[Faculty (Olympus)] 19:09:50
+Okay. Alright. So let's start with the big picture, the typical situation. So let's say you're in the medical field.
+
+[Faculty (Olympus)] 19:09:59
+In the medical field, individuals show up and the typical individual comes with a record or feature vector or attributes.
+
+[Faculty (Olympus)] 19:10:11
+This is a vector that describes all we know about that patient. Symptoms, test results, and so on.
+
+[Faculty (Olympus)] 19:10:19
+But what we're interested in as doctors is to figure out the state of health of that particular person.
+
+[Faculty (Olympus)] 19:10:32
+And we want to guess the state of their health based on the medical records based on X. Alright, how do we do that?
+
+[Faculty (Olympus)] 19:10:37
+Well, we do that by going to school and getting trained and seeing lots of individual cases. So we're working with a database of previous patients and in those previous patients for each one of them we have their data record and we also have the correct label.
+
+[Faculty (Olympus)] 19:11:00
+That is, once the patient stayed in the hospital enough, eventually we figured out what they were. And so for the for the for the old patients we have the full story both their attributes but also their labels and we have that for a total of n different patients.
+
+[Faculty (Olympus)] 19:11:20
+So the Y's are the labels in this case, and the X's are the features or the attributes.
+
+[Faculty (Olympus)] 19:11:28
+And once we graduate from medical school, our business is the following. A new patient comes in. We see their medical record.
+
+[Faculty (Olympus)] 19:11:36
+We see their attributes. And we're asked to make a guess about their label. Or in the usual lingo in this field where we want to predict their label why we want to predict their state of health based on the attributes of that particular individual.
+
+[Faculty (Olympus)] 19:11:54
+So predictions can be of various types. It might be just a 0 one. Does that person have cancer or not?
+
+[Faculty (Olympus)] 19:12:03
+That would be a classification problem. Or you may want to predict some other quantities that are more of the continuous type.
+
+[Faculty (Olympus)] 19:12:14
+For example, you may want to predict the life expectancy of a person based on their medical record or you may want to predict their blood pressure one week later or something like that, which again would be a continuous quantity.
+
+[Faculty (Olympus)] 19:12:29
+And that would make it a regression problem.
+
+[Faculty (Olympus)] 19:12:33
+So the usual pipeline runs as follows. We have our data set. The data set are just everything that we know historically.
+
+[Faculty (Olympus)] 19:12:44
+We take those data, we process them, so this would be the business of training.
+
+[Faculty (Olympus)] 19:12:52
+You do so-called training or some heavy computation. And once you've done the training, then you're ready to make predictions.
+
+[Faculty (Olympus)] 19:13:03
+And then in real time, when you deploy your system and you person comes in, they have their feature vector X, and we use that together with any knowledge we have acquired.
+
+[Faculty (Olympus)] 19:13:15
+During the training in order to make predictions. So that would be the pipeline if all you care is to make predictions and in such cases this part here could even be a sort of a black box that you do not really understand what it's doing as long as it's delivering predictions at the end.
+
+[Faculty (Olympus)] 19:13:34
+That would correspond, I guess these days you could even call it black box AI. But sometimes you're interested in a little more.
+
+[Faculty (Olympus)] 19:13:42
+Not just making predictions, you may be interested in building a model of the situation. Kind of build a theory what's going on, how are these variables related?
+
+[Faculty (Olympus)] 19:13:54
+And if you're an economist, you want to build a story. A narrative more generally understand the mechanism of what is going on.
+
+[Faculty (Olympus)] 19:14:03
+Those cases you may want to proceed in 2 steps you take your data and you build a model of the situation.
+
+[Faculty (Olympus)] 19:14:11
+So a model means some kind of mathematical representation that you can look into it and understand. What's going on typically in the form of mathematical equations between the x's and the y's.
+
+[Faculty (Olympus)] 19:14:24
+And once you have a mathematical model, then you can start doing math and use probability and statistics. So that based on the model, whenever a new person comes in with their own data record, you can use that to make predictions.
+
+[Faculty (Olympus)] 19:14:40
+If you go that way, you have a predictor in your hands, but you also have something else.
+
+[Faculty (Olympus)] 19:14:46
+You do have a model. And models can be useful in 2 ways. Sometimes you're interested in the model by itself because you're trying to understand what's going on.
+
+[Faculty (Olympus)] 19:14:59
+If you're an economist, you want to build a model of how the economy works. You're interested in that.
+
+[Faculty (Olympus)] 19:15:05
+Sometimes you're not interested. In the model per se, but it turns out to be a useful way of arriving at predictions.
+
+[Faculty (Olympus)] 19:15:16
+So a large part of machine learning methods. Goes this roundabout way. First step, construct a model, and then use that to make predictions.
+
+[Faculty (Olympus)] 19:15:27
+We're going to see both of these approaches during this week. And at this point, there's a nice quote, a well-known phrase about this field, that when we say model, we never mean a completely realistic description of a situation, but it's a useful description of the situation.
+
+[Faculty (Olympus)] 19:15:49
+So all models are wrong, but if you do your setup and you choose the right class of models and you search in a clever way to find a good model, then a model can be very useful.
+
+[Faculty (Olympus)] 19:16:01
+In condensing what it is that the data are telling you. Looking at the chat somebody is asking, what is the number of training data?
+
+[Faculty (Olympus)] 19:16:15
+How big is the training set? What how big is N. Well, it depends in all the world statistics and could be as little as 20 or 50.
+
+[Faculty (Olympus)] 19:16:28
+These days when people run large neural networks and could even be in the billions. In most cases that you might encounter, let's say in the business world, for example, it would be in the thousands or tens of or tens of thousands that would be the rough range.
+
+[Faculty (Olympus)] 19:16:48
+But what we're going to discuss applies. In general, to all cases, whether n is large or whether n is small.
+
+[Faculty (Olympus)] 19:16:58
+Now, while I was talking, I think I did employ those terms here, statistics and machine learning.
+
+[Faculty (Olympus)] 19:17:07
+And you may be wondering, what exactly is it that we're that we're doing here? Is it statistics?
+
+[Faculty (Olympus)] 19:17:12
+Is machine learning? Well, my view is that all of that, these are just words that are about describing a broader activity and the broader activity is the one of data science.
+
+[Faculty (Olympus)] 19:17:25
+What is data science is the art and the science of extracting useful information from data. And you do that using some mathematics and using some computation.
+
+[Faculty (Olympus)] 19:17:38
+People who tend to be more on the mathematical end would describe themselves as statisticians, people who jump into the computer and they're interested in efficient algorithms for large problems and all that they would describe themselves as doing machine learning.
+
+[Faculty (Olympus)] 19:17:52
+But the best and most creative people in this field actually cross both sub fields. They know both of their statistics and their math and they're also good with the computational tools so they also understand what's happening in the machine learning field.
+
+[Faculty (Olympus)] 19:18:11
+Having said all that, I want to emphasize that the whole field rests on some Strong foundations.
+
+[Faculty (Olympus)] 19:18:19
+One of these is probability, which even if you don't use any results from probability theory. That's almost going to be the case in this week.
+
+[Faculty (Olympus)] 19:18:29
+Probability gives us a language to talk about uncertain situations. Whenever there's uncertainty in randomness, probability is the appropriate language for this discussing about it.
+
+[Faculty (Olympus)] 19:18:41
+And then we want to realize that the statistics and data analysis is not a new thing. It has been happening for at least 200 years.
+
+[Faculty (Olympus)] 19:18:50
+Some quite systematically and a lot of useful lot of useful stuff has been discovered. There and of course we're going to build from that.
+
+[Faculty (Olympus)] 19:19:01
+So machine learning and AI did not appear out of the blue. Last month they are building step by step on many stages of knowledge.
+
+[Faculty (Olympus)] 19:19:11
+And we're trying to condense some important pieces of knowledge that we do know at this stage. And before we jump, just a very quick digression.
+
+[Faculty (Olympus)] 19:19:23
+A little bit of the language that we're using. So the whys are the labels. X's bold X is the attribute vector or feature vector of a certain individual.
+
+[Faculty (Olympus)] 19:19:37
+This is the data record of an individual. Some terminology that's being used here. Each one of the components of your record, sometimes it's called a covariant.
+
+[Faculty (Olympus)] 19:19:51
+Sometimes it's called an independent variable. Sometimes it's called the feature. In different domains, people like one language or the other, they all mean the same thing.
+
+[Faculty (Olympus)] 19:19:59
+As for why that are the labels, sometimes they're called responses or dependent variables or targets. They are the targets of our prediction.
+
+[Faculty (Olympus)] 19:20:08
+It's what we're trying to predict. If you think that there's a causal relation between X's and Y's, then it might make sense to think of Y as the response to the particular X's.
+
+[Faculty (Olympus)] 19:20:21
+Again, as I said, the language is kind of domain specific. I'm just throwing there the various terms and to tell you that they're basically equivalent.
+
+[Faculty (Olympus)] 19:20:29
+It's not. They're no different. The thing that we're trying to predict, however, why is always one dimensional, whereas x is multi dimensional.
+
+[Faculty (Olympus)] 19:20:43
+Somebody's asking that in the chat in the usual form of regression, y is one. If there's many things that you are trying to predict, Several wise, it just corresponds to several different regression problems.
+
+[Faculty (Olympus)] 19:20:58
+You set up one regression problem that tries to predict one particular target variable, you set the different regression to predict the other target variable.
+
+[Faculty (Olympus)] 19:21:10
+And in general, these 2 activities, these 2 different regressions can be done independently. Although I would take that back that when you're dealing with more complicated things like neural networks, you might want to combine your 2 regressions into one bigger one that tries to predict simultaneously the very different wise.
+
+[Faculty (Olympus)] 19:21:36
+Okay, and finally A little bit of notation. I'm throwing it here. You can use it as reference, but some a few things to remember.
+
+[Faculty (Olympus)] 19:21:47
+Is that bold face symbols will stand to vectors and vectors have components and the subscripts indicate what component we're talking about.
+
+[Faculty (Olympus)] 19:21:58
+If we have multiple data records, each data record has bold symbol and then the subscript just is used to index the different data records.
+
+[Faculty (Olympus)] 19:22:09
+Now when you have a vector, you can form the transpose, which is going to be a row vector.
+
+[Faculty (Olympus)] 19:22:15
+And then you can take the product of 2 vectors. Here what we have is inner product of a row vector that's x transpose with a column vector y.
+
+[Faculty (Olympus)] 19:22:29
+The product of these 2 vectors gives you a number and it's the number that you get by cross multiplying the entries of the 2 vectors.
+
+[Faculty (Olympus)] 19:22:38
+So this piece of notation we're going to be using a lot. This is a quantity that shows up a lot in anything that we do.
+
+[Faculty (Olympus)] 19:22:45
+So get used to this as a representation of inner products. And will always be the number of data. And finally, we will want to make a distinction between quantities between the true values of certain quantities.
+
+[Faculty (Olympus)] 19:23:01
+These are true values that typically we do not know. We try to estimate. True values are indicated by a star.
+
+[Faculty (Olympus)] 19:23:10
+Then we go and estimate those quantities and to indicate estimates, we use a hat. So whenever you see a hat over a symbol, it means that this is an estimate.
+
+[Faculty (Olympus)] 19:23:22
+That particular symbol. All right, so these are going to be our notational conventions. And we're kind of ready to get going but before we get going this is a good time for me to look at the questions.
+
+[Faculty (Olympus)] 19:23:36
+And the and answer a few of these. Okay, yes, the inner product is also called the dot product.
+
+[Faculty (Olympus)] 19:23:47
+Could why be?
+
+[Faculty (Olympus)] 19:23:58
+Okay, I'm not sure understand the question. Could why is one tension mean wise? Sorry, can't understand this question.
+
+[Faculty (Olympus)] 19:24:06
+So the basic level, there is only one dependent variable. This is going to be our mindset. When we have multiple dependent variables.
+
+[Faculty (Olympus)] 19:24:15
+As I said, you can deal with them possibly simultaneously. There's no reason to do that in regression, but in other, but once you get into more complicated machine learning methods, you may want to treat the multiple dependent variable simultaneously.
+
+[Faculty (Olympus)] 19:24:34
+What is? Question it's 9 51 what is I I'm not sure I understand that question.
+
+[Faculty (Olympus)] 19:24:44
+So. I'm
+
+[Faculty (Olympus)] 19:24:48
+Is there a relation with econometrics? Well, of course, econometrics is the part of data science that deals with Statistics and machine learning.
+
+[Faculty (Olympus)] 19:24:59
+In the domain of economics. So regression, for example, is the workhorse of econometrics.
+
+[Faculty (Olympus)] 19:25:09
+Econometrics pretty much always starts with linear models and methods. If they're found to be inadequate, then will go into something more complicated.
+
+[Faculty (Olympus)] 19:25:17
+10 times series problems be formulated as a regression. When you have time series, the first methods that one would use and one would try would indeed be of the linear regression type.
+
+[Faculty (Olympus)] 19:25:33
+However, in that context there's further complications that show up. In figuring out exactly what are your X's and your wise, the 2 get mixed in certain ways.
+
+[Faculty (Olympus)] 19:25:49
+There's a lot more issues that show up. When you deal with time series and so as not to complicate things we're going to stick to the static case, we do not have time we do not have time series.
+
+[Faculty (Olympus)] 19:26:02
+Try to understand as much as we can in the simple case. Which will already be quite a bit. And once you understand things on the simple case, the static one, then you would be ready to jump into time series, which is something that's going to happen.
+
+[Faculty (Olympus)] 19:26:18
+Later in this course. So repeat what's the difference between second data record versus second component.
+
+[Faculty (Olympus)] 19:26:26
+Okay, so we have a data record of one person. Which would be something like that. And it has components.
+
+[Faculty (Olympus)] 19:26:39
+So this here is bold x. You have the data records of a second person, which if I transpose it, it looks something like that.
+
+[Faculty (Olympus)] 19:26:53
+On the other hand, If I want to talk about this, this is the third component of that vector.
+
+[Faculty (Olympus)] 19:27:02
+So if I call that vector, if that vector here was x with a bold, Then x 3. Not bald would correspond to that particular component.
+
+[Faculty (Olympus)] 19:27:15
+Okay, so if you want to push your rotational understanding a little further, we might want to describe that as follows.
+
+[Faculty (Olympus)] 19:27:23
+It's the first data record, which is bold. Out of that data record we're taking the third component.
+
+[Faculty (Olympus)] 19:27:33
+We will not use as complicated notation as that I'm going to avoid it. So generally from the context and from the words that I'm going to say it would going to be clear exactly what we're talking about.
+
+[Faculty (Olympus)] 19:27:50
+Yes, and somebody said correctly. The index. When we're talking about the third component of a vector, this is like talking about the third column in our spreadsheet of data that we have.
+
+[Faculty (Olympus)] 19:28:09
+Okay, I'm going to come back to that later. What do I mean by black box when I use the words about black box AI what I meant is that somebody builds a box that makes predictions and maybe the predictions are good.
+
+[Faculty (Olympus)] 19:28:27
+However, we do not really have much understanding of what's going on inside the box. It's not a clean model of any kind.
+
+[Faculty (Olympus)] 19:28:37
+Okay. Does X have a name other than value? No, as I said, X, both X is the data record.
+
+[Faculty (Olympus)] 19:28:49
+It's also called the feature vector or the attribute vector or the vector of independent values. So I guess maybe things will start becoming a little more clear and more intuitive once we start working with an example, which is what we're going to do now.
+
+[Faculty (Olympus)] 19:29:08
+We're going to run today's session by using a particular very simple example, but we will keep that example going to illustrate all the things that we're going to be talking about.
+
+[Faculty (Olympus)] 19:29:19
+And it's a very simple and naive marketing example. You have a company that sells products in 200 different markets.
+
+[Faculty (Olympus)] 19:29:28
+Think of the different markets as being different towns. Or different regions. In each one of those regions, the company spends money advertising and it spends it through 3 different channels.
+
+[Faculty (Olympus)] 19:29:45
+Television, radio and newspaper advertising. And in each one of those markets, there is a certain. Of sales that the company has.
+
+[Faculty (Olympus)] 19:29:55
+And the company has collected data. What happened? Let's say last year in the in the different markets.
+
+[Faculty (Olympus)] 19:30:04
+So in a typical market market number 2. What happened last year is we spent so much in advertising in the different channels and that's how much we solved.
+
+[Faculty (Olympus)] 19:30:17
+So in this context We want to think. Of the amount of advertising as being the X variables and sales is the quantity that we're interested in for which we would like to make predictions.
+
+[Faculty (Olympus)] 19:30:36
+And in particular, we want to answer questions such as the following. Is there a relation between the amount of advertisement and sales.
+
+[Faculty (Olympus)] 19:30:46
+These are a relation between X's and Y's. And if there is such a relation, can we predict the Y's?
+
+[Faculty (Olympus)] 19:30:54
+Can we predict the sales if I tell you how much advertisement there was? So these are the historical data that we have.
+
+[Faculty (Olympus)] 19:31:04
+And based on this historical data, you may want to answer the question. Next year, if I advertise this much in a particular market.
+
+[Faculty (Olympus)] 19:31:17
+What is going to be the sales? What are going to be the sales in that particular market? That's the prediction we want to make for a new market or maybe for next year based on historical data on the different markets.
+
+[Faculty (Olympus)] 19:31:32
+Now I should say here That. This is just a toy example not to be taken very seriously. Okay, somebody is pointing out the very good, quick, very good question.
+
+[Faculty (Olympus)] 19:31:50
+You're spending these huge amounts of, of advertisements to just get a little bit of sales.
+
+[Faculty (Olympus)] 19:31:57
+That suggests that the units on that spreadsheet are not exactly the same. They're not all of them dollars.
+
+[Faculty (Olympus)] 19:32:06
+Dollars or thousands of dollars my guess would be that these amounts are let's say in thousands of dollars but this is in thousands of gadgets that have been solved.
+
+[Faculty (Olympus)] 19:32:19
+So they use a different unit. How much did we sell? Not how much revenue we had. So if you're dealing with a real application, of course, you need to pay attention and make sure you understand exactly what the different numbers represent and so on.
+
+[Faculty (Olympus)] 19:32:35
+Now the example is a toy example because there's many things that should show up in the real world and that we're not dealing with.
+
+[Faculty (Olympus)] 19:32:43
+What is the right time when, time window to use? Should we do that exercise using monthly data?
+
+[Faculty (Olympus)] 19:32:50
+Weekly data, yearly data. And once you start thinking about time, then you may realize that If you're dealing, let's say, with different times, there may be some seasonality.
+
+[Faculty (Olympus)] 19:33:01
+Maybe the sales in that market are higher because that market was more active and there was more advertisement during the holiday season.
+
+[Faculty (Olympus)] 19:33:12
+Also, once you think about time, there have cross effects. What you advertised. Last month in one market may have an effect on sales the next month.
+
+[Faculty (Olympus)] 19:33:25
+So if you just use monthly data and what happened in the same month, you're missing those spillover effects.
+
+[Faculty (Olympus)] 19:33:31
+Also, there can be spillovers from one market to another. If I advertise a lot in this town, then maybe people in the neighboring town will hear that advertisement and will go and have sales.
+
+[Faculty (Olympus)] 19:33:45
+So the real world is a lot dirtier than that than this toy example but nevertheless we're going to use this example just to get a sense of the methods we want to understand the methods on the basis of a simple example as opposed to doing a real case, a real case study from the real world.
+
+[Faculty (Olympus)] 19:34:09
+How do we check which channel affects sales the most? Well, that's what we want to do.
+
+[Faculty (Olympus)] 19:34:14
+We want to develop systematic ways of figuring that out and by the end of this session we will kind of know quite a bit about this.
+
+[Faculty (Olympus)] 19:34:25
+So what is? Was in this example is the space two-dimensional. Well, no, in this example, the X vectors, this is the typical, this is a typical X vector, has dimension 3.
+
+[Faculty (Olympus)] 19:34:43
+So the data, the attribute vector. Or feature vector of a typical market has 3 components. It's three-dimensional.
+
+[Faculty (Olympus)] 19:34:54
+Whereas, so that's our typical X vector, whereas Y is one dimensional. It's just one thing that we're trying to predict.
+
+[Faculty (Olympus)] 19:35:04
+Alright, so how do we move along? Well, before doing any math, whenever you have data, it's always good to try to visualize them.
+
+[Faculty (Olympus)] 19:35:16
+In this case, there's a total of 4 variables. The 3 components of X and Y. Unfortunately, there's no way to plot things or it's really hard.
+
+[Faculty (Olympus)] 19:35:29
+You have to go indirectly. You cannot really plot in 4 dimensions. But we can plot into dimensions.
+
+[Faculty (Olympus)] 19:35:35
+Let's do some 2 dimensional plots just to get a sense of what's going on.
+
+[Faculty (Olympus)] 19:35:40
+And so we can create what we have here is a scatter diagram that looks for each market the amount of TV advertisement and the corresponding sales.
+
+[Faculty (Olympus)] 19:35:52
+So each one of these points in this diagram corresponds to one entry in our dataset. For that entry in the data set, how much did we spend on TV and how much did we sell?
+
+[Faculty (Olympus)] 19:36:05
+So we have 200 data points. These are the little circles on that diagram. And once you look at them, then you may be tempted to just draw a straight line through these that captures the trend that you have here.
+
+[Faculty (Olympus)] 19:36:20
+And clearly we see a positive trend. SDV advertisement goes up, sales also go up. And then we can repeat the same exercise for each one of the other variables.
+
+[Faculty (Olympus)] 19:36:31
+And in all cases, we kind of see a trend. Although for a newspaper, if you are to eyeball just the points without the curve.
+
+[Faculty (Olympus)] 19:36:41
+The relation is not as visible. You might be tempted to say, well, maybe there is no relation between newspaper advertisements and sales.
+
+[Faculty (Olympus)] 19:36:52
+How do we how do we create those lines? That's exactly what linear. Regression methodology is trying to do to a systematic method.
+
+[Faculty (Olympus)] 19:37:04
+For for generating lines of this type. Based on the data that we have.
+
+[Faculty (Olympus)] 19:37:11
+Somebody's asking the question, an eigenvector. The answer is no. There are no eigenvectors involved here.
+
+[Faculty (Olympus)] 19:37:19
+So forget that term. It's a much simpler. We're going to go through the math.
+
+[Faculty (Olympus)] 19:37:24
+And let's try to formulate the question. Of the the question of how do we build those lines formulated in a mathematical way and then proceeds towards the solution.
+
+[Faculty (Olympus)] 19:37:40
+Somebody is asking what does the slope of the line signify? Well, the slope of the line, what are the units?
+
+[Faculty (Olympus)] 19:37:46
+Of the slope? The units of the slope? Are sales. Per spending on TV.
+
+[Faculty (Olympus)] 19:37:56
+So the slope tells you dollars of sales per unit of TV advertisements. So the strong steeper line means that for each unit of advertisement you have more sales.
+
+[Faculty (Olympus)] 19:38:17
+Okay. Again, for the big picture somebody is asking. The term regression analysis, what does it mean?
+
+[Faculty (Olympus)] 19:38:27
+I guess in the context of what we're doing. Well, regression analysis is exactly what we're trying to do.
+
+[Faculty (Olympus)] 19:38:34
+Regression analysis is about building those lines that we have here. But build them and translate that into mathematics.
+
+[Faculty (Olympus)] 19:38:44
+And once you get the results, it's about interpreting the results and figuring out which of the attributes which of the features is important and which one is not.
+
+[Faculty (Olympus)] 19:38:57
+Okay.
+
+[Faculty (Olympus)] 19:39:00
+So now let's turn into math. Remember our basic setting. We have a bunch of data records.
+
+[Faculty (Olympus)] 19:39:08
+Remember each one of these X's is bold phase, so it corresponds to a row of of attributes.
+
+[Faculty (Olympus)] 19:39:17
+So each one of these is a row vector. And we're going to use the symbol m to denote the.
+
+[Faculty (Olympus)] 19:39:25
+So in our marketing example, m was equal to 3. And then we have the variables that we're going to predict.
+
+[Faculty (Olympus)] 19:39:34
+We have this historical dataset and what we want to do is to create a method that given an XA new x, makes a prediction about y.
+
+[Faculty (Olympus)] 19:39:46
+So what we want to do is we want to build a box. That's when a new X comes in when a new individual comes in, we use that box.
+
+[Faculty (Olympus)] 19:40:00
+To create a prediction why. Why hat? This is our predictor. The predictor is a box that whenever you tell me the properties of an individual, it makes a prediction.
+
+[Faculty (Olympus)] 19:40:14
+That box we call it a predictor. You can also call it a regressor. So our business is to build this box and mathematically what is a box mathematically a box is just a function that takes x's and produces y hats.
+
+[Faculty (Olympus)] 19:40:33
+We want to build a predictor and we want to build a good predator. Okay, so what is a good predictor?
+
+[Faculty (Olympus)] 19:40:44
+What is our objective? What is one possible notion of a good predictor? Well, a good predictor should be one for which the prediction are close to the truth.
+
+[Faculty (Olympus)] 19:40:58
+And here's one possible way of making this more concrete. Person comes in they have their XA random person out of the population.
+
+[Faculty (Olympus)] 19:41:10
+We make a prediction for that person. Without knowing the label. Just based on X, we make a prediction.
+
+[Faculty (Olympus)] 19:41:20
+But that person has a correct Why? This difference here the prediction error. How far is our prediction from the truth?
+
+[Faculty (Olympus)] 19:41:32
+For mathematical reasons we take the square of that so we're dealing with a squared error And this is a notion of how far off we are from the truth.
+
+[Faculty (Olympus)] 19:41:46
+We would like that error to be small. But small for a specific individual. No, we would like that to be small for the overall population of individuals or markets out there.
+
+[Faculty (Olympus)] 19:41:59
+So we would like that error to be small on the average. And the notion of on the average in probabilistic notation stands for means expected value.
+
+[Faculty (Olympus)] 19:42:12
+So the expected values of random things are just the averages of those random things over a population. Okay.
+
+[Faculty (Olympus)] 19:42:25
+So here we are imagining that there is a true population of individuals. The whole work, let's say.
+
+[Faculty (Olympus)] 19:42:29
+A random person out of the whole world shows up. We make predictions and we want our predictions to have a small error on the average over the entire population.
+
+[Faculty (Olympus)] 19:42:42
+And we postulate that our problem is to create a predictor that makes this mean squared error as small as possible.
+
+[Faculty (Olympus)] 19:42:53
+This is a worthy objective. However, it's not a practical one. To get a predictor that's good for the overall population, we should know the entire population who they are so that we can find unit.
+
+[Faculty (Olympus)] 19:43:08
+However, the only thing that we have available is our dataset. So we need to compromise. Since we cannot Try to minimize this quantity because we do not have access to the whole population.
+
+[Faculty (Olympus)] 19:43:25
+Let's at least try to create a prediction that's good on that part of the population to which we have access.
+
+[Faculty (Olympus)] 19:43:33
+The part of the population to which we have access is our dataset. These are the n individuals on our dataset.
+
+[Faculty (Olympus)] 19:43:42
+And we take a particular predictor. We see what kind of predictions would it make. On the individuals in the dataset and compare it with the actual values for the individuals on the data set, we do know the actual value, so we can make that comparison.
+
+[Faculty (Olympus)] 19:44:01
+And this quantity here is the Average error or the mean squared error of a predictor? If, on the individuals that we have on our dataset.
+
+[Faculty (Olympus)] 19:44:14
+The proxy that we're going to use is to try to make this quantity small. Remember, this is the error of a particular predictor G.
+
+[Faculty (Olympus)] 19:44:28
+We want to find a good predictor. A good predictor is a particular G that makes this quantity small.
+
+[Faculty (Olympus)] 19:44:36
+So the G is what we're tuning. If you wish the G is like figuring out which line we're going to use and we want to tune it so that this error on the existing dataset is as small as possible.
+
+[Faculty (Olympus)] 19:44:50
+So again, the most important concept here is the concept of the predictor GG is a function that takes X's and produces predictions.
+
+[Faculty (Olympus)] 19:45:05
+For any particular predictor. If we apply it on our data set, it's going to make certain mistakes.
+
+[Faculty (Olympus)] 19:45:13
+And we evaluate how big are these mistakes. And we're looking for an optimal GA good G, that makes as few mistakes or as small as possible.
+
+[Faculty (Olympus)] 19:45:28
+That's the general prediction problem. This approach has a name, it's called empirical risk minimization.
+
+[Faculty (Olympus)] 19:45:36
+The idea is that this quantity here is the population risk. Whereas this is just the risk on our dataset.
+
+[Faculty (Olympus)] 19:45:46
+On the empirical that we have. And then somebody is asking, is G the slope pretty much it's in the linear case, we're going to see that it can be represented by a slope and then intercept, but more generally.
+
+[Faculty (Olympus)] 19:46:02
+In the most general formulation, G could be any function. Well, is it a good idea to have GB, any function?
+
+[Faculty (Olympus)] 19:46:10
+If I give you a data set and I ask you find the G that makes this quantity small. You can draw a G that goes through every data point, as in this diagram.
+
+[Faculty (Olympus)] 19:46:24
+So here the blue curve is a G. It's a conceivable predictor. The Black Point is the dataset.
+
+[Faculty (Olympus)] 19:46:34
+And so here we have a predictor that has 0 error. On the dataset. So by doing empirical risk minimization, we can always drive the error down to 0.
+
+[Faculty (Olympus)] 19:46:49
+But if you have a predictor of that kind, would you trust it? If a new individual comes in and has an X right here, the predictor would make a prediction which is this value up there.
+
+[Faculty (Olympus)] 19:47:02
+Would you trust it? No, you shouldn't trust it. So what's happening here is that we have a phenomenon that's called overfitting and which is one of the ways that data science can go wrong.
+
+[Faculty (Olympus)] 19:47:16
+The model of this example is that if we allow our predictor to be our betarially general. Then weird things will start happening.
+
+[Faculty (Olympus)] 19:47:27
+And the solution to out of that conundrum is to restrict the predictors instead of allowing G to be any kind of function no matter how wild we're going to restrict to functions g that are linear functions of of x.
+
+[Faculty (Olympus)] 19:47:48
+And that's what linear linear regression is all about. Finding a predictor that minimizes this quantity.
+
+[Faculty (Olympus)] 19:47:56
+But with G restricted to the class of linear functions. So let's now make this more precise.
+
+[Faculty (Olympus)] 19:48:07
+So what we're going to do is we're going to restrict our functions, G.
+
+[Faculty (Olympus)] 19:48:13
+What we have here is the prediction is a linear function of the x's. This is a particular choice of a function g.
+
+[Faculty (Olympus)] 19:48:24
+Actually, it's not a very particular choice. It has some free parameters. Those are the thetas.
+
+[Faculty (Olympus)] 19:48:30
+The thetas are the parameters of the prediction. Each theta, if choice of thetas, gives us a different predictor and we want to choose the thetas so that our predictor is as good as possible.
+
+[Faculty (Olympus)] 19:48:47
+Little bit of notation here. Let's compactify our notation. So let's define the X vector.
+
+[Faculty (Olympus)] 19:48:57
+The attributes of a particular individual to be not just the components that we had originally, but let's throw in there also a one component in the beginning.
+
+[Faculty (Olympus)] 19:49:09
+And we could similarly define a theta vector to consist. Of theta 0. Theta one up to What is M here?
+
+[Faculty (Olympus)] 19:49:25
+M is the dimension of our X's. A typical X vector has M components. So in our advertisement example, M is equal to 3.
+
+[Faculty (Olympus)] 19:49:37
+But we're throwing one extra component to make it a little longer and why do we do that? Because once we define also the theta vector this way, this expression here is can be written as theta transpose X with respect to these augmented vectors.
+
+[Faculty (Olympus)] 19:49:55
+So it's theta naught times one, theta one times x one and it keeps going. So we're going to restrict to predictors of this particular form.
+
+[Faculty (Olympus)] 19:50:08
+And so we're talking about predictors that's written in shorthand The predicted values are a linear function of the x's of any particular individual.
+
+[Faculty (Olympus)] 19:50:21
+So the reason that we put the one here, again, people were, someone is asking, is to be able to represent this entry here, theta naught times one.
+
+[Faculty (Olympus)] 19:50:35
+Theta one times X one and so on. So we throw in that one so that the theta vector and the x vector have the same dimension so we can talk about their dot product.
+
+[Faculty (Olympus)] 19:50:48
+So it's just notational shorthand so that we don't need to do anything. Yes, new or funny about about this.
+
+[Faculty (Olympus)] 19:50:58
+So what these corresponds to is that we have our spreadsheet in the TV example, we had our spreadsheet has 3 3 columns that corresponds to x one, x 2, x 3, and we create another .
+
+[Faculty (Olympus)] 19:51:15
+That has all ones That's essentially what we're doing. We're creating an extra column, an extra component of the X's, which is just fixed to one.
+
+[Faculty (Olympus)] 19:51:33
+And now, what is it that we want to do? We want to look at that sum of squared errors and make it as small as possible.
+
+[Faculty (Olympus)] 19:51:44
+In the particular case of linear regression, we're restricting to functions g that are linear functions of the x's.
+
+[Faculty (Olympus)] 19:51:52
+So here i runs over the data records. We have in data records. For each data record, we have this vector, xi.
+
+[Faculty (Olympus)] 19:52:03
+And we're using this linear function of the ith data records to make a prediction of YI.
+
+[Faculty (Olympus)] 19:52:12
+So we have our xi here and YI there. We're taking a linear function of this xi.
+
+[Faculty (Olympus)] 19:52:22
+Using that linear function to make a prediction of why. Our prediction is not going to be perfect.
+
+[Faculty (Olympus)] 19:52:32
+We're going to have errors and we want to minimize the sum of the squared errors. Pictorially, what does this correspond to?
+
+[Faculty (Olympus)] 19:52:37
+We have our data. Again, this is X and this is Y.
+
+[Faculty (Olympus)] 19:52:42
+And a particular choice of. Theta. Corresponds to a particular line. And that line let me draw it.
+
+[Faculty (Olympus)] 19:52:57
+Like this. That line has an intercept. The intercept is going to be theta 0 and it has a slope And the slope is theta one.
+
+[Faculty (Olympus)] 19:53:10
+So in the case where x is one dimensional, we have 2 thetas. If x is one dimensional, we only go up to here and we have a constant, which is the intercept and the slope.
+
+[Faculty (Olympus)] 19:53:23
+Choosing theta 0 and theta one is the same as choosing a particular line. Designing a predictor, a linear predictor is the same as making choices for theta 0 and theta one.
+
+[Faculty (Olympus)] 19:53:36
+And what is this expression now? We go over all the data points. For a typical data point, let's say this one.
+
+[Faculty (Olympus)] 19:53:49
+This is the value of Y. For that data point. This thing up here is the predicted value by our line.
+
+[Faculty (Olympus)] 19:54:01
+This is the value of theta 0 plus theta one x. It's the prediction. And this difference here is the prediction error, also called the residual.
+
+[Faculty (Olympus)] 19:54:12
+So given a line, it makes mistakes. The residual is the size of the mistake. And what linear regression does is it tries to find a line.
+
+[Faculty (Olympus)] 19:54:24
+For which the sum of the square residuals is as small as possible. So we keep moving the line around for any choice of the line.
+
+[Faculty (Olympus)] 19:54:35
+We have a sum of squared errors. We want to choose a particular line so that the sum of squared errors is as small as possible.
+
+[Faculty (Olympus)] 19:54:44
+And that's what linear regression is. Basic linear regression. This method also has the name of ordinary list squares.
+
+[Faculty (Olympus)] 19:54:54
+It's the simplest prediction. There is out there. It's simple and it's old.
+
+[Faculty (Olympus)] 19:55:00
+Even Gauss used it more than 200 years ago, but this is the foundation of pretty much everything it's sort of the fundamental method in statistics and machine learning.
+
+[Faculty (Olympus)] 19:55:22
+Okay, so this is the problem that we will want to solve. That's the linear regression problem.
+
+[Faculty (Olympus)] 19:55:30
+Given the data set. Run this optimization. And find the theta that best fits the data. Find the thetas that best fit the data.
+
+[Faculty (Olympus)] 19:55:43
+Now this has been reduced to a mathematical problem. It's the problem of minimizing a function.
+
+[Faculty (Olympus)] 19:55:48
+And in this case, it's this function is a sum of various quadratic things. How do we do that minimization?
+
+[Faculty (Olympus)] 19:55:56
+In some ways, you shouldn't care exactly how it is done. It turns out that there is a formula.
+
+[Faculty (Olympus)] 19:56:04
+And just for completeness, let me specify the symbols in that formula. This Script x is basically the spreadsheet that we have.
+
+[Faculty (Olympus)] 19:56:18
+This is our data set, arranged in a metrics and why are the different labels. So you create some, you view your spreadsheets as a huge metrics.
+
+[Faculty (Olympus)] 19:56:30
+Then you do some matrix vector manipulations and out you get the optimal predictor. Don't try to look at that formula too much.
+
+[Faculty (Olympus)] 19:56:40
+Don't try to memorize it. Personally, I I don't I don't remember it by heart and it doesn't matter what does matter is that it's simple for simple looking formula exists.
+
+[Faculty (Olympus)] 19:56:56
+And that formula only involves linear algebra operations. That is, multiplying matrices and taking the inverse of a matrix or essentially solving a system of linear equations.
+
+[Faculty (Olympus)] 19:57:10
+Why is that important? Solving systems of linear equations is the simplest numerical problem that exists. Out there in the world.
+
+[Faculty (Olympus)] 19:57:19
+And for that reason, linear regression problems can be solved very, very fast. Even if N is in the millions, still there's numerical software out there that will give you the optimal thetas very, very quickly.
+
+[Faculty (Olympus)] 19:57:36
+Why are things that simple if you care about the math you can just browse at those math details at your own leisure.
+
+[Faculty (Olympus)] 19:57:45
+The short story is that we're minimizing a quadratic function. And when you minimize the quadratic function, what you do is take the derivative and set it to 0.
+
+[Faculty (Olympus)] 19:57:55
+The derivative of a quadratic is linear. So you you are setting something linear to 0, so it means you just need to solve a system of linear equations.
+
+[Faculty (Olympus)] 19:58:05
+So the takeaway message from this slide is forget all the symbols is that linear regression can be solved very fast.
+
+[Faculty (Olympus)] 19:58:13
+Somebody's asking how can we take the inverse of a matrix if it's not square? Well, x is not square, but x transpose times x is square.
+
+[Faculty (Olympus)] 19:58:25
+If you have a metrics and another matrix, this is big X, this is X transpose.
+
+[Faculty (Olympus)] 19:58:32
+The product of those 2 matrices will actually be square. And in fact, it's also a symmetric metrics.
+
+[Faculty (Olympus)] 19:58:41
+And for that reason, you can take the inverse.
+
+[Faculty (Olympus)] 19:58:46
+Hmm.
+
+[Faculty (Olympus)] 19:58:50
+So now that we have a formulation and we know that the is software that can solve the problem, we can apply that software to our example.
+
+[Faculty (Olympus)] 19:59:01
+In our example, we had 200 markets. And we have m plus one is 4. We have 4 coefficients.
+
+[Faculty (Olympus)] 19:59:10
+You run the software and you get theta hat equals to this. And you look at that, that's the optimal theta hat.
+
+[Faculty (Olympus)] 19:59:18
+Well, what does this tell me? Hard to interpret. Well, it's easier to interpret if you write it in this form.
+
+[Faculty (Olympus)] 19:59:23
+The data tells us that the optimal predictor, the one that results in the smallest mean squared error is described by this equation.
+
+[Faculty (Olympus)] 19:59:34
+This 294 is the like an intercept. And and then the different pieces of advertisement make certain contributions.
+
+[Faculty (Olympus)] 19:59:43
+There's a funny term here. This is appears to be negative. So is newspaper actually hurting your sales?
+
+[Faculty (Olympus)] 19:59:51
+Who knows? Well, maybe the data are just noisy. And that's just the statistical fluke.
+
+[Faculty (Olympus)] 19:59:58
+You also look at that number and you see that it is pretty small. So maybe it doesn't mean anything.
+
+[Faculty (Olympus)] 20:00:04
+Maybe it's just noise. Is it noise? Well, we want to develop a systematic way for to be able to answer a question like that.
+
+[Faculty (Olympus)] 20:00:13
+How much do we trust that number and does it mean anything? By the way, this is the regression that was run by taking the entire big spreadsheet.
+
+[Faculty (Olympus)] 20:00:25
+Including the one column. And running the regression on it.
+
+[Faculty (Olympus)] 20:00:31
+You could ask yourself a different question. How about if I run regression just looking at newspaper data? What this corresponds to is that I'm throwing away much of the data that we have, I throw away the information about TV and radio.
+
+[Faculty (Olympus)] 20:00:50
+I only keep newspaper data and why and I run a regression that relates newspaper advertisements to Y. So that's another regression problem.
+
+[Faculty (Olympus)] 20:01:02
+It's the same methods but used on a different spreadsheet. We modified our spreadsheet by throwing away some of the columns.
+
+[Faculty (Olympus)] 20:01:11
+And now we get some result and when we look at that result we get the positive slope. That was the diagram that I had shown it is in the slide a little bit earlier.
+
+[Faculty (Olympus)] 20:01:21
+And that seems to give us a conflicting conclusion. Compared to that here the number is a little bigger.
+
+[Faculty (Olympus)] 20:01:29
+And it's also positive. Which one of the 2 are we going to trust? That's a very good question and we don't yet have the answer, but we will develop methodologies for addressing questions like that.
+
+[Faculty (Olympus)] 20:01:43
+So going back to my earlier story, any high school student can run this model and also generate that model.
+
+[Faculty (Olympus)] 20:01:50
+But it takes a little more maturity to now to be able to start reasoning about these and figuring out which one do you trust if you trust any one of these and why.
+
+[Faculty (Olympus)] 20:02:04
+Alright, now we're moving towards a break, but before the break, I also want to say a few higher levels things.
+
+[Faculty (Olympus)] 20:02:15
+About interpreting what is it that we're really doing here.
+
+[Faculty (Olympus)] 20:02:22
+What does this method actually do and what's the context? And there's various interpretations that are possible.
+
+[Faculty (Olympus)] 20:02:30
+Here's one that's pretty close to what how we came about this method. Here's how to think.
+
+[Faculty (Olympus)] 20:02:39
+There's a very large population out of there out there. So maybe instead of 200 markets for which you have data, there's a hundred 1,000 markets except that you don't have data about those.
+
+[Faculty (Olympus)] 20:02:53
+But those large number of markets exist, large true population. And there's some relation between X's and Y's.
+
+[Faculty (Olympus)] 20:03:00
+But that relation could be very complicated and could be non-linear. What we're trying to do is to develop a linear predictor or linear model.
+
+[Faculty (Olympus)] 20:03:11
+So instead of trying to learn the blue line, We try to learn a red, straight line. Which does as good a job as possible on the overall population.
+
+[Faculty (Olympus)] 20:03:24
+But we do not have the overall population in our hands. What we have is a small sample out of that population.
+
+[Faculty (Olympus)] 20:03:32
+So these data are a subset of the original of the entire population. A finite sample. And the thing that linear regression does is it takes our data set and generates a line that does a good fit.
+
+[Faculty (Olympus)] 20:03:47
+For the sample that we have available in our hands. When I use the word sample, I mean the collection of data records in our set.
+
+[Faculty (Olympus)] 20:03:58
+Sample here means datasets.
+
+[Faculty (Olympus)] 20:04:01
+Okay, now there are some guarantees about these methods. If our finite sample is very large, The red line that we get by fitting the finite sample is going to approach the correct line, the correct red line, which is the best one for the large population.
+
+[Faculty (Olympus)] 20:04:24
+So that's a consistency result that in the limit of a big enough data set, we're going to recover our ideal.
+
+[Faculty (Olympus)] 20:04:32
+Where the ideal is the best red line for the entire population. Okay, for that to be true, however, we need to be sure that the samples are drawn representatively.
+
+[Faculty (Olympus)] 20:04:44
+If I was only taking samples of those people down there, I would get a line that looks like this.
+
+[Faculty (Olympus)] 20:04:53
+It would not in any way approach the line the correct one. But if we were choosing a random from the population without making any distinctions from which area we're sampling.
+
+[Faculty (Olympus)] 20:05:06
+Then we have this theoretical guarantee that with a big enough data set, we're going to recover the truth.
+
+[Faculty (Olympus)] 20:05:13
+So one statistician does this one day. Another statistician, the next day, goes and gets a different finite sample from the same population, let's say drawn at random, they get the other their own finite sample and they run regression.
+
+[Faculty (Olympus)] 20:05:32
+They're going to get different results. Why? Well, if I'm choosing a random sample out of a population, 2 different random samples because of randomness are not going to be the same.
+
+[Faculty (Olympus)] 20:05:45
+So, so when you try to fit the line where you're going to get different results. How different are they going to be and
+
+[Faculty (Olympus)] 20:05:55
+And how much variation should we expect? Here's why this is an important question. If the lines of the 2 statisticians happen to be almost the same, then we can be confident.
+
+[Faculty (Olympus)] 20:06:09
+That both lines are fairly correct and we can trust them. If the 2 statisticians get lines that are very, very different, Then that means We cannot trust.
+
+[Faculty (Olympus)] 20:06:24
+Neither of the 2.
+
+[Faculty (Olympus)] 20:06:27
+So we want to know for a given application in what situation are we? Are we in a situation where 2 statisticians would get very different results or in situations where 2 statisticians would get very similar results.
+
+[Faculty (Olympus)] 20:06:43
+If we had 2 datasets and 2 statisticians, we could do that exercise twice and see if we get this similar results or not.
+
+[Faculty (Olympus)] 20:06:52
+But in the real world, we only have one dataset. We only have this. We don't have that.
+
+[Faculty (Olympus)] 20:07:00
+Can we tell? Whether we are in the noisy situation or in the non noisy situation.
+
+[Faculty (Olympus)] 20:07:07
+Just by looking at the data, it turns out that we can and this has to do with the performance assessment methods that we're going to develop next.
+
+[Faculty (Olympus)] 20:07:19
+Today but also on Wednesday. So it's a big story, but in many ways this is a central question whenever you do predictions.
+
+[Faculty (Olympus)] 20:07:30
+How much do you trust the your estimates? Are your estimates noisy or not? How much noise do they have?
+
+[Faculty (Olympus)] 20:07:41
+Alright, so that was the story about what happens when there's an underlying big population. But there's a different story.
+
+[Faculty (Olympus)] 20:07:49
+Which comes out of just, math in a different way. And here's the second story.
+
+[Faculty (Olympus)] 20:07:57
+Let's assume that the world is linear. Structural model, I mean we make an assumption about the structure of how the world is.
+
+[Faculty (Olympus)] 20:08:09
+Let's assume that the world is linear. There are some true parameters out there. So that the labels are generated as a function of the x's.
+
+[Faculty (Olympus)] 20:08:19
+But not deterministically, they do not all lie on exactly on the line. Each person has also some idiosyncratic noise associated with them.
+
+[Faculty (Olympus)] 20:08:29
+So for we have the line. And the for a typical person, their y value is this value plus or minus some noise.
+
+[Faculty (Olympus)] 20:08:41
+W. And that's why you have some spread in the data.
+
+[Faculty (Olympus)] 20:08:45
+Once we have, if we make that postulate that we have a linear model, we can try to estimate the thetas using the so-called maximum likelihood method.
+
+[Faculty (Olympus)] 20:08:56
+What the likes, maximum likelihood methods does is it does the following. For any particular choice of theta, There is a certain probability of observing what we actually observed.
+
+[Faculty (Olympus)] 20:09:11
+And let's find a choice of theta. For which this probability is highest. That takes a little bit of work to parse.
+
+[Faculty (Olympus)] 20:09:23
+What it really means is find the choice of theta for which what we observe. Is most compatible with the model associated with that theta.
+
+[Faculty (Olympus)] 20:09:38
+Each theta is a probabilistic model and we want to find the theta for which that model is very compatible.
+
+[Faculty (Olympus)] 20:09:44
+With the data that we have seen. Now, within that method and with a few extra assumptions, namely that the W's are normal random variables.
+
+[Faculty (Olympus)] 20:09:55
+We can write down this probability or probability density in closed form. Okay, it's a messy looking looking expression.
+
+[Faculty (Olympus)] 20:10:04
+But once you go and maximize that expression with respect to the thetas, So the Y's and the X's are known.
+
+[Faculty (Olympus)] 20:10:11
+So everything in that formula is known except for the thetas. Try to maximize that with respect to the theta and by writing the product of the exponentials as an exponential of the sum, what you end up is exactly the previous problem of minimizing the sum of me of squared errors.
+
+[Faculty (Olympus)] 20:10:32
+What you end up with if you try to maximize this likelihood function is that you're looking at the sum of these terms.
+
+[Faculty (Olympus)] 20:10:42
+And you want to minimize that sum with respect to theta, it's the same as minimizing the empirical risk.
+
+[Faculty (Olympus)] 20:10:49
+So the maximum likelihood justification is a very different one from the one that we started from, but it actually deals to the same mathematical problem, the same least ordinary least squares approach.
+
+[Faculty (Olympus)] 20:11:04
+And that's good to know. It kind of reinforces the idea that ordinary least squares, it's not a bad thing to try to do.
+
+[Faculty (Olympus)] 20:11:10
+And also there's a lot of theory that goes around maximum likelihood estimation. It's an appealing method.
+
+[Faculty (Olympus)] 20:11:17
+So that's also good to know. So to summarize, Ordinary least squares is just a way of crunching the data.
+
+[Faculty (Olympus)] 20:11:28
+This particular way of crunching the data can be thought of in 2 different ways. In one mindset.
+
+[Faculty (Olympus)] 20:11:37
+Data are generated from some population or some distribution. And we learn a good linear predictor. That does a good job for that population on the average.
+
+[Faculty (Olympus)] 20:11:53
+And all it does is it generates a linear predictor. In the second approach, maximum likelihoods.
+
+[Faculty (Olympus)] 20:12:01
+Is a different mindset. We make much stronger assumptions about the world, that the world is actually linear.
+
+[Faculty (Olympus)] 20:12:09
+We know that. And then ordinarily squares learns the coefficients of the true linear model of the world.
+
+[Faculty (Olympus)] 20:12:19
+In the first case, we do not assume that the world is linear. The world might be nonlinear.
+
+[Faculty (Olympus)] 20:12:26
+We just learn how to make good predictions. In the second approach, we're actually learning something specific about the structure of the world.
+
+[Faculty (Olympus)] 20:12:36
+Okay, we covered quite a bit here, so let's, let's pause for a quick break.
+
+[Faculty (Olympus)] 20:12:43
+I will first answer some questions and then we're going to have real break. Okay.
+
+[Faculty (Olympus)] 20:12:52
+So, so I'm
+
+[Faculty (Olympus)] 20:12:56
+So there isn't an assumption here, of course, of normal noise and normal noise is an idealization.
+
+[Faculty (Olympus)] 20:13:07
+Sometimes it's approximately true. Sometimes it's not.
+
+[Faculty (Olympus)] 20:13:12
+So we use
+
+[Faculty (Olympus)] 20:13:18
+So, is asking we use squared error, square and mean squared error to calculate how far off are the predictions.
+
+[Faculty (Olympus)] 20:13:29
+Out of our model or out for predictor, correct? And then ordinarily squares tries to find the best predictor but restricted to predictors that are linear.
+
+[Faculty (Olympus)] 20:13:44
+So the criterion is mean squared error. We would like a predictor that has small mean squared error, but we restrict to linear predictors.
+
+[Faculty (Olympus)] 20:13:54
+So with the method finds the best fitting line.
+
+[Faculty (Olympus)] 20:13:57
+Since the samples are random Do we ever have the possibility that the 2 samples are the same? If you have 2 statisticians, each one getting their own data set, well, if the data set is very, very small, there's a small chance you might get the same.
+
+[Faculty (Olympus)] 20:14:16
+The same data or at least that the 2 data sets would share between individuals. On the other hand, in real life with large populations, that would rarely happen.
+
+[Faculty (Olympus)] 20:14:28
+But in any case, it also doesn't matter. In our case. How was theta calculated? So theta or actually theta hat gets calculated by running a piece of software that minimizes the sum of squared errors.
+
+[Faculty (Olympus)] 20:14:49
+So we have that criteria, some of squared errors. Which is a function of the thetas, we do the minimization and whatever comes out of that minimization, we call it theta hat.
+
+[Faculty (Olympus)] 20:15:02
+So.
+
+[Faculty (Olympus)] 20:15:09
+Does it matter if my variables, that is the x's, the components of x, are correlated or not.
+
+[Faculty (Olympus)] 20:15:18
+It doesn't really matter. It's okay. So we can do regression even if they are correlated.
+
+[Faculty (Olympus)] 20:15:29
+If the question was, does it matter if my samples are correlated? So instead of randomly sampling between individuals, the individuals that I sample turned out to be correlated.
+
+[Faculty (Olympus)] 20:15:43
+For example, if I get the family at random and then I pick 2 individuals out of that family then my 2 data records are going to be correlated.
+
+[Faculty (Olympus)] 20:15:52
+That can cause. That would take us a little bit outside the main mathematical model and some of the math analysis would have to be different.
+
+[Faculty (Olympus)] 20:16:04
+On the other hand, the method so far, would still remain the same.
+
+[Faculty (Olympus)] 20:16:11
+Is it a good procedure to work with 2 samples to ensure that the result does not change? If you can afford 2 samples, of course you can do it.
+
+[Faculty (Olympus)] 20:16:21
+But there are ways of doing it with just a single sample. And figure out what you want to do.
+
+[Faculty (Olympus)] 20:16:26
+That's the magic. Is theta really the correlation time something? Well, in the case where x is one dimensional, the coefficient theta one is directly related to the correlation between x and y.
+
+[Faculty (Olympus)] 20:16:45
+That's correct. It's harder to interpret, however, in the multivariate case.
+
+[Faculty (Olympus)] 20:16:52
+A vector with dimension 17 is considered to be high dimensional and needs PCA. Not necessarily. This really depends on the application and the setting.
+
+[Faculty (Olympus)] 20:17:04
+If you're in economist that looks for a very simple model of the world, maybe you want to reduce it to something that only has 2 or 3 variables.
+
+[Faculty (Olympus)] 20:17:13
+Maybe. On the other hand, in many machine learning applications these days, people leave their X vectors to be really, really high-dimensional and they don't try to do any any PCA.
+
+[Faculty (Olympus)] 20:17:27
+So it depends on the context and the application.
+
+[Faculty (Olympus)] 20:17:30
+How big should be the sample? In comparison to the population. The size of the population actually doesn't matter.
+
+[Faculty (Olympus)] 20:17:41
+The population could be even infinite. So you are never, your sample is never close to the true population.
+
+[Faculty (Olympus)] 20:17:48
+What matters is only the size of the sample. That's one of the magic that happens in probability theory.
+
+[Faculty (Olympus)] 20:17:56
+And finally, one important conceptual question that somebody's asking, why do we square the error? Yeah, why not look at the criterion?
+
+[Faculty (Olympus)] 20:18:06
+In which we just take absolute values of the errors. Look at the sum of the absolute values and minimize with respect to theta.
+
+[Faculty (Olympus)] 20:18:18
+That's definitely a legitimate thing to do. And actually, 200 years ago, when Laplace The famous mathematician started trying to look at regression type problems.
+
+[Faculty (Olympus)] 20:18:31
+He initially toyed with the criterion of this type. Well, the trouble is that this criterion is much harder to deal with, trying to minimize this.
+
+[Faculty (Olympus)] 20:18:40
+You do not you cannot solve the problem by using linear equation solvers. So it's computationally much more difficult.
+
+[Faculty (Olympus)] 20:18:47
+For And also. The squared error makes the point that we don't care about small errors, but we really care when the error starts to become large.
+
+[Faculty (Olympus)] 20:19:01
+So it has a little bit of that for labor. And finally, the squared using the squares, that's what we get when we do maximum likelihood method under the Gaussian assumption.
+
+[Faculty (Olympus)] 20:19:16
+Okay, we need to take now a real break. I'm afraid I'm running a little bit behind with how much I want to cover in the rest of the session, but I will give you 2 min to just sit back and relax.
+
+[Faculty (Olympus)] 20:19:33
+Contemplate something peaceful. I'll be back in 2 min and we're going to take it from here.
+
+[Faculty (Olympus)] 20:21:21
+Alright, I'm back. And sorry, I'll have to speak a little faster and maybe answer fewer questions.
+
+[Faculty (Olympus)] 20:21:28
+I always enjoy answering questions and, but because of that I left a little bit behind. In terms of timing.
+
+[Faculty (Olympus)] 20:21:37
+So let's talk about assessments now. How well are we doing? One simple way of measuring how well we're doing is by looking at certain coefficient called r squared.
+
+[Faculty (Olympus)] 20:21:52
+And here's what it is. If we have exes and wise. But you're asked to make a prediction without ever knowing anything about the X's.
+
+[Faculty (Olympus)] 20:22:02
+I only tell you the wise in our dataset. How would you predict the next? Why? Well, just take the average of the wise that you have seen.
+
+[Faculty (Olympus)] 20:22:10
+That corresponds to making a using a regressor which is a straight line but it's a horizontal line.
+
+[Faculty (Olympus)] 20:22:18
+It doesn't depend on the axis. And that results in a certain sum of squared errors. That sum of squared errors is how much variation there is in the y's.
+
+[Faculty (Olympus)] 20:22:28
+Then you run your regression. After you run your regression, you are going to have a different sum of squared errors.
+
+[Faculty (Olympus)] 20:22:37
+Which one is smaller? Well, the red line is tuned. The blue line is just one particular line.
+
+[Faculty (Olympus)] 20:22:45
+The red line is the optimal one. So this going to be less than the total sum of squares.
+
+[Faculty (Olympus)] 20:22:52
+That you had in the beginning. And now we want to compare these 2 quantities. So this residual sum of squares is how much variation the remains in the Y's after we take into account the value of X.
+
+[Faculty (Olympus)] 20:23:10
+The way to compare the 2, the popular way of doing it is looking at this particular quantity. Out of the total sum of squares, what fraction?
+
+[Faculty (Olympus)] 20:23:21
+Remains unexplained. One minus that is what fraction has been explained. So r squared is out of the total variation.
+
+[Faculty (Olympus)] 20:23:32
+How much has been explained? These coefficient r squared lies between 0 and one. And let's understand the 2 extreme cases when r squared is 0.
+
+[Faculty (Olympus)] 20:23:45
+What does that mean? It means that RSS is equal to TSS. Which means that regression didn't help us at all.
+
+[Faculty (Olympus)] 20:23:55
+It didn't reduce the sum of squared errors. So it means we're doing very poorly.
+
+[Faculty (Olympus)] 20:24:00
+R squared equals to one that corresponds to the case where RSS is 0. Which means that our regression line fits the data perfectly.
+
+[Faculty (Olympus)] 20:24:12
+There's no variation remained. So this is the ideal. So you will never get that ideal, but in general you prefer to see a big value of r squared.
+
+[Faculty (Olympus)] 20:24:24
+And R squared can be interpreted in the one dimensional case. It has something to do with the correlation between x and y's on the data.
+
+[Faculty (Olympus)] 20:24:35
+So let's calculate r squared on our example. It is pretty high, which means that our regression model, our predictor, is pretty successful.
+
+[Faculty (Olympus)] 20:24:46
+It explains much of the variation in sales. If we know advertisement, we can predict sales pretty well.
+
+[Faculty (Olympus)] 20:24:53
+If you were to run regression using just one variable at a time, We get an R squared which is terrible.
+
+[Faculty (Olympus)] 20:25:02
+Newspaper by itself explains very little of the data. It doesn't have good predictive power. TV alone has some predictive power.
+
+[Faculty (Olympus)] 20:25:13
+Radio alone has some kind of small predictive power. So each one. Alone by itself doesn't have a huge amount of predictive power, but all of them taken together, they do pretty well.
+
+[Faculty (Olympus)] 20:25:27
+Now, in general, whenever you have more variables, it means that you're looking at a richer set of lines.
+
+[Faculty (Olympus)] 20:25:36
+You have more flexibility to fit the data. So your R square will always go up or stay the same.
+
+[Faculty (Olympus)] 20:25:44
+But with a caveat that if you have too many variables x's too many x's, then you may start overfitting and so a high r squared might be misleading.
+
+[Faculty (Olympus)] 20:25:56
+For that reason, people sometimes talk about an adjusted r squared. However, although in the old days people would make a lot of fuss about using adjusted our squares in reality when your data set is large enough adjusted r squared is essentially the same as r squared.
+
+[Faculty (Olympus)] 20:26:14
+As in our example, it makes a tiny difference. So you can or less forget about that story. It's not that important.
+
+[Faculty (Olympus)] 20:26:22
+No, someone is asking. What is a good value for r squared? That depends very much on the context.
+
+[Faculty (Olympus)] 20:26:32
+If you want to make accurate predictions, You want an R-square that's going to be, let's say, point 8 or.
+
+[Faculty (Olympus)] 20:26:41
+Something or even higher. But if your objective is to get a Nobel Prize in physics by discovering a new particle and you have a very noisy data set.
+
+[Faculty (Olympus)] 20:26:55
+But you can convincingly establish that there is a positive relation even if your r squared is very poor.
+
+[Faculty (Olympus)] 20:27:06
+As long as you can establish that there's a strong relation, you can still get the Nobel Prize.
+
+[Faculty (Olympus)] 20:27:13
+So that's a different thing about how much you might trust that this line has opposed the slope. Which is a different question from.
+
+[Faculty (Olympus)] 20:27:23
+How much is the residual noise? So in short, it depends on the application and what you want to do.
+
+[Faculty (Olympus)] 20:27:32
+In some cases, even with an R squared that's small, you may have discovered useful and important things.
+
+[Faculty (Olympus)] 20:27:38
+And now let's get to the most important conceptual part of what we're doing today. So warning sign here.
+
+[Faculty (Olympus)] 20:27:49
+And that relates to the question whether you get the Nobel Prize or not. You discovered the Theta, some estimates that indicate that something important is happening.
+
+[Faculty (Olympus)] 20:28:01
+Do you trust it? How reliable are your estimates? Of the true coefficients. So we assume that the true coefficients are there.
+
+[Faculty (Olympus)] 20:28:13
+Let's assume that the world is linear and that will allow us to proceed analytically without that assumption one needs to do different things.
+
+[Faculty (Olympus)] 20:28:23
+You cannot do it with math. You have to do it things computationally that's going to come in the next session.
+
+[Faculty (Olympus)] 20:28:27
+But for now, let's assume that the world is linear. And start doing a little bit of conceptual mathematical thinking.
+
+[Faculty (Olympus)] 20:28:35
+So in this context, we run our regression and our regression produces estimated thetas. So we have the true thetas.
+
+[Faculty (Olympus)] 20:28:44
+These are the theta stars and we have the estimates. One thing to realize is that these estimates are themselves random.
+
+[Faculty (Olympus)] 20:28:54
+They are, it's a random variable. And the simple way of seeing that is that our estimates depend on the y's and the wise depend on the noises that we have, idiosyncratic noises of the different individuals.
+
+[Faculty (Olympus)] 20:29:11
+Also, you can think of the W's as sampling noise. When you sample out of a large population, whether you get that person versus that person, they might have different individual characteristics.
+
+[Faculty (Olympus)] 20:29:25
+And so these are their different W's. So think of W's as either sampling noise or measurement noise or something like that.
+
+[Faculty (Olympus)] 20:29:33
+But in any case, the net effect is that our estimates themselves will be noisy. Random.
+
+[Faculty (Olympus)] 20:29:42
+That means that if a different statistician does the same thing next time with a different data set, they're going to get a different value.
+
+[Faculty (Olympus)] 20:29:49
+What we want to assess is how close is theta hat to the truth, to theta star. And the way to make that assessment is we look at one component of theta at the time.
+
+[Faculty (Olympus)] 20:30:03
+So this is now a scalar, one dimensional quantities that we have. We have the true value.
+
+[Faculty (Olympus)] 20:30:09
+We have the estimated value. And we care about their distance. Okay, that distance is going to be random.
+
+[Faculty (Olympus)] 20:30:19
+Because the estimate is random. So since it's random, let's look at the average value of this.
+
+[Faculty (Olympus)] 20:30:25
+So this is the mean squared error. In estimating Fatas. And it's a quantity that tells us how accurate are the estimates.
+
+[Faculty (Olympus)] 20:30:38
+So that makes it an important quantity. It just talks about the accuracy of the estimates. These mean squared error can be broken into 2 parts.
+
+[Faculty (Olympus)] 20:30:49
+One is the variance of the estimates. Just how much variability there is. And that's the via variance term.
+
+[Faculty (Olympus)] 20:30:58
+And there's another term that's called the bias. Which looks at this difference. What is that difference?
+
+[Faculty (Olympus)] 20:31:05
+Okay, what's that expected value that we have here? This expected value corresponds to the following.
+
+[Faculty (Olympus)] 20:31:11
+One statistician does the experiment, they get a the hat, an estimate. It's random.
+
+[Faculty (Olympus)] 20:31:18
+Another statistician the other day gets another dataset, gets another theta hat. On the average, the estimates of the different statisticians are this expected value and you are comparing with the true value and you're asking a typical statistician, are they expected to be?
+
+[Faculty (Olympus)] 20:31:40
+Bye-. Will they systematically overestimate or will they systematically underestimate or will they systematically underestimate or not?
+
+[Faculty (Olympus)] 20:31:50
+Happily, it turns out that in linear regression, there's no systematic error. On the average, averaged over the different statisticians.
+
+[Faculty (Olympus)] 20:32:00
+You get the true value. Conceptually, this means that if you were to get a billion different data sets, Each statistician gets a different estimate.
+
+[Faculty (Olympus)] 20:32:11
+You get a billion estimates. You average those estimates. You're going to get to the true value.
+
+[Faculty (Olympus)] 20:32:19
+That's what it means conceptually. And again for to track the notation please keep in mind that a hat always send stands for estimate and the star stands for the true value.
+
+[Faculty (Olympus)] 20:32:31
+Okay, so regression is unbiased. So we can ignore this this term is going to be 0.
+
+[Faculty (Olympus)] 20:32:38
+And we only care about the variance. We're going to focus on the variance and that's what we are going to be doing next.
+
+[Faculty (Olympus)] 20:32:48
+Hmm. So the variance of theta hat is going to tell us how noisy are the estimates, which is the same as telling us something about how much we can trust those estimates.
+
+[Faculty (Olympus)] 20:33:00
+How accurately they are. To understand the variance of Theta hat, we need to understand the distribution of Theta hat.
+
+[Faculty (Olympus)] 20:33:09
+Theta hat is a random variable. What kind of distribution it has.
+
+[Faculty (Olympus)] 20:33:16
+Beautifully, it turns out to be normal. It's a normal distribution. Why is that?
+
+[Faculty (Olympus)] 20:33:22
+Well, that's approximately true. But it's because of the central limit theorem. The central limit theorem tells us that when we add Do stuff combining many.
+
+[Faculty (Olympus)] 20:33:34
+Independent random variables. We get normal distributions. In this case, if we have a large data set, everything is driven by the noises of each person in the data set.
+
+[Faculty (Olympus)] 20:33:47
+And because these noises are independent, when you combine them to create an estimate, they combine in a way that results in an approximately normal distribution.
+
+[Faculty (Olympus)] 20:33:57
+The statements is actually also true exactly if we assume that the noises are normal, then it turns out that the theta hats themselves will be normal.
+
+[Faculty (Olympus)] 20:34:08
+So the theta hats have a normal distribution. On the average, the theta hats. The mean is the true value, but they also have a certain standard deviation.
+
+[Faculty (Olympus)] 20:34:20
+A normal distribution looks like this. Because we are unbiased, the normal distribution is centered on the true value.
+
+[Faculty (Olympus)] 20:34:31
+What this distribution is telling us is the following. When a statistician goes and gets a data set.
+
+[Faculty (Olympus)] 20:34:37
+And runs the regression. They're going to report back an estimate and that estimate is likely to be somewhere in this range and it's very unlikely to be somewhere out there.
+
+[Faculty (Olympus)] 20:34:51
+That's where theta hat is going to be. Of course, we don't know theta star.
+
+[Faculty (Olympus)] 20:34:57
+But conceptually, we know that Theta hat will be somewhere around theta star. And the distribution is centered at theta star.
+
+[Faculty (Olympus)] 20:35:07
+That's because the method is unbiased. Alright, so. For that distribution. The variance is of course important and what's special about the normal distribution is that we know that 95% of the probability is within 2 standard deviations.
+
+[Faculty (Olympus)] 20:35:32
+So theta hat is going to be 2 standard deviations away from the true value and that happens with probability.
+
+[Faculty (Olympus)] 20:35:41
+95%. We have high confidence that we're going to be just 2 standard deviations away.
+
+[Faculty (Olympus)] 20:35:48
+So the standard deviation of that distribution tells us something about the accuracy of our estimates. It's a very important quantity.
+
+[Faculty (Olympus)] 20:35:57
+It's the quantity that statisticians care about the most. It has the name. It's called the standard error of our estimates.
+
+[Faculty (Olympus)] 20:36:07
+So standard errors really means how far off do you think you're going to be in some average sense?
+
+[Faculty (Olympus)] 20:36:16
+So standard errors are most important. And because they're so important, we're going to concentrate on these now.
+
+[Faculty (Olympus)] 20:36:25
+And the agenda is to talk. How do we calculate the standard error of an estimator of our predictor and how do we use it to create confidence intervals or run hypothesis tests.
+
+[Faculty (Olympus)] 20:36:38
+Just one notational thing before you get completely confused. There's 2 different variances and sigmas floating around.
+
+[Faculty (Olympus)] 20:36:46
+There's a sigma squared, that's the variance of the noises. This is the randomness of a typical individual.
+
+[Faculty (Olympus)] 20:36:55
+There is this variance here or this standard deviation, which is the randomness in our estimates. So it's a different thing.
+
+[Faculty (Olympus)] 20:37:05
+The J here indicates that we're talking about the randomness in one particular component of our of our estimates.
+
+[Faculty (Olympus)] 20:37:15
+So how do we calculate those standard errors? Fortunately, the software does it for you. When you run linear regression, you can also have its output for you, a so-called covariance metrics.
+
+[Faculty (Olympus)] 20:37:33
+It's a big matrix. It has dimensions m plus one times m plus one. In our example, m is 3, m plus one is 4, so we get the 4.
+
+[Faculty (Olympus)] 20:37:42
+A 4 by 4 metrics. In most of what we're going to do, we don't care about everything in that metrics.
+
+[Faculty (Olympus)] 20:37:51
+We only care about the diagonal entries. And those diagonal entries are the variances of the different components of theta hat.
+
+[Faculty (Olympus)] 20:38:01
+And then we can take the square root of those of those to get the standard errors or the standard deviations.
+
+[Faculty (Olympus)] 20:38:09
+The remaining entries are so-called covariances between the different components of the estimate. If you, the covariance is something like a correlation, except for some scaling.
+
+[Faculty (Olympus)] 20:38:21
+It tells you the errors that you have in the different components of Theta hat, whether they go together or not, but we will not need to deal with those.
+
+[Faculty (Olympus)] 20:38:32
+So how is that matrix generated where there's a formula for it? And there's some math that they will not talk about, but I'm putting that material there on the slide for anyone who's curious and wants to look at it.
+
+[Faculty (Olympus)] 20:38:44
+Offline. So bottom line out of that slide the software has a way of producing for you the variances.
+
+[Faculty (Olympus)] 20:38:57
+Of the different estimates and by taking square root of that you also have the standard deviations which are the standard errors.
+
+[Faculty (Olympus)] 20:39:07
+Okay, how are we going to use this? We're going to use the standard errors once we have them to create confidence intervals.
+
+[Faculty (Olympus)] 20:39:19
+So this here is the main picture to remember. The estimate is going to be some something random because of the randomness in our sampling that obeys this distribution and with probability, 95%, the estimate is going to be within 2 standard deviations from the truth.
+
+[Faculty (Olympus)] 20:39:38
+So with probability, 95%. The error of our estimates is at most 2 standard deviations.
+
+[Faculty (Olympus)] 20:39:46
+One way of saying this is Fix theta star. The estimate is going to be within 2 standard deviations.
+
+[Faculty (Olympus)] 20:39:56
+But another way of saying the same thing is Given theta hat Say theta star is within 2 standard deviations.
+
+[Faculty (Olympus)] 20:40:05
+So we have pinned down theta star to within 2 standard deviations from our estimate. We know that this is going to happen with probability, 95% with probability 95% the true value is within 2 standard deviations from the estimates.
+
+[Faculty (Olympus)] 20:40:26
+The software gives us those standard deviations. The standard errors. So when we run the software, we can get an interval.
+
+[Faculty (Olympus)] 20:40:35
+This is called a 95% confidence interval and say that with 95% confidence that's where theta star, is expected to be.
+
+[Faculty (Olympus)] 20:40:48
+I did this example. Using 95%. Of course, instead of 95%, you could use other numbers.
+
+[Faculty (Olympus)] 20:40:58
+You could do 99% confidence intervals. You would have to go a little further in that distribution, figuring out how much do you need to get 99% of the probability and you're going to get the confidence interval that's wider.
+
+[Faculty (Olympus)] 20:41:11
+If you want to be more confident that you've captured theta star, you need a bigger, a bigger interval.
+
+[Faculty (Olympus)] 20:41:18
+So in as a shorthand we could say the following but with probability 95% Theta star belongs to the confidence interval.
+
+[Faculty (Olympus)] 20:41:31
+Okay, that's in that's a way to phrase what the confidence interval does, but actually that phrasing is a bit tricky.
+
+[Faculty (Olympus)] 20:41:40
+When we talk about probability of something occurring, there must be something random that we're talking about. What is the random quantity?
+
+[Faculty (Olympus)] 20:41:51
+In this In this statement here in that probability, which one is the random quantity?
+
+[Faculty (Olympus)] 20:42:05
+Well.
+
+[Faculty (Olympus)] 20:42:10
+Okay. Opinions are divided but the majority So P is not random. P is just a symbol that means probability.
+
+[Faculty (Olympus)] 20:42:23
+So the question is whether theta hat is random or theta star is random. Theta star is not random.
+
+[Faculty (Olympus)] 20:42:31
+We never made any assumption about theta star being random. Theta star is a quantity that describes the world.
+
+[Faculty (Olympus)] 20:42:40
+Let's say you're a physicist trying to measure the speed of light. The speed of light is fixed.
+
+[Faculty (Olympus)] 20:42:46
+What is random is theta hat, your estimate, and it's random because of the noise in your measurement and in your sampling.
+
+[Faculty (Olympus)] 20:42:55
+So the random quantity is theta hat. Your random quantity is therefore the confidence interval. Here's a way to think about it.
+
+[Faculty (Olympus)] 20:43:06
+We have a theta star. Which has been fixed by nature.
+
+[Faculty (Olympus)] 20:43:13
+You do your statistics. You get a confidence interval. With probability, 95%, you're lucky and your confidence interval covers theta star.
+
+[Faculty (Olympus)] 20:43:25
+With some probability 5% You are unlucky and your confidence interval does not cover it. Suppose that lots of statisticians repeat the same procedure.
+
+[Faculty (Olympus)] 20:43:38
+They get the data set and they produce a confidence interval. 95% of those statisticians will capture Theta Star, 5% of those statisticians will miss it.
+
+[Faculty (Olympus)] 20:43:50
+So the way to think of it is it's raining. Confidence intervals in random locations and out of those confidence intervals, 95% of these are lucky and cover the truth.
+
+[Faculty (Olympus)] 20:44:04
+So it's a tricky interpretation. It's different from 1 one would think, but it's a so-called frequentist interpretation.
+
+[Faculty (Olympus)] 20:44:13
+It talks about the frequency with which you're going to get things right.
+
+[Faculty (Olympus)] 20:44:20
+So, the one first use of these standard errors. Is to create confidence intervals. A second thing that we can do once we have the standard errors is to test hypothesis.
+
+[Faculty (Olympus)] 20:44:35
+So take a hypothesis. That a particular theta star, the true value, is 0. That would be a hypothesis that that for example There is no effect.
+
+[Faculty (Olympus)] 20:44:49
+For example, the hypothesis that newspaper has no effect. Let's call that the null hypothesis, or you can think of it as the default hypothesis.
+
+[Faculty (Olympus)] 20:44:59
+No effect. And we're trying to ask, is there an effect or not? Is the true coefficient 0 or is it not 0?
+
+[Faculty (Olympus)] 20:45:11
+Here's a way of doing it. It's the so-called world test. If your confidence interval falls outside if 0 is not captured by the confidence interval, then you kind of have big confidence.
+
+[Faculty (Olympus)] 20:45:26
+That the true value is not 0. And in that case, you reject the null hypothesis and you say, I think I see an effect.
+
+[Faculty (Olympus)] 20:45:38
+On the other hand, if your confidence interval contains 0, so your estimate is close enough to 0, then you're justified to not reject the now, which is like saying that you accept the null.
+
+[Faculty (Olympus)] 20:45:54
+You accept the hypothesis that there is no effect. Or a more correct statement. Would be the data that I have seen are compatible with the hypothesis that there is no effect.
+
+[Faculty (Olympus)] 20:46:09
+So that's how this hypothesis testing is done. It's pretty simple. And what we can talk about the properties of this is the following.
+
+[Faculty (Olympus)] 20:46:19
+How often would you make a mistake of the following kind? The truth is 0. But you actually reject the hypothesis.
+
+[Faculty (Olympus)] 20:46:29
+The truth is 0. But the confidence interval does not contain 0. The truth is 0, but the error is more than 2 standard deviations.
+
+[Faculty (Olympus)] 20:46:45
+How often does this happen? Well, that's the case where the confidence interval misses 0 and that only happens 5% of the time.
+
+[Faculty (Olympus)] 20:46:56
+This 5% of the time where this happens goes under the name of a false discovery.
+
+[Faculty (Olympus)] 20:47:05
+It's a case where there is no effect. But you think that you see an effect. You're hypothesis test says that you're seeing an effect.
+
+[Faculty (Olympus)] 20:47:16
+It's a false discovery in engineering. Sometimes people would call that a false alarm probability and so on.
+
+[Faculty (Olympus)] 20:47:24
+Statisticians use this terminology type one error and type 2 error. Personally, I have difficulty remembering which of the 2 errors of the possible errors here is type one and type 2.
+
+[Faculty (Olympus)] 20:47:39
+I much prefer to think in terms of, let's say, false discovery, false discovery is the case.
+
+[Faculty (Olympus)] 20:47:45
+Where nothing is there, but you think that something is there. Yes, and delusion is false discovery and many conspiracy theories when you see it an image and that you think that you see a monkey inside the mountains, these are also inside inside the clouds.
+
+[Faculty (Olympus)] 20:48:06
+Dens would also be false discoveries. Okay, another way that people deal with hypothesis is by reporting so-called p values.
+
+[Faculty (Olympus)] 20:48:15
+Just that's just another terminology for doing the same thing. So here's how to think about the problem.
+
+[Faculty (Olympus)] 20:48:22
+If I get a certain theta hat, I ask the question, how much of an outlier is that?
+
+[Faculty (Olympus)] 20:48:28
+If the null hypothesis was true. So if I get the theta hat out there. If the null hypothesis is true, so the distribution is centered at 0, How far out is this data hat?
+
+[Faculty (Olympus)] 20:48:44
+Well, I can quantify how far out it is by looking at the probability of obtaining something that is so far out.
+
+[Faculty (Olympus)] 20:48:53
+So, and that number is the p-value.
+
+[Faculty (Olympus)] 20:48:58
+And when that number is smaller than 5%, you reject the null hypothesis. So a p-value of 5% means what I have seen could be generated just by randomness or noise.
+
+[Faculty (Olympus)] 20:49:16
+Well, it could happen, but it's very unlikely. It that what I see is has been generated by chance has only a 5% probability of being generated by chance.
+
+[Faculty (Olympus)] 20:49:30
+And so in that case, I will accept that. It is actually non-zero. I will reject the null.
+
+[Faculty (Olympus)] 20:49:35
+So, the world test is equivalent to calculating p values and rejecting if the p-value is smaller than 5% and very often in publications people will report p values.
+
+[Faculty (Olympus)] 20:49:51
+Now let's move to go back to our example. And in our example, the software, not it not just it generates the error covariance metrics, but it uses the entries there to calculate standard deviations.
+
+[Faculty (Olympus)] 20:50:04
+So for example, this number here is the square root of that number up there. And once you have the standard errors, you can take the estimates and go left and right by 2 standard errors and generate.
+
+[Faculty (Olympus)] 20:50:17
+Confidence intervals. And now let's look at those confidence intervals and apply the world test.
+
+[Faculty (Olympus)] 20:50:22
+For these 3, 0 is outside. And so the World Test tells us that as far as the data are suggesting, those 3 coefficients are non-zero.
+
+[Faculty (Olympus)] 20:50:36
+So intercept the effect of TV and the effect of radio. They're all significant, significant in quotes.
+
+[Faculty (Olympus)] 20:50:47
+Basically, they appear to be non-zero. Whereas for a newspaper, 0 is inside this interval.
+
+[Faculty (Olympus)] 20:50:51
+So 0 is a very plausible value. And so the hypothesis. The hypothesis that there is no effect.
+
+[Faculty (Olympus)] 20:51:02
+The null hypothesis is not projected or the null hypothesis. Let's say it is accepted.
+
+[Faculty (Olympus)] 20:51:09
+So by just doing this, we have a sort of systematic way of proceeding with our application and saying, well, we think newspaper has no effect, but the other types of advertisement do have a certain effect.
+
+[Faculty (Olympus)] 20:51:22
+We're not exactly sure. About the size of the effects, but we have an idea of the range of possible strengths of those effects.
+
+[Faculty (Olympus)] 20:51:33
+And they're pinned down, pinned down fairly precisely for TV. I guess for the intercept there's a kind of wider range but even so we still still we still see an effect there.
+
+[Faculty (Olympus)] 20:51:46
+All right, now in real life, people keep publishing papers and reporting p values and all that. And sometimes they interpret them incorrectly.
+
+[Faculty (Olympus)] 20:52:00
+Don't take my word for it. There's a nature paper in which they didn't analysis of lots of scientific articles.
+
+[Faculty (Olympus)] 20:52:10
+In. And they look at the way that the authors interpret those conclusions and they find that about half of the time the authors misrepresent the conclusions and the misrepresentation is that they say
+
+[Faculty (Olympus)] 20:52:31
+We saw no significance. The World Test told us that there is no significant effect and they translate that to a conclusion that there is no effect.
+
+[Faculty (Olympus)] 20:52:44
+Well, the 2 things are quite different. It's one thing to say. From the data that I see, an effect is not apparent.
+
+[Faculty (Olympus)] 20:52:55
+And it's a different thing to make the strong conclusion that there is no effect. So let's just spend 2 15 s to put in words what we can say in the 2 cases.
+
+[Faculty (Olympus)] 20:53:07
+Suppose that we reject the null. What this means? Is the data that we're seeing are unlikely to have been generated by a model in which There is no effect.
+
+[Faculty (Olympus)] 20:53:25
+Of course, there's false discoveries, but the false discoveries are unlikely, 5% of the time.
+
+[Faculty (Olympus)] 20:53:33
+So when we reject the null, what we say is that The data do not seem to be generated by it no effect model.
+
+[Faculty (Olympus)] 20:53:44
+Okay, but the misinterpretations have to do with the other case. We see no effect.
+
+[Faculty (Olympus)] 20:53:51
+That's non significance. C, no effect. What does that mean is that just that the data do not provide enough evidence of an effect.
+
+[Faculty (Olympus)] 20:54:03
+And that could be possible could happen in many ways. Maybe there is no effect and the data do not show any effect.
+
+[Faculty (Olympus)] 20:54:11
+Fine. It's also possible that there is an effect, but the effect is very, very small.
+
+[Faculty (Olympus)] 20:54:17
+And so the data and our measurements do not detect it. Or it could be that the effect is substantial and important, but we have too few data and the data are too noisy, so the data do not see it and we might need to have more data.
+
+[Faculty (Olympus)] 20:54:36
+So seeing no effect does not prove that there is no effect. And it's important to keep that in mind.
+
+[Faculty (Olympus)] 20:54:44
+And more generally, all kinds of statistical conclusions are to be taken with a with a grain of salt in the sense that they talk you about they tell you about what is plausible.
+
+[Faculty (Olympus)] 20:54:56
+About plausible truths, but they do not establish truths of any kind. They can indicate trends, relations, associations and so.
+
+[Faculty (Olympus)] 20:55:07
+Alright, in the remaining 3 min or so. I'm going to continue the story a slightly differently.
+
+[Faculty (Olympus)] 20:55:16
+Along the previous slides were related to the question whether the estimates are close enough to the truth and how close they are.
+
+[Faculty (Olympus)] 20:55:29
+There's a different question, which is, are my predictions of wise? Close enough to the true whites.
+
+[Faculty (Olympus)] 20:55:38
+So the first one has to do with the accuracy of our estimation of the model. The second 1, s one has to do with the accuracy of the predictions.
+
+[Faculty (Olympus)] 20:55:50
+So let's try to see what comes in. When you talk about the accuracy of the predictions.
+
+[Faculty (Olympus)] 20:55:55
+Once I have my estimates, I make predictions this way. Suppose that the true world The true world is of this kind.
+
+[Faculty (Olympus)] 20:56:08
+Where do the errors come from? In my prediction. Errors have 2 sources. Why is why hat different from Y?
+
+[Faculty (Olympus)] 20:56:20
+2 sources. One source. Is because of the WW is present in Y is not present in Y Hat.
+
+[Faculty (Olympus)] 20:56:30
+When we make predictions, we don't know what W is going to be. That's one source of error.
+
+[Faculty (Olympus)] 20:56:34
+And it has a certain variance. It's the variance of the W's. There's another source of error which has to do with these terms here.
+
+[Faculty (Olympus)] 20:56:45
+These terms are not the same because theta hat is different from theta star. This has to do with the estimation error in the coefficients.
+
+[Faculty (Olympus)] 20:56:54
+And So that estimation error. It has a certain variance. That's the amount of uncertainty or randomness in that in that part.
+
+[Faculty (Olympus)] 20:57:04
+And one can write a formula for it. And by adding the 2 together, we can have a formula for the error variance of the predictions that are made by our model.
+
+[Faculty (Olympus)] 20:57:17
+And there's 2 components here. So don't look at that formula. The main point is that the formula exists and you can use that formula to create so-called confidence bands or confidence intervals for predictions.
+
+[Faculty (Olympus)] 20:57:34
+We can plot things when we're in a one dimensional setting. Here's what this plot indicates.
+
+[Faculty (Olympus)] 20:57:42
+We have our data set. The blue line is the blue line is the line theta hat X. This is our predictor.
+
+[Faculty (Olympus)] 20:57:54
+The theta hat is not necessarily the same as theta star x. What do we know about Theta Star?
+
+[Faculty (Olympus)] 20:58:05
+Well, theta star x is going to be another line that's going to be Within that band that has been drawn in this diagram with probability, 95%.
+
+[Faculty (Olympus)] 20:58:19
+So this is a confidence band. About Theta Star.
+
+[Faculty (Olympus)] 20:58:25
+It tells us how accurately we think we have learned the model.
+
+[Faculty (Olympus)] 20:58:31
+And the size of that band has to do with the error between theta hats and theta star. That error is what causes that.
+
+[Faculty (Olympus)] 20:58:44
+Band to have a certain weight. But this I was just discussing, prediction errors have another component that has to do with the idiosyncratic aspects of each individual.
+
+[Faculty (Olympus)] 20:58:56
+And that's the reason why we have a bigger range. In this particular plot, this error is small.
+
+[Faculty (Olympus)] 20:59:04
+Compared to the variance of the W's. So the W's have a certain variance and so the W's have to do with this kind of size that we have here.
+
+[Faculty (Olympus)] 20:59:15
+And it's bigger compared to the errors in estimating the theta hats. Now if you put the 2 together, if you were to add the variance of the W's, you could construct also 95% confidence intervals and say that with probability 95% the true value of Y is going to be within that interval.
+
+[Faculty (Olympus)] 20:59:38
+Which interval is more relevant the interval on the line or the interval on the W's.
+
+[Faculty (Olympus)] 20:59:46
+It depends what you want to do. If you're interested in predictions, then the big quantity is the interesting one.
+
+[Faculty (Olympus)] 20:59:51
+It tells you how far off your predictions are going to be. If you're interested in doing physics and you want to discover this particular phenomenon, Then it's the confidence band, which is the important one.
+
+[Faculty (Olympus)] 21:00:08
+Right, so we have a way of assessing. Prediction errors as well. In terms of math.
+
+[Faculty (Olympus)] 21:00:18
+Actually starting from next time we're going to see how you can do all that without math. But Why is it that we want to do it without math?
+
+[Faculty (Olympus)] 21:00:26
+Because without math, you can, we can do stuff even when the mathematical assumptions are not satisfied and when you do not trust the formulas.
+
+[Faculty (Olympus)] 21:00:37
+Why okay And. While you glance at that summary slide of what we did today, let me go quickly and answer one or 2 questions.
+
+[Faculty (Olympus)] 21:00:50
+Before we go give to the mentor. Pass to our mentor to answer more questions. So is the mistake in the journals intentionally?
+
+[Faculty (Olympus)] 21:01:01
+No, the mistake in the journals is because people just look at statistical procedures as cookbooks and they have not gone through the discussion that we went through today to understand what the concepts are and what those things mean.
+
+[Faculty (Olympus)] 21:01:15
+They just look up some formulas in the statistics book. They run the software. And then they naively, they naively report without ever thinking what assumptions have been made.
+
+[Faculty (Olympus)] 21:01:29
+Okay, is ML prediction model more accurate than OLS? Okay, depends what ML means.
+
+[Faculty (Olympus)] 21:01:37
+If ML means maximum likelihood maximum likelihood is identical to all s. If ML means machine learning, more powerful methods, yes, you can take linear regression but make it more complicated by doing various clever things, we'll discuss a few next time, but also by throwing in stuff like Newural networks.
+
+[Faculty (Olympus)] 21:02:00
+In general, it's going to be more accurate. But that will come at the price, both you need more computation.
+
+[Faculty (Olympus)] 21:02:07
+You might not trust the results necessarily that much. You might not be able to interpret them and so on.
+
+[Faculty (Olympus)] 21:02:14
+When is it not safe to assume that the world is linear? While the world is not most cases it's not linear and whether you go for a linear model is a judgment call that has a little bit with your understanding.
+
+[Faculty (Olympus)] 21:02:31
+But also with your ability to computationally explore various nonlinear models.
+
+[Faculty (Olympus)] 21:02:38
+I think I should stop here and pass the baton. To our mentor. I will sit back and.
+
+[Faculty (Olympus)] 21:02:47
+Maybe occasionally participate, but I'll let you guys take over. So thank you for listening.
+
+[Moderator - Ankit Agrawal] 21:02:56
+Thank you so much, Professor. That was a wonderful lecture. A lot of math over there, but it's very interesting to see how the math comes together and how conceptually it starts to make sense.
+
+[Moderator - Ankit Agrawal] 21:03:08
+So we'll get started, with the Q&A. We have Shaba here, with us for our QA session.
+
+[Moderator - Ankit Agrawal] 21:03:16
+Doing, it seems like our roles have reversed. So we'll get started.
+
+[[GL Mentor] Shubham Sharma] 21:03:18
+Hi, I'm good. How are you?
+
+[Faculty (Olympus)] 21:03:21
+Hello.
+
+[[GL Mentor] Shubham Sharma] 21:03:26
+Yeah.
+
+[Moderator - Ankit Agrawal] 21:03:32
+Niya, initially during the class asked what X transpose Y intuitively represent. So when we perform X transpose Y to compute the linear regression, what what is the intuition behind doing that?
+
+[[GL Mentor] Shubham Sharma] 21:03:54
+So, Professor, do you want to take it? I guess this is data, it was basically the intercept.
+
+[Faculty (Olympus)] 21:03:56
+Hmm.
+
+[Faculty (Olympus)] 21:04:00
+Okay. So. Theta transpose X more is how we use it. It's you can just think of it as a short hand.
+
+[Faculty (Olympus)] 21:04:15
+For this expression. That's all there is to it. That's 2. It's just, it's a short way of writing a linear function.
+
+[Faculty (Olympus)] 21:04:25
+Now, There are ways of starting to think about these being vectors in a vector space and you're taking the inner product from geometry.
+
+[Faculty (Olympus)] 21:04:39
+The inner product of 2 vectors is you kind of project one vector on the other and then you multiply those 2 quantities.
+
+[Moderator - Ankit Agrawal] 21:04:46
+Thank you.
+
+[Faculty (Olympus)] 21:04:49
+And the closer, the more aligned the 2 are, the better. However, this geometric intuition will not serve you for what's happening.
+
+[Faculty (Olympus)] 21:05:00
+This week. It serves mathematicians who try to analyze certain stuff. Just think of it as a notation shorthand.
+
+[Faculty (Olympus)] 21:05:07
+That's all there is.
+
+[Moderator - Ankit Agrawal] 21:05:10
+Oh, yeah. We have another question. What is theta 0? Is it the bias?
+
+[[GL Mentor] Shubham Sharma] 21:05:28
+And the.
+
+[Moderator - Ankit Agrawal] 21:05:28
+Yeah. So yeah, when other variables are equal to 0, then what is the value of? Why?
+
+[[GL Mentor] Shubham Sharma] 21:05:38
+10 min.
+
+[Moderator - Ankit Agrawal] 21:05:39
+At x equal to 0.
+
+[Faculty (Olympus)] 21:05:42
+Yeah, so if x is 0. So in the advertising example is how much do you expect to sell if you advertise?
+
+[Faculty (Olympus)] 21:05:52
+0. Nothing to do with the bias. The bias is a quantity that has to do with statistical properties of our estimates.
+
+[Faculty (Olympus)] 21:06:05
+Do they tend to be on the high side systematically? That's bias. Do they tend to be on the low side, systematically that's bias or Do they tend to be the correct value plus or minus some noise?
+
+[[GL Mentor] Shubham Sharma] 21:06:20
+Yeah, and just to add to that, one more thing about the intercept is that theoretically this definition holds that if all the independent variables are set to 0 then whatever is the value of your target variable your response variable is what your intercept is but in reality setting all your independent variables to 0 really depends on the specific context and the actual problem.
+
+[[GL Mentor] Shubham Sharma] 21:06:44
+The data set, I mean, the business problem to which the data set is related because of course, I'm in a lot of cases setting all the variables to you might not make sense as well.
+
+[[GL Mentor] Shubham Sharma] 21:06:53
+Cool.
+
+[Faculty (Olympus)] 21:06:53
+So to make a picture of what you said. Suppose that the realistic parts of our of the world is that we're operating in this region and you run a linear regression and create a line for that.
+
+[Faculty (Olympus)] 21:07:10
+The real phenomenon might be something completely different and when you go to 0, it's a completely different world.
+
+[Faculty (Olympus)] 21:07:18
+So you the intercept is not really a prediction of what happens at 0. It's just the way of specifying the location of that line.
+
+[Moderator - Ankit Agrawal] 21:07:29
+Just to add to that, we do have approaches implementation approaches where we can remove data 0 from our analysis completely by setting the x 0 value equal to 0 or one.
+
+[Moderator - Ankit Agrawal] 21:07:43
+So the presence of interceptor removing the intercept as possible. In the implementations.
+
+[Faculty (Olympus)] 21:07:49
+Yes.
+
+[Moderator - Ankit Agrawal] 21:07:52
+So the next question is, due to the newspaper results being negative, wouldn't it be more reliable model if newspaper is dropped and if we only consider TV and the radio.
+
+[Moderator - Ankit Agrawal] 21:08:07
+So, just because a coefficient value is negative, I don't, it is not.
+
+[Moderator - Ankit Agrawal] 21:08:13
+That is not a indicator to remove that variable from your data set, right? We only remove the variable if the coefficient values are very small, meaning that the relationship between the dependent and the independent variables is very small.
+
+[Moderator - Ankit Agrawal] 21:08:30
+Whether the relationship is positive or negative does not necessarily imply that we remove that variable from our data set.
+
+[[GL Mentor] Shubham Sharma] 21:08:37
+Right and one possible I mean the one thing that you'll actually check would be the would be basically the That would basically test the significance of a certain variable.
+
+[[GL Mentor] Shubham Sharma] 21:08:49
+If your p value is less than your significance level, which is let's say you're choosing that to be point 0 5.
+
+[[GL Mentor] Shubham Sharma] 21:08:54
+Which is a very common value. That's when you say that those variables are significant, any variable which has a higher value than higher p value than point 0 5.
+
+[[GL Mentor] Shubham Sharma] 21:09:04
+Is usually considered to be not significant and you'll you'll drop it.
+
+[Faculty (Olympus)] 21:09:08
+Yeah, and in our case. Look, the coefficient was so close to 0 that the hypothesis test suggests that it's not significant.
+
+[Faculty (Olympus)] 21:09:17
+We remove it. Suppose that the coefficient of new newspaper had turned out to be negative but very negative so that it is significant.
+
+[Faculty (Olympus)] 21:09:25
+Then what you should do is you should start thinking and be really puzzled. Think in terms of your actual applications and figure out whether There's a look or whether there's an explanation.
+
+[Faculty (Olympus)] 21:09:42
+And here's a possible explanation. If you only advertise with newspaper in markets that are very difficult. And you advertise 0 with newspaper in the good markets, then you would have a negative correlation between newspapers and sales.
+
+[Faculty (Olympus)] 21:10:03
+So it might happen, but if it happens, you have to look down exactly what's happening, what these are advertising policy and look for an explanation.
+
+[Moderator - Ankit Agrawal] 21:10:17
+The Ricardo asks, what are some requirements to be able to run a regression method that is having is having a normal distribution a requirement.
+
+[Faculty (Olympus)] 21:10:28
+Hmm.
+
+[[GL Mentor] Shubham Sharma] 21:10:29
+Yeah, so there are certain assumptions that you need to validate for a data set in order to.
+
+[[GL Mentor] Shubham Sharma] 21:10:37
+Implement a linear, and hold the results to be valid. So first assumption is that there shouldn't be multiicolin.
+
+[[GL Mentor] Shubham Sharma] 21:10:42
+At present between the variables. So you should try to eliminate as much multicolinarity as possible.
+
+[[GL Mentor] Shubham Sharma] 21:10:50
+Your lesson duals should be normally distributed. So you would do a diagnostic check for that after implementing the linear regression model.
+
+[[GL Mentor] Shubham Sharma] 21:10:58
+There shouldn't be any homosexuality. This wouldn't be any hetroscopicity present.
+
+[[GL Mentor] Shubham Sharma] 21:11:03
+Which means that your residuals should not if you plot your residual so versus the fitted values your predictor value.
+
+[[GL Mentor] Shubham Sharma] 21:11:12
+There shouldn't be any pattern. Basically, you're making a scatter plot and there shouldn't be any pattern that should exist for that.
+
+[[GL Mentor] Shubham Sharma] 21:11:18
+If you can, if you observe that pattern, that basically means that there is a some phenomena which is left behind in the residual sand.
+
+[[GL Mentor] Shubham Sharma] 21:11:27
+You know, your model is not able to explain it. So again, there are ways to fix this.
+
+[[GL Mentor] Shubham Sharma] 21:11:32
+You can do nonlinear transformations of your variables. If the variable has high skewness so that ways it makes sure that your residuals also end up becoming normally distributed.
+
+[[GL Mentor] Shubham Sharma] 21:11:44
+I mean, there's a higher chance that the US can become normally distributed. If, if your If you make your, not features closer to a normal distribution.
+
+[[GL Mentor] Shubham Sharma] 21:11:57
+So I think the question was whether the normal distribution is the requirements, or this is a very common confusion.
+
+[[GL Mentor] Shubham Sharma] 21:12:02
+Your features need not be normally distributed, but if they're highly skewed, then it is good to try to bring them closer to a normal distribution by doing nonlinear transformation that the only requirement is that the residuals should be normally distributed.
+
+[[GL Mentor] Shubham Sharma] 21:12:16
+So yeah. These are the
+
+[Faculty (Olympus)] 21:12:20
+That's now you can always run. Ordinary least squares even without normality. And at least from the empirical risk minimization point of view.
+
+[Faculty (Olympus)] 21:12:33
+Asymptotically, you will get a good predictor. However, you will not be able to trust any of the formulas that we use today.
+
+[Faculty (Olympus)] 21:12:42
+So the formulas and the calculations used in the software to generate standard errors and confidence intervals and all that, these are formulas based on normality assumptions.
+
+[Faculty (Olympus)] 21:12:55
+So you can run the method, maybe you can even get useful results, but. The rest is more complicated.
+
+[[GL Mentor] Shubham Sharma] 21:13:05
+Yeah, a very interesting point there is by the professor. So it's a generally a debate between, you know, statisticians and machine learning practitioners.
+
+[[GL Mentor] Shubham Sharma] 21:13:13
+That I mean, they're funny, way of taking the funny data that, Let's say the assumptions are not holding to be valid.
+
+[[GL Mentor] Shubham Sharma] 21:13:23
+Then what would our data scientists do and what would the machine learning engineer do for example? So a data scientist would probably let's say if it's he feels you know in the statistic school of things he would say that's not a valid model but a machine learning practitioners would probably implemented, but keep it this in mind that, you know, as the professor said, you'll not be able to rely on the predictions that
+
+[[GL Mentor] Shubham Sharma] 21:13:42
+much. Basically, the prediction that you will be getting would have high errors for some of the regions of their whole domain of your features.
+
+[Moderator - Ankit Agrawal] 21:13:56
+Shilpa asks to find the model with maximum likelihood estimation. We calculate the model for which the empirical risk is minimum.
+
+[Moderator - Ankit Agrawal] 21:14:11
+And so are we trying to minimize the empirical risk in the maximum likelihood estimation method?
+
+[Faculty (Olympus)] 21:14:11
+To find
+
+[Faculty (Olympus)] 21:14:20
+That's what it turns out to be mathematically. Maximum likelihood tries to maximize the likelihood. Under additional assumptions, it turns out that this maximization is the same as minimization of empirical risk.
+
+[Faculty (Olympus)] 21:14:37
+So it's a sort of an accident that 2 different ways of thinking leads to the same math problem.
+
+[Faculty (Olympus)] 21:14:45
+It's a accident that only happens in this particular case.
+
+[Faculty (Olympus)] 21:14:52
+In linear.
+
+[Moderator - Ankit Agrawal] 21:14:53
+I think I mentioned in the chat as well that the result of the OLS model and the maximum likelihood estimation turns out to be the same which is to minimize the empirical rest in war.
+
+[Moderator - Ankit Agrawal] 21:15:05
+So the next question that we have here is for maximum likelihood, how is the probability of why less than what since the while is observed and it is presented the data set shouldn't the probability be equal to one.
+
+[Moderator - Ankit Agrawal] 21:15:27
+So I think the correct way to answer this question is that we are value in our data set, we are still building an estimation based on the data values that we are choosing, right?
+
+[Moderator - Ankit Agrawal] 21:15:51
+So for the true values of data or data star, yes, the probability will be equal to one, but for data head that probability will be less than less than one.
+
+[Moderator - Ankit Agrawal] 21:16:01
+So given. Yeah.
+
+[Faculty (Olympus)] 21:16:02
+Yeah, to be more accurate. This is what we're calculating. Why is the observed value?
+
+[Faculty (Olympus)] 21:16:11
+Capital Y is a random variable. That has the distribution determined, let's say, by theta.
+
+[Faculty (Olympus)] 21:16:21
+And so we're asking about the probability under this particular model. That's why to con this particular value.
+
+[Faculty (Olympus)] 21:16:33
+So we're looking at this. So how likely is what we observed under the model?
+
+[Moderator - Ankit Agrawal] 21:16:42
+I think professor in that equation, we should write data as data had over there because otherwise there will be confusion with data.
+
+[Faculty (Olympus)] 21:16:50
+Okay, these are.
+
+[Moderator - Ankit Agrawal] 21:16:51
+Yeah, so I think, yeah. Yeah. Yeah. So David asks if covariance gets high enough, don't we have multicollinearity between the parameters?
+
+[[GL Mentor] Shubham Sharma] 21:17:06
+Yes, if COVID gets high, there is a possibility of multicolinarity and as I already discussed, that's an issue for a linear regression model.
+
+[[GL Mentor] Shubham Sharma] 21:17:17
+You wouldn't want features to have multiple minority present and a way to identify that is by using a metric called as variance inflation factor, which you can very easily calculate using functions in Python.
+
+[Faculty (Olympus)] 21:17:23
+Okay.
+
+[[GL Mentor] Shubham Sharma] 21:17:31
+And I think we will be discussing about that in the mentor learning sessions as well.
+
+[Faculty (Olympus)] 21:17:36
+Yeah, so you responded multicolinia about big covariances in the x vectors.
+
+[Moderator - Ankit Agrawal] 21:17:37
+Yeah.
+
+[Faculty (Olympus)] 21:17:46
+No, yes, now the covariances of the theta hats in that table that we have.
+
+[[GL Mentor] Shubham Sharma] 21:17:46
+Yes, in the in the features. Basically.
+
+[Faculty (Olympus)] 21:17:55
+I don't think we care that much in that case. Whether the errors of the different theta hats are correlated or not.
+
+[Faculty (Olympus)] 21:18:04
+Usually would not be a concern.
+
+[[GL Mentor] Shubham Sharma] 21:18:07
+Yeah, of course. For the
+
+[Moderator - Ankit Agrawal] 21:18:15
+What does the confidence interval covering of theta hat or not represent or how is it interpreted?
+
+[[GL Mentor] Shubham Sharma] 21:18:27
+So the definition of confidence interval is let's talk about 95 person confidence interval. So basically it means that you're doing a test and let's say 100 of you do that test.
+
+[[GL Mentor] Shubham Sharma] 21:18:40
+And you have, you want to, you're finding 95% confidence. So the, the meaning would be that 95 of you out of 100 would be able to capture the true value.
+
+[[GL Mentor] Shubham Sharma] 21:18:52
+That is what the 95% confidence interval would mean.
+
+[Moderator - Ankit Agrawal] 21:19:00
+Another question is that when we look at the 95 confident, 95% confidence interval, why would the band that we looked at earlier not capture 95% of the data?
+
+[[GL Mentor] Shubham Sharma] 21:19:14
+Is it about the scatter plot that the professor was showing in the last slide, I guess?
+
+[Moderator - Ankit Agrawal] 21:19:20
+Yeah, so the scatter plug where we had a line and we had a band drawn around it which showed the 95% confidence interval with the line.
+
+[[GL Mentor] Shubham Sharma] 21:19:25
+No.
+
+[Moderator - Ankit Agrawal] 21:19:29
+So yeah, in that slide. Why does it not cover 95% of our data?
+
+[[GL Mentor] Shubham Sharma] 21:19:29
+Yeah, yeah.
+
+[[GL Mentor] Shubham Sharma] 21:19:36
+I mean, I think the professor discussed as far as I remember that there are 2 sources of error here.
+
+[[GL Mentor] Shubham Sharma] 21:19:44
+One is in the W's or the actual and the other one being the actual estimation error between the by hat and the actual wise.
+
+[[GL Mentor] Shubham Sharma] 21:19:54
+So the white hat and the white and then is what that band is but W if you take in W as well then it's wider than that.
+
+[[GL Mentor] Shubham Sharma] 21:20:03
+Of the can correct me.
+
+[Faculty (Olympus)] 21:20:05
+Yes. So first thing is to understand that the 95% means 95% of the statisticians.
+
+[Faculty (Olympus)] 21:20:14
+Not 95%. The data point. On the other hand, if we were to do to get the confidence bans for the wise by including the error in the W's.
+
+[[GL Mentor] Shubham Sharma] 21:20:15
+Not, data. Yeah.
+
+[Moderator - Ankit Agrawal] 21:20:17
+Yeah. Yeah.
+
+[Faculty (Olympus)] 21:20:27
+Suspect that it would capture approximately 95% of the actual data points. Under enough math assumptions that's probably Correct.
+
+[Moderator - Ankit Agrawal] 21:20:45
+Makar asks, when is it not safe to consider the world is linear for a specific problem?
+
+[Moderator - Ankit Agrawal] 21:20:53
+So I think a lot of the discussion that we were doing, we said that let's assume that world is linear.
+
+[Moderator - Ankit Agrawal] 21:20:59
+But when would we stop assuming that and in what kind of problems we would stop us in that?
+
+[[GL Mentor] Shubham Sharma] 21:21:06
+Right, so to be honest, you know, the problems that I have worked on the way I would, I use leader regulation is just like a first model to get, get a sense of what sort of relationships exist because of the real word data sets it's very hard to say that there would be a linear relationship that exists specifically in real world, and you have complicated relationships and that's what you're actually trying to
+
+[[GL Mentor] Shubham Sharma] 21:21:32
+capture. Right. In some sort of academic settings that might still hold true, but, for business use cases, let's say, you know, marketing.
+
+[[GL Mentor] Shubham Sharma] 21:21:41
+Applications or finance applications usually. It won't be doing it. So the way you are using linear regression is to just implement the model and see what's sort of relationships are there, what features can you see that are significant versus features that are not significant, but using the P value.
+
+[[GL Mentor] Shubham Sharma] 21:21:58
+And you know you get these type of interpretations and then of course you go ahead and try out other methods, other machine learning models as well that we'll be discussing later on.
+
+[[GL Mentor] Shubham Sharma] 21:22:08
+The other nonlinear methods like. You know, this isn't for us, boosting the sales, etc.
+
+[[GL Mentor] Shubham Sharma] 21:22:13
+So yeah, you, when you implement linear integration, you have this, you have this assumption that the data set has this.
+
+[[GL Mentor] Shubham Sharma] 21:22:21
+But you have this in the back on your mind as well that it's just a 3 cursor model that I'm implementing to get a sense of the relationships.
+
+[[GL Mentor] Shubham Sharma] 21:22:31
+That won't be, in most of the cases, that, world we might find in Mark.
+
+[Faculty (Olympus)] 21:22:37
+We also kind of, so why did we spend all this time on linear regression? One is that it is in practice the first step.
+
+[Faculty (Olympus)] 21:22:47
+But also have one to say that there is also the pedagogical reason. That is, we wanted to introduce those concepts of standard errors.
+
+[Faculty (Olympus)] 21:22:58
+And various error criteria and confidence intervals and all that. They're confusing enough concept, so it's better to present them in the simple setting.
+
+[[GL Mentor] Shubham Sharma] 21:23:10
+Bye.
+
+[Faculty (Olympus)] 21:23:11
+And then you will be expected on Wednesday and Friday to extrapolate from what you understood today to more complicated.
+
+[Faculty (Olympus)] 21:23:20
+So there's the pedagogical side but also in practice there's a useful side but also in practice there's a useful side when you see the things that economists model is a useful side when you see the things that economists model as linear phenomena.
+
+[Faculty (Olympus)] 21:23:33
+You see the things that economists model as linear phenomena, you'll be amazed. You know they're not linear, the things that economists model as linear phenomena, you'll be amazed.
+
+[Faculty (Olympus)] 21:23:37
+You know they're not linear, but if the model it can still be useful even if it's simple.
+
+[Faculty (Olympus)] 21:23:40
+And in the business world similarly, if it gives you some decent amount of predictive power. You can deploy it even.
+
+[Faculty (Olympus)] 21:23:48
+Even if you know that the model is not quite right.
+
+[[GL Mentor] Shubham Sharma] 21:23:52
+Yeah, and that's okay. Yes, I just wanted to add that in data science, there is this interesting trade-off that you should always keep in mind between interpretability of the model and the performance of the model.
+
+[Moderator - Ankit Agrawal] 21:23:54
+I just. No, no, go ahead.
+
+[[GL Mentor] Shubham Sharma] 21:24:09
+So if the if a model gives you a lot of interpretations, it has high interpretability. Then the you can expect that it won't be doing that good on the performance front, right?
+
+[[GL Mentor] Shubham Sharma] 21:24:21
+So these type of basic, linear, regression models are the ones that we rely on for interpretability as the professor said to extract out insights.
+
+[[GL Mentor] Shubham Sharma] 21:24:30
+That's what they're, that's where they are most helpful. But at the same time, if let's say your goal is to get highly accurate predictions as well, usually at least in the business use cases, usually you will sort of maybe implement some sort of ensemble method or other, normally, a matter that we will talk about later on in the program.
+
+[Moderator - Ankit Agrawal] 21:24:54
+I was gonna make the same point that in a lot of business cases like in finance and healthcare, you are stuck with using linear regression even if it is not the best model because you care about interpretability and understanding the relationships a lot more than just getting a high predictive value.
+
+[[GL Mentor] Shubham Sharma] 21:25:03
+Yeah.
+
+[[GL Mentor] Shubham Sharma] 21:25:07
+Okay.
+
+[[GL Mentor] Shubham Sharma] 21:25:11
+Yes.
+
+[Moderator - Ankit Agrawal] 21:25:11
+Okay. So, somebody's asking.
+
+[Faculty (Olympus)] 21:25:14
+Well, yeah, what? One other issue that comes in here is how much data you have that is a complex model.
+
+[Faculty (Olympus)] 21:25:24
+A complex nonlinear model generally will require more data in order to learn it. So linear regression has kind of the smallest number of parameters.
+
+[[GL Mentor] Shubham Sharma] 21:25:30
+Okay.
+
+[[GL Mentor] Shubham Sharma] 21:25:37
+Yeah.
+
+[Faculty (Olympus)] 21:25:37
+And few, that means you should use simple models.
+
+[[GL Mentor] Shubham Sharma] 21:25:41
+Yeah, and Lina's integration also gives rise to a lot of parallel models that you can further try out like, you know, there are other more sophisticated versions of linear integration where it can even include some nonlinear relationships, which is like kernel, and polynomial, adding regularization in lasso and, the range education, all these and all these other.
+
+[Moderator - Ankit Agrawal] 21:26:06
+Just too quickly answer a question here. Can you please confirm the schedule this week for the classes?
+
+[Moderator - Ankit Agrawal] 21:26:13
+We have classes Monday witnessed in Friday this week. I know that last week there was a change. That happened.
+
+[Moderator - Ankit Agrawal] 21:26:23
+So yeah, this would be our sticking to the original station. The next question is what is the difference between variance and covariance?
+
+[[GL Mentor] Shubham Sharma] 21:26:32
+So code agents is how one variable varies with the other variable. And, and, is something that you define for just, just a single variable.
+
+[[GL Mentor] Shubham Sharma] 21:26:43
+So basically, if you find a covariance of a variable X with itself, that's what your variance would be.
+
+[Moderator - Ankit Agrawal] 21:26:52
+May answer.
+
+[[GL Mentor] Shubham Sharma] 21:26:52
+And the professor can help.
+
+[Faculty (Olympus)] 21:26:54
+I'm just putting down the formulas.
+
+[[GL Mentor] Shubham Sharma] 21:26:57
+Yeah.
+
+[Moderator - Ankit Agrawal] 21:26:58
+Yeah, so variance is essentially just covariance with Excels. Okay.
+
+[[GL Mentor] Shubham Sharma] 21:27:03
+Okay.
+
+[Moderator - Ankit Agrawal] 21:27:08
+Okay.
+
+[Faculty (Olympus)] 21:27:09
+And the covariance has something to do with the correlation between 2 variables. So the covariances rho sigma x sigma y.
+
+[Faculty (Olympus)] 21:27:21
+Where sigmas are the standard deviations.
+
+[Faculty (Olympus)] 21:27:26
+And draw is the correlation.
+
+[Faculty (Olympus)] 21:27:30
+Hmm
+
+[Moderator - Ankit Agrawal] 21:27:31
+So some people use a UC and ROC to measure the performance of the model. How do you see that in comparison to R square and
+
+[[GL Mentor] Shubham Sharma] 21:27:43
+So AUC, ROC is used for classification problems. Today we have discussed regression problems.
+
+[[GL Mentor] Shubham Sharma] 21:27:49
+Where my target variable is a continuous feature. Class and the kitchen problems are when your target variable is a discrete variable, it's like a categorical feature where you have labels.
+
+[[GL Mentor] Shubham Sharma] 21:27:58
+That's where you would use ROCKER and AOC stands for area under the curve, ROC is receiver operator characteristic.
+
+[[GL Mentor] Shubham Sharma] 21:28:07
+Which is basically a plot. Between the true positivate and the false. So yeah, don't really, we talk about that later on, but just to answer this question, these are different metrics for different types of problems.
+
+[[GL Mentor] Shubham Sharma] 21:28:19
+Ask for it is for integration and I'll say you C score would be for. Classification problems.
+
+[Moderator - Ankit Agrawal] 21:28:27
+We'll check one final question here. Why did the data 0 value change when we only look at the newspaper and only look at the TV based linear regressions.
+
+[Moderator - Ankit Agrawal] 21:28:40
+So I think the question is with respect to when we look at the entire linear regression model. Versus when we look at the individual features and there relationships, why did the data 0 value change?
+
+[[GL Mentor] Shubham Sharma] 21:28:56
+Yeah, I think, I mean, basically the whole relationship changes. If you can imagine this in your head, how the data is distributed, if you're saying saying why versus let's say newspaper and TV both.
+
+[[GL Mentor] Shubham Sharma] 21:29:09
+Then you're basically trying to do it in 3 dimensional plot. But as when you're saying, TV versus radio or TV, sorry, sales versus radio or sales with newspaper, then you're looking at a two-dimensional plane.
+
+[[GL Mentor] Shubham Sharma] 21:29:24
+So your intercept would change. In in different cases.
+
+[Faculty (Olympus)] 21:29:29
+Yeah, maybe the simplest example would be the following. Suppose I do a regression without using X.
+
+[Faculty (Olympus)] 21:29:37
+I fit with a constant theta 0. If I use the X's I'm going to get a difference.
+
+[Faculty (Olympus)] 21:29:46
+Theta 0. So when I add an extra feature the previous thetas. Will change. And each time that I add another extra feature, all of the previous thetas are going to change or to put it differently there's no absolutely no reason why they should remain the same.
+
+[Moderator - Ankit Agrawal] 21:30:10
+Yeah. I think it's gonna, we'll have another session on regression, on Wednesday.
+
+[Moderator - Ankit Agrawal] 21:30:27
+We'll talk about, regularization methods and how to control overfitting and regression on witness day. We'll talk about regularization methods and how to control overfitting and stuff.
+
+[Moderator - Ankit Agrawal] 21:30:33
+So a lot of questions that we might but thank you so much, Professor, and thank you so much, Shiva, for all the additional information that you guys provided here at the end of the session.
+
+[Moderator - Ankit Agrawal] 21:30:41
+Thank you, Professor, for staying around towards the end. And thank you everybody who joined this, lecture today.
+
+[Moderator - Ankit Agrawal] 21:30:51
+We'll see you on Wednesday
+

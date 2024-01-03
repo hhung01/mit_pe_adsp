@@ -1,0 +1,3032 @@
+WEBVTT
+
+00:08:30.000 --> 00:08:33.000
+Hello everyone. Good morning. Good afternoon.
+
+00:08:33.000 --> 00:08:43.000
+Good evening. I see a lot of people in the chat over here. A couple of quick reminders before we get started with the lecture today.
+
+00:08:43.000 --> 00:08:48.000
+Please do. Not put your questions in Q&A section. Please put them in the chat.
+
+00:08:48.000 --> 00:08:55.000
+And make sure that your chat is enabled for everybody and not just for hosts and panelists.
+
+00:08:55.000 --> 00:09:01.000
+Also please do not raise your hands during the session this is a we cannot provide audio access during the class.
+
+00:09:01.000 --> 00:09:11.000
+So that being said, I will hand over the session to the professor now. So good morning, Professor.
+
+00:09:11.000 --> 00:09:15.000
+Good morning, I think it. Good morning, everyone. Good afternoon. Good evening.
+
+00:09:15.000 --> 00:09:19.000
+I see you're really from all over the world. So that's great to see. Yeah, I'm looking forward to sharing this.
+
+00:09:19.000 --> 00:09:39.000
+Next lecture with you. So in the Monday's lecture we talked about what the neural network is, what's the main ideas and how it represents data and now we'll dive into some specifics about how can we design your networks specific data types.
+
+00:09:39.000 --> 00:09:47.000
+And so as one example today, we'll talk about images and the important idea of convolution.
+
+00:09:47.000 --> 00:09:55.000
+Hello, let me just recap a little bit what we talked about in lecture one because it's already 2 days ago.
+
+00:09:55.000 --> 00:10:07.000
+So we talked about this how a neural network is built up so it's that it's made up of simple units that are essentially detectors or simple linear classifiers.
+
+00:10:07.000 --> 00:10:24.000
+So in today's lecture they will be really more like pattern detectors. And by putting them together, we can make increasingly increasingly complex decisions and this will especially become clear with, the CNNs that we're going to talk about today.
+
+00:10:24.000 --> 00:10:35.000
+And some of the visualizations I'll show you later. So one unit is, yeah, it is essentially one linear classifier and what we learn are the weights on this classifier.
+
+00:10:35.000 --> 00:10:43.000
+And then we trained it with stochastic gradient descent. And before we dive into the CNN, I wanted to add one last thing to.
+
+00:10:43.000 --> 00:10:51.000
+Monday's lecture because this was asked a lot and that's the question of regularization or overfitting.
+
+00:10:51.000 --> 00:10:55.000
+And as we have said, indeed new networks can overfit badly because they have so many degrees of freedom.
+
+00:10:55.000 --> 00:11:07.000
+That can easily happen. And you see this essentially when the trade loss on the training data still goes down, as you for instance, keep on training.
+
+00:11:07.000 --> 00:11:14.000
+As we see on the left plot here as an example. But the accuracy on the test data actually decays.
+
+00:11:14.000 --> 00:11:21.000
+So here it actually doesn't decay. It doesn't get worse. It just kind of stays at the same level.
+
+00:11:21.000 --> 00:11:30.000
+So here just like this plot, what is a little bit about confusing about these plots is that on the left hand side lower is better because we're looking at loss.
+
+00:11:30.000 --> 00:11:37.000
+On the right hand side, you're looking at accuracy, so higher is better. So we want the right hand side to be high in the left hand side to below.
+
+00:11:37.000 --> 00:11:46.000
+So what happens is essentially here is that the training bus goes down and down and down but the test loss actually doesn't improve anymore.
+
+00:11:46.000 --> 00:12:00.000
+So what we could essentially do is we could essentially stop training here because here nothing really changes. And this is called early stopping and that's one way to prevent it overfitting is to not train it to completion.
+
+00:12:00.000 --> 00:12:17.000
+Because we don't care about the training data so if I stop here around maybe 270 iterations or epochs sorry then if this is about here so that training loss can still go down but the test there actually, doesn't profit from it anymore.
+
+00:12:17.000 --> 00:12:27.000
+So one way to Reduce overfitting and your networks is to do early stopping and the way you do this is that you have some validation set.
+
+00:12:27.000 --> 00:12:35.000
+You and like Essentially, as you train the your network, you monitor. It's performance on that validation set.
+
+00:12:35.000 --> 00:12:46.000
+And that's like this accuracy. And once you see that it kind of stagnates, it doesn't improve anymore, then you can stop.
+
+00:12:46.000 --> 00:12:55.000
+There is of course many other ways you can regularize a neural network. So one way. To do.
+
+00:12:55.000 --> 00:13:05.000
+This, there has been a comment in the chat in this particular plot, the accuracy is in a very narrow range that's that's true actually.
+
+00:13:05.000 --> 00:13:12.000
+I took these plots from some illustrative. Explanation but you can actually see a much bigger difference as well.
+
+00:13:12.000 --> 00:13:15.000
+That's true.
+
+00:13:15.000 --> 00:13:29.000
+So what we let me just go through some other ways you can regularize in your network. So one other way to do this is something that you've seen before and that is to add a penalty on the magnitude of the weights.
+
+00:13:29.000 --> 00:13:45.000
+So again, theta here. Is the vector that contains all the weights of your neural network. Often I also include the bias that's usually do you don't recognize, you regularize those, you only regularize the weights.
+
+00:13:45.000 --> 00:13:56.000
+Just like in a linear classifier. So you've probably seen this. Before when you think about rich regression or so, that's the kind of penalty term you put.
+
+00:13:56.000 --> 00:14:11.000
+So you put this put the squared norm of the weight. So what this essentially means is that to your lot function You add this term where this squared norm basically means you go through all the many Entries of Theta.
+
+00:14:11.000 --> 00:14:17.000
+Like that say that is T many and all the entries of TED are the weight so this would be all the weights and you square them.
+
+00:14:17.000 --> 00:14:25.000
+So you sum up all the weights and then you add that to your loss. And then the only thing is that there is another parameter in front of it.
+
+00:14:25.000 --> 00:14:36.000
+The regularization coefficient. So this is something you have to tune. And you tune this by having a validation set so you train with some values of this lambda.
+
+00:14:36.000 --> 00:14:43.000
+And you just check which one leads to the best. Essentially, test error, so on the validation set.
+
+00:14:43.000 --> 00:14:49.000
+So you could do this with the L 2 norm. That's the most standard one. You could do it with the L one norm 2.
+
+00:14:49.000 --> 00:15:01.000
+The difference is that the L 2 norm tries to push down all the weights. To become not too large the L one norm tries to make it spar so it sets weights to 0.
+
+00:15:01.000 --> 00:15:08.000
+This is also called weight decay for Delto norm exactly because of that. Property that it pushes down the weight.
+
+00:15:08.000 --> 00:15:19.000
+So essentially what the gradient descent does is you go a step in the direction of like the negative, like making the loss smaller like we talked about last lecture.
+
+00:15:19.000 --> 00:15:26.000
+And then you also pull down all your rates. You reduce all your weights a little bit. So you go and pick step in the direction you reduce your rates.
+
+00:15:26.000 --> 00:15:34.000
+You go step in the right direction, you reduce your rates. So to not make the weights become too large.
+
+00:15:34.000 --> 00:15:35.000
+Someone asked why is the lambda divided by 2? This is, you don't have to do it.
+
+00:15:35.000 --> 00:15:47.000
+This is mostly because when we take the derivative then the 2 the divided by 2 will cancel out with the square here.
+
+00:15:47.000 --> 00:16:02.000
+So then you just have lambda in the derivative like an ingredient. If you do it with lambda or lambda half because you're anyways tuning what is lambda it doesn't really matter this is kind of for cosmetic purposes here
+
+00:16:02.000 --> 00:16:08.000
+All right, so.
+
+00:16:08.000 --> 00:16:16.000
+Then we talked about early stopping. And that's another way. So the squared norm is like a way to change the loss function.
+
+00:16:16.000 --> 00:16:29.000
+Basically penalized these very large weights which usually are associated with overfitting. The early stopping is a different way that doesn't change the like the objective for last function, but it changed the way you do training.
+
+00:16:29.000 --> 00:16:34.000
+You have to monitor basically your test.
+
+00:16:34.000 --> 00:16:50.000
+And then, another thing that is often done is data augmentation. So it's not fully a regularization in the reducing the degrees of reading but it's essentially adding more data, more information.
+
+00:16:50.000 --> 00:16:59.000
+And it's reducing the degrees of freedom by that. So this means you have your training data and what you do is you make copies of your training data where you know that they won't change the meaning.
+
+00:16:59.000 --> 00:17:09.000
+So if you have even images, for instance, you could rotate them. Doesn't change the meaning of the image, it's just a rotated version of the same thing.
+
+00:17:09.000 --> 00:17:14.000
+So, and then you just add that to your training data with the same label that it has.
+
+00:17:14.000 --> 00:17:22.000
+So that helps a lot in preventing overfitting too because it teaches essentially the model what not.
+
+00:17:22.000 --> 00:17:29.000
+So, care about.
+
+00:17:29.000 --> 00:17:37.000
+Okay, so. Another one. Common way to do regularization.
+
+00:17:37.000 --> 00:17:50.000
+Is to do normal. Is to do a dropout. So what dropout does is it's essentially pretending that you're only training half the network at a time.
+
+00:17:50.000 --> 00:18:01.000
+So why do you why is that useful? So the idea is that when you overfit, what basically happens is that you really fit like specific patterns.
+
+00:18:01.000 --> 00:18:08.000
+With like a fixed combination of neurons. And if you break that fixed pattern, you can break it by updating some of them at a time, but not others.
+
+00:18:08.000 --> 00:18:22.000
+So each neuron has to actually be able to work with a flexible input set. And that actually helps overfitting too.
+
+00:18:22.000 --> 00:18:32.000
+So the way this is actually implemented is that you take your neural network and you just During training in each iteration you switch off basically half.
+
+00:18:32.000 --> 00:18:41.000
+Say half of your unit. And you just pretend they're not there. So you got a sparser network.
+
+00:18:41.000 --> 00:18:50.000
+Like the one you see on the right. And you just pretend that is your network. So you'd evaluate with that, you compute gradients and then you only update those ones.
+
+00:18:50.000 --> 00:19:02.000
+And that means for instance that this one has to be essentially working with only these 2 inputs and it doesn't get input from here right now it doesn't get the and the update doesn't propagate like this right now.
+
+00:19:02.000 --> 00:19:08.000
+And so that breaks also some symmetries. It makes it, it has to be a bit more flexible now.
+
+00:19:08.000 --> 00:19:23.000
+And then in the next iteration you switch off some other set of neurons. So you could also view this as essentially that the neural network is essentially a collection of models and also model that you're training in parallel.
+
+00:19:23.000 --> 00:19:32.000
+So actually within this neural network there's many small sub networks that are sitting there. And they are just kind of laid on top of each other.
+
+00:19:32.000 --> 00:19:47.000
+But you have to do though is that at test time You're using the full network. A test time you're not fixing off of it at half time you're using all of it and because you're essentially using double the number of You have to scale your rates.
+
+00:19:47.000 --> 00:19:54.000
+That's essentially the same as feeling down your inputs because now you're getting double the amount of inputs.
+
+00:19:54.000 --> 00:20:08.000
+So that's the idea of drop off. I drop out, sorry. And finally, there's the idea, like our various ideas around normalization.
+
+00:20:08.000 --> 00:20:18.000
+So what's normalization? You're probably familiar with data normalization, so you're basically shift the data to have 0 mean and you scale it.
+
+00:20:18.000 --> 00:20:27.000
+To have unit variance when we, for instance, to regression. And that usually helps it makes it better condition, but somehow makes the problem better behave.
+
+00:20:27.000 --> 00:20:41.000
+And the same holds like for many learning problems. And the only problem is that if I normalize the input to a neural network Well, then the input to the first layer will be normalized.
+
+00:20:41.000 --> 00:20:48.000
+But what the first layer in your neural network does. That the nonlinear transformation of the data.
+
+00:20:48.000 --> 00:20:54.000
+So by your data kind of it's nicely in a round shaped point cloud for instance as you input it.
+
+00:20:54.000 --> 00:21:04.000
+It gets transformed. So it gets squished around and stretched, etc. So in the next layer it doesn't look normalized anymore.
+
+00:21:04.000 --> 00:21:15.000
+So if we want the normalization also inside the network as input to our like basically for the layers. Then we have to basically do it before the layer.
+
+00:21:15.000 --> 00:21:22.000
+And so what batch normalization does is exactly that. It kind of normalizes the inputs to other layers.
+
+00:21:22.000 --> 00:21:27.000
+But it doesn't in a way that the neural network during training can decide to switch it on or off.
+
+00:21:27.000 --> 00:21:41.000
+So it has eventually a flexible on off. Well switch if you wish so that's encoded in the way you are doing this and so it can use it if it tabs or it doesn't have to use it.
+
+00:21:41.000 --> 00:21:48.000
+So that's the idea of batch normalization and that can stabilize your training a lot.
+
+00:21:48.000 --> 00:21:55.000
+So to normalize basically imports of layers, there's also layer normalization. So various ideas around.
+
+00:21:55.000 --> 00:22:03.000
+Normalization, here, at the layer level.
+
+00:22:03.000 --> 00:22:09.000
+Okay.
+
+00:22:09.000 --> 00:22:22.000
+So this was all I wanted to say about regularization and a little recap of last lecture. So before I move on, let me see if there's any remaining questions that I didn't answer.
+
+00:22:22.000 --> 00:22:31.000
+Basically that we have the same. Mechanisms for regularization as other machine learning algorithms.
+
+00:22:31.000 --> 00:22:34.000
+That's exactly true. And we have a few more because maybe this batch normalization is not even an issue.
+
+00:22:34.000 --> 00:22:44.000
+If you do. Linear classifier because there is only one layer and if you normalize the input that's the same.
+
+00:22:44.000 --> 00:22:56.000
+But the ideas indeed are very similar to what we can do. Without the machine learning methods.
+
+00:22:56.000 --> 00:23:07.000
+Yeah, okay. How do you decide which neurons to drop? That's random. So that basically each of them gets like updated at some point.
+
+00:23:07.000 --> 00:23:18.000
+And that you don't introduce some other patterns, spurious patterns. By doing this in a different way.
+
+00:23:18.000 --> 00:23:25.000
+Is drop out kind of analogous to the random feature selection. In random forests. So we don't really do a feature selection here.
+
+00:23:25.000 --> 00:23:46.000
+We just update. The weights in varying way but in the end we are using all of them.
+
+00:23:46.000 --> 00:23:57.000
+Alright, okay.
+
+00:23:57.000 --> 00:24:03.000
+So yeah, so what if dropout, is done in training, what does do we do in production?
+
+00:24:03.000 --> 00:24:09.000
+So when we deploy this model, so that's the test time. What we do is we use all the weights that we have learned.
+
+00:24:09.000 --> 00:24:15.000
+So since we have done updates on all the weights, we have used all of the units at some points in time.
+
+00:24:15.000 --> 00:24:23.000
+We do have all the weights. They are just burned up all updated all the time. So what we do is we use the full network.
+
+00:24:23.000 --> 00:24:40.000
+And we just rescale it because now we essentially have double like if we scale it by half like if we drop out half of the weights and we have to then we essentially have only used half the network and we have Learn to work well with half the network.
+
+00:24:40.000 --> 00:24:50.000
+So now we have essentially 2 networks like the amount of 2 networks in expectation. So what we do is we have the weight.
+
+00:24:50.000 --> 00:24:53.000
+That's the same as having the imports because now everyone gets like double the amount of input and that's it.
+
+00:24:53.000 --> 00:24:59.000
+That's all we do and then we just use the
+
+00:24:59.000 --> 00:25:08.000
+Does Python have these? Types of regularization, yes. So Python can help you with those kinds of regularizations.
+
+00:25:08.000 --> 00:25:17.000
+There is some like ways you can do data augmentation and those other ones.
+
+00:25:17.000 --> 00:25:30.000
+Okay, a normalization of deeper levels aren't the neurons giving out 0 at one. So the neurons actually as we talked last lecture, ideally maybe we would like to think of them as outputting zeros and one.
+
+00:25:30.000 --> 00:25:41.000
+But because that step function is a little hard. But the gradient is and what we use is activation functions like the SIGmoid or the Rail L or so the outputs of those are real numbers.
+
+00:25:41.000 --> 00:25:49.000
+And they are not necessarily between 0 and one like for the railroad can be like any positive number essentially on 0.
+
+00:25:49.000 --> 00:26:00.000
+So they can be normalized.
+
+00:26:00.000 --> 00:26:20.000
+Okay. I think that's
+
+00:26:20.000 --> 00:26:21.000
+How's the feedback information flow on the model? Is it the same as updating the weights?
+
+00:26:21.000 --> 00:26:37.000
+Yeah, so you compute the gradient and the back propagation on the weights that are actually there.
+
+00:26:37.000 --> 00:26:47.000
+Okay.
+
+00:26:47.000 --> 00:26:55.000
+Do we also use half the output layer? So not for the output layer, we usually keep it because the output layer is the different classes.
+
+00:26:55.000 --> 00:27:04.000
+So otherwise we would be dropping the different classes. So the output layer kind of stays fixed and what we are regularizing is the rest of the network.
+
+00:27:04.000 --> 00:27:12.000
+But if you look at the output layer really more like a linear classifier, it's okay to keep it and you linear classifier doesn't over fit as much.
+
+00:27:12.000 --> 00:27:19.000
+But the output layer does get less input. As you see in the picture.
+
+00:27:19.000 --> 00:27:25.000
+Does the dropout level have to be point 5 or could it be something else? You could also drop out.
+
+00:27:25.000 --> 00:27:34.000
+Some other percentage. You just have to adjust the scaling accordingly.
+
+00:27:34.000 --> 00:27:42.000
+Okay, good.
+
+00:27:42.000 --> 00:27:48.000
+Okay. Can you give a real world example? I think with your case studies you'll get a real word example.
+
+00:27:48.000 --> 00:28:00.000
+I don't have one here for this regularization. And what I'd instead like to do is I'd like to move on.
+
+00:28:00.000 --> 00:28:14.000
+And. Talk more about the computer vision. But you will see some of this and you can try some of these out with your case study and see how they actually behave.
+
+00:28:14.000 --> 00:28:25.000
+Okay, so what I'd like to continue with that is kind of this story. That your neural network takes some arbitrary data and it encodes it in a meaningful way.
+
+00:28:25.000 --> 00:28:35.000
+Into a feature vector. Or latent representation. There's many names for this. Or an encoding so this fire of the data.
+
+00:28:35.000 --> 00:28:47.000
+And that vector should capture like important information about your data. And that is that mapping that encoding is Lauren joined live with your plastic fire.
+
+00:28:47.000 --> 00:28:58.000
+And now what I said last lecture is that for the different data types different neural networks. Work better because They kind of encode more of the prior knowledge that we have about that data type.
+
+00:28:58.000 --> 00:29:09.000
+And to make this actually a bit more tangible and a bit clearer, I want to talk about new networks for images today.
+
+00:29:09.000 --> 00:29:16.000
+And then I'll talk about other types of neural networks on Friday.
+
+00:29:16.000 --> 00:29:28.000
+Okay, so today we'll talk about this. Convolutional neural networks. And they are widely used on all sorts of image inputs and that can have many, many applications.
+
+00:29:28.000 --> 00:29:45.000
+So here you just see a few different applications. So it could be Recognizing essentially street scenes for for instance, for autonomous driving there, it's usually used in addition to radar and lighter and other things that you may have.
+
+00:29:45.000 --> 00:29:59.000
+That you actually, basically all the different sensors that your car has. Then. You could have medical images where you'd want to maybe recognize brain tumors or something like that.
+
+00:29:59.000 --> 00:30:11.000
+You could do wildlife monitoring and tracking different animals or image search. So you type in tiger and like we know what all the images contain tigers, etc, etc.
+
+00:30:11.000 --> 00:30:21.000
+So there's many and you probably can think of many, many other applications where you'd actually have image input and you want to process it.
+
+00:30:21.000 --> 00:30:40.000
+So. Well, what's special about images? So that's what I actually want to start with is like what is special about images as an input versus just some factors that describe for instance a patient's medical data or something like that.
+
+00:30:40.000 --> 00:30:50.000
+So there's something different to them and What does that mean for the model that processes them? So.
+
+00:30:50.000 --> 00:31:00.000
+Let's see. So to make this like to start thinking about this, let's see, for how could we even input an image into a new network.
+
+00:31:00.000 --> 00:31:07.000
+And on my last lecture slides in the very end, I had this example of the fashion. We didn't have a lot of time for it.
+
+00:31:07.000 --> 00:31:14.000
+But essentially the ideas you have an image, an image is essentially If it's a grayscale, image, it's essentially just a matrix of numbers between 0 and one.
+
+00:31:14.000 --> 00:31:25.000
+That tell me the. The intensity of each pixel. So here this image is black and white, so it has only zeros and ones, but this could be all sorts of grayscale values.
+
+00:31:25.000 --> 00:31:34.000
+So all sorts of fractional numbers in order like rational numbers. It all kinds of real numbers here, strictly speaking.
+
+00:31:34.000 --> 00:31:41.000
+So, well, how could I input this into a neural network? The neural networks we talked about so far a day.
+
+00:31:41.000 --> 00:31:49.000
+Assume that the input is a vector. But well, it's a matrix we can make it into a vector, we just reshape it.
+
+00:31:49.000 --> 00:31:53.000
+So we just take the columns of the matrix and stack them on top of each other. And then we input it into a neural network.
+
+00:31:53.000 --> 00:32:05.000
+So now we have a vector. And then we input it into a new network. And this is how we could use the fully connected networks from last lecture.
+
+00:32:05.000 --> 00:32:09.000
+This actually on simple images like this fashion amnest or the M-ness digits data set that I also showed in the last lecture.
+
+00:32:09.000 --> 00:32:20.000
+That kind of. Works. It's okay. But if you do this for real images.
+
+00:32:20.000 --> 00:32:29.000
+Like pictures your take with your cell phone here and there. It doesn't actually work that great.
+
+00:32:29.000 --> 00:32:33.000
+So.
+
+00:32:33.000 --> 00:32:40.000
+The reason is why. Is there something else like why would this not work so great? Is there something that we are missing?
+
+00:32:40.000 --> 00:32:52.000
+And one reason is actually that in a real image this vector is Very large. So this thing here becomes very, very large.
+
+00:32:52.000 --> 00:33:04.000
+But let's think about this a bit more. So that's definitely a problem.
+
+00:33:04.000 --> 00:33:17.000
+So let's look at an example. So here are some images. And let's say we'd like to learn a model that tells me there is a cup in the image or there is no cup in the image.
+
+00:33:17.000 --> 00:33:21.000
+So it's a simple cup detector.
+
+00:33:21.000 --> 00:33:30.000
+So what is special about recognizing cups and images versus Figuring out whether a patient has the flu from this vector.
+
+00:33:30.000 --> 00:33:40.000
+So in both cases the input to the neural network is a vector. In the patient case, we kind of, that was kind of the example of the last lecture, had simplified it hugely.
+
+00:33:40.000 --> 00:33:49.000
+So you have maybe all sorts of each coordinate is a different type of symptom or like measurement or something like that.
+
+00:33:49.000 --> 00:33:58.000
+And if you have the image, what we do is we take this image, we stack the columns of this image into a vector and then we process that.
+
+00:33:58.000 --> 00:34:24.000
+So what's special about this cup? In the image that is different from other types of. Prediction problems.
+
+00:34:24.000 --> 00:34:35.000
+Okay, I see a lot of answers you already in the chat. That's great.
+
+00:34:35.000 --> 00:34:45.000
+Okay, there's a lot of answers relating to two-D and that's a spatial thing.
+
+00:34:45.000 --> 00:34:57.000
+And size dimension color, depth. The location and therefore the matrix representing it is different for each image.
+
+00:34:57.000 --> 00:35:02.000
+So there's something about where exactly the cup is located in the image. And that is actually different.
+
+00:35:02.000 --> 00:35:15.000
+Versus the feature vector for the medical case where the coordinates have a fixed meaning.
+
+00:35:15.000 --> 00:35:22.000
+There's the holes in it, the closeness between the pixels is lost. Yeah, so that's the to the information.
+
+00:35:22.000 --> 00:35:30.000
+Inputs are not independent so there's that twod somehow the pixels that are next to each other they have something to do with each other.
+
+00:35:30.000 --> 00:35:40.000
+There're not arbitrary. That's right. So locally there's a lot of dependence.
+
+00:35:40.000 --> 00:35:54.000
+If the cup is white, there will be. Some zeros in the matrix okay yeah that could be or ones depending on how you encode it
+
+00:35:54.000 --> 00:36:02.000
+So they differ in size and colour and location and rotation. That's right. So there's a lot of variation in cups.
+
+00:36:02.000 --> 00:36:08.000
+Maybe there's not as much variation in flu symptoms. I don't know. Okay, alright, so good.
+
+00:36:08.000 --> 00:36:18.000
+Partial images, there's occlusion. The cup may not even be fully there. So that's another challenge, that's right.
+
+00:36:18.000 --> 00:36:30.000
+They could be a bit fuzzy, you know, very clear picture. Yeah, that's also there.
+
+00:36:30.000 --> 00:36:40.000
+Okay, so there I see a lot and lot of answers. Okay, let me try to summarize this a little bit.
+
+00:36:40.000 --> 00:36:47.000
+There's also the context this mentioned as well. Okay. So there's a lot of answers.
+
+00:36:47.000 --> 00:36:53.000
+Let me try to summarize this a little bit. So one thing that was mentioned a lot is the spatial coherence.
+
+00:36:53.000 --> 00:36:57.000
+So I cup has this 2D spatial coherence. It's not just part of one column, it's actually part of multiple columns.
+
+00:36:57.000 --> 00:37:06.000
+Usually a cup is more what is wider than a pixel in an image. But and I somehow need to know that correspondence in the in that big vector.
+
+00:37:06.000 --> 00:37:20.000
+I would actually have to know kind of which which other, where does a column and where does the next one start and what's the correspondence of who's next to each other.
+
+00:37:20.000 --> 00:37:32.000
+So that 2D structure somehow I really want to process it kind of in that 2D manner that I have that local spatial coherence that cup is in a lot sits in some local patch.
+
+00:37:32.000 --> 00:37:38.000
+And that local patch is not just distributed in different locations in my vector, so that makes it a little harder.
+
+00:37:38.000 --> 00:37:42.000
+So I have my input vector.
+
+00:37:42.000 --> 00:37:45.000
+And maybe this is where the
+
+00:37:45.000 --> 00:37:52.000
+Boundaries are between the different columns and now maybe the cup is here and here and here and here.
+
+00:37:52.000 --> 00:38:00.000
+So it's not coherent in the vector. The other thing is that this cup can actually, it doesn't have a fixed location.
+
+00:38:00.000 --> 00:38:06.000
+If I look at flu symptoms, I know this one is blood pressure and this one is body temperature, etc.
+
+00:38:06.000 --> 00:38:16.000
+So the different coordinates have a fixed meaning. And if body temperature is relevant, I'll always look at the body temperature coordinate.
+
+00:38:16.000 --> 00:38:18.000
+In my image, this is not the case because My cat can move around if I move it around in the image.
+
+00:38:18.000 --> 00:38:28.000
+It's still the same cup. It doesn't really matter. So that means not even the coordinate is fixed in my vector.
+
+00:38:28.000 --> 00:38:37.000
+So in fact, if I would draw this, the cap could actually also be sitting here. Totally different set of locations.
+
+00:38:37.000 --> 00:38:49.000
+That's okay. But I need that correspondence that is either this one or this one or maybe both but I need somehow I need to understand that it has it can be anywhere.
+
+00:38:49.000 --> 00:38:54.000
+It's not that the coordinates have a specific meaning, but the structure. Has a specific meaning.
+
+00:38:54.000 --> 00:39:04.000
+That is like these patches. So that's another thing that like, and that is also called well, that's called this actually there. It's called translation and variance.
+
+00:39:04.000 --> 00:39:15.000
+Yeah, I or shift in variance. I can shift the cup around and it's still a Then there is the other problems like the cup may have different sizes.
+
+00:39:15.000 --> 00:39:22.000
+It may have different orientations. There are some variations in it. It could be personally occluded.
+
+00:39:22.000 --> 00:39:37.000
+So maybe I don't even want to search for a fixed template of a cup. Maybe I want to search for these pieces of evidence like somewhere there's a handle somewhere there's like a mug or like a part of a mug or something like did this body shape of the cup.
+
+00:39:37.000 --> 00:39:44.000
+Etc. And then I go from there. And maybe as long as there's enough of these hints, that's good enough.
+
+00:39:44.000 --> 00:39:52.000
+It's like when I recognize face it, maybe I see one eye and a nose and a mouth and an ear and here or so.
+
+00:39:52.000 --> 00:39:59.000
+That's probably enough and there's like some patch here. So it's probably enough for us to recognize that that's still a face.
+
+00:39:59.000 --> 00:40:07.000
+Or this phase here. We don't see all of it, but we see enough to say, okay, this is like Enough evidence that there is a face here.
+
+00:40:07.000 --> 00:40:15.000
+Even though I don't see the full face. So somehow there's like some part based reasoning that makes it much more flexible.
+
+00:40:15.000 --> 00:40:21.000
+And in addition, yeah, there's other things like variation in color and so on.
+
+00:40:21.000 --> 00:40:31.000
+So there's a lot of things to be. Aware of I would mostly like to focus on the spatial locality and this translation or shift invariance for the moment.
+
+00:40:31.000 --> 00:40:38.000
+And also this part-based reasoning. And I'll get back to some of the other aspects in the end.
+
+00:40:38.000 --> 00:40:44.000
+And indeed context is also a factor and I'll get back to that as well.
+
+00:40:44.000 --> 00:40:53.000
+So contacts, orientation and such things. So let's look at this spatial locality and translation in variants.
+
+00:40:53.000 --> 00:41:05.000
+How we could actually use that. To build a model that is more. That corresponds more to this information that we have about the world.
+
+00:41:05.000 --> 00:41:11.000
+And it possesses it accordingly. So what that maybe means is that what I actually want to do is I want to just look at local patches.
+
+00:41:11.000 --> 00:41:25.000
+Because all that matters is if there's a cup, it appears in some local patch. And in which patch that doesn't matter too much for the answer of whether they're in the cup.
+
+00:41:25.000 --> 00:41:32.000
+So maybe what I want to do is I want to actually just look at a patch at a time. And run my detector.
+
+00:41:32.000 --> 00:41:40.000
+My pattern detector on that patch. And then I'll just run that on all the patches that I have.
+
+00:41:40.000 --> 00:41:47.000
+So the way I'll do this is I'll take the patch processed, I'll shift my patch, my window essentially that I'm looking at.
+
+00:41:47.000 --> 00:41:59.000
+And I look at these local catches and eventually maybe there is one patch that actually contains enough of a cup that I can say that this is a This is going to be the idea of convolution.
+
+00:41:59.000 --> 00:42:03.000
+And to make this a bit more flexible, we'll do it in a hierarchical way.
+
+00:42:03.000 --> 00:42:18.000
+And it also takes care of the fact that The actual location now doesn't matter to the meaning because I'm looking at like all locations, I'm just looking at them, essentially I'll be looking at them in parallel.
+
+00:42:18.000 --> 00:42:29.000
+But independently If the cup appears in the corner or in the center or in top or bottom or something, it doesn't really matter.
+
+00:42:29.000 --> 00:42:43.000
+So hence here is our strategy. So we learn a patch size. Top detector or some kind of detector it'll be actually a parts detector and we slide it across the window.
+
+00:42:43.000 --> 00:42:47.000
+And we say, yes, if it fires anywhere in some region. And so we'll make it a bit more flexible about the actual location.
+
+00:42:47.000 --> 00:43:00.000
+Because A, that will be very good for the efficiency of the model and be it will also give us some flexibility in that, like maybe.
+
+00:43:00.000 --> 00:43:09.000
+A handle in a cup is not always in exactly the same location relative to like the mark shape in the cup.
+
+00:43:09.000 --> 00:43:16.000
+And then we'll put this in the hierarchy and the hierarchy actually also helps with this parts based reasoning.
+
+00:43:16.000 --> 00:43:22.000
+So what's going to happen is that we are first actually not detecting. We do not start with detecting caps.
+
+00:43:22.000 --> 00:43:30.000
+We not just have a cup template detector that we like put somewhere. No, we'll start with detecting edges.
+
+00:43:30.000 --> 00:43:36.000
+Because once we know where the edges are, we can put edges together into shapes. And into textures.
+
+00:43:36.000 --> 00:43:47.000
+So like local patterns essentially intershaped into textures and shapes. Once we have simple shapes we can put them together into parts.
+
+00:43:47.000 --> 00:43:54.000
+And once we have, we know where the parts are, we can basically build object detectors out of part detectors.
+
+00:43:54.000 --> 00:44:07.000
+Like if I want a face, I know I need 2 eyes and a nose and a mouth and so I can basically put those together in a kind of Configuration that I would be expecting.
+
+00:44:07.000 --> 00:44:14.000
+And so on, up to scenes. So that's where the layers essentially will come from.
+
+00:44:14.000 --> 00:44:23.000
+So in each layer, will do this like sliding window type approach.
+
+00:44:23.000 --> 00:44:36.000
+Okay, so let me give you an overview of what this model looks like in a slightly bit more detail and then we'll go into these operations that the model actually does and then we'll like explain those in detail.
+
+00:44:36.000 --> 00:44:44.000
+So let's say I have this image here and what I'll do is I'll actually look at patches in this image.
+
+00:44:44.000 --> 00:44:53.000
+I'll do a patch based processing. One by one and I'll keep track of what I detected in each patch.
+
+00:44:53.000 --> 00:44:59.000
+So I'll keep that table around that where each entering the table corresponds to a specific location.
+
+00:44:59.000 --> 00:45:15.000
+So this is this table here. And I'll basically. See Yeah, basically remembered like for the blue location this was the output of my detector and I'll just remember it in this.
+
+00:45:15.000 --> 00:45:23.000
+In the cell here essentially. So the cell has the same shape as my image. It may be a bit smaller than the image.
+
+00:45:23.000 --> 00:45:32.000
+And it has basically one Entry for each is well each position of the or center of each window.
+
+00:45:32.000 --> 00:45:37.000
+And that would basically once I have done this, let's say this learns a handle detector.
+
+00:45:37.000 --> 00:45:52.000
+I'm running the same handle detector on each patch. So this is giving me basically a map of where all the handle like shapes are that I And now of course we don't only want to recognize handles, we need other parts as well.
+
+00:45:52.000 --> 00:46:00.000
+We want to even recognize other objects. So I'll have a bank of these detectors also called a filter bank.
+
+00:46:00.000 --> 00:46:07.000
+And so the filters are these detectors here.
+
+00:46:07.000 --> 00:46:15.000
+And then I'll just learn multiple of these. So the output of one layer will essentially be a set of these tables.
+
+00:46:15.000 --> 00:46:24.000
+That have correspond to we're at the half detections in different locations of the image. So I usually have many more than 2, of course.
+
+00:46:24.000 --> 00:46:30.000
+This is just a simple example. So I have a lot more here.
+
+00:46:30.000 --> 00:46:40.000
+So now what I actually want is I don't only want handles and jars. I want to Put this together into a cup shape.
+
+00:46:40.000 --> 00:46:45.000
+So what is a cup, a cup needs a handle and a jar. So what I'll be looking for now is I'll be looking jointly at these 2.
+
+00:46:45.000 --> 00:46:53.000
+The handle detections and the jar detections and I look at them in the same corresponding locations.
+
+00:46:53.000 --> 00:47:06.000
+So for instance, I'll be looking then like here and here or something like that. And I'll be looking, is there some location where I have a handle and a jar detection?
+
+00:47:06.000 --> 00:47:11.000
+Very close to each other. So that because that could be my cut.
+
+00:47:11.000 --> 00:47:21.000
+And that way I can and of course I could maybe also you reuse that handle detector for something else maybe detecting pots or whatever.
+
+00:47:21.000 --> 00:47:30.000
+So this is actually like flexible because now I can build up image objects. Objects out of parts.
+
+00:47:30.000 --> 00:47:43.000
+And if I detect somewhere that oh and this kind of the corresponding location I have here a handle and a jar, then I'll say, oh, in that location here.
+
+00:47:43.000 --> 00:47:53.000
+I'm actually detecting the cup. So that will be done by another such convolution operation where now I'm scanning through like both of these.
+
+00:47:53.000 --> 00:47:59.000
+Simultaneously and I'll combine their information.
+
+00:47:59.000 --> 00:48:10.000
+So that'll be the next layer of convolution and what I often do in between is this idea of pooling and pooling will basically be saying I'll come press.
+
+00:48:10.000 --> 00:48:19.000
+This thing into something smaller by saying, oh, it's in that bigger patch. What was the best detection I had?
+
+00:48:19.000 --> 00:48:26.000
+And that's forget about the rest. So then like one cell in the after pooling encodes.
+
+00:48:26.000 --> 00:48:37.000
+4 or 9 or something locations. In the original filters. Filter outputs. So I'll have that pooling and that'll give me a bit of flexibility of air exactly the handle and the cup are next to it.
+
+00:48:37.000 --> 00:48:45.000
+With respect to each other.
+
+00:48:45.000 --> 00:48:55.000
+Okay, so this is the overview of like the What the convolutional network will look like. We'll then put it all together.
+
+00:48:55.000 --> 00:49:01.000
+And we'll have a lot of these convolution and pooling layers stacked on top of each other.
+
+00:49:01.000 --> 00:49:10.000
+We'll do this for a few layers until we have decided this is enough. So this is again an architectural choice how many layers you do.
+
+00:49:10.000 --> 00:49:19.000
+And once we stop what we do is now we take the output of all these layers and now we take that output and reshape it into a vector.
+
+00:49:19.000 --> 00:49:25.000
+And then we'll input it into, fully connected neural network or maybe just a linear layer.
+
+00:49:25.000 --> 00:49:35.000
+And so this gives us really this 2 stages. This here, the first stage, this feature learning stage is the actual encoding part.
+
+00:49:35.000 --> 00:49:51.000
+That's where I'm learning to extract meaningful features from the data. And then the second part is just a classifier because once I know that my image has like these cups and it has all sorts of other shapes in it.
+
+00:49:51.000 --> 00:50:03.000
+It's much easier from that information to Just classify whether it has certain objects or it doesn't have that or whether it corresponds to a certain scene or a different scene.
+
+00:50:03.000 --> 00:50:13.000
+So. That encoding here the actual convolutional part is very important to making the classification downstream easier.
+
+00:50:13.000 --> 00:50:24.000
+Okay, so then they let me say just say a little bit about the shape of these things here and then I'll go and answer some of the questions.
+
+00:50:24.000 --> 00:50:28.000
+Okay, so
+
+00:50:28.000 --> 00:50:43.000
+What are why are these layers now here like looking 3D So the first thing is we are doing 2D processing, so the input Basically, the output of a single filter.
+
+00:50:43.000 --> 00:50:54.000
+Off a single detector has the same shape as the import, maybe a bit smaller. So now I can think of this third dimension as basically a stack of papers.
+
+00:50:54.000 --> 00:51:06.000
+So it's actually a stack of detections. Of these outputs of filters. So each sheet corresponds to one fit the output of one filter.
+
+00:51:06.000 --> 00:51:18.000
+And then the other 2D dimensions correspond to the 2D dimensions in the image. Because each filter basically keeps track of like the 2D locations.
+
+00:51:18.000 --> 00:51:27.000
+And so this is the convolution. I have like. This is basically the number of filters here.
+
+00:51:27.000 --> 00:51:42.000
+That is that a dimension here. Then I do a pooling operation and what that essentially does is it contracts square a patch in my convolution output into a single cell.
+
+00:51:42.000 --> 00:51:47.000
+So it does some contraction at this like, 2D dimensions. It doesn't touch the third dimension at all.
+
+00:51:47.000 --> 00:51:59.000
+So it just compresses it a bit, but that makes the data a bit smaller and whatever like the processing in the network a bit easier because it's smaller.
+
+00:51:59.000 --> 00:52:11.000
+Then we do more convolutions. So again, each of these cubes essentially you can think of them as like stacks of layers of outputs of the previous layers.
+
+00:52:11.000 --> 00:52:20.000
+And each of these outputs is also called a channel. So this is like produced by a filter, but then this is called a channel.
+
+00:52:20.000 --> 00:52:29.000
+That's how they sometimes are called. And then we do pooling again and we do some convolution again.
+
+00:52:29.000 --> 00:52:37.000
+And then we stop and that's where the encoding ends. And then we do the classification.
+
+00:52:37.000 --> 00:52:47.000
+So you see the already like the buildup of the network has this 2 way like this 2 partition structure in here.
+
+00:52:47.000 --> 00:52:59.000
+Okay. Before I go into the deep, about how convolution and pooling works, Let me take a quick look at the chat and let all the questions.
+
+00:52:59.000 --> 00:53:08.000
+That I hear or someone else filters like RGB. So this is right. I forgot to say this, even the input image here.
+
+00:53:08.000 --> 00:53:20.000
+Has 3 sheets to it. 3 channels because I actually if I have a color in which I this is actually encoded as 3 images a red image a green image and a blue image.
+
+00:53:20.000 --> 00:53:28.000
+The like putting them on top of each other combining these components of the colors gives me the actual color of each pixel.
+
+00:53:28.000 --> 00:53:35.000
+So each pixel has 3 coordinates and I could also view this as having the green, the red and the red, green and blue image.
+
+00:53:35.000 --> 00:53:44.000
+And these are the first 3 channels I have essentially, that's right.
+
+00:53:44.000 --> 00:53:47.000
+Yeah, so they some people ask about other image encodings, yes, RGB is an example of an image encoding.
+
+00:53:47.000 --> 00:53:57.000
+But my like sketch here has 3, so this could be RGB. You could use others as well.
+
+00:53:57.000 --> 00:54:01.000
+It doesn't really matter.
+
+00:54:01.000 --> 00:54:07.000
+Okay.
+
+00:54:07.000 --> 00:54:09.000
+Okay. Can you clarify the convolution concept? Yes, I'll go through the details of convolution next.
+
+00:54:09.000 --> 00:54:25.000
+So I'll postpone that question. Alright.
+
+00:54:25.000 --> 00:54:32.000
+The Tesla autonomous car had a crash with a light blue truck because the neural network identified the truck as guy.
+
+00:54:32.000 --> 00:54:39.000
+I don't actually remember, yeah, there was some confusion with the lighting that it didn't do a good job at the object detection.
+
+00:54:39.000 --> 00:54:49.000
+That can happen. Essentially, yeah, it was a bad classification, but the input was probably also difficult and it hadn't.
+
+00:54:49.000 --> 00:55:00.000
+Seen a lot of such examples in its training. And that can often like that's often the challenge with these like extreme situations that it looks different from what your training data looks like.
+
+00:55:00.000 --> 00:55:10.000
+And even though it then works well on the training data or the test cases, you tested in training, then you can make mistakes there because this is the Very different from what the neural network is used to.
+
+00:55:10.000 --> 00:55:17.000
+It's the similar thing is if you would train it maybe just In summer and suddenly you and then you have it run in winter.
+
+00:55:17.000 --> 00:55:22.000
+At least in Boston Inventory it looks very different from summer, so you'd have actually a problem.
+
+00:55:22.000 --> 00:55:29.000
+So you have to train it on like a large variety of. Data.
+
+00:55:29.000 --> 00:55:38.000
+But then, yeah, it's not 100% perfect. Anytime.
+
+00:55:38.000 --> 00:55:43.000
+The handle can be in multiple pieces.
+
+00:55:43.000 --> 00:55:55.000
+So also patches need to be put together to recognize that's true that has also to do with the size so there is often also the question about The size.
+
+00:55:55.000 --> 00:55:59.000
+How big should be the patches, etc. So one thing is there, you could even detect like multiple handles in different locations.
+
+00:55:59.000 --> 00:56:12.000
+They should be treated independently though. But it could be that yeah the handle is like really large and it's spans multiple patches.
+
+00:56:12.000 --> 00:56:29.000
+So the way this is typically taken care of is that The first size of the patch is not actually the size of the car that you detect and the reason is the following that this patch will be encoded in like one cell in this guy.
+
+00:56:29.000 --> 00:56:36.000
+Then you take actually a set of cells and you encode it into one cell. So now one cell here.
+
+00:56:36.000 --> 00:56:44.000
+Corresponds actually to multiple of those patches in the input image. And then you compress this folder.
+
+00:56:44.000 --> 00:56:55.000
+So one cell here corresponds like to a larger patch here corresponds to an even larger patch here. Corresponds to an even larger patch in your image.
+
+00:56:55.000 --> 00:57:01.000
+So with this hierarchy and the pooling you're actually increasing your so-called receptive field.
+
+00:57:01.000 --> 00:57:08.000
+So it could be that that maybe you need 2 layers to have the patch large enough, like the effective pet you're looking at.
+
+00:57:08.000 --> 00:57:17.000
+To be looking at like that to include the full handle in that patch. But this way you can be a little bit more, flexible with sizing.
+
+00:57:17.000 --> 00:57:26.000
+In that you could learn those detectors at multiple levels in your neural network.
+
+00:57:26.000 --> 00:57:42.000
+Okay.
+
+00:57:42.000 --> 00:57:52.000
+So what are these detectors? Do we choose them? So we will learn the detectors. The detectors will actually be the weights in the neural network, so we don't hand pick them.
+
+00:57:52.000 --> 00:57:59.000
+And then your network, that's a very cool thing what we train the neural network on is really this kind of classification talk.
+
+00:57:59.000 --> 00:58:13.000
+Into this the image output is the car or a truck or whatever a bicycle or something like that or a tree even That's and that's the only feedback we give like this is what you should output as the class.
+
+00:58:13.000 --> 00:58:23.000
+And then you'll network by itself learns these detect like we tell it I'm we give this architecture but we don't tell it what exactly should be the detection that it has to look for.
+
+00:58:23.000 --> 00:58:26.000
+So that it also learns by itself. It learns by itself that it should edges are useful putting together edges into shapes.
+
+00:58:26.000 --> 00:58:37.000
+Is useful. But that kind of emerges by itself. We don't actually tell the neural network to do that.
+
+00:58:37.000 --> 00:58:45.000
+And indeed, like some of the filters it learned may be less useful than others, but those will usually be not be used as much or maybe eventually it will be.
+
+00:58:45.000 --> 00:58:50.000
+Taken over to learn.
+
+00:58:50.000 --> 00:59:17.000
+Okay.
+
+00:59:17.000 --> 00:59:26.000
+In the first layer we use each patch and in the second layer we combine patches. So we don't combine all patches in the second layer.
+
+00:59:26.000 --> 00:59:33.000
+But we combine some of them. So if you look here, if this is the second convolutional layer.
+
+00:59:33.000 --> 00:59:39.000
+Basically one
+
+00:59:39.000 --> 00:59:55.000
+So one input like one coordinate essentially in that. Second layer would be corresponding to this area. In the in its input and that would be corresponding well maybe to something like this.
+
+00:59:55.000 --> 01:00:03.000
+In my first layer. So I'm not looking at usually at the full first layer. I'm just looking at a patch in the first layer.
+
+01:00:03.000 --> 01:00:11.000
+And I'm sliding essentially again windows and in the next layer of sliding windows on the second layer, etc.
+
+01:00:11.000 --> 01:00:18.000
+But eventually, yeah, it may span like a large part of the image.
+
+01:00:18.000 --> 01:00:27.000
+How do you differentiate the edge of a cup handle and the edges of the kids glasses? So you could have some color sensitivity in there.
+
+01:00:27.000 --> 01:00:36.000
+What you edge detectors typically do is they just do otherwise orientation. But then you see it by pet putting together like different edges.
+
+01:00:36.000 --> 01:00:48.000
+Former shape so different pieces to form a shape and there you may need different slightly different shapes for the kid's cup and for the kids glasses and the cup.
+
+01:00:48.000 --> 01:00:56.000
+Both of them are round yes, but then there's like other contexts there and if you're just looking for a round shape it would probably detect like all of this.
+
+01:00:56.000 --> 01:01:08.000
+That's so it can do some confusion. But then if it has like it needs more context with like the handle, it'll be become better.
+
+01:01:08.000 --> 01:01:21.000
+Can I also determine how many cups are present in the image? So if you think about it in principle, you can if they're I mean not too overlapping because you're looking at your different regions and you're doing a region based detection.
+
+01:01:21.000 --> 01:01:38.000
+So if you're not too coarse you could basically Keep that regionality and that could help you count.
+
+01:01:38.000 --> 01:01:44.000
+Okay, how is the size of the patch determined? There is some standard Sizes available, that you can go with.
+
+01:01:44.000 --> 01:02:07.000
+So again, just go with an architecture that has worked on images like yours. The general idea is that if your resolution of the image is higher, you can make the patches larger because Make a larger patch would like capture a corresponding piece of information from the small, the, say, a smaller patch in a lower resolution image.
+
+01:02:07.000 --> 01:02:13.000
+So on these like, fashion amnest images, they're just 28 by 28, they're really small.
+
+01:02:13.000 --> 01:02:16.000
+We do, we do like 3 by 3 or so. If you have larger images, you would do maybe 12 by 12, something like that.
+
+01:02:16.000 --> 01:02:34.000
+9 by 9. Make them a bit larger.
+
+01:02:34.000 --> 01:02:42.000
+Okay.
+
+01:02:42.000 --> 01:02:48.000
+Does hierarchy mean one layer is more important than the other? It doesn't necessarily mean important.
+
+01:02:48.000 --> 01:02:58.000
+But it means it's processed in a hierarchical fashion. You go from small patterns to like larger patterns, more complicated patterns.
+
+01:02:58.000 --> 01:03:04.000
+All of them are important.
+
+01:03:04.000 --> 01:03:08.000
+Okay, good.
+
+01:03:08.000 --> 01:03:14.000
+If the parts are spatially apart, can we still detect an object? That's a good question.
+
+01:03:14.000 --> 01:03:23.000
+So if in your training set The chorus wheels are always very close to the lights, for instance, and then the tests that they are very far away.
+
+01:03:23.000 --> 01:03:40.000
+Then it may not fall. So we have some flexibility because of the pooling. I can pull them apart a little bit, but if you pull apart your car and then now like Its pieces living all sorts of all across the image.
+
+01:03:40.000 --> 01:03:51.000
+You may not actually recognise it as a single entire car.
+
+01:03:51.000 --> 01:04:01.000
+So there's a question about, oh, actually I thought convolution is. Matrix multiplication of an image with a smaller filter.
+
+01:04:01.000 --> 01:04:07.000
+That's true. And that's essentially what it corresponds to mathematically. So my sliding window.
+
+01:04:07.000 --> 01:04:16.000
+The filter with the image patch is essentially an inner product. Then you add a nonlinearity. So this is your linear classifier.
+
+01:04:16.000 --> 01:04:28.000
+That's your matrix multiplication essentially. And then part of it and then you just slide it your window and you apply the same inner product everywhere.
+
+01:04:28.000 --> 01:04:36.000
+So that you can write as a matrix multiplication. And this is why the GPUs are so good at that.
+
+01:04:36.000 --> 01:04:45.000
+Okay.
+
+01:04:45.000 --> 01:04:54.000
+Is this unsupervised learning? Or supervised learning? So here, the way I described it here is actually.
+
+01:04:54.000 --> 01:05:07.000
+Supervised learning because we do have labels. So we know like the training input to the neural network is images of cars and then labels that these are different cars or different classes.
+
+01:05:07.000 --> 01:05:12.000
+You could also do it in an unsupervised, a more unsupervised way and I'll talk about how to do this.
+
+01:05:12.000 --> 01:05:23.000
+Friday. So for today, this is think of it as supervised. Classification problem essentially.
+
+01:05:23.000 --> 01:05:34.000
+Okay, so there were a lot of questions I have answered several of them There is even more, but I also want to get to explaining some of the convolution.
+
+01:05:34.000 --> 01:05:45.000
+So I think I'll defer most of the questions to a bit later. Because some of them are like, how do you combine patches?
+
+01:05:45.000 --> 01:05:52.000
+What, Does pooling do as well explain all of that?
+
+01:05:52.000 --> 01:06:03.000
+Alright. Where do the patterns come from? The patterns are learned. This is all the in that the neural network gets.
+
+01:06:03.000 --> 01:06:10.000
+Is the labels and that's it. Nothing else, just the clap is. These are in the same class, these are in different classes.
+
+01:06:10.000 --> 01:06:16.000
+That's it.
+
+01:06:16.000 --> 01:06:20.000
+Okay, good.
+
+01:06:20.000 --> 01:06:33.000
+Alright, so let me continue. With explaining what convolution is. And then, we'll answer more questions.
+
+01:06:33.000 --> 01:06:45.000
+Okay, so. The main ideas of a CNN is essentially this idea of convolution. Which contains the idea of wage sharing.
+
+01:06:45.000 --> 01:06:53.000
+I'll show you how it corresponds to that. And the ideas that basically we are using the same filter on a much smaller patch.
+
+01:06:53.000 --> 01:07:05.000
+And that you reusing that same filter or the same detector. That saves us a lot of parameters because we only have to learn the parameters for that small patch.
+
+01:07:05.000 --> 01:07:17.000
+And that is in contrast to if we would actually process that full image with a fully connected neural network, which would be way larger, would have way more edges, and.
+
+01:07:17.000 --> 01:07:23.000
+Hence be would be much more cumbersome to train also.
+
+01:07:23.000 --> 01:07:33.000
+And then the pooling idea. So we'll start with the convolution and let me explain to you in a bit more detail what a convolution does other than being a matrix.
+
+01:07:33.000 --> 01:07:41.000
+Multiplication. And then we'll go from there. And that will hopefully make things a bit clearer.
+
+01:07:41.000 --> 01:07:46.000
+I want to do this on a one D example. So here we have a oned image or a sequence.
+
+01:07:46.000 --> 01:07:54.000
+You can also do convolution on sequences. And here it's just a binary image, the input could be arbitrary numbers.
+
+01:07:54.000 --> 01:08:06.000
+It doesn't matter. This is just for illustration that the calculations become easier. So we have, our one the image and now a patch in a on the image corresponds to just an interval.
+
+01:08:06.000 --> 01:08:11.000
+So we are looking at an interval, say of say size 3. And then what is my filter?
+
+01:08:11.000 --> 01:08:25.000
+My filter is essentially a wait for each of these coordinates. For each of these locations. So it has 3 weights and what it will do is take a weighted combination of its inputs, plots.
+
+01:08:25.000 --> 01:08:35.000
+An offset. So this is really Just like a linear classifier again. This is just like my preactivation.
+
+01:08:35.000 --> 01:08:41.000
+It's just like my linear classifier. It's a linear classifier on that little patch.
+
+01:08:41.000 --> 01:08:46.000
+With this, in this case I need 3 weights because I my patch is size 3.
+
+01:08:46.000 --> 01:08:58.000
+And What it does is it just does the inner product with a patch. So for instance, if my filter rates are minus one plus one and minus one, so I just made this up.
+
+01:08:58.000 --> 01:09:05.000
+They're usually learned, but Let's just put it there to have something to have an actual run through example.
+
+01:09:05.000 --> 01:09:12.000
+So let's say my weights are minus one for the first 1, one for the second coordinate and minus one for the third one.
+
+01:09:12.000 --> 01:09:28.000
+What I do is I do that in a product, so I'll have minus one times 0. Comes from minus one times 0, which is 0 plus one times 0, which is 0 plus minus one times one which is minus one.
+
+01:09:28.000 --> 01:09:34.000
+So the output the preactivation. One
+
+01:09:34.000 --> 01:09:43.000
+So in last lecture we called this kind of thing a preactivation. And later it'll be sent through an activation function.
+
+01:09:43.000 --> 01:09:50.000
+So but before we do that, let's actually complete the convolution. So now we have run our detector.
+
+01:09:50.000 --> 01:09:55.000
+In one patch. And now what we'll do is we'll shift it.
+
+01:09:55.000 --> 01:10:02.000
+And indeed, yeah, so I'll get to that. So we'll shift it.
+
+01:10:02.000 --> 01:10:11.000
+And then we'll do the same thing again for the next pattern. And if you do the calculations again for the next pattern, outcomes at plus one.
+
+01:10:11.000 --> 01:10:17.000
+So now what does this minus one and plus one actually mean? Here's one way you could view this.
+
+01:10:17.000 --> 01:10:22.000
+If you actually think about it, let's say you input was just zeros and months for simplicity.
+
+01:10:22.000 --> 01:10:32.000
+What would be the input that would maximize the output? And, I think the output essentially corresponds to a better detection.
+
+01:10:32.000 --> 01:10:33.000
+So if you think about it, we have a minus one weight here and we want the inner product to be large.
+
+01:10:33.000 --> 01:10:48.000
+So we put a 0 here because this is kind of the best thing you can do. If there's a plus one here, we want to make the input very large because this is we did with plus one.
+
+01:10:48.000 --> 01:11:00.000
+So the largest here we can do between 0 and one is one. And if we have another minus one here, we want to make the input as small as possible to make the inner product large.
+
+01:11:00.000 --> 01:11:07.000
+If we had something big here we would get like a large negative number. So we make it small.
+
+01:11:07.000 --> 01:11:16.000
+So now we see that the pattern that actually works well is something like low high load number. And if we look at our filter rates, they are low high low.
+
+01:11:16.000 --> 01:11:23.000
+So kind of that same low high low pattern if that is matched in the input. Then we get a Good detection, otherwise we get a not so good detection.
+
+01:11:23.000 --> 01:11:35.000
+So a small or negative number. So the filter rates actually already tell us a lot about what we are looking for.
+
+01:11:35.000 --> 01:11:45.000
+And then we continue this, we shift it again. And we basically do the same kinds of calculations again.
+
+01:11:45.000 --> 01:11:52.000
+Now what we have to still think about is
+
+01:11:52.000 --> 01:11:59.000
+How much do we shift? So I just sent you shift and this is called the stride. So that's another hyper parameter.
+
+01:11:59.000 --> 01:12:10.000
+You have to decide with some tuning. You could do it a one. Then you're looking at basically always shifting by one pixel if you have a very high resolution image, it would make it a bit more.
+
+01:12:10.000 --> 01:12:19.000
+It saves you parameters, attention. Like it saves you some size of not parameters, but size of the image.
+
+01:12:19.000 --> 01:12:29.000
+Okay. And. Then we do this like as we slide this through our sequence we get an output like for each location.
+
+01:12:29.000 --> 01:12:38.000
+So this is after. The output. And what I want to stress here again is the big advantage of the so-called weight sharing.
+
+01:12:38.000 --> 01:12:49.000
+We process the entire sequence with 3 weights. That was only 3 parameters, maybe a fourth one for a bias term that I didn't include in this illustration.
+
+01:12:49.000 --> 01:13:01.000
+If we would have had used a fully connected network. If we would compare this in a fully connected network, We would have one neuron here which would be connected to everyone.
+
+01:13:01.000 --> 01:13:10.000
+Not only 3, but basically everyone. And then we'd have another unit here that would be connected to everyone and another one.
+
+01:13:10.000 --> 01:13:21.000
+So if we wanted an output of the same size like this is 1 2 3 4 5 6 this is a size 8 And we have a size 10 in port.
+
+01:13:21.000 --> 01:13:28.000
+We need 80. Connections. 10 for each of the 8 units. That's a lot of connect.
+
+01:13:28.000 --> 01:13:32.000
+That's a lot of weight. Wait, so we'd have 80 rapes instead of 3.
+
+01:13:32.000 --> 01:13:38.000
+And now I could make my sequence longer so that I make my image larger. I need even more weights.
+
+01:13:38.000 --> 01:13:47.000
+In my convolution I can still do with my 3 weights. So the convolution is much more parameter efficient.
+
+01:13:47.000 --> 01:14:01.000
+And it is also Flexible a bit it has a bit more flexibility with the input sides because we are just looking at patches if there's a few more patches or a bit less patches it doesn't really matter.
+
+01:14:01.000 --> 01:14:08.000
+So this is actually this patch based processing is actually much more flexible than the fully connected networks that we have.
+
+01:14:08.000 --> 01:14:21.000
+While the inner workings of each unit still are very much like those of the fully connected network. The only difference is that now my My neurons are looking very locally.
+
+01:14:21.000 --> 01:14:33.000
+Here I have an actual example. If we had like a CNN or a fully connected network. On my 28 by 28 fashion, M list images, which are very small example.
+
+01:14:33.000 --> 01:14:41.000
+We'd have maybe 520 parameters per layer versus 23,000 parameters per layer. For the fully connected one.
+
+01:14:41.000 --> 01:14:50.000
+So there is a big difference in the number of parameters and hence the efficiency, the storage and all of these things.
+
+01:14:50.000 --> 01:15:01.000
+And the overfitting too. So now we have our. Output after the convolution. Now we'll apply a non-linearity.
+
+01:15:01.000 --> 01:15:10.000
+And so here we are just apply a railroad non-linearity for illustration. Because really we often use with convolutional networks.
+
+01:15:10.000 --> 01:15:18.000
+And what does Realu do? It basically makes a 0 from all the negative numbers. And it only remembers the positive numbers.
+
+01:15:18.000 --> 01:15:26.000
+So relo is the maximum.
+
+01:15:26.000 --> 01:15:37.000
+Maximum of that number. And 0. Very simple. So that means for a minus one we'll get a 0 for a one, we'll get a one, etc.
+
+01:15:37.000 --> 01:15:45.000
+So these are the. Outputs I get and basically all I'm remembering here is where was my good detection?
+
+01:15:45.000 --> 01:15:49.000
+Where did I have a good detection? I don't care about how bad the negative ones were.
+
+01:15:49.000 --> 01:15:57.000
+I only care about the positive ones.
+
+01:15:57.000 --> 01:16:09.000
+So this is kind of how the convolution layer works. So we apply our convolution, which is a linear operation and then we apply non-linearity to each of the output coordinates independently.
+
+01:16:09.000 --> 01:16:14.000
+So relo only works per coordinate.
+
+01:16:14.000 --> 01:16:22.000
+And now one last thing I wanted to mention here is that if you look very sharply The output here has size 8.
+
+01:16:22.000 --> 01:16:29.000
+Versus the input test size 10. So the output is actually smaller than the input.
+
+01:16:29.000 --> 01:16:40.000
+Does someone see why this is actually the case?
+
+01:16:40.000 --> 01:17:00.000
+Yeah, see one answer in the chat that is edges. That is, and that is true because What my convolution filter does basically in my convolution I get one output for every center.
+
+01:17:00.000 --> 01:17:07.000
+Off a window. And now when I start my window, I have to start it here because that's where the image starts.
+
+01:17:07.000 --> 01:17:18.000
+And so the actual kind of first center location is this one. And the same at the other edge. So there is never a patch where This outer.
+
+01:17:18.000 --> 01:17:34.000
+Pixel is the center. So if I want that what I'll do is I'll pat the image with 0 so that I can center a window also on the outer parts.
+
+01:17:34.000 --> 01:17:44.000
+And this is due to the filter size and the side that the fact that the image has edges. So we could pad it with zeros, so now have a size 12 input.
+
+01:17:44.000 --> 01:17:53.000
+And now I reduce that to a size 10 where now I have the same. Output size as the original input size.
+
+01:17:53.000 --> 01:17:57.000
+So that can also be done.
+
+01:17:57.000 --> 01:18:01.000
+Alright, so.
+
+01:18:01.000 --> 01:18:07.000
+Okay, I see a few questions. How do you pick the value of the padding? It's typically 0.
+
+01:18:07.000 --> 01:18:16.000
+Could you pat with the original image? Maybe you'd maybe introduce some extra patterns in it. Okay.
+
+01:18:16.000 --> 01:18:29.000
+So is railroad type of regularization by back propagation? Railroad is a activation function. Relo is just a point wise nonlinear function that we apply to each coordinate by itself.
+
+01:18:29.000 --> 01:18:35.000
+It has nothing to do with regularization.
+
+01:18:35.000 --> 01:19:02.000
+Okay. So how do we decide the size of the padding? That is a tuning thing, but you'd not need to do it larger than so much that you can center a filter on the edge so basically half the size of your filter because otherwise you just basically get zeros out and you don't need to do that.
+
+01:19:02.000 --> 01:19:08.000
+Okay. Let before we go on with. 2, let me see.
+
+01:19:08.000 --> 01:19:15.000
+I think that was mostly. To my questions.
+
+01:19:15.000 --> 01:19:22.000
+Some questions have been answered.
+
+01:19:22.000 --> 01:19:36.000
+Okay, good.
+
+01:19:36.000 --> 01:19:45.000
+Okay, good. I think most of the questions have been answered.
+
+01:19:45.000 --> 01:19:54.000
+How is Kong evolution applied to all the input channels like RGB? The convolution done separately on all channel.
+
+01:19:54.000 --> 01:20:09.000
+I'm what you actually do is you do a 3D You do it on the channel simultaneously because your patterns, if you want to say detect the color, you actually need all the channels to be knowing that this is actually red and not something that is.
+
+01:20:09.000 --> 01:20:16.000
+White or soft. So, we'll actually process it together. I'll get there.
+
+01:20:16.000 --> 01:20:24.000
+I'll show you. Some illustrations of what you can do with a 3D, convolution.
+
+01:20:24.000 --> 01:20:31.000
+Is this the same convolution that used by image processing software for sharpening and blurring.
+
+01:20:31.000 --> 01:20:38.000
+Yes, that's correct. So the sharpening and blurring, it's atwise thrust on by a convolution with a special filter.
+
+01:20:38.000 --> 01:20:45.000
+That field or sharpens edges, etc, or blurs them out. So depending on what your filter rates are, that's essentially what it's doing.
+
+01:20:45.000 --> 01:20:52.000
+That's right. So this is also just a convolution and you could learn to be doing that.
+
+01:20:52.000 --> 01:21:00.000
+Okay. Alright, so let me look at now show you what this looks like in twod.
+
+01:21:00.000 --> 01:21:04.000
+It's the same principle. It's only that now we are looking at a patch of twod patch.
+
+01:21:04.000 --> 01:21:15.000
+So for instance a 4 by 4 patch or a 3 by 3 patch. And then we remember the output and so of our filter in each cell in the output.
+
+01:21:15.000 --> 01:21:27.000
+And now the only difference is that because our input is twod the filter will be twod. Remember the filter you could think of it is kind of a template of what you're looking for what kind of pattern are you looking for?
+
+01:21:27.000 --> 01:21:34.000
+And that's kind of so the twod will be a the filter will be some kind of image in the first layer essentially.
+
+01:21:34.000 --> 01:21:41.000
+That you're looking for. And then we do the same thing. We are shifting. So in this illustration, the stride is 2.
+
+01:21:41.000 --> 01:21:51.000
+So we're shifting 2 to the right. And 2 down eventually and then we'll fill our output pattern.
+
+01:21:51.000 --> 01:21:59.000
+Okay. Now, what does an image, what does the CNN actually learn? With this.
+
+01:21:59.000 --> 01:22:04.000
+So I said the field actual. Filter rate. So the templates you're looking for.
+
+01:22:04.000 --> 01:22:16.000
+Those are actually learned in the training process of the neural network. So what do they look like? So let me just show you an illustration of what the image these filters can look like in a real new network.
+
+01:22:16.000 --> 01:22:19.000
+So these are filters from the first layer. So how, it's really just that's what they are looking for in the image.
+
+01:22:19.000 --> 01:22:30.000
+And these are 11 by 11. By 3 because they are actually looking at the 3 channels simultaneously 2.
+
+01:22:30.000 --> 01:22:34.000
+And hence they can detect color.
+
+01:22:34.000 --> 01:22:46.000
+So what this looks like? If it looks very much like lot of them look like the zebra stripes and then you have some that look like colors.
+
+01:22:46.000 --> 01:22:53.000
+So all of the ones that look stripey, what they're actually looking for is that, low high low pattern or high low high.
+
+01:22:53.000 --> 01:23:01.000
+A specific orientation. So these are edged detectors. They are looking for a snippets of edges in specific orientation.
+
+01:23:01.000 --> 01:23:02.000
+And you see some of them kind of repeat but kind of they're covering most of the orientations in there.
+
+01:23:02.000 --> 01:23:17.000
+And then you have some that are color detectors and some that are kind of like some textures or a little bit harder to understand what they are doing.
+
+01:23:17.000 --> 01:23:24.000
+So this is going to be what the first layer will be looking for. So all the outputs of the first layer.
+
+01:23:24.000 --> 01:23:27.000
+Will be The outputs of these specific filters, each of these specific filters on your image.
+
+01:23:27.000 --> 01:23:43.000
+So the first one would be Basically, the first Shannon output would be basically what would be the detections of that particular filter on your image.
+
+01:23:43.000 --> 01:23:46.000
+And then this is the next builder, etc.
+
+01:23:46.000 --> 01:24:02.000
+So, but they are actually just learning edge detectors. And that's very cool because we didn't tell them that edges are useful, but the neural network kind of learns that edges and colors are useful.
+
+01:24:02.000 --> 01:24:15.000
+Okay, and then. What we could also have is a 3D convolution. And now there's a bit of a discontinuity here between 2D and threed so for twod we said Well, yeah, we have a 2D window and then we are sliding it in 2 directions.
+
+01:24:15.000 --> 01:24:26.000
+So we're sliding it in 2 directions. So we're sliding it to the right and so we're sliding it to the right and down to the bottom to really cover the entire image.
+
+01:24:26.000 --> 01:24:31.000
+What we do in a 3D convolution usually is that we still actually do a 2D shift. But we look at the image as a stack of these different channels.
+
+01:24:31.000 --> 01:24:44.000
+So we think of these sheets, these output sheets of the previous layer. And and even the image itself is a stack of these 3 or 4 different channels.
+
+01:24:44.000 --> 01:24:52.000
+So like the, the green and the blue channel. And so basically we are now our filter looks at all these color channels.
+
+01:24:52.000 --> 01:24:58.000
+So for instance, this one here would be, well this one would only have weights on the green channel.
+
+01:24:58.000 --> 01:25:07.000
+But then if you want to make purple, you need red and blue. So this, this would be looking at red and blue in this area and green and this area for instance.
+
+01:25:07.000 --> 01:25:10.000
+So it can encode the colors.
+
+01:25:10.000 --> 01:25:20.000
+So, and then you just shift it again, like in the 2 dimensions, just like the twod ones, because we're looking at 2D images.
+
+01:25:20.000 --> 01:25:27.000
+So that's how you can process the color images. You can actually do other cool things with a 3D convolution.
+
+01:25:27.000 --> 01:25:37.000
+Because that's exactly what you can use to put together. Your handle and your cup, your mark shape, the the body of the cup.
+
+01:25:37.000 --> 01:25:48.000
+Or say eyes and a nose and so on, into a faith. So let me show you a simple illustration of how that could work.
+
+01:25:48.000 --> 01:26:00.000
+So now we have, let's say we started with edge detectors. So we have. Multiple edge detectors in my our first layer just like the ones I just showed you.
+
+01:26:00.000 --> 01:26:09.000
+So here they are just simple 3 by 3. This is our input image here. This is the import.
+
+01:26:09.000 --> 01:26:20.000
+And then we have the filter banks and these are the outputs of the of our first layer. So we have one output image essentially for each of those filters.
+
+01:26:20.000 --> 01:26:27.000
+So we have the horizontal edge detector so that detects this edge and then the edges of the square.
+
+01:26:27.000 --> 01:26:36.000
+And not this one because it's vertical. And then the vertical edge detector detects this edge that corresponds to this detection and the ones in the square.
+
+01:26:36.000 --> 01:26:45.000
+So now let's say what we actually wanted to detect is not just edges, but a square. Maybe.
+
+01:26:45.000 --> 01:26:55.000
+Some computer or something like that screen is like I mean it's not fully a square but it's a rectangle but something that looks like a square or rectangle.
+
+01:26:55.000 --> 01:27:04.000
+Okay, so how could we detect that square? Well, the square is made up of 2 horizontal and 2 vertical edges, right?
+
+01:27:04.000 --> 01:27:08.000
+So we have the
+
+01:27:08.000 --> 01:27:19.000
+2 horizontal edges. And then we have. To vertical edges. So the vertical edges have to be coming from this one.
+
+01:27:19.000 --> 01:27:25.000
+And the horizontal ones have to be coming from this one. Because that's what they are detecting.
+
+01:27:25.000 --> 01:27:33.000
+I just have to now put together the outputs of these 2 detectors. To combine their information to know where exactly is the square.
+
+01:27:33.000 --> 01:27:40.000
+And what I want is I want 2 horizontal and 2 vertical detections in the same location.
+
+01:27:40.000 --> 01:27:56.000
+And that I can do with my a convolution that looks at multiple sheets at the same time. So now I basically think of my 2 outputs here as putting them together on a stack and then looking through both of them.
+
+01:27:56.000 --> 01:28:08.000
+Through my stack essentially at the same location. So. The way this could work is that I basically look for instance at the first
+
+01:28:08.000 --> 01:28:17.000
+3 by 3. Yeah, well, cells or pixels here in the first 3 by 3, the corresponding location in the same one.
+
+01:28:17.000 --> 01:28:30.000
+In the other filter. I'll put so I'm looking at those 2 simultaneously. And what I want now is I'll apply different filters to these 2 so I'll have one field apart.
+
+01:28:30.000 --> 01:28:41.000
+For the first channel and one field apart for the second channel. I am shifting them together jointly but they always the first one always applies to the first one the second one always to the second one.
+
+01:28:41.000 --> 01:28:49.000
+And what should they look like? Well, what I want is the first one should be looking at.
+
+01:28:49.000 --> 01:29:01.000
+Well, I want a horizontal edge at the top and the bottom. So it would be looking at This guy would be Looking at, I wonder detection here and here.
+
+01:29:01.000 --> 01:29:06.000
+And the second one, it's the vertical edge. It should be a left and right. I want a vertical edge.
+
+01:29:06.000 --> 01:29:13.000
+So I'm looking at my patch and what I want is I want a detection here and I want a detection here.
+
+01:29:13.000 --> 01:29:21.000
+Left and right. So this would be my 2. Part the 2 parts of my filter and now I'm sliding them simultaneously.
+
+01:29:21.000 --> 01:29:29.000
+And eventually when I slide those I'll be getting a detection and that detection.
+
+01:29:29.000 --> 01:29:36.000
+I'll, will be basically here.
+
+01:29:36.000 --> 01:29:45.000
+This is where I'll actually detect my square. In this case you have a square if you don't have one you're not detected.
+
+01:29:45.000 --> 01:29:51.000
+So the way this looks like here is that I take these. 2 green ones, the top and the bottom one.
+
+01:29:51.000 --> 01:29:58.000
+Put them on top of each other. That's my tensor filter. You recognize that here, that's the same thing that I drew.
+
+01:29:58.000 --> 01:30:07.000
+So this one is applied to the vertical edges and the back one is applied to the upper output. That's the upper channel.
+
+01:30:07.000 --> 01:30:11.000
+That's the horizontal edges. So that's that's that thing looks threed.
+
+01:30:11.000 --> 01:30:27.000
+It's 2 sheets because I have 2 sheets here. And then there that's the output of that layer is that single detection that's corresponds to the detection of that square.
+
+01:30:27.000 --> 01:30:46.000
+Oh, someone asked what's the answer. So. The difference between your vector is basically d by one object, a matrix is a D one by D 2 object, it has like 2 dimensions essentially and the tensor has more than 2 dimensions.
+
+01:30:46.000 --> 01:30:50.000
+So you can think of it as looking like a cube or so. Like a tensor would be maybe looking like this.
+
+01:30:50.000 --> 01:31:01.000
+This is a matrix. So this would be a vector, this is a matrix, and then the tensor is maybe a third or a fourth or a fifth dimension.
+
+01:31:01.000 --> 01:31:06.000
+So it has like 3 indices. Or 4 or 5. Depending on how in its dimensionality.
+
+01:31:06.000 --> 01:31:16.000
+So yeah, it's basically made up of multiple. So here we have threed 3 dimensional tensors so you can think of it as multiple matrices.
+
+01:31:16.000 --> 01:31:21.000
+Put on top of each other like sheets of paper.
+
+01:31:21.000 --> 01:31:28.000
+Okay. I know this is a little bit complicated. So let me make sure.
+
+01:31:28.000 --> 01:31:34.000
+That you get this. This is a very cool thing of how you can basically take the outputs of these 2.
+
+01:31:34.000 --> 01:31:43.000
+And now you combine them. Now you combine your eyes into phases, the eyes and nose or the handle and the car, mug into a cup.
+
+01:31:43.000 --> 01:31:57.000
+Or the horizontal and vertical edges into a box. So that's essentially. And what this is doing.
+
+01:31:57.000 --> 01:32:14.000
+Okay.
+
+01:32:14.000 --> 01:32:28.000
+Are we filtering all hidden units from the input according to the 4 by 4 size? So yes, we are basically taking This, these 2 as a new info image.
+
+01:32:28.000 --> 01:32:42.000
+And then we filtering it with this thing. So yes, we are filtering all locations. I just drew in like these 2 green ones to show you like what would be the corresponding ones.
+
+01:32:42.000 --> 01:32:49.000
+Moving that filter does not happen explicitly it just learns it so what you learn is the weights of the filter.
+
+01:32:49.000 --> 01:32:58.000
+The moving is basically applying that filter in all locations. This one actually supplied in this image. And that happens in parallel.
+
+01:32:58.000 --> 01:33:01.000
+So this is hard coded, but it happens in parallel. That's the convolution operation. That's the shifting of the filter.
+
+01:33:01.000 --> 01:33:13.000
+If you learn the weeds of the filter, that's what I'm illustrating here. So these are essentially the weights here.
+
+01:33:13.000 --> 01:33:31.000
+You have to learn I can actually just illustrate them as images. And Yeah, and these are like where they are applied that's hard quoted.
+
+01:33:31.000 --> 01:33:36.000
+I was thinking the colors were RGB, but they look more like purples and oranges.
+
+01:33:36.000 --> 01:33:44.000
+So you can encode purple with RGB values, but that just means how much red, how much green and how much blue should you mix.
+
+01:33:44.000 --> 01:33:54.000
+The to get purple here and same with orange. So that can encode like all the colors that we need.
+
+01:33:54.000 --> 01:34:00.000
+Does the code look for this patterns, the tiles, by trying to find the edges in the original image?
+
+01:34:00.000 --> 01:34:07.000
+By computing the weight of our original. Image with these tiles. Yeah, so you do exactly this inner product.
+
+01:34:07.000 --> 01:34:16.000
+Weighted sum of inputs. So for the horizontal detector, you look at like patches like this one.
+
+01:34:16.000 --> 01:34:30.000
+And you basically now you have a 3 by 3 patch and a 3 by 3 filter. And you basically multiply the first entry with the first entry and the second entry with the second entry and so on.
+
+01:34:30.000 --> 01:34:49.000
+So, and then you get a value and that's the value that corresponds to exactly that location, which would be this location here, I think.
+
+01:34:49.000 --> 01:34:59.000
+We have to transform the tensor into a vector. Well, if we maybe want to really look at it as an inner product between vectors, we could.
+
+01:34:59.000 --> 01:35:06.000
+Right all of the inspectors, but usually we keep it here as like these 2D matrices and threed tensors.
+
+01:35:06.000 --> 01:35:32.000
+To make it to illustrate like what is multiplied by what.
+
+01:35:32.000 --> 01:35:43.000
+Another explanation of how we slide. And how we get the detection in layer 2. And there's like something about, yeah, we also have some location information.
+
+01:35:43.000 --> 01:35:56.000
+That's right. So because we have the location information because we keep track of every location.
+
+01:35:56.000 --> 01:36:06.000
+Okay, so let me go through that again. And so basically what happens is to get this square, I need horizontal and I need vertical edges in the correct.
+
+01:36:06.000 --> 01:36:16.000
+Configurations. So if I look at the first Sheet here would say I need a vertical edge on the left and a vertical edge on the right here.
+
+01:36:16.000 --> 01:36:24.000
+This is the pattern that this looks for and the back one would say I need a horizontal edge on the back one would say I need the horizontal edge at the top and at the bottom.
+
+01:36:24.000 --> 01:36:34.000
+That's what the back one looks for. And now the baby slide it is as follows. So let's say the first location would be
+
+01:36:34.000 --> 01:36:42.000
+We are doing a 3 by 3 here in the corresponding 3 by 3 here. Oh sorry, this one.
+
+01:36:42.000 --> 01:36:47.000
+So now we are shifting it by one pixel to the right and I'll just draw it in a different color.
+
+01:36:47.000 --> 01:36:57.000
+And that would be here and so we are shifting the bottom one also by one to the right. So we are always looking at corresponding location.
+
+01:36:57.000 --> 01:37:05.000
+So you could also think of it that I'm just taking my 2. Channel images here, the output of layer one.
+
+01:37:05.000 --> 01:37:16.000
+And then stacking them on top of each other and then I'm cutting out basically just the square and looking just at that square but the same location, the corresponding location in both of them.
+
+01:37:16.000 --> 01:37:24.000
+And then I'm just treating them slightly differently because I want horizontal ones at the top and bottom and the vertical ones on the left and right.
+
+01:37:24.000 --> 01:37:35.000
+So I'll I'll process them with different ways. But I will look at the corresponding locations and it's true that that and then I keep track of that with the corresponding output location.
+
+01:37:35.000 --> 01:37:45.000
+So the blue one would be here. And the red one would be like here. And then, basically that then I'll find my square.
+
+01:37:45.000 --> 01:37:51.000
+That's right.
+
+01:37:51.000 --> 01:38:00.000
+Okay, so there's also a question. Isn't it easier in a 3 battery layer? To have a square layer one to have a square.
+
+01:38:00.000 --> 01:38:09.000
+Can 2 layers detect bigger squares? That's true. I could make 2 layers that take bigger squares depending on my receptive field size.
+
+01:38:09.000 --> 01:38:14.000
+But yeah, the question I think if I understand it right, if I could have just detected that square in layer one.
+
+01:38:14.000 --> 01:38:24.000
+I don't need layer 2. So the reason is that doing it in this part based manner gives me a lot of flexibility.
+
+01:38:24.000 --> 01:38:38.000
+In what I can represent because if I have edges I can reuse these edges in multiple ways. I could you reuse the same edge detectors with some others to detect these round shapes like the boundary of my cup or some glasses or something like that.
+
+01:38:38.000 --> 01:38:52.000
+Or some other boundaries that are not just boxes. So this They basically, if I do this part based including I can reuse these parts for different types of objects.
+
+01:38:52.000 --> 01:39:05.000
+Versus if I had a box like it's not maybe as flexible. So that's one other reason to have the part based thing and it can be a bit more flexible because with a horizontal and vertical detector you could encode like the square or a rectangle.
+
+01:39:05.000 --> 01:39:16.000
+You can have a bit more flexibility in where exactly are the edges of this thing.
+
+01:39:16.000 --> 01:39:22.000
+Okay.
+
+01:39:22.000 --> 01:39:25.000
+Where does the tensor filter come from? So we do. And how does the horizontal filter get chosen?
+
+01:39:25.000 --> 01:39:34.000
+So all of these filters are learned. These are the weights in the neural network that we learn.
+
+01:39:34.000 --> 01:39:41.000
+So the 2, the first layers and the second layer, sorry, these are the weights.
+
+01:39:41.000 --> 01:39:48.000
+And all of the weights. What I call weights here, these are all the parameters that we learn.
+
+01:39:48.000 --> 01:39:55.000
+To during the stochastic gradient descent. So these I don't actually tell the neural network to do this.
+
+01:39:55.000 --> 01:40:04.000
+This is what it learns to do. And this is an illustration of what it sometimes can learn to do and I'll show you Very soon some illustrations of what are the.
+
+01:40:04.000 --> 01:40:14.000
+Kind of detectors that real neural networks learn.
+
+01:40:14.000 --> 01:40:21.000
+The detectors neuron so yes we could think of each detector as a actually one neuron for each location.
+
+01:40:21.000 --> 01:40:33.000
+So we're just replicating the neurons like I tried to illustrate this here. Kind of this is like as if these are the
+
+01:40:33.000 --> 01:40:41.000
+Inputs here. These are the this is the weights and this would be the output. So this would be kind of the
+
+01:40:41.000 --> 01:40:49.000
+Neuron here, the output of the neuron.
+
+01:40:49.000 --> 01:40:54.000
+Okay. Alright.
+
+01:40:54.000 --> 01:41:02.000
+So let me move on. I know there's
+
+01:41:02.000 --> 01:41:10.000
+A lot of questions about where do the filters come from? Is this like made manually? So know the amazing thing is the neural network learns that it it learns edge detectors.
+
+01:41:10.000 --> 01:41:20.000
+It does that by itself. It's not actually Not, we don't input that directly.
+
+01:41:20.000 --> 01:41:30.000
+We don't have the neural network learn an edge detector. We Learn and it learns that by itself.
+
+01:41:30.000 --> 01:41:38.000
+Okay, so Let me move on a bit. So that was the most complicated part was the convolution.
+
+01:41:38.000 --> 01:41:42.000
+And you saw it's actually very powerful. And now I want to briefly talk about pooling also.
+
+01:41:42.000 --> 01:41:54.000
+So the second operation, this pooling operation. So convolution does basically the scanning for patterns at the different layers.
+
+01:41:54.000 --> 01:42:02.000
+And now what does pooling do? Cool in compresses essentially. So pooling is actually very simple.
+
+01:42:02.000 --> 01:42:10.000
+Pulling doesn't even need any learning. So the pooling does the following. It's actually also a bit like convolution.
+
+01:42:10.000 --> 01:42:20.000
+So it also works on images or patches. Image windows of images or patches. So you look at one patch in an image.
+
+01:42:20.000 --> 01:42:26.000
+Let's say this one here And then. This has 4 numbers in it and then you just remember the largest number.
+
+01:42:26.000 --> 01:42:36.000
+And that's max pooling. And then you look at the next window, so this could be overlapping.
+
+01:42:36.000 --> 01:42:41.000
+In this case, we have a stride of 2. We are not overlapping and we remember the largest number.
+
+01:42:41.000 --> 01:42:50.000
+So instead of taking away that combination of these numbers, which convolution does, we This is really just looking at the largest number and remembering it.
+
+01:42:50.000 --> 01:43:04.000
+So it really basically just looks at what was the best detection that I heard in this patch. And I have reduced here by my 4 by 4 matrix to a 2 by 2 matrix.
+
+01:43:04.000 --> 01:43:11.000
+And that's it. So this is what pooling does. Typically, pooling is only applied to each channel by itself because You cannot really say that a green detection is as good as a red or something like that.
+
+01:43:11.000 --> 01:43:21.000
+Like a green values as good as a red or something like that or a horizontal edge is exchangeable with a vertical one or so.
+
+01:43:21.000 --> 01:43:33.000
+So we do this typically. Per channel image. We just do it in the 2 dimensions not in the third one But it's very simple actually, it's really just remembering.
+
+01:43:33.000 --> 01:43:43.000
+The maximum value in its input in that input window.
+
+01:43:43.000 --> 01:43:51.000
+Why do we do the max? That's a question. So Because what we care about is what are good detections.
+
+01:43:51.000 --> 01:43:54.000
+We don't same as the railroad. It zeros out all the negative numbers. So we really only care about the positive numbers.
+
+01:43:54.000 --> 01:44:08.000
+Here these are the detections. That's where our detectors fire essentially. So that's the important bit of information and that's why the max.
+
+01:44:08.000 --> 01:44:14.000
+Okay, so what's the intuition? Behind this tooling? So one intuition is simply that it makes It reduces your network.
+
+01:44:14.000 --> 01:44:37.000
+It makes it less cumbersome. The other thing is that it adds some robustness. I saw the way I always like give that intuition is with the mark or the that we have to handle and the cup but maybe the handle is like not exactly in the same place for each cup so because they look a little different.
+
+01:44:37.000 --> 01:44:43.000
+So there's some flexibility of where exactly that handle can be and where the cup will be and we're still a bit more robust to that.
+
+01:44:43.000 --> 01:44:52.000
+So that you also get that kind of robustness in addition to the compression that you get.
+
+01:44:52.000 --> 01:44:55.000
+Alright.
+
+01:44:55.000 --> 01:45:05.000
+So let me go back to the case study. So that was the case study about the. Fashion amnest that I very briefly mentioned last lecture.
+
+01:45:05.000 --> 01:45:12.000
+So let's try to use a CNN on it. And the CNN will use is a relatively simple one because the images are small.
+
+01:45:12.000 --> 01:45:19.000
+They are small and they are fairly simple. Everything is centered and so on. They don't contain much clutter.
+
+01:45:19.000 --> 01:45:23.000
+So the images are 28 by 28. We do. 2 convolution layers. So this is my input.
+
+01:45:23.000 --> 01:45:36.000
+Image layer and then I have 2 convolution layers. With filters of size 3 by 3 because my images are small and each of them gets 16 filters.
+
+01:45:36.000 --> 01:45:40.000
+And then I do a max pooling layer.
+
+01:45:40.000 --> 01:45:46.000
+And after that pooling, I flatten the image, the output. That means basically I take my output tensor.
+
+01:45:46.000 --> 01:45:53.000
+And I just reshape it into a vector. And then what comes after is really just a fully connected network.
+
+01:45:53.000 --> 01:46:00.000
+So we have 2 fully connected layers. One of size, 64 and one of size 16 so it shrinks.
+
+01:46:00.000 --> 01:46:07.000
+And in between we do batch normalization. That's the kind of regularization that I talked about and then we have the output layer.
+
+01:46:07.000 --> 01:46:16.000
+Output layer you can think of as the linear multi-class classification that tells us the different clothing types.
+
+01:46:16.000 --> 01:46:23.000
+So then we train this with Adam for 10 epochs with a mini batch size of 128.
+
+01:46:23.000 --> 01:46:31.000
+And we get an accuracy of 91%. Versus the fully connected. Network from last lecture about 87.
+
+01:46:31.000 --> 01:46:42.000
+So we get some improvements. And we especially see these improvements when we look at confusion matrices. So confusion matrix, this is the one for CNN, this is the one for fully connected.
+
+01:46:42.000 --> 01:46:53.000
+And what a confusion matrix. Does is. Sorry about that.
+
+01:46:53.000 --> 01:47:02.000
+Okay, so what a confusion matrix does is It looks at what is the true label and what is the predicted label and you get the statistics.
+
+01:47:02.000 --> 01:47:15.000
+How often did I predict? Trousers when it was actually trousers so you want that value high but you want it very low on the off diagonal because you don't want to predict trouser when it's actually a dress or so.
+
+01:47:15.000 --> 01:47:22.000
+And you see that with a fully connected network. It makes more mistakes, especially the code seems to be difficult.
+
+01:47:22.000 --> 01:47:30.000
+Code is often confused with. Shirt or pull over for instance. Then sure it is another difficult one.
+
+01:47:30.000 --> 01:47:37.000
+It's often confused with t-shirt or top because they just have to look at the sleeve length, etc.
+
+01:47:37.000 --> 01:47:55.000
+And the CNN is better. It has like, it makes It still confuse the shirt and teacher, but not as many times and it's quite better for the other shapes of actually detecting the shapes.
+
+01:47:55.000 --> 01:47:58.000
+Now.
+
+01:47:58.000 --> 01:48:10.000
+We do processing of images, one trend that has been observed is that deeper networks work better. So this is a plot from the image net challenge.
+
+01:48:10.000 --> 01:48:14.000
+It's It's a bit old, but it still kind of captures those trends. So this is 2,010.
+
+01:48:14.000 --> 01:48:28.000
+This is 2,015. This is a challenge for classifying, they have about a thousand classes and like more than a million images that are labeled for training.
+
+01:48:28.000 --> 01:48:33.000
+And you see and the blue ones are the error bars. So you see the error bars go down over time as they should hopefully do, but also the number of layers goes up over time.
+
+01:48:33.000 --> 01:48:43.000
+With 152 and 2,015. Giving you the best accuracy. So why is that the case?
+
+01:48:43.000 --> 01:48:59.000
+So one reason is that this vision is really very hierarchical in the sense that I can achieve a lot by building up objects and entire scenes by going from edges to like shapes to objects, etc.
+
+01:48:59.000 --> 01:49:15.000
+So that's where the depth actually really helps you. So depth actually gains. But depth also comes with challenges and one of the challenges is that If you look at this long network of 150 layers
+
+01:49:15.000 --> 01:49:26.000
+It is a really long path from the input to the output. And when I compute my gradients and I back propagate from the output to the input.
+
+01:49:26.000 --> 01:49:34.000
+There's probably a lot of information getting lost and once I'm reaching here because there's like so many processing getting lost and once I'm reaching here because there's like so many processing layers.
+
+01:49:34.000 --> 01:49:43.000
+So that makes the training very difficult. And so one important idea in the space was the idea of in including skip connections.
+
+01:49:43.000 --> 01:49:51.000
+So this is the rest idea of a Resnet. So you see these extra arrows here that kind of give a shortcut from the info to the output.
+
+01:49:51.000 --> 01:50:02.000
+And what they essentially do is you have some layer and basically you take the input of the layer and you just add it to its output.
+
+01:50:02.000 --> 01:50:18.000
+Maybe with some weights. And so this looks very weird at first look, but it turns out to be actually very powerful and having these like skip these shortcuts and the skip connections across the layer along the around the layers.
+
+01:50:18.000 --> 01:50:30.000
+So it really just takes the input to a layer and it adds it to the output. But it really really helps and a lot of the CNNs that you'll see they will actually be
+
+01:50:30.000 --> 01:50:36.000
+Resonance, a lot of the deeper CNNs.
+
+01:50:36.000 --> 01:50:50.000
+So let me summarize some of the important pieces of a So the central innovations for parts of the CNN, it's actually not an innovation per se.
+
+01:50:50.000 --> 01:51:02.000
+Convolution has been used. Like for a long time is this idea of using a local detector and sharing its weight that the idea of using a convolution and we just make the local detector learnable.
+
+01:51:02.000 --> 01:51:11.000
+So a lot of what we do in deep learning is we take some good idea that we've had in the past like a good algorithmic idea and we just make it available.
+
+01:51:11.000 --> 01:51:16.000
+We parameterize it. And we make its parts learnable. So that's what we are doing here.
+
+01:51:16.000 --> 01:51:23.000
+And then the idea of pooling. To actually do compression and become a bit more robust with the actual location.
+
+01:51:23.000 --> 01:51:32.000
+The actual training of the network is the same as for the fully connected network. So we'll do Compute gradients will do as stochastic gradient descent.
+
+01:51:32.000 --> 01:51:38.000
+That's GD and we compute the gradients with back propagation. So it's the same thing.
+
+01:51:38.000 --> 01:51:49.000
+Just with us like with the weight sharing, the gradients look a slightly different.
+
+01:51:49.000 --> 01:51:53.000
+Okay, so.
+
+01:51:53.000 --> 01:52:03.000
+Let me see. I think I'll just go on and show you some illustrations. About
+
+01:52:03.000 --> 01:52:12.000
+What do CNNs actually learn? What does it look like? And the way we'll do this is, so this is from a Study.
+
+01:52:12.000 --> 01:52:19.000
+Done by some of my colleagues. So they wanted to see what do we actually see in the different layers.
+
+01:52:19.000 --> 01:52:30.000
+What do neural networks actually look for? What do the units in the different layers look for? And so they took this well well-known Alex net architecture.
+
+01:52:30.000 --> 01:52:43.000
+Which is this shown here so you have 5 convolutional layer and then 3 so that's the encoding part and then you have 3 fully connected layers that's the classification part.
+
+01:52:43.000 --> 01:52:45.000
+And what it was trained on was the following task. You give it images and you ask it to classify the scenes.
+
+01:52:45.000 --> 01:52:55.000
+So this is a greenhouse. This is a canyon. This is a cafeteria and so on.
+
+01:52:55.000 --> 01:53:08.000
+So this is the task. I don't tell it anything about edges or objects or anything. Just it has to recognize greenhouses from canyons from living rooms, etc.
+
+01:53:08.000 --> 01:53:18.000
+So now let's see what this actually learned. And the way this was visualized is that you look basically at what parts in the input.
+
+01:53:18.000 --> 01:53:27.000
+Activated. Specific neurons the most. So you can kind of backtrack this. You can see what patch it's actually looking at.
+
+01:53:27.000 --> 01:53:45.000
+And what it activated it the most. And then they try to classify essentially those activations. So what you find is that in the first convolutional layer, the one closes to the input, you learn very simple concepts like colors.
+
+01:53:45.000 --> 01:53:58.000
+It would also be edges or, just like these. Kinds of textures. That as we go higher in our network you see more and more detect actual shapes.
+
+01:53:58.000 --> 01:54:11.000
+Like parts of a car, patches of sky, like numbers or eyes or here or something. And then as you go like in the convolution 4 and 5, you actually detect actual objects.
+
+01:54:11.000 --> 01:54:20.000
+Full objects. And this is also here, it's a bit more quantitatively. So if you look at this plot here.
+
+01:54:20.000 --> 01:54:27.000
+The different colors mean the different types of things you could encode, so. Dark blue is objects.
+
+01:54:27.000 --> 01:54:37.000
+Remember, we train it only on scenes. We didn't even train it to detect objects. Then the lighter blues is parts and that this blue is actually seams.
+
+01:54:37.000 --> 01:54:42.000
+And then we have texture and color. Color is the yellow one, texture is the orange one.
+
+01:54:42.000 --> 01:54:49.000
+And you see that in convolution layers one and 2, the ones closest to the input. It's mostly texture in color.
+
+01:54:49.000 --> 01:54:57.000
+So these are the very simple detectors and then in the neck, only in the sort of more further layers.
+
+01:54:57.000 --> 01:55:08.000
+You get 3, 4, 5, you get object detectors. So they're like number of object detectors relative to the simple textures and colors is larger.
+
+01:55:08.000 --> 01:55:16.000
+So you had more and more of these. So you see there is actually this hierarchy. So these object detectors are made out of like combining.
+
+01:55:16.000 --> 01:55:22.000
+Those simpler features that we learned earlier.
+
+01:55:22.000 --> 01:55:29.000
+So there's a question where these annotations in the different layers added by humans. So yes, there were actually like they were looking at it.
+
+01:55:29.000 --> 01:55:37.000
+And classifying that.
+
+01:55:37.000 --> 01:55:59.000
+So could we say that it is easier to find objects than to identify them? Maybe. So one thing is that it's I think in easier to encode a scene with object detectors than the other way around because say if I know that I'm looking at a scene and It has a table, it has chairs, or maybe some cupboard.
+
+01:55:59.000 --> 01:56:15.000
+There's curtains and a lamp or something that looks like it could be some living room. But if I are like a has a culture or something, so like actually the objects that I'm detecting or I detect a lot of plants.
+
+01:56:15.000 --> 01:56:22.000
+Maybe that's the greenhouse or some forest or something. So the actual objects tell me a lot about what the scene is.
+
+01:56:22.000 --> 01:56:35.000
+The scene itself okay it makes certain objects more likely but i can't really encoded as by composing different scenes.
+
+01:56:35.000 --> 01:56:44.000
+Okay, so. Basically the message is that even if you train a job to classify scenes, it learns object detectors.
+
+01:56:44.000 --> 01:56:51.000
+And there is like here are some other examples of units that in the convolution. 5 layer, so the last layer.
+
+01:56:51.000 --> 01:57:04.000
+That really look for specific types of objects. So this one looks at like, I think the churches. And then some of them look at animals or train tracks, etc.
+
+01:57:04.000 --> 01:57:18.000
+Maybe Cassel sent along. So they actually learn object detectors and again the same thing when we train them, but they also learn edge detectors like at the lower levels.
+
+01:57:18.000 --> 01:57:26.000
+So what's pretty cool that just emerges by itself.
+
+01:57:26.000 --> 01:57:28.000
+Okay, so. Let's look at another thing that we mentioned in the beginning and that is rotation.
+
+01:57:28.000 --> 01:57:40.000
+So did like different orientations of your object. So we said, well, maybe I could have the mug in different orientations.
+
+01:57:40.000 --> 01:57:50.000
+Sylvia. Kind of a agree probably that shifting the mug around that like we have covered how that we take care of that.
+
+01:57:50.000 --> 01:57:58.000
+What about rotations of the object? So here is the following experiment. I train my neural network on images that look like this.
+
+01:57:58.000 --> 01:58:10.000
+So like normal position essentially. And then I test it. Rotations of these images. So I just take these images, rotate them by like different degrees.
+
+01:58:10.000 --> 01:58:21.000
+And I just input them to my neural network and I see what does manual network do. And my question is now do you think the neural network will still detect, say, the dog?
+
+01:58:21.000 --> 01:58:42.000
+Or will it not recognize the dog anymore when it's upside down?
+
+01:58:42.000 --> 01:58:52.000
+Okay, so I see. Many yeses and some people say no, so there's not a full unity in the replies here.
+
+01:58:52.000 --> 01:58:59.000
+And some people give some conditions. Depends on the training data or the number of filters. etc.
+
+01:58:59.000 --> 01:59:05.000
+Okay, so let's see what this new network actually does.
+
+01:59:05.000 --> 01:59:15.000
+So here is the result and let me just decode that plot for you. So on the x-axis we have the rotation degrees, so basically going through these different columns.
+
+01:59:15.000 --> 01:59:20.000
+On the y-axis is the probability of true class. So basically what's the accuracy?
+
+01:59:20.000 --> 01:59:30.000
+How what's the probability of the network that it assigns to the true class? And then these are the different classes.
+
+01:59:30.000 --> 01:59:37.000
+So you see that actually. The classes behave a bit differently. Some of them start out like already being very tricky.
+
+01:59:37.000 --> 01:59:48.000
+But eventually all of the classes the performance goes really way down. It basically doesn't recognize it anymore.
+
+01:59:48.000 --> 01:59:55.000
+And then of course as you go back to 360 degrees that goes up again.
+
+01:59:55.000 --> 02:00:08.000
+So. The question is why does that happen? And why does it detect and also maybe if someone noticed that the TV is more often detected than the others.
+
+02:00:08.000 --> 02:00:18.000
+So the The magenta line is the TV and you get you see these peaks. The peaks happen exactly at 90 degrees, 180 degrees, etc.
+
+02:00:18.000 --> 02:00:20.000
+270.
+
+02:00:20.000 --> 02:00:29.000
+So why does that happen? And it actually happens because of the filters we have. So if we only train the your network.
+
+02:00:29.000 --> 02:00:42.000
+On images that are upright. What it basically learns is that well for the TV you need that box right so you need like the 2 vertical and the 2 horizontal edges.
+
+02:00:42.000 --> 02:00:48.000
+For the dog you need 2 eyes and then you need the nose of the dog.
+
+02:00:48.000 --> 02:00:54.000
+And the mouth, etc, etc. So, but you have the eyes on top of the nose.
+
+02:00:54.000 --> 02:00:58.000
+That's the thing I'm looking for. That's the pattern I'm looking for.
+
+02:00:58.000 --> 02:01:03.000
+But now if I turn this around like
+
+02:01:03.000 --> 02:01:10.000
+I turned the box by 45 degrees. I don't even have horizontal and vertical edges anymore.
+
+02:01:10.000 --> 02:01:19.000
+Or for the dog if I turn it upside down. The eyes are suddenly below the nose. No, this is really difficult to draw, like this maybe.
+
+02:01:19.000 --> 02:01:26.000
+So now my nose is at the top and the eyes are at the bottom. That's not the configuration that I'm looking for.
+
+02:01:26.000 --> 02:01:36.000
+Maybe I'll only detect the eyes, maybe I'll only detect the nose. So it doesn't basically the filters are not made for that.
+
+02:01:36.000 --> 02:01:45.000
+Someone asked where is the I wouldn't have actually recognized it if you like these like crocodiles.
+
+02:01:45.000 --> 02:01:58.000
+So Yeah, so that's the problem. Is the orientation is like my filters are not actually like they don't know that this is now a different configuration.
+
+02:01:58.000 --> 02:02:10.000
+So how could I fix this? Well, I could have other filters that take my nose and my eyes and I just like say, okay, it could also be that configuration.
+
+02:02:10.000 --> 02:02:20.000
+So if I have enough filters and I get the training data. That the day I know that This thing here could also be a dog and this thing could also be a TV.
+
+02:02:20.000 --> 02:02:31.000
+Well then, I would actually learn it. But it has to be in the data. I'm actually the neural network doesn't know it other ways.
+
+02:02:31.000 --> 02:02:39.000
+So there's basically 2 ways to fix it and I did do see this already in as in answers.
+
+02:02:39.000 --> 02:02:45.000
+You're great in the chat. So one way to do this is by so-called data augmentation.
+
+02:02:45.000 --> 02:02:58.000
+We take our input image and we rotate them. And then we use them as additional training data. And that of course that tells the new network that oh a dog could all this is also a dog.
+
+02:02:58.000 --> 02:03:06.000
+And this is also a lot more if it isn't that weird position. The other thing we could do is we could hard code it as by prior knowledge just that we did like we did with the shift.
+
+02:03:06.000 --> 02:03:15.000
+So for the shifts we said that we use the same detector and shifted around and used the same detector.
+
+02:03:15.000 --> 02:03:23.000
+So here what we could say is we use the same detector and we wrote it. Or we rotate the input in all plus and apply the same filter.
+
+02:03:23.000 --> 02:03:30.000
+Doesn't matter. It's just the relative rotation of the 2 to each other. So that way I would.
+
+02:03:30.000 --> 02:03:38.000
+Hard-coded just like the convolution with a shift So both of these are possible.
+
+02:03:38.000 --> 02:03:51.000
+Usually for many in many cases what we do is the data augmentation. Because then I don't have to actually change the architecture.
+
+02:03:51.000 --> 02:03:55.000
+Okay.
+
+02:03:55.000 --> 02:04:02.000
+So here's some questions also. Can a layer contain data about the angle of rotation? It can in principle.
+
+02:04:02.000 --> 02:04:04.000
+If it has seen this in the training data. It may actually contain some levels. I mean, it would basically learn in variants.
+
+02:04:04.000 --> 02:04:16.000
+It was called an invariance to rotation, but at some point it would actually maybe encode the rotation by the different filters.
+
+02:04:16.000 --> 02:04:23.000
+You could also train it to encode the rotation. That, of course, then it would definitely encode it.
+
+02:04:23.000 --> 02:04:35.000
+That's the low probability of true cloth predict image quality. In some sense, yeah, it means also that it's harder to recognize.
+
+02:04:35.000 --> 02:04:51.000
+What's in the image? If it's a difficult case or not. But do I also just mean that the neural network has not exactly learned what we thought it has learned?
+
+02:04:51.000 --> 02:05:07.000
+There could also be background information that helps. That's true, maybe for the lawnmower, but some of those cases you don't have much background that helps.
+
+02:05:07.000 --> 02:05:12.000
+Alright, so.
+
+02:05:12.000 --> 02:05:25.000
+Okay, I think the rest was just people. Recognizing basically how we could solve this problem.
+
+02:05:25.000 --> 02:05:33.000
+Okay, what about differences in scale? So differences in scale, you also need those in the training data to learn them.
+
+02:05:33.000 --> 02:05:44.000
+It can partially handle them then by other, as I said, you could detect it in different layers and different layers look have actually at different sizes of input patches.
+
+02:05:44.000 --> 02:05:57.000
+As I explained with that, example of that neural network architecture that we had. So basically the size like in a convolution layer 5 the actual receptive field that it looks at is much larger than layer 2.
+
+02:05:57.000 --> 02:06:07.000
+So layer 5 could actually detect larger objects. Then layer 2. So and if you have many layers, you can have more flexibility of where you detect actually.
+
+02:06:07.000 --> 02:06:08.000
+So that's also where my layers can be helpful. So you can detect simpler shapes also at higher levels.
+
+02:06:08.000 --> 02:06:19.000
+Deeper layers, but then at like a different scale for instance.
+
+02:06:19.000 --> 02:06:32.000
+Okay. Do neural networks struggle to classify. Optical illusions. And in some cases, yes, so illusions and the failures often tell you what the neural network learns or it doesn't learn.
+
+02:06:32.000 --> 02:06:43.000
+And let me maybe use that to continue. Like. Actually, okay, this is kind of related. I'll show that later.
+
+02:06:43.000 --> 02:06:52.000
+With sometimes neural networks learning something that we Maybe something that's different from humans, but it's also kind of the neural network illusion.
+
+02:06:52.000 --> 02:07:01.000
+So they're learning something. Weird. Sometimes we humans also use something weird. That's why we have the optical illusions when we get fooled.
+
+02:07:01.000 --> 02:07:13.000
+And that is like that they could use all sorts of things to do the classification. So let's say, I mean, what I usually tell the neural network say, these are images of cars and these are images of not cars.
+
+02:07:13.000 --> 02:07:26.000
+So this is not a car. Here you should say car and here you should say not car. And what the neural network tries to figure out is is that what is common in all these images that is not in these images because that's presumably the car.
+
+02:07:26.000 --> 02:07:32.000
+And that definitely, that is the car, right? So you could learn to recognize the shape of a car.
+
+02:07:32.000 --> 02:07:46.000
+You will learn that color doesn't matter. And these are like different. But encoding shape is very complicated versus here you could distinguish between these images and these images.
+
+02:07:46.000 --> 02:07:50.000
+In a much simpler way.
+
+02:07:50.000 --> 02:07:53.000
+And
+
+02:07:53.000 --> 02:07:59.000
+That's it by just looking at the background. It's just a patch of blue and you saw the blue detector.
+
+02:07:59.000 --> 02:08:06.000
+We can do like in layer one. That's really simple. We just looked at you have a strong blue channel and nothing in the red and green channel.
+
+02:08:06.000 --> 02:08:15.000
+That's easy. Versus shape is difficult. Shape needs multiple layers, especially with the variation that you have in these cars.
+
+02:08:15.000 --> 02:08:22.000
+And neural networks will pick up on these features too. So this is something to always look out for.
+
+02:08:22.000 --> 02:08:30.000
+These are sports, also called spurious correlations or shortcuts. So this is an example where you should not use the background to.
+
+02:08:30.000 --> 02:08:46.000
+Like as a queue, sometimes it helps you. And in both cases it helps you in like better accuracy, but in the in this case here it can be harmful and it can be harmful in cases like This one where this is a case in the hospital.
+
+02:08:46.000 --> 02:08:56.000
+Where they wanted to actually have the new network. Predict something about pneumonia. And they had data from different hospitals.
+
+02:08:56.000 --> 02:08:59.000
+And they trained it. It was doing okay. But then they got data from a new hospital and it was not doing okay at all.
+
+02:08:59.000 --> 02:09:13.000
+And then they look, what is the neural network actually focusing its attention on? It was just looking at this patch which encoded which hospital this image was taken up.
+
+02:09:13.000 --> 02:09:23.000
+Because some hospitals had high rates of pneumonia and some had lower rates. So it was really just saying, okay, this learning, this hospital has a higher rate and this has a low rate and nothing else.
+
+02:09:23.000 --> 02:09:32.000
+Because that was a good feature. But this is of course not very useful if you actually want to. Do a more meaningful prediction.
+
+02:09:32.000 --> 02:09:41.000
+So we have to be very careful with this. With these shortcuts and walked in your networks actually learn this goes beyond vision.
+
+02:09:41.000 --> 02:09:44.000
+It's always good to check.
+
+02:09:44.000 --> 02:09:47.000
+How robust is you on your network and Also, what is like, where does it fail? Are they like systematic failure?
+
+02:09:47.000 --> 02:10:10.000
+So that that we should be a bit careful. This holds also for like encoding biases that are there in the data like for instance like males typically getting getting certain jobs and so on or like lots of people of a certain class being in the training data versus others being very underrepresented.
+
+02:10:10.000 --> 02:10:18.000
+We don't represent them very well. So these are some of the other things to, look out for because they're very important.
+
+02:10:18.000 --> 02:10:24.000
+For like a responsible and actually successful use of your models.
+
+02:10:24.000 --> 02:10:37.000
+So let me stop with this. I told you a lot about what convolution. And neural networks are, how they work and I hope you got a bit of an idea of what they can do well where we have to be a bit careful.
+
+02:10:37.000 --> 02:10:47.000
+But and now I just want to see like an answer some of the other questions that we have and that'll lead into the Q&A session.
+
+02:10:47.000 --> 02:10:56.000
+So let me see. Can we provide the location of the object along with the object in the label for training?
+
+02:10:56.000 --> 02:11:05.000
+So this is something we used to do. Image record like detection and recognition was trained with that.
+
+02:11:05.000 --> 02:11:21.000
+The trouble is that it's harder on the labeler because we have to spend extra effort. Also like marking the location of the object versus the actual object you can sometimes even scrape it from the web because there's like a caption or so in you can kind of infer it from that.
+
+02:11:21.000 --> 02:11:26.000
+It's much easier. So having having to have the location is an additional burden and more costly.
+
+02:11:26.000 --> 02:11:35.000
+On the data collection. But yes, you could, if you have it, of course it would help you also.
+
+02:11:35.000 --> 02:11:43.000
+Could we have the same image repeated? Many times in the training set with different labels each time. So one saying dog and many labels each time.
+
+02:11:43.000 --> 02:11:44.000
+So one saying dog and many labels each time. So one saying dog and many labels saying not car.
+
+02:11:44.000 --> 02:11:51.000
+Not computer, etc, not house. So typically, We don't label it as not house.
+
+02:11:51.000 --> 02:12:01.000
+We just label it as. This is the dog or this is a computer and that like basically we have it's one out of multiple classes.
+
+02:12:01.000 --> 02:12:13.000
+But what could happen is that your image actually does have multiple items in it. So in that case you can set up the prediction task as that you can output multiple labels.
+
+02:12:13.000 --> 02:12:22.000
+So it may actually have a car and a person in it or a car in a tree or something. In that case, you can set it up and then you would not use a softmax.
+
+02:12:22.000 --> 02:12:33.000
+At the output you would use basically a Basically, Iigmoid, a binary classification for each class and then the classifications are independent.
+
+02:12:33.000 --> 02:12:37.000
+That is also possible.
+
+02:12:37.000 --> 02:12:50.000
+So as long as the labels are not completely contradicting, it's fine. Okay.
+
+02:12:50.000 --> 02:12:58.000
+Alright, can we touch base on bias classifiers? To amend this and to amend these problems.
+
+02:12:58.000 --> 02:13:09.000
+So yeah, this is kind of like I had I kind of ran out of time. I think the problem of bias in these
+
+02:13:09.000 --> 02:13:12.000
+Go back like this. Okay. The problem of bias is indeed there and it's actually a very important one.
+
+02:13:12.000 --> 02:13:24.000
+And it had become like a famous one with face recognition which led to like withdrawal of many face recognition systems.
+
+02:13:24.000 --> 02:13:33.000
+But it's also there a lot in like you can think of jurisdiction or medical, data, patient data, etc.
+
+02:13:33.000 --> 02:13:41.000
+And so sometimes the problem is that one population is like much better represented in your training set than another one.
+
+02:13:41.000 --> 02:13:56.000
+And now a machine learning model sees a lot of the more variation it sees in a population the better it'll do on that population because it just knows like all the nuances like It could be not only rotated, but there's like many variations to a phase or so.
+
+02:13:56.000 --> 02:14:08.000
+Which is if I see like literally 3 phases. I mean, figure itatively then That's not a lot of variation in like detecting a class.
+
+02:14:08.000 --> 02:14:15.000
+So that's 1 one thing. The other thing is that there is sometimes correlations in the data that we don't want.
+
+02:14:15.000 --> 02:14:25.000
+Because they come from actually discriminatory patterns like for instance certain people preferentially getting like certain benefits or something.
+
+02:14:25.000 --> 02:14:41.000
+We don't necessarily want to repeat that. We want it to be in a more objective measure. And we don't want it to come to just learn from our bias list but if there's bias in the data the network will just learn it and there is also.
+
+02:14:41.000 --> 02:14:52.000
+Neural networks that were reading CVs. And just learning that. That has to do with the women makes it more likely to succeed at a getting a technical job.
+
+02:14:52.000 --> 02:15:02.000
+Just because there's way less females in these jobs than males and of course that's also not the feature that's very predictive of the quality of the worker.
+
+02:15:02.000 --> 02:15:11.000
+And so on so there's like a lot of these kinds of patterns that happen because we have biases in the data, we have imbalance in the data.
+
+02:15:11.000 --> 02:15:20.000
+And lastly, also the problem of cloth in balance. So if I have 90% of my data that is one cloth and 10% is the other class.
+
+02:15:20.000 --> 02:15:31.000
+Then. Basically, If I predict class one for everyone, I have 90% accuracy. I'm doing pretty well.
+
+02:15:31.000 --> 02:15:39.000
+But it may be completely useless if that those 10% are maybe your patients with a very severe disease or something like that.
+
+02:15:39.000 --> 02:15:46.000
+Or there are patients from a specific group or so and you really want to or like people and you really need to catch them.
+
+02:15:46.000 --> 02:15:55.000
+I mean the the 100% on everyone you don't even need any training data for that you can just hard coded but it's useless obviously.
+
+02:15:55.000 --> 02:16:01.000
+So you have to be a bit careful and in those cases we may want to reweight the data or sub sample or so to make the.
+
+02:16:01.000 --> 02:16:12.000
+Classes a bit more balanced and there's other adaptive methods you can do to make that better or like based on robust optimization.
+
+02:16:12.000 --> 02:16:15.000
+Okay.
+
+02:16:15.000 --> 02:16:26.000
+Right, so I think I have. Captured a lot of the questions. That were there for the later part of the last part of the lecture.
+
+02:16:26.000 --> 02:16:34.000
+Are there other applications instead of images? So you can use convolutions also on videos and on sequences.
+
+02:16:34.000 --> 02:16:42.000
+I kind of had my one D example, so you can also do a convolution on a oned sequence, which is just like a time series for instance.
+
+02:16:42.000 --> 02:16:51.000
+So that also works. It's the same principle. It's just that your filters are on D.
+
+02:16:51.000 --> 02:16:55.000
+It can also be speech as well. So I was reading somewhere that you can read speech as wave forms.
+
+02:16:55.000 --> 02:16:57.000
+Okay.
+
+02:16:57.000 --> 02:17:05.000
+And think of them as images and pass it to CNN.
+
+02:17:05.000 --> 02:17:09.000
+Yeah, that's true. It's also a sequence.
+
+02:17:09.000 --> 02:17:16.000
+Cool. Okay. So maybe we can just do the Q&A now.
+
+02:17:16.000 --> 02:17:17.000
+Alright, thank you.
+
+02:17:17.000 --> 02:17:21.000
+And then hopefully we'll capture everything.
+
+02:17:21.000 --> 02:17:31.000
+Thank you, Professor, for that lecture. As we can see, we have, over here, for, question and answer session today.
+
+02:17:31.000 --> 02:17:32.000
+Hello. Hello.
+
+02:17:32.000 --> 02:17:33.000
+So.
+
+02:17:33.000 --> 02:17:48.000
+We'll get started with questions since we are a little bit behind today. So initial question at the beginning of the lecture was is dropout analogous to bootstrapping method.
+
+02:17:48.000 --> 02:17:49.000
+Okay.
+
+02:17:49.000 --> 02:17:56.000
+I don't think it's exactly like food strapping in the sense that with bootstrapping you often want to estimate something like variation or variance.
+
+02:17:56.000 --> 02:18:04.000
+And we are not actually trying to do any of that here. We are really more, we are looking at it, okay, kind of like an ensemble model.
+
+02:18:04.000 --> 02:18:10.000
+But we are actually trying trying to make it like the model itself more flexible. That's how I would view it.
+
+02:18:10.000 --> 02:18:20.000
+You know, yes, you are trying to bring independence in the neurons and signals. Right? It's not actually estimating anything.
+
+02:18:20.000 --> 02:18:22.000
+Also bootstrapping is done on the actual data set, like you're selecting certain, data parts and certain features of the original data.
+
+02:18:22.000 --> 02:18:37.000
+Here we are using all of the features at the beginning, right? We are not selecting parts of the We are learning parts of the images in the hidden layer.
+
+02:18:37.000 --> 02:18:46.000
+So we are not changing the original data in any form. So another question that we had is, is this like an unsupervised learning technique to learn what a cup is and then to identify where the cup is.
+
+02:18:46.000 --> 02:18:54.000
+In the image.
+
+02:18:54.000 --> 02:18:55.000
+So it's
+
+02:18:55.000 --> 02:19:00.000
+So typically this is Yeah.
+
+02:19:00.000 --> 02:19:16.000
+Oh, okay. Yeah, so the way I explain it is a supervised problem in the sense that what the input is like data point is an image out like the label is There's a cup, a cup basically, image contains a cup.
+
+02:19:16.000 --> 02:19:19.000
+There are ways you could learn. From images in unsupervised manner and I'll talk a bit about that on Friday.
+
+02:19:19.000 --> 02:19:30.000
+And so with respect to self-supervised learning or generative models, you could make it.
+
+02:19:30.000 --> 02:19:41.000
+The like typical image classification per se is supervised and we may do unsupervised pre trading and I'll cover that next lecture.
+
+02:19:41.000 --> 02:19:42.000
+How do we find the patch size? Is it purely trial and error?
+
+02:19:42.000 --> 02:19:49.000
+Yeah, The best site.
+
+02:19:49.000 --> 02:19:51.000
+Yeah, so do. Yeah, take off.
+
+02:19:51.000 --> 02:19:57.000
+Patch size, I think patch. Patch size, I think they're talking about the filters that we use.
+
+02:19:57.000 --> 02:19:58.000
+Yeah, yeah, exactly.
+
+02:19:58.000 --> 02:20:00.000
+How do we find the size of the filters?
+
+02:20:00.000 --> 02:20:11.000
+So yeah, I mean, for larger, you tend to use the larger filters. And if you, are very small, small filters like 3 by 3, 5 by 5 are more than sufficient.
+
+02:20:11.000 --> 02:20:25.000
+Right. And then you have to see, you can experiment with that and see a performance. And run some test data against this, see how it works.
+
+02:20:25.000 --> 02:20:33.000
+And you can look at some of the standard models that are out there. To see like what our typical sizes of these patches.
+
+02:20:33.000 --> 02:20:39.000
+So that's always a good idea to do not start from scratch.
+
+02:20:39.000 --> 02:20:56.000
+Yes, there could be some noise. If the samples have a same feature that is, what happens if majority of the images contain cups that are white and only very few images where the cups are of different color.
+
+02:20:56.000 --> 02:21:03.000
+Definitely, definitely it is possible. I think you can pass it bias. So whenever I see something white.
+
+02:21:03.000 --> 02:21:07.000
+I'm more than certain that it's going to be a such kind of biases may get passed.
+
+02:21:07.000 --> 02:21:19.000
+That's why it's important to have data augmentation done and a lot of diverse images should be provided to make sure the right features are getting learned.
+
+02:21:19.000 --> 02:21:25.000
+Yeah, this is like my example with this guy, essentially, that you may just learn that the sky is the.
+
+02:21:25.000 --> 02:21:28.000
+Nothing to detect.
+
+02:21:28.000 --> 02:21:38.000
+What is the purpose of passing the convolution through a value before pooling?
+
+02:21:38.000 --> 02:21:39.000
+Okay.
+
+02:21:39.000 --> 02:21:53.000
+So this is mostly to actually like make it focus on detections and not have like so it's it's a bit of like reducing noise. That's how I would view it.
+
+02:21:53.000 --> 02:21:54.000
+Yeah.
+
+02:21:54.000 --> 02:21:57.000
+So you actually look at detections and not everything. It's, yeah, it's information extraction.
+
+02:21:57.000 --> 02:22:05.000
+Yeah, you know, it's like X is a mask, right? Whatever is important for me signals, make them active, the remaining things are master.
+
+02:22:05.000 --> 02:22:09.000
+Out.
+
+02:22:09.000 --> 02:22:22.000
+If different image encoding is used as input data, can we use the same CNN or would we need different CNNs?
+
+02:22:22.000 --> 02:22:32.000
+If you use a different encoding at least the layer one filters. Would be like specialized to that encoding.
+
+02:22:32.000 --> 02:22:38.000
+So like the RGB, they would actually detect like the color red by looking at the rep versus the other channels.
+
+02:22:38.000 --> 02:22:49.000
+So that would that would probably not generalize. So you would have to retrain this. That said, it may be possible to port some of the other layers.
+
+02:22:49.000 --> 02:22:58.000
+Sometimes that is possible. To have like a train network and then you train like some other parts of it you just retrain it essentially.
+
+02:22:58.000 --> 02:23:05.000
+But yes, definitely at the beginning at least it wouldn't transfer.
+
+02:23:05.000 --> 02:23:19.000
+How do you determine the choice and sequence of layers like the convolution and cooling layers?
+
+02:23:19.000 --> 02:23:20.000
+Yeah.
+
+02:23:20.000 --> 02:23:24.000
+Is this again a bit of an architectural choice? We are we have to. Yeah, we have to look at.
+
+02:23:24.000 --> 02:23:33.000
+Like there usually you like you would interleave some convolution with some with a pooling you wouldn't do poolings together.
+
+02:23:33.000 --> 02:23:41.000
+That you can do that in one way here. And then I would again look at like some of the networks that have been well engineered and work well.
+
+02:23:41.000 --> 02:23:42.000
+And to start from that.
+
+02:23:42.000 --> 02:24:00.000
+It's more Yeah, and even nowadays people like to use Stride of Poo. So oftentimes they'll say I want to move to take 2 steps at a time, not just one, and maybe skip the polling layer itself.
+
+02:24:00.000 --> 02:24:13.000
+Is Yellow a type of CNN?
+
+02:24:13.000 --> 02:24:24.000
+Gu of yes, right. I mean kind of Kind of yes, but It has its own unique properties and all.
+
+02:24:24.000 --> 02:24:31.000
+Yeah, you know is essentially not a classification base CN and it's an object detection based CNN, right?
+
+02:24:31.000 --> 02:24:38.000
+So it wants to identify what are the different objects that are present in the images or videos if you want to think about it in that way.
+
+02:24:38.000 --> 02:24:46.000
+So Yellow is a object detection based CNN model, not a image classification specifically.
+
+02:24:46.000 --> 02:24:53.000
+How does data augmentation improve performance of the model?
+
+02:24:53.000 --> 02:25:02.000
+So this is actually here some examples of data augmentations that we could do. So the one example of this is the rotations we talked about.
+
+02:25:02.000 --> 02:25:08.000
+So it just chose the model a lot of variation that could be in the beta that doesn't change the meaning of the data.
+
+02:25:08.000 --> 02:25:18.000
+Like some color changes, make it focus on shape. The rotations tell it that the dog could also be in a different orientation and it's still a dog.
+
+02:25:18.000 --> 02:25:23.000
+Or the occlusions that even if part of it are included, it's still a dog, etc.
+
+02:25:23.000 --> 02:25:35.000
+So it basically teaches the model about variation that could be in the data that the model should not focus on.
+
+02:25:35.000 --> 02:25:49.000
+But the other questions we have is can we provide the location of the object along with the object in the label for the training.
+
+02:25:49.000 --> 02:25:57.000
+So as I said, you could do that. And this is how come like computer vision models used to be trained in the past.
+
+02:25:57.000 --> 02:26:02.000
+Now our days, we typically don't do that because it's additional burden on getting the labels because in addition to the label you actually need someone to draw a box around the object.
+
+02:26:02.000 --> 02:26:17.000
+Like somewhere you have to get that from. So it's more tedious, it's more costly.
+
+02:26:17.000 --> 02:26:28.000
+How would we handle multiple occurrences of objects in a single image?
+
+02:26:28.000 --> 02:26:35.000
+Okay. Okay.
+
+02:26:35.000 --> 02:26:36.000
+You're gonna.
+
+02:26:36.000 --> 02:26:42.000
+So you can, Okay, so I'll say something you can add to that. So you can train CNNs also to detect multiple occurrences of the same object.
+
+02:26:42.000 --> 02:26:59.000
+So if you think about it, our detections are pretty localized. So if I had like multiple cups in the image in different locations, you would actually detect all of them.
+
+02:26:59.000 --> 02:27:07.000
+And then it's the question do you essentially just max pull over them and say there's like any cup or you'd actually want to count them.
+
+02:27:07.000 --> 02:27:12.000
+And like, right, that you could also detect like multiple different objects. As I said, like you could say there's a dog and a person.
+
+02:27:12.000 --> 02:27:20.000
+Or something like that. There are these networks that can actually tell you what's kind of in the theme.
+
+02:27:20.000 --> 02:27:27.000
+So they would be able to detect like multiple. Thanks that are in the.
+
+02:27:27.000 --> 02:27:30.000
+Got it.
+
+02:27:30.000 --> 02:27:41.000
+Are there currently any variance of CNN models?
+
+02:27:41.000 --> 02:27:51.000
+There are variants in the sense that I mean, there's many, variants unlike the size and how you exactly set up the architecture.
+
+02:27:51.000 --> 02:28:01.000
+In the different types of layers then there is I mean, you could add the ResMAT, which in the deep layer, for instance, you would add ResMAT to it.
+
+02:28:01.000 --> 02:28:21.000
+There's like variations in normalizations you can do. Then there are like the variations that are kind of like CNNs but then they do like the convolution also with a rotation so you actually like basically apply the filters to different orientations of your images and like thumb over that or so.
+
+02:28:21.000 --> 02:28:30.000
+So there's variations in that respect as well. And then you could do it like in one D and 2D in 3D or something like that.
+
+02:28:30.000 --> 02:28:36.000
+There are some of the things I can think of.
+
+02:28:36.000 --> 02:28:59.000
+And then there's ways you could combine CNNs with other neural networks. So for instance, if you want to actually have a model that aligns images and texts so that you could like generate an image from text or like generate text for an image or so then you have like Basically one part that's a CNN and one part that is like a Tax processing unit and then you basically like align those and
+
+02:28:59.000 --> 02:29:04.000
+and so on. So that's also possible.
+
+02:29:04.000 --> 02:29:09.000
+Yeah, also another variant could be processing videos. So we have sequence of images as frame per second and we can perform a time distributed layer.
+
+02:29:09.000 --> 02:29:25.000
+Around a CNN so that the sequence is maintained and we learned the Understanding that it's a sequence of images and we don't randomly share.
+
+02:29:25.000 --> 02:29:34.000
+How do we overcome the challenge of multi-scale images?
+
+02:29:34.000 --> 02:29:48.000
+So I'm assuming that this question means what if the images that we start with are of different resolutions are of different scales.
+
+02:29:48.000 --> 02:29:55.000
+So I think part of it can be taken care of but in the hierarchy as I said like if you look at different layers.
+
+02:29:55.000 --> 02:30:08.000
+The actual like size of the patch they look at in the image is different so they're like the deeper you go essentially the larger region in your image you look at because of the pooling and the like the way the convolutions are set up.
+
+02:30:08.000 --> 02:30:17.000
+So you could basically learn the larger objects in the depot layers and the smaller objects in the shallower layers.
+
+02:30:17.000 --> 02:30:20.000
+That's one possibility. You Do definitely do need some variation in size in the training data as well.
+
+02:30:20.000 --> 02:30:33.000
+To be able to do that. So we cannot just train on like tiny. Dogs and then expect that it'll recognize a huge dog suddenly.
+
+02:30:33.000 --> 02:30:43.000
+Because then it may really just focus on like that particular size. So again, we'd need like some of the training data variations in there as well.
+
+02:30:43.000 --> 02:30:51.000
+Yeah, we can also add these types of variations by performing cropping and resizing to the original images.
+
+02:30:51.000 --> 02:30:53.000
+Those can be taken care of in data augmentations where we can rescale the objects that are of interest.
+
+02:30:53.000 --> 02:31:12.000
+So that we can learn that in the network. So when we perform data augmentations, are we generating new training data?
+
+02:31:12.000 --> 02:31:13.000
+Yes, we are.
+
+02:31:13.000 --> 02:31:19.000
+Yes, so data. I take this dog image here.
+
+02:31:19.000 --> 02:31:29.000
+And then I just make new dog images by some random transformations like cropping. And so on. And there's actually the resizing right there.
+
+02:31:29.000 --> 02:31:38.000
+Also, and then all of these I would label as the same dog. So I have like so many more training images per actual input image.
+
+02:31:38.000 --> 02:31:43.000
+And I just take the same label as my original image.
+
+02:31:43.000 --> 02:31:50.000
+Just to add to that, we don't actually save these data augmented images, in the memory.
+
+02:31:50.000 --> 02:32:01.000
+It is done in real time, meaning that once you apply these data augmentations, it just creates it in memory and processes, then we don't actually save copies of it in our local members.
+
+02:32:01.000 --> 02:32:03.000
+Okay.
+
+02:32:03.000 --> 02:32:08.000
+Yeah, okay, so it's like it looks to the neural network as if there's more data. That's right.
+
+02:32:08.000 --> 02:32:09.000
+Yeah.
+
+02:32:09.000 --> 02:32:19.000
+Yeah, yeah. Yeah. Yeah, how do we calculate the classification error of the CNN model?
+
+02:32:19.000 --> 02:32:27.000
+So it's let's calculate the same the same way as any other classification model. So basically just look at the CNN as a black box.
+
+02:32:27.000 --> 02:32:35.000
+Input is an image, output is a class. Like these probabilities for the classes and then You just.
+
+02:32:35.000 --> 02:32:41.000
+Basically look at that. Like you could say, like if you have the probabilities, you say like, I take the max.
+
+02:32:41.000 --> 02:32:45.000
+One of these, that's my prediction and then you just compute accuracy with that. Or you compute the like, Yes, exactly.
+
+02:32:45.000 --> 02:32:53.000
+Yeah, Yeah.
+
+02:32:53.000 --> 02:32:59.000
+So it's the same as any other classification model. Doesn't matter what's in between what's in the box.
+
+02:32:59.000 --> 02:33:03.000
+Is it just a linear classifier or is it a CNN or something else?
+
+02:33:03.000 --> 02:33:09.000
+Yeah, and remember that is the output labels are not really strings. There are 0 1 2 3 like labels.
+
+02:33:09.000 --> 02:33:15.000
+So you have numerical log laws or categorical logos possible on that.
+
+02:33:15.000 --> 02:33:41.000
+We can apply all sort. There is like a whole documentation available on all the different losses that are available.
+
+02:33:41.000 --> 02:33:57.000
+That's probably the case. I think the way I would think about it is that It's easier to encode a scene with objects because I could say this is an office because it has whatever a computer, a chair, a desk and so on.
+
+02:33:57.000 --> 02:34:05.000
+Then the other way around. Then like encoding an object by our seeing labels of scenes that are in the image.
+
+02:34:05.000 --> 02:34:11.000
+So it kind of there it forms a natural hierarchy in some sense. How would I describe what is a scene?
+
+02:34:11.000 --> 02:34:20.000
+There's like certain patterns in it and these patterns actually correspond to objects. The neural network doesn't know what is an object, it just recognizes patterns but to us.
+
+02:34:20.000 --> 02:34:21.000
+They correspond to some objects.
+
+02:34:21.000 --> 02:34:35.000
+So in the example that we were looking at for the scenes, could we say that it is easier for a CNN to find objects in the images than to identify would cropping even be helpful given the scanning window that is ultimately used.
+
+02:34:35.000 --> 02:34:47.000
+It would be helpful if you also resize the image like you see their crop and resize. So you got the different sizes and you get maybe only a part of that object in there.
+
+02:34:47.000 --> 02:35:05.000
+Or you may be cropping off like the background or so like this guy in my car example. That if I do cropping suddenly there's some examples that don't have Sky in them so I learned that okay this guy is not the actual thing to focus on.
+
+02:35:05.000 --> 02:35:18.000
+There's low probability of true class means can it predict the quality of the image?
+
+02:35:18.000 --> 02:35:36.000
+If you have a well trained model, then that would be basically the images where the model makes mistake. And for a good model, if you actually look at the image, these are often images that are more difficult or more confusing for humans as well.
+
+02:35:36.000 --> 02:35:40.000
+I think there was one question about the rotation of the images. Can we also rotate the filters?
+
+02:35:40.000 --> 02:35:52.000
+I think this was asked during the time when we were talking how the rotation of the images can make it hard to interpret what the objects are in the images.
+
+02:35:52.000 --> 02:36:00.000
+So could we also provide filters that are also rotated, along the same, degree?
+
+02:36:00.000 --> 02:36:08.000
+Yes, this is essentially equivalent because all that matters is the relative rotation between the image and the filter rate that they align.
+
+02:36:08.000 --> 02:36:18.000
+So whichever one I rotate, it's kind of, it, it's the same thing essentially.
+
+02:36:18.000 --> 02:36:28.000
+Do neural networks struggle to classify, to image optical illusions?
+
+02:36:28.000 --> 02:36:38.000
+So I'm assuming that this means we see those kind of cases, right, where we look at the image in a certain way and then we rotate it and it's a completely different object.
+
+02:36:38.000 --> 02:36:46.000
+Will those kind of images confuse neural networks?
+
+02:36:46.000 --> 02:36:47.000
+. Possibly. I'm not
+
+02:36:47.000 --> 02:36:54.000
+I think it depends on what you're trying to call, right? I mean, what are you trying to, apply if anyone trying to apply to classify objects?
+
+02:36:54.000 --> 02:37:01.000
+If one of those objects are present, right, if I rotate like this or that, if it turns out to be an object, it will figure it out.
+
+02:37:01.000 --> 02:37:07.000
+There is orientation if given through the training samples. Will be easy to understand by the model. Right.
+
+02:37:07.000 --> 02:37:13.000
+But yes, if you are not given diverse data set, maybe. It may have traveled, it may, but.
+
+02:37:13.000 --> 02:37:19.000
+Again, I don't think that should be a big issue.
+
+02:37:19.000 --> 02:37:28.000
+Yeah, maybe we can just not put rotation in data augmentation and it will just treat both of them as different objects by default.
+
+02:37:28.000 --> 02:37:39.000
+So in summary, what parts of CNN are design choices and what emerges from the learning?
+
+02:37:39.000 --> 02:37:40.000
+Okay.
+
+02:37:40.000 --> 02:37:47.000
+So the design choices are How many layers I put, what kind of layers? Like do I put convolution in the pooling?
+
+02:37:47.000 --> 02:37:57.000
+When do I start with my fully connected like basically the classification part? What other like what kind of layers I put essentially?
+
+02:37:57.000 --> 02:38:07.000
+And What's the size of my filters and the stride all of these are? Design choices that I have to make by essentially trial and error and looking at other architectures.
+
+02:38:07.000 --> 02:38:08.000
+And the thing that is I don't choose is what are the actual filters or what are the weights.
+
+02:38:08.000 --> 02:38:28.000
+So what kind of object is it actually essentially detecting in the end? Other than like that it does the right output for my classes that I'm looking for but what does it do along the way what kinds of edge detectors what kinds of little parts detectors etc.
+
+02:38:28.000 --> 02:38:35.000
+Does it actually learn that is just up to the network. So this is done by our training and we don't supervise it.
+
+02:38:35.000 --> 02:38:43.000
+It does something and we can later try to look at it. But we don't do anything about that at all.
+
+02:38:43.000 --> 02:38:48.000
+And the implementation sense, we also have the optimizer, the learning. Read backsize.
+
+02:38:48.000 --> 02:38:56.000
+All of those are also parameters that are something we have to choose. But yeah, in Cnn's the number of layers and the kernel.
+
+02:38:56.000 --> 02:39:08.000
+SIZE, you usually are the key ones. K the idea of transformers be applied to CNN to provide context for the image recognition itself.
+
+02:39:08.000 --> 02:39:18.000
+Yeah, so the idea of a transformer is that it's essentially in vision it's also patch based model it looks at patches it encodes patches.
+
+02:39:18.000 --> 02:39:26.000
+But it is a more global model. It looks it does like a global interaction between the patches essentially.
+
+02:39:26.000 --> 02:39:30.000
+So that's the, in that way it's a bit different from a CNN.
+
+02:39:30.000 --> 02:39:39.000
+You could combine transformers and CNNs indeed to maybe have like some CNN and then input that into a vision transformer.
+
+02:39:39.000 --> 02:39:46.000
+So. So you can combine these models because they're. Doing slightly different things.
+
+02:39:46.000 --> 02:40:02.000
+So I think we are out of time, so we'll stop over here. If you have further questions, please ask them next time on Friday or you can ask that to your mentors as well during your mental learning session.
+
+02:40:02.000 --> 02:40:11.000
+So that being said, thank you, Professor, for a wonderful lecture. Thank you, Niagara, for answering so many questions and we'll see you on Friday.
+
+02:40:11.000 --> 02:40:12.000
+Stay safe everybody.
+
+02:40:12.000 --> 02:40:13.000
+Bye.
+
+02:40:13.000 --> 02:40:20.000
+Thank you. Thank you all. Thank you.
+
+02:40:20.000 --> 02:40:50.000
+See you all on Friday.
+

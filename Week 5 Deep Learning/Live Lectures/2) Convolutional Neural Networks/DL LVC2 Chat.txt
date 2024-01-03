@@ -1,0 +1,824 @@
+18:56:57 From Erika To To Everyone:
+	hello everyone
+18:57:16 From Margaret Mays To Everyone:
+	Good morning
+18:57:22 From Ronald Briggs To Everyone:
+	HI from Colombia everyone!
+18:57:35 From Jean Dube To Everyone:
+	hi veryone
+18:57:39 From Vineetha Kaithakkal To All Panelists:
+	Good morning
+18:57:41 From Jean Dube To Everyone:
+	hi everyone
+18:57:50 From Dorian Held To Everyone:
+	Good afternoon from the Netherlands!
+18:57:55 From Joseba Ruiz To Everyone:
+	Hi!!!
+18:57:55 From Yanet Fernandez To All Panelists:
+	Good morning
+18:58:02 From Christofer Bagge To Everyone:
+	Hi from Dubai
+18:58:08 From Eloy Carrero To Everyone:
+	Good morning!!
+18:58:11 From Ranganath Samudrala To Everyone:
+	Hello All
+18:58:34 From Yvan Giroud To Everyone:
+	Hi everyone
+18:58:41 From Roman Torres To Everyone:
+	Good morning
+18:58:41 From Mansoor Ahmed To Everyone:
+	Hi
+18:58:45 From Eliana WASSERMANN To Everyone:
+	Hello from Paris
+18:58:55 From Roman Torres To Everyone:
+	Hello from Mexico
+18:59:53 From Laurent Vernet To Everyone:
+	Hello from France !!!
+18:59:55 From Jeff Stearns To Everyone:
+	Hello from Cambridge Massachusetts!!!
+18:59:57 From Ranganath Samudrala To Everyone:
+	Got a question for the teacher or panelist: I am a bit confused bit as to why I see activation function being applied to input and output nodes and NOT just hidden nodes
+19:00:03 From Tim Gospodinov To Everyone:
+	Good morning from NYC
+19:00:05 From Miriam Txintxurreta To Everyone:
+	Hello!
+19:00:07 From Tim Gospodinov To Everyone:
+	Yes you are
+19:00:07 From Laurent Vernet To Everyone:
+	yes
+19:00:07 From Pedro Coutinho Ferreira To Everyone:
+	Good morning
+19:00:07 From Vineetha Kaithakkal To Everyone:
+	yes
+19:00:08 From Yvan Giroud To Everyone:
+	you are
+19:00:09 From Pedro Coutinho Ferreira To Everyone:
+	Yes
+19:00:09 From Roman Torres To Everyone:
+	yes
+19:00:10 From Heber Rodriguez To All Panelists:
+	Yes
+19:00:10 From Mansoor Ahmed To Everyone:
+	Yes
+19:00:10 From Christofer Bagge To Everyone:
+	yes
+19:00:11 From Jose Rodriguez To All Panelists:
+	Yea
+19:00:12 From andrea ferrazzi To All Panelists:
+	yes
+19:00:15 From Adrian Martin To Everyone:
+	Hello from Spain
+19:00:15 From Heber Rodriguez To All Panelists:
+	Hello from Guatemala
+19:00:15 From husam Al-junaidi To Everyone:
+	yes
+19:00:17 From Luis Gonzalez To Everyone:
+	Good morning!
+19:00:25 From Enid Katorobo Bashengezi To All Panelists:
+	Morning. You are audible.
+19:00:27 From Arnetrice Smith To Everyone:
+	Good morning to all
+19:00:28 From Heber Rodriguez To Everyone:
+	Hello from Guatemala
+19:00:44 From Robert "John" Morse To Everyone:
+	Hello from Virginia!
+19:00:46 From Enid Katorobo Bashengezi To Everyone:
+	Morning
+19:00:55 From Mike Pugh To Everyone:
+	Hello from Louisville Colorado
+19:00:55 From Tarachand Sahoo To Everyone:
+	Good morning everyone from Canada!
+19:01:05 From rama rao To Everyone:
+	Hello from San Francisco
+19:01:09 From Jerome Flores To Everyone:
+	Hi, everyone
+19:01:12 From Juan  Humberto Young To Everyone:
+	Good day
+19:01:13 From Paul Henry To Everyone:
+	Hello from Seattle
+19:01:14 From Liping Cai To Everyone:
+	Hello from Indy
+19:01:20 From James Schultz To Everyone:
+	good morning
+19:01:26 From Nicolas Bouyssoux To Everyone:
+	Hello
+19:01:27 From Zoom user To All Panelists:
+	Hello from Switzerland
+19:01:28 From Erika To To Everyone:
+	question, do we have class on Monday?
+19:01:33 From Judith Kodibagkar To All Panelists:
+	Hello from Texas
+19:01:51 From Judith Kodibagkar To Everyone:
+	Hello from TX
+19:02:10 From Zara Mubeen To All Panelists:
+	Good Morning
+19:02:27 From Thabi Zuma To Everyone:
+	Hello from Soweto
+19:02:31 From James Schultz To Everyone:
+	no holiday monday so we should have class
+19:03:01 From Ranganath Samudrala To Everyone:
+	Got a question: Why do we see activation function being applied to input and output nodes and NOT just hidden nodes?
+19:03:02 From Gibert Kennedy To Everyone:
+	looks like the classes next week are scheduled wed, thurs, friday
+19:03:05 From Luis Gonzalez To Everyone:
+	we got invites Wed, Thu and Firday
+19:03:09 From Rebecca Corson To Everyone:
+	That's not what the invites we received indicate
+19:03:14 From Erika To To Everyone:
+	thanks - I haven't received the invitation for MOnday
+19:03:19 From Rebecca Corson To Everyone:
+	We are schedule W, Th, F
+19:03:27 From Rebecca Corson To Everyone:
+	*d
+19:03:29 From José Suárez Sarrazin To Everyone:
+	we got only Wed, Thr, and Fri
+19:03:39 From [GL - PO] Parichita To All Panelists:
+	@Erika we will be sharing the details soon but there will be no class this Monday.
+19:03:41 From Christofer Bagge To Everyone:
+	perfect
+19:03:41 From Ramya Pradeepkumar To Everyone:
+	ye
+19:03:43 From Ramya Pradeepkumar To Everyone:
+	s
+19:03:43 From Heber Rodriguez To Everyone:
+	Yes
+19:03:43 From Julia Liu To Everyone:
+	yes
+19:03:49 From Miriam Txintxurreta To Everyone:
+	Perfect
+19:03:50 From Luis Gonzalez To Everyone:
+	looks good
+19:04:03 From Julia Liu To Everyone:
+	Good morning to all
+19:04:13 From Jairo Olarte To Everyone:
+	Good day
+19:04:34 From Gaziza Bayekeyeva To All Panelists:
+	Good morning
+19:05:04 From Laurent Vernet To Everyone:
+	Looks good too
+19:05:04 From Julia Liu To Everyone:
+	: )
+19:05:09 From Moises Junca To Everyone:
+	The classes next week are scheduled for wednesday, thursday and friday.  Who is mistaken Shubham or the emails we received?
+19:05:37 From [GL - PO] Parichita To All Panelists:
+	@Moises please note that there will be no class on coming Monday. We will be sharing an official announcement soon.
+19:06:20 From [GL - PO] Parichita To Everyone:
+	@Moises @Erika please note that there will be no class on coming Monday. We will be sharing an official announcement soon.
+19:06:49 From Jerome Flores To Everyone:
+	tiki tiki ti
+19:06:57 From Eloy Carrero To Everyone:
+	So wed, thurs, fri classes are correct?
+19:07:22 From [GL Mentor] Shubham Sharma To Everyone:
+	@Everyone please avoid my earlier comment regarding the schedule next week. You will get updates on your email.
+19:14:14 From Moises Junca To Everyone:
+	Thanks
+19:14:22 From [GL - PO] Parichita To Everyone:
+	@Eloy, yes your classes for Recommendation System are on Wed, Thu and Fri .
+19:14:35 From Austin Paul Itteyra To Everyone:
+	Greetings from Tulsa, Apologies for the late login.
+19:16:13 From Erika To To Everyone:
+	thanks @Moises
+19:16:15 From rama rao To Everyone:
+	since the outputs of units are limited to 0 to 1, do we need to do a normalization of the ouputs of the middle layers?
+19:17:24 From Christofer Bagge To Everyone:
+	will you explain what transfer learning is
+19:20:21 From rama rao To Everyone:
+	can you explain, how to select the middle layers in CNN - how many convolution layers, the size of intermittent outputs and at what point we should have the fully connected layers.
+19:21:04 From rama rao To Everyone:
+	Also, how does the training for videos differ from still images or are they the same?
+19:22:17 From Sibaprasad Moharana To Everyone:
+	Too many inputs
+19:22:26 From Dennis Wavomba To Everyone:
+	Too many weights to optimize/learn
+19:22:28 From Michael Gignac To Everyone:
+	transposition, rotation, etc
+19:22:32 From Richard Mayebo To All Panelists:
+	Too deep
+19:22:33 From Andrey Cheban To Everyone:
+	Shift 1 or 0
+19:22:34 From rama rao To Everyone:
+	the cells that are not adjacent are close together
+19:22:44 From Yukihirio Aizawa To Everyone:
+	filter
+19:23:04 From Leo Tishin To Everyone:
+	Computation issue, too many weights
+19:23:09 From Dennis Anderson To Everyone:
+	Can we take advantage of the adjacent pixels when structuring the network?
+19:23:12 From Roman Torres To All Panelists:
+	too comples and can have overfitting
+19:23:13 From Jairo Olarte To Everyone:
+	Dimensional reduction before starting
+19:23:14 From Christofer Bagge To Everyone:
+	the pixels are related that is missing in the vektor
+19:23:22 From Peri S. Periyasamy To All Panelists:
+	The model becomes more complex
+19:23:22 From Amlan Chakraborty To Everyone:
+	How to determine how many neurons or how many internal layers we need ?
+19:23:28 From rama rao To Everyone:
+	the bottom cell of the first column is next to the top cell of the next column and they are not related
+19:23:57 From Deepthi Kailas To Everyone:
+	If the image moved in a different position in the overall frame, it would be different to recognize it
+19:27:57 From Jacob Searles To All Panelists:
+	The computer doesn’t have the same kind of context that we have when looking at an image. I.e. table, bringing to person’s mouth ect..
+19:29:33 From Luis Becerril To Everyone:
+	We need to train the model to read the different vectors about the moving object???
+19:30:43 From Eliana WASSERMANN To Everyone:
+	Color
+19:30:44 From Erika To To Everyone:
+	color difference
+19:30:45 From Alex Levitz To Everyone:
+	color change
+19:30:46 From William Stanislaus To Everyone:
+	The cup can be of different kind..
+19:30:47 From Eliana WASSERMANN To Everyone:
+	Relative size
+19:30:49 From Mark Govostes To Everyone:
+	shape and color variations
+19:30:50 From andrea ferrazzi To All Panelists:
+	Colors?
+19:30:53 From RUTH RUSSEK To All Panelists:
+	Color cup
+19:30:54 From Paul Henry To Everyone:
+	Contrast with background
+19:30:57 From William Stanislaus To Everyone:
+	Meaning not a standard cup, some designer cup..
+19:31:01 From Leo Tishin To Everyone:
+	Incomplete image, different form
+19:31:02 From Tarachand Sahoo To Everyone:
+	multiple variation of the same cup
+19:31:05 From Shiraz Aslam To Everyone:
+	color of the cup
+19:31:08 From Eliana WASSERMANN To Everyone:
+	Some are a bit hidden
+19:31:08 From Jay Madduru To Everyone:
+	curvature
+19:31:12 From Hisham Alomran To Everyone:
+	Different colors of cups? And shapes?
+19:31:28 From Marcin Preiss To Everyone:
+	liquid inside
+19:31:29 From Jay Madduru To Everyone:
+	Handle
+19:31:40 From David Wang To Everyone:
+	how to hold a cup
+19:31:44 From William Stanislaus To Everyone:
+	Only position of the cup is in the image.
+19:31:46 From Ashwin Ratanchandani To Everyone:
+	but the handle may be covered
+19:31:49 From jude fernandez To Everyone:
+	texture
+19:31:58 From Kristin Roper To Everyone:
+	magnification
+19:32:02 From Jay Madduru To Everyone:
+	Size, color, shape, usage, location on picture all can be variations
+19:32:02 From jude fernandez To Everyone:
+	Artwork on cup
+19:32:11 From jerad melgard To All Panelists:
+	Could you base it off of the action that is being taken with the cup
+19:32:11 From Jared Fordham To Everyone:
+	Distinguish cup from lake pond or puddle
+19:32:24 From Tj Seera To All Panelists:
+	I definitely like that use case you mentioned, human interaction element in the training set
+19:32:26 From andrea ferrazzi To All Panelists:
+	More than one in a single picture
+19:32:31 From Jacob Searles To All Panelists:
+	Different perspective
+19:32:35 From preeti tomar To All Panelists:
+	position of cup
+19:33:17 From Tim Gospodinov To Everyone:
+	Partial obstruction/mask
+19:33:24 From Jay Madduru To Everyone:
+	There seems to be a way to train from known cup and use that to build a model for ideal pattern & reduce errors by qualification
+19:33:44 From Robert "John" Morse To Everyone:
+	These robot identifiers to prove that you are human are not just tests to ID operator as human, but also training for the machine to identify objects?
+19:33:52 From Christofer Bagge To Everyone:
+	it can be drawn
+19:34:18 From Phuong Tran To All Panelists:
+	Green cup with a blur background is not a cup anymore
+19:35:08 From Jay Madduru To Everyone:
+	When pixels are converted to 1s and 0s, there are strings that we need to learn
+19:35:19 From Jay Madduru To Everyone:
+	That is after decomposing and identifying all known shapes
+19:35:45 From jude fernandez To Everyone:
+	Sliding the template over vector..
+19:36:03 From Naman Negi To All Panelists:
+	CNN also only takes into account the region (pixels) that are important for classification and overlooks the rest, thus reducing computation
+19:37:23 From Naman Negi To Everyone:
+	CNN also only takes Into account the region (pixels) that are important for classification and overlooks the rest, thus reducing computation
+19:37:37 From jerad melgard To All Panelists:
+	Kind of similar to local optimization rather than global optimization we studied in random forests
+19:38:28 From Robert "John" Morse To Everyone:
+	Handle, orientation, color, size, edge angle
+19:38:42 From Andrew Gribbin To Everyone:
+	Is this why Captcha asks "click on all traffic light sections"? Are we helping train models?
+19:38:59 From Robert "John" Morse To Everyone:
+	yes
+19:40:19 From Mark Govostes To Everyone:
+	what happens when the cup is much bigger than the patch
+19:40:46 From William Stanislaus To Everyone:
+	We can detect the position of the handle too ?
+19:40:50 From Tina Spencer To Everyone:
+	certainly patterns on the cup affect the effectiveness of the edge detection for the network?
+19:41:06 From Michael Gignac To Everyone:
+	would the patches overlap to account for situations where an edge might lie in the border between 2 patches?
+19:41:53 From Raghu Setty To Everyone:
+	So to detect a Ball, should it be a different model all together ??
+19:45:17 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: Why do we see activation function being applied to input and output nodes and NOT just hidden nodes? A: Imagine a neural network as a staircase. Without activation functions, the network would be a straight staircase, which would be unable to learn complex relationships between the input and output data. By applying activation functions, we can make the staircase more curvy, which allows the network to learn more complex relationships.
+19:45:19 From [GL Mentor] Shubham Sharma To Everyone:
+	In the input layer, the activation function helps to transform the raw input data into a form that can be processed by the hidden layers. For example, the sigmoid activation function can be used to map the input data to a range of values between 0 and 1, which is a more convenient representation for the hidden layers to work with.
+	
+	In the output layer, the activation function helps to map the output of the hidden layers to a desired range of values. For example, the sigmoid activation function can be used to map the output of the hidden layers to a probability distribution, which is a useful representation for classification problems.
+19:47:03 From Jared Fordham To Everyone:
+	Is there hidden layer economy to solve for here - like how many resources to dedicate to feature learning vs classification?
+19:47:36 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: since the outputs of units are limited to 0 to 1, do we need to do a normalization of the ouputs of the middle layers? A: The outputs of units or neurons in the middle layers of a neural network are not necessarily limited to a range of 0 to 1. The range of outputs depends on the activation function employed. Sigmoid activation confines outputs to the 0-1 range, useful for probabilities. Tanh activation maps outputs to -1 to 1, centering them around zero. ReLU activation does not impose a strict bound, allowing any positive value. Whether to normalize middle layer outputs depends on the specific problem and data. Techniques like Batch Normalization or Layer Normalization stabilize and speed up training but aren't always necessary. Deciding to normalize or not should be guided by empirical experimentation, the chosen architecture, activation functions, and data characteristics.
+19:49:23 From Khalid Ahmed To Everyone:
+	In order to detect the cup across all the images, as you slide the pattern detector - how do you know what you are looking for - in this case the ‘handle’ of the cup. Do you start with the intention of finding the cup and you have an idea of what the cup looks like
+19:49:32 From Hamzeh Nawar To Everyone:
+	Seems similar normalization somehow
+19:49:37 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: can you explain, how to select the middle layers in CNN - how many convolution layers, the size of intermittent outputs and at what point we should have the fully connected layers. A: 
+	Selecting the middle layers in a Convolutional Neural Network (CNN) involves a balance between depth, spatial resolution, and model complexity. The number of convolution layers depends on the complexity of the task and available data. Common architectures like VGG and ResNet stack multiple convolutional layers (typically 3-5) to capture hierarchical features. The size of intermediate outputs (feature maps) is often reduced using pooling layers to maintain computational efficiency. Fully connected layers are typically added after the convolutional layers to perform classification or regression tasks. A common practice is to flatten the feature maps from the last convolutional layer and connect them to one or more dense layers for final prediction.
+19:49:40 From David Wang To Everyone:
+	what means 'fire'
+19:49:43 From [GL Mentor] Shubham Sharma To Everyone:
+	The exact design should be based on the problem's complexity, data size, and computational resources, and it often requires experimentation to find the optimal architecture.
+19:49:47 From Christofer Bagge To Everyone:
+	do you tell how many filters it will use
+19:50:12 From Amlan Chakraborty To Everyone:
+	How to determine how many layers we need ?
+19:50:14 From William Stanislaus To Everyone:
+	What happens when the cup is broken and scattered in the image ?
+19:50:32 From Christofer Bagge To Everyone:
+	do you tell it any thing about the filters/
+19:51:14 From Richard Mayebo To Everyone:
+	I really have not understood the “multiple sheets” in the feature learning section. Can you explain it again?
+19:51:15 From Prashanth Sivadasan To Everyone:
+	How do you decide the patch size?
+19:51:25 From Francisco Pages To Everyone:
+	Could you feed video to the model to recognize objects,  and how different would that model look like?
+19:53:02 From Naman Negi To Everyone:
+	Can we use the Same Convolution layers (Feature learning) and then change the Fully connected layer to build different classification models?
+19:53:22 From Arnetrice Smith To Everyone:
+	would edges be used as thresholds to determine a cup vs a bowl?
+19:53:30 From Leo Tishin To Everyone:
+	For edges detection - do you have to have various maps for shapes? Or we build a model to detect specific shape at one time?
+19:54:58 From jude fernandez To Everyone:
+	Can you check the accuracy of part of the model .. like maybe the first few layers that do edge detection so we can use it with other models..
+19:55:17 From Robert "John" Morse To Everyone:
+	This gets complicated to then differentiate between, tea cup, mug, measuring cup, blue cup, glass cup, porcelain cup, etc.
+19:55:50 From William Stanislaus To Everyone:
+	Yes, the cup and bowl the difference is only in dimension/magnification, how we can detect in the just 2d image ?
+19:55:53 From Thabi Zuma To Everyone:
+	Does that mean that the model will never identify an image that not in the data e.g. a volcano if there's no image of a volcano anywhere?
+19:56:01 From jerad melgard To All Panelists:
+	Can you load an image of a cup to your first part of the model being built as a way to build the detectors to begin with
+19:56:32 From Charles Sekyiamah To All Panelists:
+	With the feature learning, is it an iterative process to provide some sort of averaging effect, or is it one straight feedforward process?
+19:57:17 From Phuong Tran To All Panelists:
+	I think we can refer to archeology-- pieces of bones everywhere!
+19:57:28 From Phuong Tran To Everyone:
+	
+	I think we can refer to archeology-- pieces of bones everywhere!
+19:58:40 From James Schultz To Everyone:
+	that's a real good way of explaining hex color codes
+19:59:11 From Jerome Flores To Everyone:
+	Is this the same technology for facial recognition? I mean, first you train yourself to recognize faces and then a particular face, something like that?
+20:00:01 From julian Diaz Lombardo To Everyone:
+	Im not sure I understand why things are shrinking?
+20:00:13 From William Stanislaus To Everyone:
+	Is the problem we always know what we are detecting, or the problem is to detect the different types of objects, without knowing what is it ?
+20:00:45 From William Stanislaus To Everyone:
+	Only when we know what we are detecting we can apply appropriate filters
+20:00:49 From Richard Mayebo To Everyone:
+	Ok - thanks!
+20:01:47 From Mark Govostes To Everyone:
+	the data becomes massive, how do they control data size?
+20:02:05 From Jared Fordham To Everyone:
+	Do compression algorithms have to be decoded first before edge detection can star?
+20:03:40 From Arockiaraj (Raj) Pangaraj To All Panelists:
+	In the feature learning, how does it differentiate the Laptop from the cup?
+20:03:55 From Dennis Anderson To Everyone:
+	Is the number of convolution + pooling steps the depth of a CNN?
+20:04:49 From Christofer Bagge To Everyone:
+	how does know it is a cup and don’t a car?
+20:08:07 From Alex Levitz To Everyone:
+	motorcycle would look like a bike
+20:08:14 From Robert "John" Morse To Everyone:
+	For a color detection/classification…White=255,255,255; Black=0,0,0; Green=0,255,0; Red=255,0,0; and Blue=0,0,255…this would be an example of a sheet/filter to identify color?
+20:08:40 From Christofer Bagge To Everyone:
+	would you first train it on cups and the on other things, do you show it things you say is a bike for example
+20:09:18 From Charles Sekyiamah To All Panelists:
+	Re Thabi : for example Tesla car could not identify a horse-drawn carriage
+20:11:46 From Farha Parveen Padiyathu Puthenkattil Fazal To Everyone:
+	Is  the window length variable?
+20:13:18 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: Is the number of convolution + pooling steps the depth of a CNN? A: Yes, the number of convolutional and pooling layers in a Convolutional Neural Network (CNN) is often referred to as the depth of the network. In the context of CNNs, depth typically measures how many layers are stacked on top of each other to process the input data. Convolutional layers apply filters to extract features, and pooling layers downsample the spatial dimensions, reducing the resolution of feature maps.
+20:13:53 From Ranganath Samudrala To Everyone:
+	Detect edges
+20:14:34 From Mike Pugh To Everyone:
+	Edges will be low numbers?
+20:15:33 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: Could you feed video to the model to recognize objects,  and how different would that model look like? A: Video recognition using neural networks involves processing a sequence of frames to identify objects, actions, or patterns within the video. To achieve this, specialized architectures are used, such as Convolutional Recurrent Neural Networks (ConvLSTM, GRU, or LSTM) or 3D convolutional networks (C3D). These models differ from image recognition networks by incorporating temporal aspects. They employ 3D convolutional layers to capture spatial and temporal information across video frames. Recurrent layers are used to model temporal dependencies, while time-distributed layers make predictions at each time step. Video models handle longer input sequences, and pooling and fusion techniques combine features across frames to capture both short-term and long-term temporal information.
+20:18:05 From Tarachand Sahoo To Everyone:
+	can you explain the after convolution number additions?
+20:20:51 From Michael Gignac To Everyone:
+	Would the padding change depending on the pattern you're looking for? In that example, would you pad with 1s if looking for 1, -1, 1?
+20:21:03 From rama rao To Everyone:
+	What is the typical size of a filter?
+20:21:50 From rama rao To Everyone:
+	how does the NN learn the filter?
+20:22:02 From Charles Sekyiamah To All Panelists:
+	Is the convolution process done for one filter at a time or are there multiple convolutions for the multiple filters going on at the same time?
+20:23:23 From Vithy Vithyanandan To Everyone:
+	What is the intuition of using same weights across all patches?
+20:23:32 From Charles Sekyiamah To Everyone:
+	Is the convolution process done one filter at a time or are there multiple convolutions for the multiple filters going on at the same time?
+20:23:38 From Farha Parveen Padiyathu Puthenkattil Fazal To Everyone:
+	Is each filter a NN ?
+20:23:58 From rama rao To Everyone:
+	but how does the NN decide to learn a filter in CNN vs  not in a regular NN?
+20:24:08 From Christofer Bagge To Everyone:
+	how can we calculate the error if it does not know what it is looking for?
+20:24:28 From rama rao To Everyone:
+	what tells the CNN that it needs to learn a filter to identify edges?
+20:25:02 From Tarachand Sahoo To Everyone:
+	thanks
+20:26:51 From julian Diaz Lombardo To Everyone:
+	Why did we add “0”s to the sides at one step at the convolutional layer ?
+20:29:02 From Charles Sekyiamah To Everyone:
+	Do we set the max number of filters to use when training a model? Is that a hyperparameter?
+20:29:04 From Amlan Chakraborty To Everyone:
+	How to determine specific weights in a flter to find an object ? - In other words  what's the metrics to choose a filter for a specific application?
+20:29:13 From rama rao To Everyone:
+	so do we create a filter with weights already set knowing what to detect - slanted edge - for example and then what does the NN backprop learn?
+20:29:44 From Christofer Bagge To Everyone:
+	but how does it know that it should look for a car do we say this is a car?
+20:29:56 From Dennis Wavomba To Everyone:
+	What's the notion of the 'Loss function' here? Is this still ultimately supervised at the output layer
+20:31:38 From rama rao To Everyone:
+	How do we decide what the convolution layers should be ?
+20:32:07 From rama rao To Everyone:
+	how do we decide what the sizes/channels of the convolution layers should be?
+20:32:26 From Shiraz Aslam To Everyone:
+	what are the use cases of these image learning models other than self driving
+20:34:27 From Hamzeh Nawar To Everyone:
+	Is there a similar approach for 3D models instead of images or frames?
+20:39:07 From rama rao To Everyone:
+	so in this case, are the f1 and f2 set by the NN architect or are f1 and f2 determined by back prop?
+20:40:42 From William Stanislaus To Everyone:
+	Is pooling is dimension reduction ?
+20:40:47 From jude fernandez To Everyone:
+	Its increasing the contrast ?
+20:41:49 From wei wang To Everyone:
+	8 is not that much larger than 7
+20:42:14 From Tarachand Sahoo To Everyone:
+	is it remembering the maximum edge detector in each patch?
+20:42:21 From David Wang To Everyone:
+	what is the number means here?
+20:43:07 From Robert "John" Morse To Everyone:
+	Seems like pooling could misclassify because you lose resolution in some cases?
+20:43:25 From Dennis Wavomba To Everyone:
+	Do we still have the notion of padding in the 3D example?
+20:44:00 From Dennis Anderson To Everyone:
+	If it "forgets" locations during pooling, how can it then identify where in the image the object is? e.g. Often you see it draw a box around what it found - so is that a completely separate operation from the initial classification?
+20:45:16 From Anna Sofia Pasanen To Everyone:
+	And none of them are wrinkled or folded…
+20:45:31 From Thabi Zuma To Everyone:
+	+
+20:46:50 From Basil Hafez To Everyone:
+	Dumb question: confusion matrix == correlation matrix?
+20:47:48 From Eliana WASSERMANN To Everyone:
+	When the confusion network id’s  categories that are confused more than others, Can I do a second CNN only for each group of confused categories ?
+20:48:39 From Yvan Giroud To Everyone:
+	How does a NN model make sure that the learned detectors are not all the same detector (same weights? Is it via the initial randomness of the weights?
+20:48:52 From jude fernandez To Everyone:
+	How do these architectures come about.. are there some rules of thumb that can be used ..
+20:51:21 From Christofer Bagge To Everyone:
+	Du you use label data when training CNNs
+20:52:24 From Tarachand Sahoo To Everyone:
+	but there were no dogs & trains in the actual pictures?
+20:52:53 From Tarachand Sahoo To Everyone:
+	ok
+20:53:40 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: Is this why Captcha asks "click on all traffic light sections"? Are we helping train models? A: CAPTCHA challenges like "click on all traffic light sections" serve a dual role. They not only differentiate humans from automated bots but also contribute to training machine learning models, particularly for tasks like object recognition and image segmentation. When users engage in these challenges by identifying and clicking on specific objects or image components (e.g., traffic light sections), they provide valuable labeled training data for machine learning algorithms. This data helps train models to recognize and categorize objects within images, which is essential for various computer vision applications. CAPTCHAs effectively crowdsource the annotation of extensive datasets to enhance machine learning model accuracy while simultaneously verifying the authenticity of human users. It's a clever approach that combines security measures with data labeling for AI model training.
+20:54:06 From Richard Mayebo To Everyone:
+	Ok
+20:54:08 From Hafiza Mahmood To Everyone:
+	would be ok
+20:54:08 From Heber Rodriguez To Everyone:
+	That’s a good one 😄
+20:54:09 From Jorge A Ramirez Icaza To Everyone:
+	YES+
+20:54:10 From Shiraz Aslam To Everyone:
+	still dedectible then only CNN is powerful
+20:54:11 From Phuong Tran To Everyone:
+	Why do certain websites require us humans to select images as a verification that we're not robots? is it because the CNN/robots are not as efficient and as good in detecting the object?
+20:54:11 From Ranganath Samudrala To Everyone:
+	Ok.. with pooling
+20:54:15 From Christofer Bagge To Everyone:
+	probably it would work
+20:54:15 From jude fernandez To Everyone:
+	It might be ok.. since its detecting edges first
+20:54:16 From Colin Marks To Everyone:
+	work
+20:54:20 From Gibert Kennedy To Everyone:
+	I think the edges would still be similar enough so it'd be ok
+20:54:20 From Tim Gospodinov To Everyone:
+	ok
+20:54:22 From Stacy Olson To Everyone:
+	a
+20:54:23 From Melody Glasgow To Everyone:
+	I think it would work
+20:54:23 From luis vazquez To Everyone:
+	It works
+20:54:23 From Ariel Parets To Everyone:
+	I am guessing no
+20:54:25 From Heber Rodriguez To Everyone:
+	It should work
+20:54:27 From Daniel Anthony To Everyone:
+	It will work…doesn’t matter if upside down
+20:54:29 From William Stanislaus To Everyone:
+	It should have worked..
+20:54:29 From Roman Torres To Everyone:
+	the patterns are the same so yes it should work
+20:54:30 From Leo Tishin To Everyone:
+	Probably not, shapes should have references and they can coincide
+20:54:30 From Darling Yaj To Everyone:
+	yes
+20:54:30 From Phuong Tran To Everyone:
+	ues
+20:54:32 From Stacy Olson To Everyone:
+	not work well
+20:54:33 From Richard Mayebo To Everyone:
+	Should work because of pooling
+20:54:33 From Basil Hafez To Everyone:
+	Yes it should still work, edge filters still work
+20:54:33 From Leonid Blokhin To All Panelists:
+	It shod be less precisse
+20:54:34 From Shiraz Aslam To Everyone:
+	a good cnn should work
+20:54:34 From Satish Mynam To Everyone:
+	Works lithesome added intellligence
+20:54:40 From Charles Sekyiamah To Everyone:
+	it would not work during pooling
+20:54:43 From Dennis Wavomba To Everyone:
+	For symmetric images perhaps yes
+20:54:46 From wei wang To Everyone:
+	works, based on my personal experience to make sure I am human :)
+20:54:48 From Arnetrice Smith To Everyone:
+	I think so
+20:54:49 From Robert "John" Morse To Everyone:
+	Yes but more expensive computation
+20:54:50 From Thabi Zuma To Everyone:
+	I should work cause it doenst look at the entire picture
+20:54:51 From William Stanislaus To Everyone:
+	It is looking for features, not the rotation itself
+20:54:51 From Leonid Blokhin To All Panelists:
+	Also issue maybe scale and brightness
+20:54:58 From Stacy Olson To Everyone:
+	but is a good augmented training set
+20:55:07 From Sarfaraz C To Everyone:
+	It shd work
+20:55:29 From Tina Spencer To Everyone:
+	it depends on whether or not any item has ever been in a different position
+20:55:54 From Shiraz Aslam To Everyone:
+	I think by looking at the out put the model was not trained properly
+20:56:00 From Walter Leo To Everyone:
+	because its square?
+20:56:10 From William Stanislaus To Everyone:
+	Looking for a perfect square or rectangle
+20:56:16 From Stacy Olson To Everyone:
+	the TV stays the same shape
+20:56:17 From Colin Marks To Everyone:
+	Horizontal and vertical edges change
+20:56:21 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: Can we use the Same Convolution layers (Feature learning) and then change the Fully connected layer to build different classification models? A: Yes, you can use pre-trained convolutional layers (feature extraction layers) and modify the fully connected layers to create different classification models. This approach, known as transfer learning, is a powerful technique in deep learning. Pre-trained convolutional layers have learned valuable features from a vast dataset, like ImageNet, enabling you to leverage this knowledge for various tasks. You build customized fully connected layers on top of the pre-trained base, tailoring the model to your specific classification problem. Optionally, you can fine-tune the pre-trained layers to adapt them to your task. This approach is advantageous as it accelerates convergence and enhances performance, particularly when you have limited task-specific data.
+20:56:44 From Dennis Anderson To Everyone:
+	TV looks like a box with horizontal / vertical edges. If training didn't include rotated tvs it wouldn't learn to identify them.
+20:56:49 From Robert "John" Morse To Everyone:
+	But it will at 90
+20:56:55 From Robert "John" Morse To Everyone:
+	180 and 270
+20:57:02 From Tarachand Sahoo To Everyone:
+	for TV it will detect every 90 deg
+20:57:40 From Ariel Parets To Everyone:
+	The less symmetry, the harder to identify
+20:57:46 From jude fernandez To Everyone:
+	Training with more images
+20:57:56 From Dennis Anderson To Everyone:
+	Training with rotated images.
+20:57:57 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: How do you decide the patch size? A: Selecting the filter size in a convolutional neural network (CNN) depends on factors such as data characteristics, model complexity, and task requirements. Smaller filter sizes (e.g., 3x3 or 5x5) are suited for fine-grained features, while larger ones (e.g., 7x7 or 9x9) capture more complex patterns. Filter size affects spatial resolution, with smaller filters preserving fine details. Experimentation, guided by domain knowledge, helps determine the best fit. Task-specific considerations, like object detection or classification, can influence the choice. Architectural features and use of pooling and stride also impact the effective filter size. Ultimately, filter size selection involves striking a balance between feature capture and computational efficiency.
+20:57:58 From William Stanislaus To Everyone:
+	Filter size lesser
+20:57:59 From Christofer Bagge To Everyone:
+	mor test data or manipulate the pictures
+20:58:00 From Leonid Blokhin To All Panelists:
+	We can rotate it when training
+20:58:01 From Jorge A Ramirez Icaza To Everyone:
+	Training
+20:58:02 From Tina Spencer To Everyone:
+	include rotated items in the training set/ rotation matrice as a layer
+20:58:02 From jude fernandez To Everyone:
+	With different orientations
+20:58:05 From Robert "John" Morse To Everyone:
+	Captcha
+20:58:10 From Heber Rodriguez To Everyone:
+	It was overfitted.
+20:58:11 From Jeff Stearns To Everyone:
+	Correct orientation of image
+20:58:14 From Anna Sofia Pasanen To Everyone:
+	Training with the same set but duplicates in different positions
+20:58:40 From Ariel Parets To Everyone:
+	I am guessing we use different variables in addition to these, such as color and texture and the combination of variables= shitzu
+20:58:49 From Roman Torres To Everyone:
+	add more layers
+20:59:10 From William Stanislaus To Everyone:
+	Basically manipulated real image such as rotation and other manipulation
+20:59:16 From wei wang To Everyone:
+	rotate your image and collect data
+20:59:25 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: Is this the same technology for facial recognition? I mean, first you train yourself to recognize faces and then a particular face, something like that? A: acial recognition technology differs from convolutional neural networks (CNNs). Facial recognition focuses on detecting facial landmarks and learning spatial relationships among them during training. These models specialize in recognizing faces and individuals. While CNNs are used for general image feature extraction and classification, facial recognition systems uniquely identify faces. Some use one-shot learning techniques to recognize specific individuals with minimal training data. Both technologies involve training models to recognize patterns in images, but facial recognition's complexity lies in identifying faces and their distinctive attributes, requiring additional techniques for detection, feature extraction, and matching that go beyond CNNs' capabilities for general object recognition.
+20:59:36 From Christofer Bagge To Everyone:
+	so we have label data?
+20:59:51 From Jay Madduru To Everyone:
+	Can we not use rotation for testing and using the peaks to determine
+21:00:02 From Michael Gignac To Everyone:
+	Have we been the ones helping training neural networks all these years with Captchas?
+21:00:09 From Michael Gignac To Everyone:
+	helping to train*
+21:00:17 From Gibert Kennedy To Everyone:
+	haha, that's going to detect skies
+21:00:49 From wei wang To Everyone:
+	look for wheels !!
+21:01:12 From Kristin Roper To Everyone:
+	thank you, great class!
+21:01:50 From Tarachand Sahoo To Everyone:
+	Thank you !! Great Class!
+21:02:08 From BOOGYEONG ZOO To Everyone:
+	Wondering how to solve Chihuahua or Muffin problem
+21:02:16 From [GL Mentor] Shubham Sharma To Everyone:
+	Q: is confusion matrix == correlation matrix? A: No, a confusion matrix and a correlation matrix are not the same, and they serve different purposes. A confusion matrix is primarily used in the field of classification to evaluate the performance of a machine learning model. It is a table that provides a summary of the model's predictions and their actual outcomes. A correlation matrix, on the other hand, is a table that displays the pairwise correlations between variables in a dataset. Each cell in the matrix contains a correlation coefficient that quantifies the strength and direction of the linear relationship between two variables.
+21:02:24 From John Holubek To Everyone:
+	Thank you!
+21:02:25 From Stacy Olson To Everyone:
+	@gilbert - did you work on the old models for training delivery drones where the first layer was sky/no sky
+21:02:27 From Jeff Stearns To Everyone:
+	Thanks Professor, great class!
+21:02:45 From Ariel Parets To Everyone:
+	Can models identify what is happening in an image? Instead of just identifying separate objects, are we able to train the model to identify a possible story or situation contextualized from an image? For example, instead of identifying "there is a dog and there is a ball and there is grass" all separately, can the model identify what is happening, "The dog is chasing the ball"?
+21:02:51 From Gibert Kennedy To Everyone:
+	reminds me of the NN that was trained to classify masses as malignant or benign, and it started looking for rulers since all the example images that were labeled as malignant were routinely photographed with a ruler for scale.
+21:02:53 From Arnetrice Smith To Everyone:
+	I enjoyed the lecture. Thanks Professor
+21:03:21 From Gibert Kennedy To Everyone:
+	thanks professor, this was a great lecture
+21:03:27 From Deepthi Kailas To Everyone:
+	Thank you
+21:03:30 From Robert "John" Morse To Everyone:
+	Thanks!
+21:03:31 From Tim Gospodinov To Everyone:
+	Thank you!
+21:03:32 From Neha Upadhyay To Everyone:
+	Thank you!
+21:03:36 From wei wang To Everyone:
+	that is a lot of computing..... how quick your computer have to be ?
+21:03:39 From Richard Mayebo To Everyone:
+	Thank you!
+21:03:39 From Joseba Ruiz To Everyone:
+	Thank you!
+21:03:40 From Jay Madduru To Everyone:
+	Fantastic lecture
+21:03:41 From Stacy Olson To Everyone:
+	thanks!!
+21:03:42 From Jay Madduru To Everyone:
+	Thank u
+21:03:42 From Roman Torres To Everyone:
+	Thanks a lot professor
+21:03:45 From Erika To To Everyone:
+	thanks
+21:03:45 From Ronald Briggs To Everyone:
+	Thanks!
+21:03:48 From jude fernandez To Everyone:
+	Thank you, very fun lecture!
+21:03:48 From wei wang To Everyone:
+	thanks a lot
+21:03:50 From Jorge A Ramirez Icaza To Everyone:
+	thank you
+21:03:51 From Chris Glenn To Everyone:
+	Thank you!
+21:03:52 From Laurent Vernet To Everyone:
+	Thank you professor !!
+21:03:55 From Adrian Martin To Everyone:
+	thank you professor
+21:03:57 From Tina Spencer To Everyone:
+	thank you!
+21:03:58 From James Schultz To Everyone:
+	thank you
+21:03:59 From Eliana WASSERMANN To Everyone:
+	Very good and interesting lecture, thank you
+21:04:13 From Idriss Kontchou To Everyone:
+	Thank you professor!
+21:05:05 From Yvan Giroud To Everyone:
+	In the car = blue sky example, how would cropping remove that issue? Wouldn't we label a cropped blue sky as "being a car" (e.g. coming from an original car picture) in th etraining dataset?
+21:05:43 From jude fernandez To Everyone:
+	Thank you
+21:06:22 From Vithy Vithyanandan To Everyone:
+	Thanks a lot Prof Jegelka. Lots of material covered.
+21:06:31 From Austin Paul Itteyra To Everyone:
+	Thankyou.
+21:12:28 From Ranganath Samudrala To Everyone:
+	In back propagation, are outputs of last (Nth) layer fed back into first layer or into N-1 layer?
+21:14:49 From Charles Sekyiamah To Everyone:
+	You mentioned padding to control the speed with which image is reduced while we learn the features.  I would have thought that you would be magnifying instead of padding (padding gives the sense of shrinking the image Faster). Or am I thinking. About it wrongly?
+21:16:33 From wei wang To Everyone:
+	what if your images are moving ?
+21:16:42 From Pedro Coutinho Ferreira To Everyone:
+	Thank you very much for the lecture, I need to leave.
+21:17:04 From Christofer Bagge To Everyone:
+	how do we go from images to video and in real time?
+21:17:28 From Heber Rodriguez To Everyone:
+	Can we apply CNN on sound waves?
+21:17:31 From Swaramita Chaudhuri To Everyone:
+	Are CNNs related to computer vision in the way it helps in pattern recognition using images?
+21:18:29 From Carl Brown To Everyone:
+	Will we have any examples using LIDAR with object recognition, and depth perception?
+21:20:13 From Tasnim Niger To Everyone:
+	How CNN can be used in NLP problem?
+21:20:21 From Phuong Tran To Everyone:
+	that's a "confused" question
+21:23:17 From Alok Sharma To Everyone:
+	Thank you Stefanie. It was a really good lecture. Have to go to work. See you in next lecture.
+21:24:11 From Ariel Parets To Everyone:
+	Thank you!
+21:25:07 From Sagar Manchanda To All Panelists:
+	Is it possible to visualize what second (or later) stages of convolution/ReLU and pooling outputs look like?
+21:26:17 From Prashanth Sivadasan To Everyone:
+	In CNN....do you have these popular base models that you use to then create more contextual model. For example, a model that detects car, to then train a model to identify a certain brand/model of the car?
+21:27:14 From Ranganath Samudrala To Everyone:
+	In practice notebooks, Why do we see activation function being applied to input and output nodes and NOT just hidden nodes?
+21:27:32 From Christofer Bagge To Everyone:
+	can you have 3D wire frames as pictures and it will learn that a car is really a 3D object an sometimes in 2D images
+21:28:17 From Christofer Bagge To Everyone:
+	and video of a car is still a car
+21:30:04 From Swaramita Chaudhuri To Everyone:
+	Thank you Prof. Jegelka, it was an extremely informative and interesting lecture!
+21:30:38 From Heber Rodriguez To Everyone:
+	Thank you so much for the lecture, professor and mentors.
+21:30:45 From Jeff Stearns To Everyone:
+	Thanks Professor! Great lecture and Q&A!
+21:30:45 From Deepthi Kailas To Everyone:
+	Thank you
+21:30:50 From Yvan Giroud To Everyone:
+	Thank you
+21:30:50 From Tina Spencer To Everyone:
+	Thank you!
+21:30:50 From Arockiaraj (Raj) Pangaraj To All Panelists:
+	Thank you
+21:30:51 From Tim Gospodinov To Everyone:
+	Convolution reverb
+21:30:53 From Rosy Nguyen To Everyone:
+	Thank you
+21:30:53 From Ariel Parets To Everyone:
+	Thank you Professor!
+21:30:54 From Ronald Briggs To Everyone:
+	Thanks. Great class and session!
+21:30:55 From Erika To To Everyone:
+	thank zou
+21:30:55 From Miriam Txintxurreta To Everyone:
+	Thanks
+21:30:56 From Tim Gospodinov To Everyone:
+	Thank you!
+21:30:58 From José Suárez Sarrazin To Everyone:
+	thank you!
+21:30:58 From Anna Sofia Pasanen To Everyone:
+	Thanks 🙂
+21:30:59 From Sagar Manchanda To All Panelists:
+	Thank you
+21:30:59 From Laurent Vernet To Everyone:
+	Thank you !!!
+21:31:00 From Joseba Ruiz To Everyone:
+	See you on friday, thank you
+21:31:00 From Louis P To Everyone:
+	Thanks everyonr
+21:31:00 From Richard Mayebo To Everyone:
+	Thanks! Fascinating
+21:31:02 From Christofer Bagge To Everyone:
+	Thank you professor
+21:31:02 From Roman Torres To Everyone:
+	Thanks
+21:31:04 From Julia Liu To Everyone:
+	Great lecture, thank you!
+21:31:05 From Satish Mynam To Everyone:
+	Thanks
+21:31:07 From Nabin Timsina To Everyone:
+	Thank you.
+21:31:07 From rama rao To Everyone:
+	Thanks
+21:31:08 From Samantha Ramirez To All Panelists:
+	Thank you!
+21:31:10 From Enid Katorobo Bashengezi To Everyone:
+	Thanks
+21:31:12 From Zara Mubeen To Everyone:
+	Thanks

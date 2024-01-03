@@ -1,0 +1,773 @@
+19:58:22 From Thierry Azalbert To Everyone:
+	Good evening All from Kuala Lumpur!
+19:58:24 From Jose Rojas To Everyone:
+	Good morning!
+19:58:29 From Hassan Alsawadi To Everyone:
+	Hi, Professor Stefanie. I hope you’re having a nice Friday
+19:58:29 From Varuni Rao To Everyone:
+	Good morning
+19:58:33 From Navin Kumar To Everyone:
+	Good Morning!
+19:58:34 From Han H To Everyone:
+	Good morning!
+19:58:34 From Sophia Heller To Everyone:
+	Good morning!
+19:58:35 From Samit Thakur To Everyone:
+	Good morning, afternoon and evening!
+19:58:36 From Rahul Kumar To Everyone:
+	Good morning
+19:58:37 From Jacob Santos To All Panelists:
+	Good morning
+19:58:43 From Arturo Gudiño Chong To Everyone:
+	Good morning!
+19:58:46 From Jason Cuevas To Everyone:
+	Good Morning
+19:58:46 From Iwan Müller To Everyone:
+	Good afternoon from Switzerland
+19:58:47 From Hassan Alsawadi To Everyone:
+	Almost Good evening everyone, almost.
+19:58:48 From Tripureswar Chattopadhaya To Everyone:
+	Good Evening from Saudi Arabia
+19:58:50 From Poonam Gupta To All Panelists:
+	Good Morning
+19:59:04 From Faculty (Olympus) To Everyone:
+	Hello everyone! Happy Friday!
+19:59:04 From Eric Bonney To Everyone:
+	Good Morning everyone
+19:59:10 From Johnson Oguntuase To Everyone:
+	Good morning from Mississippi
+19:59:20 From Shravan Bharathulwar To Everyone:
+	Good morning
+19:59:20 From Jens Müller To Everyone:
+	Good afternoon from Hamburg :-)
+19:59:36 From Destin NSARHAZA To Everyone:
+	Good Afternoon
+19:59:41 From Faisal M To All Panelists:
+	Good morning all!
+19:59:50 From Kalyan Gorrepati To Everyone:
+	Good Morning from Virginia !
+19:59:56 From Louis Reid To Everyone:
+	Good morning from Newport, RI
+20:00:01 From Fernando Matias Gonzalez To Everyone:
+	Good evening everyone!
+20:00:02 From Herman Gothe To Everyone:
+	Good Morning from Santiago, Chile
+20:00:10 From Olamide Olowoyo To Everyone:
+	Good morning everyone!
+20:00:12 From Frederik Vanaverbeke To Everyone:
+	Morning, colleagues!
+20:00:17 From Adithya Parvatam To Everyone:
+	Good Morning Everyone
+20:00:24 From alberto chico To Everyone:
+	Good morning
+20:00:25 From Michael Wahnich To Everyone:
+	Afternoon from "sunny" London
+20:00:32 From Marisol Santillan To Everyone:
+	Good afternoon
+20:00:41 From David Zambrano To Everyone:
+	Hello from actual sunny Bogotá - Col
+20:00:42 From Awad Alomari To Everyone:
+	Hello
+20:00:46 From Fausto Correa To All Panelists:
+	Good morning
+20:02:33 From Shel Randall To Everyone:
+	Good morning from Northern California, where AI weather predictors always get it wrong!
+20:02:46 From selvaraj durairaj To Everyone:
+	good Morning!
+20:03:08 From drashti darji To Everyone:
+	Good Morning
+20:03:22 From Julie Mann To Everyone:
+	Aho Mitakuye Oyate  (We are all related.) 😊
+20:03:58 From Erin Copeland To Everyone:
+	Good morning
+20:07:22 From alberto chico To Everyone:
+	in the prelectures it explains that you can encode cities and cities closer to each other are closer together because of geography. how do you chose the encoding? maybe you also have a relationship of cities not only because of geography but also makes big cities closer. and big cities closer to each other even more alike, how do you chose where to put a one or a 0 for each value of the encoding?
+20:09:18 From Shel Randall To Everyone:
+	@Alberto - can you make "population" part of the "distance" calculation?
+20:09:52 From Shel Randall To Everyone:
+	More like "inverse population" so bigger is closer
+20:10:24 From Julie Mann To Everyone:
+	@alberto are you referencing suburban cities of larger metropolis areas:  Ex:  Los Angeles  > Calabasas > Burbank > Monticeto?
+20:11:14 From alberto chico To Everyone:
+	I imagine something like that but how does the encoder get different classifiers? @shel 
+	@Julie exactly
+20:11:28 From Shel Randall To Everyone:
+	So when our local weather people use a model to predict the weather, they are very likely using a "pre-trained" system … not a system that was necessarily trained for Nor Cal … ?
+20:13:25 From Shel Randall To Everyone:
+	If your a company that has build a large effective encode, you can just license it out to whoever
+20:13:29 From Bas van Andel To Everyone:
+	How does one gain access to a pretext model? Doesn't that assume that the pre-trained NN is made available first?
+20:13:30 From Raj Desikavinayagompillai To Everyone:
+	What does “does like, neural, dislike “ here means
+20:13:54 From Yan Li To All Panelists:
+	Can we have an actual example to understand the concept?
+20:14:07 From Julie Mann To Everyone:
+	Im still confused on parameters: weights and bias' from 0 to 10MM (huge range), and how these values in epochs are determined.  Is it a derivative iterative method not shared?
+20:14:07 From Leandro Mbarak To Everyone:
+	the general encoder and fine tuning, sound like LLM
+20:14:13 From Hendrik Ludolph To Everyone:
+	How far apart semantically can / should be w and w' ?
+20:14:33 From Mamta B To All Panelists:
+	Is it a typo Neutral and not Nueral ?
+20:14:49 From Raj Desikavinayagompillai To Everyone:
+	Classical like, classical neutral, classical dislike
+20:15:00 From Raj Desikavinayagompillai To Everyone:
+	Or music like, neutral, dislike
+20:15:08 From Herman Gothe To Everyone:
+	Where do I find the encoder ? Can I buy it?
+20:15:47 From Shel Randall To Everyone:
+	@Herman - I think they are next to the milk at the grocery store. :)
+20:16:02 From Daniel Gibson To Everyone:
+	Q: For something like music, where a classical track is substantially longer than more popular music types, is just a subset of the track sampled and processed?
+20:16:03 From Sara Mohseni To Everyone:
+	W is our neural network model in here?
+20:16:13 From Santiago Arroyo To Everyone:
+	Is the input X different on pre-training and fine tuning?
+20:16:14 From Herman Gothe To Everyone:
+	If encoder are reusable, are they available as open source?
+20:16:20 From Thierry Azalbert To Everyone:
+	@Herman. No need to buy, some of the ImageNet winners are available as sub-libraries in Keras. You have an example in the notebook on Brain Tumor detection.
+20:17:18 From Shel Randall To Everyone:
+	I think there will be a day when you will have to "subscribe" to an encoder system
+20:17:32 From Frederik Vanaverbeke To Everyone:
+	So, both pre-training and finetuning are supervised?
+20:17:48 From Javier Eduardo Marquez Orjuela To Everyone:
+	So Finetuning could be a non-linear function?
+20:18:22 From Daniel Gibson To Everyone:
+	@Shel, pretty sure that is already the case with CODECS; just the companies, not customers, are the direct payers (then passed on to the customer).
+20:18:46 From alberto chico To Everyone:
+	How does the proces of encoding look like? what tools can you use? can build an encoder manually?
+20:18:56 From Lev Sukherman To Everyone:
+	Basically you buy basic LLM tune it for your needs.
+20:19:35 From Seher Rehan To Everyone:
+	Can we fine-tune those models?
+20:19:47 From Samit Thakur To Everyone:
+	Can't the encoder's step 1 prediction outputs (classical, hip hop , rock, metal etc) and the step 2 classification outputs (like, neutral and dislike) be the same?
+20:19:48 From Shel Randall To Everyone:
+	Like the way Monsanto "owns" the DNA for their ag seeds so farmers have to pay every year, instead of propagating the plants themselves.
+20:20:28 From Shel Randall To Everyone:
+	@Daniel - true
+20:21:19 From Thierry Azalbert To Everyone:
+	@Julie: this video helped me understand how weights and biases are calculated in practice. In 32minutes, it gives very clear explanations of the math and shows how to implement from scratch in Python. https://www.youtube.com/watch?v=pauPCy_s0Ok&t=1667s
+20:22:59 From Yasir Maqbool To Everyone:
+	In the example the outputs are entirely different (classical...vs Like,neutral..) are the purpose of both output same?
+20:22:59 From alberto chico To Everyone:
+	in music can the rythm and melody be translated into part of the encoder?
+20:23:38 From Neha Purohit Mishra To All Panelists:
+	Is encoder different for sounds and text ? But predictor can be same ?
+20:23:41 From Sophia Arellano To Everyone:
+	can it become to a prediction problem rather to a classification?
+20:24:07 From Shel Randall To Everyone:
+	@Yasir - to the AI all the music sounds like the same "human noise"
+20:24:47 From Sophia Arellano To Everyone:
+	like learning from material failure (images) and then predict future failure?
+20:26:00 From Samit Thakur To Everyone:
+	@Dr Shel - depends on who is plying the music. My music sounds the same to both the AI and humans - as noise :)
+20:26:17 From Shel Randall To Everyone:
+	@Samit - 😄
+20:27:40 From Shel Randall To Everyone:
+	Long ago, everything on the net was free and open. Now it's all ads. Imagine future purchased AI encoders building product placement into their results.
+20:27:50 From Varuni Rao To Everyone:
+	Q: So, pretext model has to be a supervised model? Can it be unsupervised as well? Is transfer learning specific only to neural networks?
+20:28:16 From Raj Desikavinayagompillai To Everyone:
+	How does the playback rate 1.0 , 1.25, 1.5, 1.75, 2.0 will alter this training of music playing
+20:29:08 From Shel Randall To Everyone:
+	@Raj - playback rate would be part of the data used in the weighting
+20:29:23 From Raj Desikavinayagompillai To Everyone:
+	👍
+20:29:30 From Jens Müller To Everyone:
+	IMGENET says that about the usage: The data is available for free to researchers for non-commercial use. Do you have other sources as well?
+20:29:37 From Shel Randall To Everyone:
+	Self-supervised = Skynet.
+20:29:47 From Lev Sukherman To Everyone:
+	Is self-supervised learning similar to clustering?
+20:30:31 From Neha Purohit Mishra To All Panelists:
+	Clustering and label data ?
+20:30:39 From Vikas Srivastava To Everyone:
+	@Raj @Shel - don’t you think snapshots of the audio will have to be used for learning? It does not make sense, at least to me, to learn while the audio is playing. I think it would have to be paused regularly to learn the pattern. Agree?
+20:31:41 From Shel Randall To Everyone:
+	@vikas - I'd think you'd do with the music what she's talking about with images right now.
+20:33:31 From drashti darji To Everyone:
+	Can we use correlation on this image to detect ?
+20:33:51 From Frederik Vanaverbeke To Everyone:
+	But... you start from a complete picture of a cat, right?
+20:34:06 From Raj Desikavinayagompillai To Everyone:
+	@vikas it is the speech recognition api to identify the words etc. I presume when u say snapshot it is binary codes of the audio file?
+20:34:35 From Raj Desikavinayagompillai To Everyone:
+	Will u use edge detectors to detect the positions of the images
+20:34:49 From Thierry Azalbert To Everyone:
+	Question: in the jigsaw case, the NN does not give a label but only learns the "feature detection" parameters. Is this correct?
+20:35:10 From Hassan Alsawadi To Everyone:
+	Is that similar to the bag of words and skip-grams tasks?
+20:35:20 From drashti darji To Everyone:
+	Can you please show the full example with full image ?
+20:35:45 From Jens Müller To Everyone:
+	Do you have an example project for object detection available?
+20:35:57 From Vikas Srivastava To Everyone:
+	@shel - I think I agree. Still some question about how it would work for music but conceptually I’d agree.
+20:36:28 From alberto chico To Everyone:
+	As the model continues its learning process, new features, weights, and labels emerge?
+20:36:49 From Dom Lazara To Everyone:
+	Could it be more useful to give the NN a complete scene that is partitioned (like a jigsaw puzzle) and then have the NN complete the whole scene, much like a person does a real jigsaw puzzle?
+20:36:49 From Valeria Herrera To All Panelists:
+	What’s the input? Both patches and the position of the face?
+20:36:51 From Varuni Rao To Everyone:
+	Again, the o/p are probabilities at each position, right?
+20:36:56 From Thierry Azalbert To Everyone:
+	Question: would the "jigsaw" approach also work with words in a sentence?
+20:36:58 From Shibani Sanan To All Panelists:
+	There is a human involved in labeling the positions. So how is this self supervised?
+20:37:26 From drashti darji To Everyone:
+	So the label will lies between 0 and 1 ?
+20:37:27 From Mamta B To Everyone:
+	Find the school bus example during your CAPTCHA is a human example of doing the same.
+20:37:39 From ashish kumar To Everyone:
+	what if the first patch is not the center patch?, i.e. if the face patch is not a face patch, but something else
+20:38:25 From Shel Randall To Everyone:
+	Mamta - and you know those Captcha exercises are used to train AI's.
+20:38:35 From Mamta B To Everyone:
+	Exactly @Shel
+20:38:46 From Tripureswar Chattopadhaya To Everyone:
+	The second row of Windows are having differences. How does NN understand that ?
+20:38:47 From Shel Randall To Everyone:
+	diabolical
+20:39:10 From Sophia Arellano To Everyone:
+	how it learn the correct position?
+20:40:22 From Mamta B To Everyone:
+	Images with overlayed items would be interesting to patch up 🙂
+20:40:44 From Mamta B To Everyone:
+	Adobe Firefly is a specialist in that area.
+20:41:14 From Daniel Gibson To Everyone:
+	Pots go in the cupboard...
+20:41:38 From Ricardo Vides To Everyone:
+	what is the math behind the image / text completion pre tasks?
+20:41:55 From Shel Randall To Everyone:
+	what if the blank = "a town in England"
+20:41:59 From Raj Desikavinayagompillai To Everyone:
+	Google email or search button detects what is the sentence u want to type
+20:42:20 From Raj Desikavinayagompillai To Everyone:
+	When u start typing
+20:42:31 From Daniel Gibson To Everyone:
+	@Shel, two “a’s”
+20:42:42 From Shel Randall To Everyone:
+	@Daniel - lol … yeah
+20:42:55 From drashti darji To Everyone:
+	@mamta , yes, we need to find overlap images problem solving examples for this.	i am excited to do hands-on practical on this topic.
+20:42:55 From Paula Valverde To Everyone:
+	Here (self-supervised) is important to remove the effect Shortcut features too (like watermarks..), isn’t it?
+20:43:01 From Shel Randall To Everyone:
+	blank = "state of denial"
+20:43:21 From Thierry Azalbert To Everyone:
+	PROMPT : In the first book Harry Potter and the Philosopher's Stone, Harry lives in a .....?		ChatGPT's answer:	In the first book of the Harry Potter series, titled "Harry Potter and the Philosopher's Stone" (or "Harry Potter and the Sorcerer's Stone" in the United States), Harry lives in a cupboard under the stairs at the Dursleys' house. The Dursleys, who are Harry's aunt and uncle, treat him poorly and force him to live in a small and uncomfortable space. This changes for Harry when he receives a letter inviting him to attend Hogwarts School of Witchcraft and Wizardry, and he learns about his true identity as a wizard.
+20:43:54 From Shel Randall To Everyone:
+	@Thierry - geez
+20:44:00 From drashti darji To Everyone:
+	The label will distributed according to the patches ?
+20:44:03 From Javier Eduardo Marquez Orjuela To Everyone:
+	The next Word prediction could be non-linear, there will be more choices if the context of the sentence is different
+20:44:05 From Awad Alomari To Everyone:
+	Can you please give real pretext examples used for text predictions ,,, are we talking about the LLMs?
+20:44:05 From Mamta B To Everyone:
+	Yes @Paula that is where ownership of image comes to play to remove watermarks.
+20:44:19 From Daniel Gibson To Everyone:
+	@Thierry is there a “laconic” mode?
+20:44:42 From Yan Li To All Panelists:
+	What does Gen AI or LLM different from regular NN in terms of how to design the model?
+20:44:51 From Vikas Srivastava To Everyone:
+	Can we please have the slide deck that you are using today @Dr. Jegelka. The deck that is available to us seems to be an older version of the deck.
+20:45:12 From Yan Li To All Panelists:
+	+1
+20:45:36 From Mohammad El Mougi To Everyone:
+	For the patch example what are we training the model to do afterwards? To predict cats in images or to predict where an ear position is?
+20:45:38 From Shel Randall To Everyone:
+	@Daniel - I'd think that's where reading facial expressions helps
+20:45:57 From Varuni Rao To Everyone:
+	@Dr. Jegelka, could you please share resource to read up more on transfer learning
+20:46:12 From Dom Lazara To Everyone:
+	Even if the NN has read the exact Harry Potter book  from the example, how do we know the NN would remember this exact fact of where he lived? Does the NN remember everything from a written work that it reads? I would think it should forget much of the book much like a human forgets after reading something.
+20:46:17 From Thierry Azalbert To Everyone:
+	@Daniel:	PROMPT: In the first book Harry Potter and the Philosopher's Stone, Harry lives in a .....? Please answer in laconic mode.	ChatGPT answer: Cupboard.
+20:46:28 From Daniel Gibson To Everyone:
+	@Thierry awesome.
+20:46:50 From Shel Randall To Everyone:
+	that's cool
+20:47:09 From Julie Mann To Everyone:
+	I assume order of words have weights, therefore the NN can recall the location accurately.
+20:47:16 From Shel Randall To Everyone:
+	ya, the slides online don't have a Harry Potter reference.
+20:47:29 From alberto chico To Everyone:
+	How do you build new encoders? what is the process behing of it?
+20:48:34 From Tripureswar Chattopadhaya To Everyone:
+	How will it predict an unknown picture ?
+20:48:49 From Vikas Srivastava To Everyone:
+	Thanks, the annotated deck would be better.
+20:49:25 From Bas van Andel To Everyone:
+	Is masking used with segmentation only?
+20:50:20 From Thierry Azalbert To Everyone:
+	@Daniel: this video + notebook helped me understand how to prompt ChatGPT.	https://www.youtube.com/watch?v=H4YK_7MAckk	ChatGPT Prompt Engineering for Developers: A short course from OpenAI and DeepLearning.AI
+20:50:34 From Seher Rehan To Everyone:
+	Is it like clustering?
+20:50:35 From Daniel Gibson To Everyone:
+	@Thank you, Thierry.
+20:50:45 From Paula Valverde To Everyone:
+	@Mamta B, Sure. I meant the feature extractor failing to learn useful representations because watermarks, color errors and so on. The ownership concept that you mention is another interesting approach.
+20:51:06 From Laura G To All Panelists:
+	does this mean that ontologie tools like protege are no longer used?
+20:51:33 From Laura G To All Panelists:
+	Arent those pictures the same but with rotation?
+20:51:57 From drashti darji To Everyone:
+	As it works like cluster , can we make more clear by using T-sne to make a group of classes ?
+20:52:44 From Leandro Mbarak To Everyone:
+	this is the same as when we use cosine similarity within embeddings in LLMs?
+20:53:34 From alberto chico To Everyone:
+	How can you choose the size of the encoder?
+20:53:35 From Julie Mann To Everyone:
+	Curious what the outcome would be if the monkey were on all 4's, in a similar stance to the dog, where facial features become the main difference.
+20:54:29 From Shel Randall To Everyone:
+	@Julie - then it would guess a dog + monkey combination = "donkey"
+20:55:40 From Julie Mann To Everyone:
+	@shel did you mean 'dogkey'  ...
+20:56:09 From Valeria Herrera To All Panelists:
+	How do we create a semantic input?
+20:56:38 From Daniel Gibson To Everyone:
+	I’m sure there is some resolution-like feature limitation to these models.  Using biological samples of mimicry would be interesting from a metrology standpoint.
+20:56:39 From alberto chico To Everyone:
+	Do you know by the features  and patterns detected
+20:56:47 From Shel Randall To Everyone:
+	@Julie - whose ever heard of a dogkey? That's just silly. 😊
+20:57:19 From Laura G To All Panelists:
+	How do we generate the examples for the data augmentation? Can they be automatically generated?
+20:57:34 From Julie Mann To Everyone:
+	@shel AI NN created a class of animal prior unknown.  a new unknown-unknown. 🤪
+20:57:44 From Mikael Friederich To Everyone:
+	isn't supervised and unsupervised different though? it seems to me the supervised model outputs a class w/ probability, e.g., dog, vs. the unsupervised will output similar images from the same class, wo/ identifying which class it is. Depending on the problem we're trying to solve that still might not be good enough
+20:58:08 From Mamta B To Everyone:
+	Source of image making influences positive pairs isn’t it? For example sapiens backdrop
+20:58:21 From Julie Mann To Everyone:
+	@Mikael good observation
+20:58:25 From Daniel Gibson To Everyone:
+	@Mikael, yes.  Unsupervised = groups w/o a name.  Supervised = groups with names… if I recall.
+20:58:54 From Mamta B To Everyone:
+	For example Camera features influences the features generated - Domain knowledge.
+20:59:29 From Mikael Friederich To Everyone:
+	Okay that makes sense
+20:59:40 From Jeremy Boccabello To Everyone:
+	Invariant transformations
+20:59:45 From Ahmed Abuelenein To Everyone:
+	Lots of data augmentation here will be like bootstrapping, correct?
+21:00:15 From Laura G To All Panelists:
+	What happens with group nouns e.g., forest vs tree or game vs. dolphin?
+21:00:46 From Laura G To All Panelists:
+	If part of the data augmentation is a part of a forest or a game with either 1 tree or dolphin wouldn't it be a negative example?
+21:00:49 From Megha Sharma To All Panelists:
+	So when we use these images the system inputs them as RGB?
+21:00:59 From alberto chico To Everyone:
+	more data augmentations = more  patterns detected = better encoders?
+21:01:21 From Daniel Gibson To Everyone:
+	@alberto yes, and more time, money, and attention to generate
+21:01:24 From Megha Sharma To Everyone:
+	So when we use these images the system inputs them as RGB?
+21:01:32 From Shel Randall To Everyone:
+	more data = gooder. :)
+21:01:45 From Moderator - Ankit Agrawal To Everyone:
+	Q: Lots of data augmentation here will be like bootstrapping, correct?	A: Bootstrapping is random selection of samples with replacement. Data augmentation is not the same since we are applying data transformation
+21:02:32 From Shel Randall To Everyone:
+	We need an NN to help figure out how big the NN needs to be.
+21:02:36 From Jeremy Boccabello To Everyone:
+	Positive samples bring seemingly dissimilar things together as much as possible to create a cluster of things that are similar although they appear different.  Negative examples separate things that may at first appear similar as far apart as possible by looking for small differences.
+21:02:46 From Moderator - Ankit Agrawal To Everyone:
+	Q: more data augmentations = more  patterns detected = better encoders?	A: Not necessarily. Some data augmentations can confuse the model and make it worse. Also, data augmentation is computationally expensive process
+21:02:46 From Mamta B To Everyone:
+	@shel Good point
+21:02:53 From Vikas Srivastava To Everyone:
+	@shel - 😂
+21:03:08 From Daniel Gibson To Everyone:
+	@Shel, smells like an infinite regression.
+21:03:21 From Shel Randall To Everyone:
+	@Daniel - Skynet.
+21:03:30 From Daniel Gibson To Everyone:
+	Skynet all the way back.
+21:03:32 From alberto chico To Everyone:
+	the amount of trial you can do depends on the budget and computation capacity correct?
+21:03:43 From Moderator - Ankit Agrawal To Everyone:
+	Q: So when we use these images the system inputs them as RGB?	A: We can specify whether the images are RGB or Grayscale when we build the model
+21:04:19 From Yasir Maqbool To Everyone:
+	Can we apply the same idea of contrastive learning to other problems than image for e.g., churned customer vs non-churned customers etc.
+21:04:54 From Ethan Urie To Everyone:
+	How is text data augmented for this type of learning?
+21:05:57 From Frederik Vanaverbeke To Everyone:
+	Isn't the generation of the positive augmentations a transformation to another latent space? In a way? Just another layer in the NN?
+21:06:01 From Yan Li To Everyone:
+	Does one model only learns one image? How do we train to learn … say all dogs?
+21:06:58 From alberto chico To Everyone:
+	encoders are simple 1,0 vectors of differents size?
+21:07:10 From Daniel Gibson To Everyone:
+	@Yan, millions of pictures of dogs go through that transformation to make the “all dogs” detector.
+21:07:50 From Shel Randall To Everyone:
+	@Yan - I can't even recognize some dogs as dogs .. not sure how machines could do it.
+21:08:11 From Moderator - Ankit Agrawal To Everyone:
+	Q: How is text data augmented for this type of learning?	A: The tasks are different. text data is not augmented the same way. There are text preprocessing methods for text data to clean and capture structure in text data
+21:08:12 From Mamta B To Everyone:
+	😃. @Shel
+21:08:24 From Yan Li To Everyone:
+	Haha
+21:08:26 From Julie Mann To Everyone:
+	So does overtraining lead to over pixelated seen by naked eye?
+21:08:34 From Daniel Gibson To Everyone:
+	@Yan the “encoder” manipulates each image individually to extract as much info as possible.  It then goes on to the next image and does the same thing.
+21:09:22 From Yan Li To Everyone:
+	Then for individual that wants to learn to code NN, how do we have computing power to make large calculation with so many images?
+21:09:42 From Moderator - Ankit Agrawal To Everyone:
+	Q: Does one model only learns one image? How do we train to learn … say all dogs?	A: The goal for the model is to learn similar and dissimilar properties of the training data. As long as your training data is properly defined, the model will learn the appropriate properties
+21:09:57 From Daniel Gibson To Everyone:
+	@Yan, either seek investment or pay for computer access to those who have the CPU power (Amazon etc…)
+21:10:35 From Moderator - Ankit Agrawal To Everyone:
+	Q: Then for individual that wants to learn to code NN, how do we have computing power to make large calculation with so many images?	A: Powerful machines or cloud services are very useful. Google colab, AWS free tier, etc are avaialble for learning purposes.
+21:10:43 From Michael Miller To Everyone:
+	Can you clarify what a DAG is and a real example how its used ?
+21:10:48 From Shel Randall To Everyone:
+	@Yan - some organizations with large data sets (like NASA) will crowd-source the computing power. Anyone can "subscribe" to become part of the computational network, making their home computer available at night.
+21:10:53 From Thierry Azalbert To Everyone:
+	@Yan: this is where Transfer Learning comes into the picture : you piggy-back on a pre-trained model.
+21:11:27 From Yan Li To Everyone:
+	Thank you everyone! Insightful answers~
+21:12:07 From Shel Randall To Everyone:
+	DAG = directed acyclic graph … or … how someone from Boston says "dog"
+21:12:57 From Daniel Gibson To Everyone:
+	Generative graphs for molecules would be cool to see…
+21:14:29 From claudio Chaves To Everyone:
+	Can we use GNN for a business process flow since we have nodes and edges?
+21:15:38 From Daniel Gibson To Everyone:
+	@claudio, my guess is that there might not be enough different process flows to learn from for a GNN, but I might be wrong.
+21:16:13 From Shel Randall To Everyone:
+	I wonder if the NN can predict how often a doctor tells you that "it's all in your head."
+21:17:02 From Daniel Gibson To Everyone:
+	@Shel, never.  They have other phrases ;)
+21:17:10 From claudio Chaves To Everyone:
+	@dani, one of the most common challenges of a process execution is variability. Process Map usually represents the happy path but in reality we have a lot of variation and multiple paths
+21:18:01 From Daniel Gibson To Everyone:
+	@claudio, I imagine so.  It sounds to me like high degrees of freedom, but few examples to learn from.  Which means it is not a perfectly solvable system.
+21:18:26 From claudio Chaves To Everyone:
+	Got it. Thanks @dani
+21:19:17 From Daniel Gibson To Everyone:
+	@claudio, also for the examples that could be learned from, most businesses wouldn’t share this precious info.
+21:20:05 From Julie Mann To Everyone:
+	but wouldn't every individual have different weights and bias' ; therefore, every outcome would be different? Even on traffic pattern.  Ex:  does shortest distance capture traffic light signal delay and/or # of cars waiting at traffic light.  Therefore, shortest is based on distance, indifferent to time.
+21:20:09 From Shel Randall To Everyone:
+	@Danial - if a NN bought from one company helps another company invent something, who gets the patent?
+21:20:14 From alberto chico To Everyone:
+	neural networks are recursive? first you can you for encoding and then for classifying and then for predicting?
+21:20:18 From Javier Eduardo Marquez Orjuela To Everyone:
+	The encoding for nodes becomes are vectors?
+21:20:38 From Tripureswar Chattopadhaya To Everyone:
+	CNN
+21:20:41 From Jens Müller To Everyone:
+	shifting
+21:20:46 From Varuni Rao To Everyone:
+	using filters to look at local neighborhoods
+21:21:35 From Daniel Gibson To Everyone:
+	@Shel, yet to be resolved, but the USPTO isn’t sophisticated enough to discern this and the new “First to File” policy would give precedence to the NN licensee.  Doubtless though is that there will be a lawsuit…
+21:23:07 From Shel Randall To Everyone:
+	@Daniel - if a pharm company build a cure based on my DNA, can I argue "prior art" based on my parents being the original authors?
+21:23:44 From Julie Mann To Everyone:
+	Example: So potentially this neighborhood patch, shown in your CNN and GNN slides, could have been used to help define the app:  what3words?
+21:23:50 From JUAN RIOS To All Panelists:
+	Neighbors aggregation!
+21:23:58 From David Zambrano To Everyone:
+	Does Each encode will look similar to the adjacency matrix?
+21:24:07 From Varuni Rao To Everyone:
+	Does the node embedding include link details as well?
+21:24:23 From Daniel Gibson To Everyone:
+	@Shel biologics is a tricky business, but the patent wouldn’t be on the sequence per se, but the utility of using the sequence for an application.  There is also a second line of temporary protected monopoly that is not patent related at all (8 years post-approval, IRC).
+21:25:17 From Dom Lazara To Everyone:
+	Does an LLM use a GNN where each node is word in the English language, and the connections are probabilities that a certain word is preceded or followed by another word?
+21:25:25 From Jens Müller To Everyone:
+	If we think about object recognition, could we also use GNNs to describe them?
+21:25:38 From Shel Randall To Everyone:
+	@Daniel - interesting. I bet a NN could fix it.
+21:25:39 From Daniel Gibson To Everyone:
+	@Shel, some changes that are being fought right now have to do with codon optimization (e.g. different DNA/RNA sequence, but same amino acid encoding).  This is the fight around CRISPR/Cas right now.
+21:26:01 From JUAN RIOS To All Panelists:
+	Thanks for clarification
+21:26:04 From Daniel Gibson To Everyone:
+	@Shel what would it learn from?
+21:26:56 From Shel Randall To Everyone:
+	@Daniel - self-supervised pattern recognition .. then decide humans are stupid.
+21:27:22 From Varuni Rao To Everyone:
+	Q: How many rounds? is it equal to depth of the graph?
+21:28:28 From Thierry Azalbert To Everyone:
+	Question : what is contained in the "representation" of a node?
+21:29:44 From Herman Gothe To Everyone:
+	what if aggregation + combination do not converge?
+21:30:10 From Adithya Parvatam To Everyone:
+	How many hops we need to consider , because I see that the weights change based on our decision of hops
+21:30:53 From David Zambrano To Everyone:
+	Thank you!
+21:31:01 From David Enck To Everyone:
+	would the first round of aggregation for the red node in the  image be the blue nodes
+21:31:02 From Shel Randall To Everyone:
+	It's cool how much this looks like a fluid dynamics simulation I did a few years ago.
+21:32:16 From Frederik Vanaverbeke To Everyone:
+	what is u and v in this?
+21:32:49 From Shilpa Murthy To Everyone:
+	@frederik u = neighbor of node v
+21:33:06 From Frederik Vanaverbeke To Everyone:
+	thanks
+21:33:44 From Mamta B To Everyone:
+	GNN is used in Segmentation?
+21:34:25 From Mamta B To Everyone:
+	Customer segementation
+21:37:37 From Jeremy Boccabello To Everyone:
+	If the combination phase changes the characteristics of the node, then doesn’t the order of node processing affect the outcome?
+21:38:16 From Jeremy Boccabello To Everyone:
+	Since these are nonsequential, how is the order determined?
+21:41:28 From Shel Randall To Everyone:
+	with the fluid dynamics, we used the whole network "now" to build a whole second changed network "next" after all the nodes had interacted. Once done, we replaced the old "now" with the new "next" and then repeated the process.
+21:42:59 From ashish kumar To Everyone:
+	how does loop get captured in layers?
+21:43:13 From Varuni Rao To Everyone:
+	Q: Since weighted A input is reintroduced again and again in A encoding through neighborhood information, will this not cause it to outweigh the other node information?
+21:44:28 From Shilpa Murthy To Everyone:
+	Q: So the GNN you described is essentially an encoder that we “fine tune” with a classifier?
+21:45:26 From Javier Eduardo Márquez Orjuela To Everyone:
+	Only with SGD?
+21:45:34 From Shilpa Murthy To Everyone:
+	@varuni, you actually want the influence of node A to be highest for node A > influence of first neighbors > influence of second neighbors. So that’s a feature
+21:46:10 From Varuni Rao To Everyone:
+	@Shilpa, thanks.
+21:47:18 From Frederik Vanaverbeke To Everyone:
+	What is a quantitative example of those messages?
+21:47:31 From ashish kumar To Everyone:
+	Thanks Prof!
+21:47:35 From Filippo Caviglioni To Everyone:
+	In which sense weights are shared?
+21:47:45 From Mamta B To Everyone:
+	Cyclic graph traversing and stop function.
+21:48:12 From Varuni Rao To Everyone:
+	Thank you Professor!
+21:48:48 From Awad Alomari To Everyone:
+	Q1: Hi Professor - Could you please reiterate on how LLM, Transformers are related to GNNs?
+21:48:59 From Shilpa Murthy To Everyone:
+	Thank you prof
+21:50:17 From Sharon Kuang To Everyone:
+	Could you please elaborate more “CNN does weighted average, GNN treats each neighbor the same” ?
+21:51:25 From Filippo Caviglioni To Everyone:
+	thanks
+21:52:32 From Sharon Kuang To Everyone:
+	Thanks
+21:53:15 From Roman Neuhauser To Everyone:
+	thank you very much
+21:53:34 From Bas van Andel To Everyone:
+	Learned function means the whole function is learned as opposed to just the coefficients?
+21:55:55 From Varuni Rao To Everyone:
+	@Bas - check the MNIST notebook. they give you a good understanding. Features can be learnable and non-learnable. Which means that some feature weights get adjusted in the learning process to improve the accuracy - these are learnable. When the feature weights do not change to improve the accuracy - its kind of not learnable
+21:57:07 From Bas van Andel To Everyone:
+	Thanks
+22:01:06 From Daniel Gibson To Everyone:
+	Proteins also combine to make macromolecular structures which essentially become new entities.
+22:01:59 From Jacob Santos To All Panelists:
+	Thank you
+22:02:00 From Shel Randall To Everyone:
+	hard to teach the network when all the data is proprietary
+22:02:18 From Louis Reid To Everyone:
+	Thank you Professor
+22:02:23 From drashti darji To Everyone:
+	Thanks Prof. for the amazing lecture.
+22:02:30 From Lev Sukherman To Everyone:
+	Thanks
+22:02:38 From Arturo Gudiño Chong To Everyone:
+	Thanks!
+22:02:41 From Jens Müller To Everyone:
+	Thank you. Very good presentation. :-)
+22:02:42 From Iwan Müller To Everyone:
+	thank you professor
+22:02:46 From Mehdi Pirooznia To Everyone:
+	Thank you
+22:02:47 From Olamide Olowoyo To Everyone:
+	Thank you Professor
+22:02:53 From Maamar M To Everyone:
+	Thanks
+22:02:54 From Mike D. To Everyone:
+	thank you
+22:03:06 From saroja gundala To Everyone:
+	Thank you professor!
+22:03:09 From Shilpa Murthy To Everyone:
+	Thank you prof
+22:03:09 From Varuni Rao To Everyone:
+	Thank you Professor. Loved the lecture. Could sit and learn from you entire day!
+22:03:11 From Shibani Sanan To All Panelists:
+	Thank you professor. I learned so much today! Great lecture
+22:03:13 From Lalit Vyas To Everyone:
+	Thanks professor. Very clear explanations. :)
+22:03:19 From Jaime Romanini To Everyone:
+	thank you very much professor
+22:03:20 From Frederik Vanaverbeke To Everyone:
+	In this learning... what is the target variable?
+22:03:20 From Vikas Srivastava To Everyone:
+	Thank you Prof!
+22:03:25 From Shilpa Murthy To Everyone:
+	Very clear explanations!
+22:03:41 From melanie rebosa To All Panelists:
+	Thank you!
+22:08:39 From Jaime Romanini To Everyone:
+	which literatur can we look at for Transformers?
+22:08:41 From Carlos Jauregui Briceno To Everyone:
+	Thank you!
+22:08:47 From Pedro Juárez Lagos To Everyone:
+	Thank you!
+22:08:49 From Jaime Romanini To Everyone:
+	are there time series GNNs?
+22:09:08 From Jose Rojas To Everyone:
+	Thanks Professor!
+22:09:21 From Vanessa Larissi To All Panelists:
+	Thank you
+22:09:23 From Glauco Stephan To Everyone:
+	thanks a lot professor
+22:11:27 From Neha Purohit To All Panelists:
+	Thanks for answering
+22:12:04 From Fidel Vargas To Everyone:
+	ETH has a VAW laboratory in which bi-phase flow air-water is studied, could Artificial Neural Networks could be applied to improve their research tasks.
+22:13:11 From Srinivas Annam To Everyone:
+	Thank you professor. Wonderful set of topics you covered. Thank you very much.
+22:13:16 From Jaime Romanini To Everyone:
+	Can you recommend a Good book for in Depth LSTM?
+22:13:41 From Adithya Parvatam To Everyone:
+	Thank you Professor for a great session
+22:15:57 From Awad Alomari To Everyone:
+	Could GNNs and RNNs be used interchangeably for the same task to some extent?
+22:16:30 From Shel Randall To Everyone:
+	thank you
+22:19:39 From Leandro Mbarak To Everyone:
+	LMM are GNN?
+22:19:41 From Jason Cuevas To Everyone:
+	Thank you
+22:19:56 From Dom Lazara To Everyone:
+	In a NN when does the learning stop? For example we want to control what the NN learns, so that feeding the NN erroneous data does not cause it to learn biases or false patterns.
+22:19:58 From Thierry Azalbert To Everyone:
+	@Ankit : could you please some elements of reference to the transformer article your mentioned, so we can find it? Thank you! 🙏
+22:20:57 From Moderator - Ankit Agrawal To Everyone:
+	Transformers blog by Jay Alammar
+22:21:15 From Moderator - Ankit Agrawal To Everyone:
+	https://jalammar.github.io/illustrated-transformer/
+22:25:43 From Awad Alomari To Everyone:
+	👍
+22:25:44 From Jaime Romanini To Everyone:
+	Can we use GNN for time series graphs? ie: portfolio decisions evaluations ???
+22:26:14 From Valeria Herrera To All Panelists:
+	Can we use NN for causal inference?
+22:27:24 From Yasir Maqbool To Everyone:
+	We studied CNN and GNN but heard about ANN , RNN and DNN too . What are the usage of these?
+22:28:17 From Samit Thakur To Everyone:
+	Thank you Professor Jegelka, Ankit A and Niruppam S for an excellent learning session!
+22:28:23 From Max Madrigal Cruz To Everyone:
+	I need to go, thanks for your time all.
+22:28:56 From Fausto Correa To All Panelists:
+	I got to drop off as well. Thanks for the lecture.
+22:29:41 From Jaime Romanini To Everyone:
+	can you spell the name?
+22:29:50 From Moderator - Ankit Agrawal To Everyone:
+	Andrew Ng
+22:29:50 From Adithya Parvatam To Everyone:
+	Good fellow book
+22:30:04 From [gl mentor] Niruppam To Everyone:
+	https://www.deeplearningbook.org/
+22:30:27 From Awad Alomari To Everyone:
+	could you please share a link for Andrew Blog?
+22:30:48 From Moderator - Ankit Agrawal To Everyone:
+	I don't have that. Maybe try searching the name with LSTm
+22:31:45 From Jens Müller To Everyone:
+	Thank you very much :-)
+22:31:48 From selvaraj durairaj To Everyone:
+	thank you!
+22:31:49 From Bhupal Lambodhar To All Panelists:
+	Thank you Professor!
+22:31:50 From Sharon Kuang To Everyone:
+	Thank you all !
+22:31:52 From Frederik Vanaverbeke To Everyone:
+	Thank you guys!
+22:31:52 From Arturo Gudiño Chong To Everyone:
+	Thank you!
+22:31:53 From Yasir Maqbool To Everyone:
+	Thanks professor , Ankit, Niruppam
+22:31:53 From Fernando Matias Gonzalez To Everyone:
+	Thank you for the great session!
+22:31:53 From Rahul Kumar To Everyone:
+	Thank you
+22:31:54 From Varuni Rao To Everyone:
+	Thank you all
+22:31:54 From Ewan Innes To Everyone:
+	thank you
+22:31:55 From Jaime Romanini To Everyone:
+	Thank you very much
+22:31:58 From Soukaina Jo To All Panelists:
+	Thank you
+22:31:59 From Javier Eduardo Márquez Orjuela To All Panelists:
+	Thank you professor
+22:31:59 From EUNICE HERNANDEZ To Everyone:
+	Thanks for the lectures profesor!
+22:32:00 From Jacob Santos To All Panelists:
+	Thank you
+22:32:00 From Thierry Azalbert To Everyone:
+	Thank you Professor!
+22:32:00 From alfredo nieves cisneros To Everyone:
+	great lecture, thanks!
+22:32:02 From Tripureswar Chattopadhaya To Everyone:
+	Thank you
+22:32:02 From Awad Alomari To Everyone:
+	Thank You Prof and all
+22:32:03 From Lita Miranda To Everyone:
+	thank you!
+22:32:04 From Han H To Everyone:
+	Thank you!
+22:32:04 From Hugo Escandon To Everyone:
+	TY
+22:32:05 From Mehmet Ozkan To Everyone:
+	thank you professor!
+22:32:06 From Santiago Arroyo To Everyone:
+	Thank you, bye!
+22:32:07 From Sophia Heller To Everyone:
+	Thank you!
+22:32:08 From Judith Marrugo To Everyone:
+	Thanks !!
+22:32:08 From Megha Sharma To Everyone:
+	Thank you, Great lecture
+22:32:11 From Dom Lazara To Everyone:
+	Thank you Professor!!!
+22:32:12 From Merrill Kashiwabara To All Panelists:
+	Thank you!
+22:32:12 From Johannes Oberhofer Lomeli To Everyone:
+	great sessions!
+22:32:16 From Stan Ikpe To All Panelists:
+	thank you!
+22:32:16 From David Craig To All Panelists:
+	Yes. thenk you very much
+22:32:16 From Michael Wahnich To Everyone:
+	thanks
+22:32:16 From Awad Alomari To Everyone:
+	Thanks Moderators
+22:32:16 From Rachana Kotian To Everyone:
+	Thank you very much!
+22:32:16 From Yan Li To Everyone:
+	thank you！！
+22:32:16 From shikha sharma To Everyone:
+	Thank you!
+22:32:19 From Herman Gothe To Everyone:
+	2Thanks!!
+22:32:19 From Bryan Olivera Lona To All Panelists:
+	Thank you
+22:32:20 From Miguel Manrique To All Panelists:
+	Than
+22:32:20 From Mayda Alkhaldi To Everyone:
+	Thank you
+22:32:22 From Merrill Kashiwabara To Everyone:
+	Thank you!
+22:32:25 From Yang Yu To Everyone:
+	thank you!
+22:32:28 From Ahmed Abuelenein To Everyone:
+	Tahnk you
+22:32:30 From Michael Miller To Everyone:
+	Thank You Professor !
+22:32:35 From Azaria Berhane To Everyone:
+	thank you
+22:32:38 From Yadira M Del Rio To Everyone:
+	Thank you!

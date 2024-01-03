@@ -1,0 +1,2949 @@
+[[GL Mentor] Shubham Sharma] 18:59:48
+Good morning everyone. Good morning, good afternoon. Good evening.
+
+[[GL Mentor] Shubham Sharma] 18:59:52
+Hopefully you are able to give me, okay?
+
+[[GL Mentor] Shubham Sharma] 18:59:58
+Okay, great. Yeah, we have with us.
+
+[[GL Mentor] Shubham Sharma] 19:00:24
+Good morning, Professor. I think you are muted.
+
+[[GL Mentor] Shubham Sharma] 19:00:36
+Your audio has some issues.
+
+[[GL Mentor] Shubham Sharma] 19:01:04
+Okay, so meanwhile the professor sets things up at his end.
+
+[[GL Mentor] Shubham Sharma] 19:01:14
+Yeah, I I can still not hear you. You're not audible. Oh.
+
+[[GL Mentor] Shubham Sharma] 19:02:12
+Right, so meanwhile the professor said something that at his end. Let me make some announcements. So one announcement is regarding the MIDI program feedback.
+
+[[GL Mentor] Shubham Sharma] 19:02:23
+So as you all know, we are currently halfway through the program and at this juncture we release a mid program feedback which is an opportunity for all the learners to share their feedback, share their experience so far, you know, which enables us to incorporate that feedback and improve as well.
+
+[[GL Mentor] Shubham Sharma] 19:02:41
+So I would request all of you to please, you know, spend some time, give thought to how your experience has been and share that with us.
+
+[[GL Mentor] Shubham Sharma] 19:02:50
+This is this was released you should have gotten an email Sunday morning and You would also see pop-ups regarding submitting the mid program feedback for the first 5 days starting Sunday.
+
+[[GL Mentor] Shubham Sharma] 19:03:05
+It would be optional but then after that it would become mandatory which which means that you won't be able to log in after 5 days.
+
+[[GL Mentor] Shubham Sharma] 19:03:14
+If you haven't submitted it yet so i would request you to please do the need full within the first 5 days so that you don't you don't run into issues later on.
+
+[[GL Mentor] Shubham Sharma] 19:03:23
+Yeah, you know, and then you'll have to just quickly do it to log in to the session, which happens a lot of times with someone else.
+
+[[GL Mentor] Shubham Sharma] 19:03:31
+So just. A word of caution there. The second thing is,
+
+[[GL Mentor] Shubham Sharma] 19:03:40
+The second thing is regarding the Labor Day weekend break. So basically this weekend we'll be having labor day weekend so we won't be having invented learning sessions this weekend.
+
+[[GL Mentor] Shubham Sharma] 19:03:52
+You would have already received an email regarding that as well and you would receive it if not yet. In very soon in the next few days and also the LVC is going be there for the next weekend so the mental learning session for for the this model currently which is practical data science would happen.
+
+[[GL Mentor] Shubham Sharma] 19:04:13
+Next weekend and from September second to September eighth, there won't be any LVCs.
+
+[[GL Mentor] Shubham Sharma] 19:04:19
+Okay. So yeah, that's all the analysis I wanted to make. So you have enough time now to catch up with the content, you know, make do divisions, do more practice and Come up with even more interesting questions for professors and mentors.
+
+[[GL Mentor] Shubham Sharma] 19:04:52
+Thanks, so some people are saying, could you repeat that? Basically, I made announcements regarding the MIDI program feedback.
+
+[[GL Mentor] Shubham Sharma] 19:05:02
+You would receive an email in return for that as well. And I'll post that in the chat as well.
+
+[[GL Mentor] Shubham Sharma] 19:05:06
+And, the second thing is about the, we can plague. So this weekend we won't be having mentored learning sessions and also we won't be having LVCs.
+
+[[GL Mentor] Shubham Sharma] 19:05:19
+Next week, which is September second to September eighth.
+
+[[GL Mentor] Shubham Sharma] 19:05:25
+Okay.
+
+[Faculty (Olympus)] 19:05:27
+Just checking, you can hear me?
+
+[[GL Mentor] Shubham Sharma] 19:05:30
+Yeah, hi, Professor. Yeah, I can hear you now.
+
+[Faculty (Olympus)] 19:05:32
+Yes, okay, perfect. Thanks.
+
+[[GL Mentor] Shubham Sharma] 19:05:35
+How are you doing?
+
+[Faculty (Olympus)] 19:05:36
+I'm good. Good, thank you.
+
+[[GL Mentor] Shubham Sharma] 19:05:38
+Great. Okay, so let's get started with today's LVC. Hopefully all the announcements that were made are clear now.
+
+[[GL Mentor] Shubham Sharma] 19:05:50
+So if people can confirm in the chat, then they can see the professors slides that he has shared and If he can hear, if you guys can hear clearly, video is clear for you.
+
+[[GL Mentor] Shubham Sharma] 19:06:05
+Perfect. Alright, so let me quickly, introduce Pouser Mantar Dale. So he is Professor at the Department of Electrical Engineering and Commuter Science at MIT.
+
+[[GL Mentor] Shubham Sharma] 19:06:16
+He has also held concerning positions with several companies in the US. And abroad as well. Professor Dale is internationally known for his fundamental contributions to robbers control the computational methods for Hello, design the interplay between information and control.
+
+[[GL Mentor] Shubham Sharma] 19:06:36
+We fundamental limits of learning and decision in network systems. And the detection and mitigation of systemic risk in interconnected and networked systems.
+
+[[GL Mentor] Shubham Sharma] 19:06:49
+So I'm sure we'll have a very good narrative coming out of today's session. So without further adie, let's get started with it.
+
+[Faculty (Olympus)] 19:06:58
+Thank you so much, for the nice introduction. I hope everyone can hear me. Let me track the chat.
+
+[Faculty (Olympus)] 19:07:10
+There we go. Okay, here we go. Okay, perfect. Welcome everyone.
+
+[Faculty (Olympus)] 19:07:17
+To the applied data science program. And as there was. Ben. Earlier.
+
+[Faculty (Olympus)] 19:07:24
+My name is, I am a professor at MIT. I am a professor at MIT. I'm the founding director also of the Institute for Data Systems and Society.
+
+[Faculty (Olympus)] 19:07:34
+My research area is, Essentially, decisions under uncertainty, typically we have complex problems where we have partial information about these problems and then we're trying to make decisions.
+
+[Faculty (Olympus)] 19:07:47
+Of some sort, right? So you can imagine you connect some partial data and you try to make decisions.
+
+[Faculty (Olympus)] 19:07:53
+COVID-19 was a beautiful example of the kind of work I do in the sense that you know, things started very slowly.
+
+[Faculty (Olympus)] 19:08:00
+We had very little information about the about the virus, about the contagion, about the reproduction rates and so forth and yet Everybody was asking for decisions. What do we do?
+
+[Faculty (Olympus)] 19:08:13
+How do we? How do we proceed with masks, with lockdowns, with quarantines, that kind of stuff, right?
+
+[Faculty (Olympus)] 19:08:21
+And so it's often the case that we have to make decisions when we don't have full information, but we have partial data, partial models, and we try to fuse that together and try to make a robust decision, but also when that adapts over time.
+
+[Faculty (Olympus)] 19:08:34
+As we collect more and more data. So that's my area of research and if you're interested in and details you can check my website.
+
+[Faculty (Olympus)] 19:08:44
+I work on various applications of data science and interventions. My research ranges from applications like energy systems, agricultural systems, systemic risk in in finance, racism recently.
+
+[Faculty (Olympus)] 19:09:01
+I've been looking into data and racism and very much interested in quantifying the value of data as you can imagine.
+
+[Faculty (Olympus)] 19:09:09
+These days with With the that we have around this and generative models and all of that. Data has become the most expensive commodity and how do we trade data and and use data and so forth is a big part of the work that I do.
+
+[Faculty (Olympus)] 19:09:27
+So. Our objective today is to, kind of build on the, and the discussions that you had earlier in the course.
+
+[Faculty (Olympus)] 19:09:39
+What do you, focus quite a bit on linear regression as ways in which we can do prediction, we can do classification and so forth and ask the question, what if problems aren't classified well with linear regression?
+
+[Faculty (Olympus)] 19:09:54
+What's the next level of complexity that we can go? That can allow us to describe problems that may not be linear.
+
+[Faculty (Olympus)] 19:10:01
+So, 2 areas that we will expand on in this week. The first one is the loss of linearity.
+
+[Faculty (Olympus)] 19:10:09
+And the second one is loss of independence. Often the case when you think about classification or you think about prediction you think of having independent data sets, you know, so you're trying to, for example, to classify cats from dogs you have a lot of samples of cats and a lot of labeled samples of cats and dogs.
+
+[Faculty (Olympus)] 19:10:36
+And then you know you you basically, try to separate. You know, cats from lots. So when you take these samples, these are independent samples.
+
+[Prof. Munzer Dahleh] 19:10:46
+Not, you know, the picture of one cat is not dependent on the picture of the previous cat you looked at.
+
+[Prof. Munzer Dahleh] 19:10:53
+There are sort of kind of, you know, independent samples of. Of cats and dogs. But what happens when the data is dependent?
+
+[Prof. Munzer Dahleh] 19:11:00
+That is what you collect today depends on the value. So think of the value of the stock. Market or the value of a stock.
+
+[Prof. Munzer Dahleh] 19:11:07
+In the stock market. The value of today depends on lot in the day before and the day before. So the 2 things we will look at is loss of linearity and loss of independence.
+
+[Prof. Munzer Dahleh] 19:11:20
+Monday and Wednesday we will focus on the loss of linearity and we will talk about decision trees and random forests.
+
+[Prof. Munzer Dahleh] 19:11:26
+And Friday we will address the question of dependence and look at time series analysis. And so the kind of these lectures gives us a perspective of more practical approaches and ones that push the boundary of what linear regression can do, which is a very powerful tool.
+
+[Prof. Munzer Dahleh] 19:11:45
+But these methods, new methods like random forests and so forth seem to be able to extract even more things out of the data.
+
+[Prof. Munzer Dahleh] 19:11:53
+And what I want to do in the next few lectures as describe to you why we use these techniques, how we use these techniques, and what are some of the limitations of these techniques?
+
+[Prof. Munzer Dahleh] 19:12:04
+Okay. We divide the lecture today. Today will just focus on decision trees.
+
+[Prof. Munzer Dahleh] 19:12:12
+This is a very, introductory lecture. If you know a lot about decision trees, you may find this to be some of the very positive lecture if you've not known much about.
+
+[Prof. Munzer Dahleh] 19:12:23
+And decision trees you may think it's going too fast you know I'm trying to strike a balance between the 2.
+
+[Prof. Munzer Dahleh] 19:12:30
+We spend some time talking about definitions and interpretations, how do we think about a decision tree? How do we read the decision tree and why we consider a decision tree?
+
+[Prof. Munzer Dahleh] 19:12:41
+Second part, we'll talk about learning a decision tree. So from understanding a decision tree into how I build one.
+
+[Prof. Munzer Dahleh] 19:12:49
+When I have data, how do I go from data to a decision tree. And the last part I'll talk about computation and in particular talk about how do I use Clever ideas to compute a very efficiently.
+
+[Prof. Munzer Dahleh] 19:13:03
+A decision tree from data. So we use something called entropy based based greedy algorithm that allows us to understand how we navigate the very, very high dimensional space of trees.
+
+[Prof. Munzer Dahleh] 19:13:16
+And I would say that
+
+[Prof. Munzer Dahleh] 19:13:19
+This would actually give you a good perspective of many of the techniques that you will utilize, using the tools, for solving for these problems.
+
+[Prof. Munzer Dahleh] 19:13:33
+The way we will do this is that I will lecture about 20 min or so and then I will pause and I spent some time answering your questions so that we can get a separation between the lecture and the questions.
+
+[Prof. Munzer Dahleh] 19:13:44
+So keep putting the questions into the chat. We'll come back to them. There may be some people who, you know, some of them.
+
+[Prof. Munzer Dahleh] 19:13:50
+You may answer each other and so forth, but I will come back at the end to the questions, after 20 min of lecture.
+
+[Prof. Munzer Dahleh] 19:13:58
+So kind of divide this into 20 min of lectures, 10 min, of questions. All right, so let's begin with talking about an introduction.
+
+[Prof. Munzer Dahleh] 19:14:09
+And then let's understand what a decision tree. Here's an example of a decision tree. That I just made up.
+
+[Prof. Munzer Dahleh] 19:14:19
+This is not a realistic decision tree, but it is about a process by which a banker would decide to give a loan to someone who comes in.
+
+[Prof. Munzer Dahleh] 19:14:30
+So someone comes in and the banker is asking them a question. So first they asked them about their age.
+
+[Prof. Munzer Dahleh] 19:14:34
+Are you over 30? So the question is, are you over 30? If the answer is no, then then they ask them a question and the answer is yes, he asking a different question.
+
+[Prof. Munzer Dahleh] 19:14:47
+So the question, are you overthirty, divides the data, divides people into 2 parts.
+
+[Prof. Munzer Dahleh] 19:14:54
+One part who are below 30. And then the other parts were above 30. So we think of this in terms of classification.
+
+[Prof. Munzer Dahleh] 19:15:02
+And we have a data set. You look at all the data. That has with ages below 30 and you put them on one side and you take all the data above the paper on the other side.
+
+[Prof. Munzer Dahleh] 19:15:13
+That's a already that question classifies people into 2 parts. Now, in this particular decision tree, if you are under 30, you'll ask the question about your salary.
+
+[Prof. Munzer Dahleh] 19:15:25
+Are you making over $2,500? Again, there are 2 answers to this. Either you make above 2,500 or below 25.
+
+[Prof. Munzer Dahleh] 19:15:34
+Here is the decision. If you make above 2,500, you are going to be given the loan.
+
+[Prof. Munzer Dahleh] 19:15:39
+But if you get me below 2,500 You will be denied the Lord. On the other hand, if you were in the class of people that were above 30, you're asked the different questions.
+
+[Prof. Munzer Dahleh] 19:15:51
+You have to, they have more than 2 children or less than 2 children. If you have less than 2 children, you're given the loan.
+
+[Prof. Munzer Dahleh] 19:16:02
+You have more than 2. Okay, this is a not a real. Picture of how long is that given, but this is an example of a decision tree.
+
+[Prof. Munzer Dahleh] 19:16:11
+Okay, so from a perspective of interaction with customer, this is what bankers would do. They would ask these questions.
+
+[Prof. Munzer Dahleh] 19:16:21
+And ultimately, we decide whether you would be given a loan or about. With this 3 does, it classifies the data that we have into 4 buckets.
+
+[Prof. Munzer Dahleh] 19:16:31
+And these 4 buckets can be read as people who are under 30 with salary higher than $4,500 that's this group over here.
+
+[Prof. Munzer Dahleh] 19:16:41
+People under 30 but with salaries below $2,500 this the group over here People who are over 30 but have less than 2 kids, they are in here.
+
+[Prof. Munzer Dahleh] 19:16:53
+And then people over 30 and have more more than 2 kids and their own. So we've got we created 4 different subgroups.
+
+[Prof. Munzer Dahleh] 19:17:03
+This is. The subgroups are mutually exclusive. You cannot belong in 2 groups.
+
+[Prof. Munzer Dahleh] 19:17:09
+At the same time, you're either in one group or the other group. And the groups are collectively exhaustive.
+
+[Prof. Munzer Dahleh] 19:17:16
+They together comprised the whole set of people who apply for a loan.
+
+[Prof. Munzer Dahleh] 19:17:21
+That's sort of a decision tree. That's in in a nutshell. When we build a decision tree, we build something like this, a classifier, you know, and then we label the final groups in terms of the decision that we're trying to make whether we give them a loan or
+
+[Prof. Munzer Dahleh] 19:17:38
+So with this decision 3 comes in various definitions that we use. The first one is, let me just kind of say this one here is.
+
+[Prof. Munzer Dahleh] 19:17:48
+This is an attribute.
+
+[Prof. Munzer Dahleh] 19:17:54
+Okay, correct test. And sometimes we call it a feature. Okay, so these are interchangeable sort of words, but these are features.
+
+[Prof. Munzer Dahleh] 19:18:05
+They're binary features that we use to create a test. Your age is a binary feature or an attribute and it creates a test.
+
+[Prof. Munzer Dahleh] 19:18:14
+This is the outcome of the test. Either no or yes. That's the outcome of the test.
+
+[Prof. Munzer Dahleh] 19:18:21
+Okay, so we call an attribute or a feature over here. The branches are the outcomes of the test.
+
+[Prof. Munzer Dahleh] 19:18:29
+Okay. And then. These guys over here are the class labels. The final, these are the final classes.
+
+[Prof. Munzer Dahleh] 19:18:38
+And on it is the class label, which tells us. The label on this particular group of people other people that get alone.
+
+[Prof. Munzer Dahleh] 19:18:47
+The group over here and the people that don't get along. Okay, and what is the classification rule?
+
+[Prof. Munzer Dahleh] 19:18:54
+The classification rule is the whole thing that you read from beginning to end. These people are under 30 but make over $2,500.
+
+[Prof. Munzer Dahleh] 19:19:02
+That's a classification rule. People who are under 30 but make less than $2,500.
+
+[Prof. Munzer Dahleh] 19:19:08
+That's another, that's a classification rule that gives me the for. The 4 groups.
+
+[Prof. Munzer Dahleh] 19:19:13
+Okay, so we call this a and the path from root to leave is what we call the classification.
+
+[Prof. Munzer Dahleh] 19:19:19
+So in principle what we have here is a situation where we take a bunch of data and we try to classify it in such a way that that people belong to these buckets at the end.
+
+[Prof. Munzer Dahleh] 19:19:31
+And the buckets are labeled with a decision either to go, you know, either to give everyone or not to give a loan.
+
+[Prof. Munzer Dahleh] 19:19:38
+And in principle what we are interested in in general is to make sure that these buckets are as uniform as possible.
+
+[Prof. Munzer Dahleh] 19:19:45
+That is on the data set that we have. These buckets you know it's right look at this pocket over here don't get alone if I look at the data most people are not getting along that are over 30 and have over 3, 2 kids.
+
+[Prof. Munzer Dahleh] 19:20:00
+So, and this is what we're gonna come back to and explain in enormous detail how we built a tree like this.
+
+[Prof. Munzer Dahleh] 19:20:07
+Whatever we're trying to minimize, how do we actually navigate this particular feature space?
+
+[Prof. Munzer Dahleh] 19:20:14
+Okay, we're gonna talk about extensions of this when the feature is not binary, but it could be you know, 3 outcomes, for example, you could ask, are you under 3?
+
+[Prof. Munzer Dahleh] 19:20:26
+Are you above 3 by the under 3? Are you above 3 by the under 45 and are you above 45?
+
+[Prof. Munzer Dahleh] 19:20:30
+So we can ask for different types of outcomes and then we will think about what if the future is continuous.
+
+[Prof. Munzer Dahleh] 19:20:37
+That is in your reporting an age. Anywhere between 0 to 100 or you're reporting a number of kids or you're reporting your height you know.
+
+[Prof. Munzer Dahleh] 19:20:47
+So the features are continuous, not discreet. We'll also look at that.
+
+[Prof. Munzer Dahleh] 19:20:53
+Why do we consider decision trees? What's the advantage of decision trees? Well, first of all, I think they are Interesting in the sense that they mimic the human algorithm interaction.
+
+[Prof. Munzer Dahleh] 19:21:05
+That is In general, I think it kind of this is how we ask questions. This is how we deal with situations to make a decision.
+
+[Prof. Munzer Dahleh] 19:21:13
+We asked a whole bunch of questions and we We. See the answer and every answer leads to another question.
+
+[Prof. Munzer Dahleh] 19:21:22
+So for example, you know, typically you would go to a doctor and you say, I'm not feeling that.
+
+[Prof. Munzer Dahleh] 19:21:27
+And let me ask you the first question, have you had fever? Maybe yes and no. And if you say no.
+
+[Prof. Munzer Dahleh] 19:21:33
+They may say, oh, have you had, you know, backache or something? But if you say, yes, I had fever and they tell you maybe a different question or have you had a headache?
+
+[Prof. Munzer Dahleh] 19:21:44
+You know, so we interact with with decisions in this particular way in a sequential. 3 type decisions.
+
+[Prof. Munzer Dahleh] 19:21:51
+So this is very natural for us to have a decision tree. The decision tree is very interpretable in the sense that every question is, it's an open box.
+
+[Prof. Munzer Dahleh] 19:22:00
+Every feature is very fairly well defined. You know exactly what question is being asked. And you will see as we build these decision trees, the oldest of the features matter and we will ask questions that are more important at the beginning.
+
+[Prof. Munzer Dahleh] 19:22:15
+You know and then we kind of sort of clap you know the classification gets less and less important as we go down the tree.
+
+[Prof. Munzer Dahleh] 19:22:21
+Okay. So, that's Part of the advantage of a decision, that's why we use it.
+
+[Prof. Munzer Dahleh] 19:22:29
+But another aspect of this that come from computational perspective is that actually decision trees are quite versatile.
+
+[Prof. Munzer Dahleh] 19:22:36
+And they on one hand can handle both categorical and new medical data. The categorical means that the feature takes on binary values.
+
+[Prof. Munzer Dahleh] 19:22:46
+Are you short or tall? Are you above 30 or below 30? Or it can be continuous? Like what is your height?
+
+[Prof. Munzer Dahleh] 19:22:54
+I'm 5 8, I'm 5 9, I'm 6 6 one or so forth, right?
+
+[Prof. Munzer Dahleh] 19:23:00
+They're extremely powerful because they can actually approximate arbitrary function of a set of binary values. So if you have a bunch of Boolean variables for the, from an, you break perspective, like some variable x one up to XM and these variables take on.
+
+[Prof. Munzer Dahleh] 19:23:18
+Discreet numbers, then a decision tree can realize any function of these things. So it's very, very general in the perspective from a computational perspective.
+
+[Prof. Munzer Dahleh] 19:23:29
+You can mix apps and oranges in this like the data doesn't have to have a lot of preparation or scaling.
+
+[Prof. Munzer Dahleh] 19:23:37
+You can ask one question about age. Next question. Will be about income. Third question about kids.
+
+[Prof. Munzer Dahleh] 19:23:42
+Fourth question about temperature. So you know it's a it's you don't need to prepare the data or scale the data, make to make things reasonably comparable because at every step you split the database on that particular feature only.
+
+[Prof. Munzer Dahleh] 19:23:56
+Okay.
+
+[Prof. Munzer Dahleh] 19:23:57
+It has quite a bit of robustness aspect that we were going to talk about, but it also those art can be an issue which I will also subscribe to later.
+
+[Prof. Munzer Dahleh] 19:24:09
+The decision tree also enables us to do some feature selection. In fact, this is the last part of this lecture today is entirely about how we select the order of the features.
+
+[Prof. Munzer Dahleh] 19:24:20
+Okay, and and so forth. So We will talk about that. And then I will also talk next lecture about the whole idea of boosting and aggregation and how do we go from a decision tree to a random forest.
+
+[Prof. Munzer Dahleh] 19:24:39
+So today I'm gonna pump those conversations but I will talk about all of that next time. Okay.
+
+[Prof. Munzer Dahleh] 19:24:43
+At the same time, At the same time, I think that. It does have some limitations, okay?
+
+[Prof. Munzer Dahleh] 19:24:53
+And I think that part of the decision tree is that is, challenging is that because of their generality, they, seem to do a lot more and as a result cost some issue.
+
+[Prof. Munzer Dahleh] 19:25:06
+So one issue that can happen with decision trees is a lack of robustness in the actual tree itself. So you take a data set, you build a tree from it, which we will talk about.
+
+[Prof. Munzer Dahleh] 19:25:17
+So this is all looking into the future. You build a model from the data. You take the data and you perturb it a little bit.
+
+[Prof. Munzer Dahleh] 19:25:25
+Like you change 5% of the data set or 3% of the data set and then you may get a different tree.
+
+[Prof. Munzer Dahleh] 19:25:32
+It doesn't seem reasonable that I get a different tree for a small perturbation of the data.
+
+[Prof. Munzer Dahleh] 19:25:38
+In general, we think that learning is should be robust. Property of the data itself. And what is interesting about this particular thing is that while the predictions don't change much, The 3 older and classifiers may change it a little bit.
+
+[Prof. Munzer Dahleh] 19:25:53
+That's part of. And you will see that as you play around with these trees is that some of the features may not do a great job classifying certain certain paths and they do a much better job with another path and so you get this lack of robustness.
+
+[Prof. Munzer Dahleh] 19:26:07
+The prediction is still good, but the but the tree itself may not be as robust. Another limitation of decision trees is the complexity of competing and optimal tree.
+
+[Prof. Munzer Dahleh] 19:26:17
+There's just so many combinations and you will see we will count that and talk about that. There will be factorial number of possibilities.
+
+[Prof. Munzer Dahleh] 19:26:25
+You mean to set the features that you can have. In terms of how many different trees with 5 features about 5 Factorial different trees.
+
+[Prof. Munzer Dahleh] 19:26:33
+And so that's a lot of trees to try and so we cannot really search over all the possible trees.
+
+[Prof. Munzer Dahleh] 19:26:41
+To fit our data. So what we have to do. Then is to. Fine some greedy algorithm.
+
+[Prof. Munzer Dahleh] 19:26:48
+What is a greedy algorithm is one that searches in the best possible way we know at that time and we'll talk a little bit about that.
+
+[Prof. Munzer Dahleh] 19:26:56
+So it's an approximation type. It's not the exact optimal, but it gives us a pretty good answer.
+
+[Prof. Munzer Dahleh] 19:27:00
+And the and the other limitation that we have is the problem of of filling. Overfitting is a problem of every learning algorithm that has richness in it.
+
+[Prof. Munzer Dahleh] 19:27:12
+You will see overfitting and sometimes you see it in polynomial approximations, you know.
+
+[Prof. Munzer Dahleh] 19:27:18
+Linear regression may not have that if you use simple functions, but if you have complicated functions, you may even have overfitting within your regression.
+
+[Prof. Munzer Dahleh] 19:27:27
+But then if you have a neural network, you have a black box, any of these things we will see a problem overfilling.
+
+[Prof. Munzer Dahleh] 19:27:34
+And so we need ways in which we can. You Reduce the overfitting? And this is what the topic of Wednesday, we're gonna spend the whole time talking about overfitting and and how boosting and aggregation helps us reduce the overfitting of a learning output.
+
+[Prof. Munzer Dahleh] 19:27:50
+Another approach of course is, is what's called pruning. Again, I'll talk about that next time.
+
+[Prof. Munzer Dahleh] 19:27:57
+Kindly, I want to say that the decision trees existed many of, of the platforms. I mean, you can find it in the Matlab and R and, in, almost every possible.
+
+[Prof. Munzer Dahleh] 19:28:12
+Versatile, very easy to use. And it does provide a very powerful technique for learning, level data sets, which is, which is important.
+
+[Prof. Munzer Dahleh] 19:28:25
+And just a bit of history over here. was the first to actually coin the name decision tree.
+
+[Prof. Munzer Dahleh] 19:28:35
+So they're actually, that appeared in 1986 and joiner machine learning.
+
+[Prof. Munzer Dahleh] 19:28:42
+But the lectures that I'm giving today and and part of next time come from the book by Bremen Friedman, Ocean in Stone.
+
+[Prof. Munzer Dahleh] 19:28:50
+This book looks a little red, blue over here. It's a really good book for reading about the details and knowledge of decision trees.
+
+[Prof. Munzer Dahleh] 19:28:57
+If you're someone who uses a lot of decision trees. I think this is a really good reference for you to have and and and learn more about some of the intricacies and algorithmic issues with that.
+
+[Prof. Munzer Dahleh] 19:29:10
+Okay. So.
+
+[Prof. Munzer Dahleh] 19:29:16
+So let's talk a little bit about the main idea of what we're trying to do with a decision 3, which is a classification.
+
+[Prof. Munzer Dahleh] 19:29:25
+So what is a classification problem? How do we think about classification? Okay, so a classification problem you have typically independent variables that we think of as x one up to XN.
+
+[Prof. Munzer Dahleh] 19:29:38
+And then there is an outcome, why one up to one end. That's the data that you have.
+
+[Prof. Munzer Dahleh] 19:29:43
+Okay, so you may have a lot of data in the healthcare system. Which tells you, for example, X one, X one, each one of these is a vector, right?
+
+[Prof. Munzer Dahleh] 19:29:54
+It has a lot of information and the index is the data that comes from one patient. Do you think of each patient coming to a general doctor and you collect this a bunch of features about these?
+
+[Prof. Munzer Dahleh] 19:30:07
+Some of these features include their vital signs. So temperature pressure. With, I don't know, temperature pressure.
+
+[Prof. Munzer Dahleh] 19:30:13
+Some other things. And, and then you may ask them some questions about whether they have a headache, not have a headache, or have they been?
+
+[Prof. Munzer Dahleh] 19:30:22
+Feeling sick in their stomachs and so forth. So you collect data on this on this candidate and then maybe what you're trying to classify or were you trying to see is whether or not these people have.
+
+[Prof. Munzer Dahleh] 19:30:36
+A viral infection or a bacterial infection. So these would be the outcomes. So you have a bunch of data sets.
+
+[Prof. Munzer Dahleh] 19:30:45
+And then what you want to do is to build a classifier that in the future when it when you provided with these information.
+
+[Prof. Munzer Dahleh] 19:30:52
+Which is temperature pressure. Feeling sake. So forth. It concludes with that you have a bad infection or a bacterial infection.
+
+[Prof. Munzer Dahleh] 19:31:04
+Right? So that's kind of like a weather classifier does. It based on the data that you measure that you classified, can you build a classification device?
+
+[Prof. Munzer Dahleh] 19:31:13
+An automated device that takes the feature and spits out. A, a, a, So we can do that in a lot of different things, you know, so we can do it in healthcare.
+
+[Prof. Munzer Dahleh] 19:31:24
+Say for another example would be you have a bunch of symptoms. Some of these symptoms can be how you feel and some of them can be test results.
+
+[Prof. Munzer Dahleh] 19:31:33
+Blog test, imaging, that kind of stuff. Maybe we can decide. On Kaxa.
+
+[Prof. Munzer Dahleh] 19:31:40
+Is there a can is there a cancer number? Now sometimes you have to recognize that we build these devices to have a certain level of accuracy.
+
+[Prof. Munzer Dahleh] 19:31:48
+Okay, so it's not necessary that for example that this device is a hundred percent correct. Maybe this device feeds into another.
+
+[Prof. Munzer Dahleh] 19:31:58
+Mechanism where the device can give you, yes, I think there's a good probability that you have cancer and maybe that that leads into a additional test that needs to be performed.
+
+[Prof. Munzer Dahleh] 19:32:10
+So, so we need to think about the classic, automating classifier, not just as the ultimate decision-maker, but one step in the decision-making.
+
+[Prof. Munzer Dahleh] 19:32:20
+Array of things until you're really dissected. And all the issues are dissected into detail.
+
+[Prof. Munzer Dahleh] 19:32:27
+We can apply this in a different way. So for example, this classifiers on email, you get an email and then like the ones you have for example in your, Gmail and so forth.
+
+[Prof. Munzer Dahleh] 19:32:38
+It looks for certain features of the email. And then decides whether this is an actual email or a spam.
+
+[Prof. Munzer Dahleh] 19:32:45
+So may search your, contacts first and decide whether this email comes from one of your contacts. It may look at the grammar.
+
+[Prof. Munzer Dahleh] 19:32:54
+It may look at the, periods and commas and capitalization and so forth. Looks at images.
+
+[Prof. Munzer Dahleh] 19:33:02
+And then finally, based on these things, can spit out and say, yes, this is. And so what is the outcome that you're looking for is spam or not spam?
+
+[Prof. Munzer Dahleh] 19:33:12
+Regular, a good message or a spam and if it's fun you serve. You know, deleted everybody somewhere else.
+
+[Prof. Munzer Dahleh] 19:33:18
+You know, we could classify the digits between 0 to 9 and if 1010 outcomes. And so we look at the shape and from the shape we want to classify whether you're 0, 1, 2, up to 9.
+
+[Prof. Munzer Dahleh] 19:33:29
+So it's the shape recognition. So maybe we would have to segment the shape and to what's in the horizontal.
+
+[Prof. Munzer Dahleh] 19:33:35
+What's in the diagonal? What's in the bottom? We have to capture the rotation and translation of these numbers from 0 to 9 and then classify that what you're reading is online.
+
+[Prof. Munzer Dahleh] 19:33:49
+So I write something, you know, like this and then, and then basically the algorithm may have a way of segmenting classifying, you know, how things curve, how disconnect and and decide, you know, yes, this is what you put in here.
+
+[Prof. Munzer Dahleh] 19:34:03
+Is an actual number of 0 can write.
+
+[Prof. Munzer Dahleh] 19:34:07
+Again, we talked about classification of images. Is this a human? An animal? Is this animal a bomb or a cab?
+
+[Prof. Munzer Dahleh] 19:34:16
+Is this dog this kind of that or that kind and so forth, right? So we can do all of this.
+
+[Prof. Munzer Dahleh] 19:34:21
+The bottom line is that kind and so forth, right? So we can do all of this. The bottom line is that classification is going from a set of independent variables.
+
+[Prof. Munzer Dahleh] 19:34:25
+Set of variables, features, into an outcome. And we want to do this in a particular way we wanna build this function.
+
+[Prof. Munzer Dahleh] 19:34:34
+That maps these variables into an outcome. Based on having labeled data. Of many features and outcomes. So how do we go from the data to building that particular function?
+
+[Prof. Munzer Dahleh] 19:34:47
+What is the form of that function? How do we kind of we build it? Just to kind of remind you what we think about prediction.
+
+[Prof. Munzer Dahleh] 19:34:55
+You know, we were not thinking too much about classicifying, but we're thinking about predicting the actual continuous value.
+
+[Prof. Munzer Dahleh] 19:35:02
+So for example, when you did linear regression, you had a bunch of data that looked like this.
+
+[Prof. Munzer Dahleh] 19:35:08
+And you're seeing over here, for example. Right? Is a bunch of data over here and over there.
+
+[Prof. Munzer Dahleh] 19:35:14
+And you're trying to say, okay, well, maybe I want to predict. A new data point that is not on this.
+
+[Prof. Munzer Dahleh] 19:35:20
+I wanna see, for example, this data point, what it gives me in terms of a value. So you build a linear regression that fits in the middle over here.
+
+[Prof. Munzer Dahleh] 19:35:29
+Minimize this error. And now I can use this regression to in extrapolate what the value of this point x in terms of at that value one.
+
+[Prof. Munzer Dahleh] 19:35:39
+And the point is that I built this regression based on the data to minimize the error between y and y hat.
+
+[Prof. Munzer Dahleh] 19:35:46
+Okay, so it's really this is the data itself. This is what it predicts. I'm always trying to minimize the error between all of these things.
+
+[Prof. Munzer Dahleh] 19:35:54
+So the line goes somewhere in the middle of all of this. That's why you did a linear regression.
+
+[Prof. Munzer Dahleh] 19:35:59
+In the classification case. Well, we have discrete outcome either yes or no. And so for example here, look at this particular X value.
+
+[Prof. Munzer Dahleh] 19:36:11
+And let's think, for example, this is point 5. Okay, so everything below point 5 seemed to have a value of y equal to 0.
+
+[Prof. Munzer Dahleh] 19:36:23
+And except for this guy. And everything above point 5. Has a value equal to one, maybe except these 2 guys.
+
+[Prof. Munzer Dahleh] 19:36:32
+So what I'm going to do is to say, here's my classifier. Here I'm gonna call it 0 anything below point 5 0 and I think above point 5 is equal to one and then I'm going to make some patterns.
+
+[Prof. Munzer Dahleh] 19:36:45
+Okay, so I the classifier is pretty good, but I'm gonna have an editor in this guy and I write this guy in.
+
+[Prof. Munzer Dahleh] 19:36:52
+So 3, 3 points out of all the points that I have. On the data would be errors. But the classifier is saying, you know, most, most The most.
+
+[Prof. Munzer Dahleh] 19:37:04
+The best predictor that minimizes the probability of error, the probability of making a mistake is one that classifies at point 5.
+
+[Prof. Munzer Dahleh] 19:37:13
+Okay. Just the kind of the contrast between the prediction and. The classification problem. But they are kind of closely related.
+
+[Prof. Munzer Dahleh] 19:37:25
+Alright, and so the linear classifier is precisely similar to the linear regression except that what it is is that in terms of server I think of having features in this case as 2 variables, x one going this way and x 2 going that way.
+
+[Prof. Munzer Dahleh] 19:37:40
+Okay. All right. And so. I'm trying to classify now between what appears to be blue dots and brown dots.
+
+[Prof. Munzer Dahleh] 19:37:51
+So I have this linear classifier. What is the senior guys file look like? It says A one X one plus A 2 X 2 is less than or equal to C.
+
+[Prof. Munzer Dahleh] 19:38:02
+Right? So what it says is that this is the classifier, the Linux has file over here.
+
+[Prof. Munzer Dahleh] 19:38:08
+Above that I say is that this is the classifier, the limit has file over here, above that I say brown, below that.
+
+[Prof. Munzer Dahleh] 19:38:10
+Below that, I would say. That's it. We like this in terms of one vector theta transpose X.
+
+[Prof. Munzer Dahleh] 19:38:22
+Less than greater vaccine. Okay. I think, So we compare that to a threshold C, if it's above the threshold, your red, you're wrong is below the threshold.
+
+[Prof. Munzer Dahleh] 19:38:35
+So that's kind of how you do a linear classifier. Data. This is seem like if you look at this data set.
+
+[Prof. Munzer Dahleh] 19:38:42
+You it looks like. I mean it's reasonably classified by a linear regression. Of course there are some errors here but there's no way I can capture this in a year in a linear way.
+
+[Prof. Munzer Dahleh] 19:38:52
+I mean, I have to go curve around these things in a very complex way. So I'm going to incur a certain error, but the majority of the points would be captured by this linear function.
+
+[Prof. Munzer Dahleh] 19:39:04
+Okay. Come on, I look at data sets like this. I know when I classify the red from the blue.
+
+[Prof. Munzer Dahleh] 19:39:11
+One possibility of course for me is to use a linear regression. Okay, and if I did a linear regression I may do something like this, right?
+
+[Prof. Munzer Dahleh] 19:39:21
+I may kind of create a line like this over here. Okay, and say below this line is red.
+
+[Prof. Munzer Dahleh] 19:39:27
+Above this line is blue.
+
+[Prof. Munzer Dahleh] 19:39:30
+Okay, I mean that could work. But it's not that accurate because there's a whole region here which is red, a whole region here which is red that's classified as blue.
+
+[Prof. Munzer Dahleh] 19:39:41
+And the whole region here, which is blue, that is classified as red. And then the rest of the stuff seem to be right.
+
+[Prof. Munzer Dahleh] 19:39:48
+But could I have avoided? Losing, they kept the this classification on these points over here. And the answer is it's very hard to do it with a linear function.
+
+[Prof. Munzer Dahleh] 19:39:59
+I mean, you can curve that function a little bit. You know, you can move it around. In other ways but even moving it on is not going to capture more points than I have.
+
+[Prof. Munzer Dahleh] 19:40:10
+Okay, so it doesn't seem like linear regression for this picture is gonna do as good of a job as maybe something else.
+
+[Prof. Munzer Dahleh] 19:40:17
+And so what is that something else? Maybe a decision tree will do better. So let's think about a decision tree for this one here.
+
+[Prof. Munzer Dahleh] 19:40:24
+And so let's erase this. This part that I did and let's just think of it this way.
+
+[Prof. Munzer Dahleh] 19:40:29
+The first thing I'm gonna do is to say everything to the right. Of x one is red.
+
+[Prof. Munzer Dahleh] 19:40:37
+Okay, so I'm gonna ask the first question is X one and this point is point 7. So is X one greater than point 7?
+
+[Prof. Munzer Dahleh] 19:40:46
+Okay, if x one is greater than point 7, everything is red. If x one is just 1.7, then I can use x 2.
+
+[Prof. Munzer Dahleh] 19:40:56
+Because x one less than point 7 I have blue and red in this region over here blue and red. But then if I ask about XX 2 being above and below point 5 then I would say below point 5 is red and above point 5 is blue.
+
+[Prof. Munzer Dahleh] 19:41:14
+So that gives rise to this decision tree over here. The first question is about X one. If x one is above point 7, I'm done.
+
+[Prof. Munzer Dahleh] 19:41:24
+If x one is below point 7 here. Then I split into using X 2. One is above 1 one is better.
+
+[Prof. Munzer Dahleh] 19:41:34
+So what happened is that this 3 now says X one first and X 2 s is a is not is cannot be captured.
+
+[Prof. Munzer Dahleh] 19:41:45
+By a linear function. It cannot be captured by a linear regression. And it has to be described in this.
+
+[Prof. Munzer Dahleh] 19:41:53
+Boolean way in this logical way first you ask about x one and then you have if It's one is greater than point 7.
+
+[Prof. Munzer Dahleh] 19:42:02
+I'm done if x one is less than point 7 then Is X 2 about point 5 is X 2, that below the product.
+
+[Prof. Munzer Dahleh] 19:42:12
+So you get this this sort of function that is more of a logical function and the variables x one and x 2.
+
+[Prof. Munzer Dahleh] 19:42:18
+And that logical function gives me more power. Than the linear. Okay. We call that a Boolean function of features.
+
+[Prof. Munzer Dahleh] 19:42:27
+It provides a sort of an if then type questions in terms of what we what we use for the class.
+
+[Prof. Munzer Dahleh] 19:42:36
+We will talk about more linear nonlinear functions. Of course, I mean, we can always adopt a more complicated nonlinear function.
+
+[Prof. Munzer Dahleh] 19:42:43
+This is this is the topic of neural networks later on. And finally I want to talk about the classification error.
+
+[Prof. Munzer Dahleh] 19:42:50
+So in the last point to make is that I am gonna build my classifier in general based on on the data that I have.
+
+[Prof. Munzer Dahleh] 19:43:01
+Okay, so if I both did so this is the data set that I have It's over here.
+
+[Prof. Munzer Dahleh] 19:43:08
+Now, how do I build my, how do I know whether I've done a good job or not?
+
+[Prof. Munzer Dahleh] 19:43:12
+We will talk a lot about. This is training data. You have to do things in the training data and then test it in the test data.
+
+[Prof. Munzer Dahleh] 19:43:20
+But all this data is labelled data. I have the answers. I have the features and I have the outcome and I'm building the tree based on the features and their outcomes.
+
+[Prof. Munzer Dahleh] 19:43:28
+Okay, now when you look at computing the error, whether you computed on the whole data or in the test data, you're looking at all the points that you missed.
+
+[Prof. Munzer Dahleh] 19:43:40
+This is the point that you missed on this. You missed all of these points that you missed. I'm Miss Glasson Park.
+
+[Prof. Munzer Dahleh] 19:43:47
+Okay, and the question is what's the percentage of the points that you The percentage of the points that you, in is classified.
+
+[Prof. Munzer Dahleh] 19:43:58
+Tells you the percentage of error that you have. So in that, and when I did the linear regression case on this example over here.
+
+[Prof. Munzer Dahleh] 19:44:06
+Let mes classification error will be a lot larger than the 3. And I think that that's sort of the guidance for how we are building these types of blocks.
+
+[Prof. Munzer Dahleh] 19:44:15
+Okay. So in general, I'm interested in the misclassification. Okay, now. If you think about the generic picture over here, there are 2 outcomes.
+
+[Prof. Munzer Dahleh] 19:44:26
+One is blue and one is brown. There is an actual outcome and there is the classified option. This is the true label and this is what your classifier said.
+
+[Prof. Munzer Dahleh] 19:44:34
+Okay, you know, so for example this point over here was blue and classified as blue. But this point is blue, but classified as red.
+
+[Prof. Munzer Dahleh] 19:44:45
+That's an error. So what we're looking for is how many of the labels that are through blue our classified red.
+
+[Prof. Munzer Dahleh] 19:44:54
+Okay, and how many of the people of the, points that are to Brown that's classified as.
+
+[Prof. Munzer Dahleh] 19:45:03
+This part over here. Let's take all the labels. This is my
+
+[Prof. Munzer Dahleh] 19:45:13
+Data that is blue classified as red. And did it is brown, I'm sorry, Blue, the cast line has brown and bronze, Now sometimes I may care more about one error versus another error.
+
+[Prof. Munzer Dahleh] 19:45:29
+That is maybe I care about misclassifying blue.
+
+[Prof. Munzer Dahleh] 19:45:34
+This can't find you. That is satisfying Brah. I don't care about miscassifying Brown, but I care about miscalifying blue.
+
+[Prof. Munzer Dahleh] 19:45:43
+Why? Because for example, suppose that I'm building a tool that is trying to diagnose whether IA person has cancer or not.
+
+[Prof. Munzer Dahleh] 19:45:51
+Then the false negative is more problematic. That is, if the tool says no, there is no cancer.
+
+[Prof. Munzer Dahleh] 19:46:02
+When the person has cancer, that's worse. They're saying there's this chance that this person has cancer and then with further test we find out that there's no cash.
+
+[Prof. Munzer Dahleh] 19:46:10
+Because at least we give the chance. To explore further. Why the tool declared that there is no cancer and there was cancer, then we did not declare further. Right?
+
+[Prof. Munzer Dahleh] 19:46:21
+And so, so that sometimes the false negative is more problematic than the false positive, that's what we affect to.
+
+[Prof. Munzer Dahleh] 19:46:27
+As assigning one outcome being possible and an outcome being negative. Okay? And so in general, we think of what we call the confusion matrix in terms of positive outcomes and negative outcomes.
+
+[Prof. Munzer Dahleh] 19:46:38
+Okay, and so the 2 label is a positive outcome being say for example yes, this cancer and for and the negative outcome, we know there's no.
+
+[Prof. Munzer Dahleh] 19:46:50
+Cancer and so maybe I care about the false positive here, a false negative over here. The true is positive and I declare negative.
+
+[Prof. Munzer Dahleh] 19:46:59
+So I care about that one. Or maybe I care about the false positive. So I emphasize this guy.
+
+[Prof. Munzer Dahleh] 19:47:04
+Okay, and then there is these definitions of what we call precision and recall that you're using that in a lot of the applications.
+
+[Prof. Munzer Dahleh] 19:47:12
+Again, that there's They basically the ratio of the true positive divided by everything that is positive or the true positive divided by everything as as precision is true positive divided by everything that's declared positive.
+
+[Prof. Munzer Dahleh] 19:47:28
+And then recall is the true positive divided by everything that actually is positive.
+
+[Prof. Munzer Dahleh] 19:47:35
+Okay, I mean you can study the confusion, I'm not going to spend a lot of time in the confusion.
+
+[Prof. Munzer Dahleh] 19:47:41
+I'm going to just be interested in the total error when I'm building my decision tree, knowing very well that you can emphasize either side.
+
+[Prof. Munzer Dahleh] 19:47:50
+You can be, you can decide with that you can about false positives for negatives, but I'm gonna just worry about all the errors in this case.
+
+[Prof. Munzer Dahleh] 19:48:00
+When last comment before we paused, I asked some questions. I will spend the next our so just talking about categorical data and in particular binary data.
+
+[Prof. Munzer Dahleh] 19:48:12
+But the continuous data or the numerical data is something I will touch on at the end of next lecture because it follows very similar to everything that we do in the categorical data.
+
+[Prof. Munzer Dahleh] 19:48:24
+So I won't get there. We're gonna assume our variables, all our variable x's, all our outcomes to be binary, by, you know, categorical, which means that the outcomes are tall.
+
+[Prof. Munzer Dahleh] 19:48:36
+Sure, yes, no. Logical elements and no continuous variables. As I said, we revisit the continuous variables towards the end of So let's take a break.
+
+[Prof. Munzer Dahleh] 19:48:50
+Stop and then you know maybe Sharma somebody will come and and we will answer some of the questions that were released and and then prepared to the next part of the lecture.
+
+[[GL Mentor] Shubham Sharma] 19:49:13
+Okay, so
+
+[[GL Mentor] Shubham Sharma] 19:49:19
+So, Ranganath had a question. Are there other algorithms in this phase other than entropy based?
+
+[Prof. Munzer Dahleh] 19:49:29
+This genie index entropy based or I mean of course you can create your own complicated algorithms.
+
+[Prof. Munzer Dahleh] 19:49:36
+But I mean, I think that these sort of information based algorithm are very popular.
+
+[[GL Mentor] Shubham Sharma] 19:49:45
+Is there a way to rank the terminal notes? So perhaps the 2 yes terminal nodes are different levels of safety when it comes to getting a loan.
+
+[Prof. Munzer Dahleh] 19:50:02
+Okay, so if you wanted to put a weight on the, so there are ways in which you can.
+
+[Prof. Munzer Dahleh] 19:50:10
+Quantify each classification each label for each group. Of the level of accuracy of that particular group.
+
+[Prof. Munzer Dahleh] 19:50:21
+You can do that, right? So for example, I mean, you know, say that, we label people who are young but with $2,500 more per month.
+
+[Prof. Munzer Dahleh] 19:50:32
+As positive that they will receive the loan. We look into that group and maybe a hundred percent of those people receive the norm.
+
+[Prof. Munzer Dahleh] 19:50:41
+You know, while we label people that get less than 25, $2,500 as not receiving the loan, maybe 60% did not receive the loan.
+
+[Prof. Munzer Dahleh] 19:50:51
+Right? So, 40% still received the loan. So we, we labeled that class as as negative even though there are quite a bit of cost to people in that class.
+
+[Prof. Munzer Dahleh] 19:51:00
+So then you can say the accuracy level is not same and you can quantify that aspect of it.
+
+[Prof. Munzer Dahleh] 19:51:06
+I don't know if that asks your question, but you do rank. How accurate each one of the label classes you could do that.
+
+[[GL Mentor] Shubham Sharma] 19:51:16
+Next question from Dennis, it is limited to 2 outcomes for each node.
+
+[Prof. Munzer Dahleh] 19:51:21
+No, no, you can have multiple.
+
+[[GL Mentor] Shubham Sharma] 19:51:31
+Is it something like a simple neural network in a way with classification rules as head and notes?
+
+[Prof. Munzer Dahleh] 19:51:37
+You, network is sort of a generic version, much more sort of general version of a decision tree. So I mean.
+
+[Prof. Munzer Dahleh] 19:51:45
+You can realize the decision tree in the neural network.
+
+[[GL Mentor] Shubham Sharma] 19:51:53
+How will the decision tree handle null or missing data?
+
+[Prof. Munzer Dahleh] 19:51:58
+So we will have to. In general, missing data is treated almost the same way for all machine learning algorithms, right?
+
+[Prof. Munzer Dahleh] 19:52:07
+I mean at some level. If you have No information about a feature. Or you have unlabeled data about the feature, you have to extrapolate some of this value ahead of time.
+
+[Prof. Munzer Dahleh] 19:52:20
+Before you use it in the network. So you could use
+
+[Prof. Munzer Dahleh] 19:52:25
+You could use the model that you built yourself. To infer the values of Let the missing data itself or you use some other averaging technique to fill out the values for these guys.
+
+[Prof. Munzer Dahleh] 19:52:38
+It's No difference between doing it for regression and doing it for for decision trees.
+
+[[GL Mentor] Shubham Sharma] 19:52:48
+So you talked about blank box. Can you emphasize on What do you mean by black box?
+
+[Prof. Munzer Dahleh] 19:52:55
+So black box is like when you think about, I mean, you're going to do a neural network analysis.
+
+[Prof. Munzer Dahleh] 19:53:02
+Later in this course. And I view that as a black box in the sense that You train these nodes without really knowing.
+
+[Prof. Munzer Dahleh] 19:53:12
+What feature was it presented to what node and what feature is playing a role for that particular data or not, right?
+
+[Prof. Munzer Dahleh] 19:53:19
+And so A black box is one that doesn't have very specific parameterization, you know, and an open box like the decision tree is one where where, I know that at every level what feature is playing what role?
+
+[Prof. Munzer Dahleh] 19:53:34
+And in fact, I can quantify how well it does. Using information metrics that we will do in about half an hour or so.
+
+[Prof. Munzer Dahleh] 19:53:43
+So I have very, very strong connection between the parameters of the model that I have. And the power of an extrapolation they're doing.
+
+[Prof. Munzer Dahleh] 19:53:53
+So, so that's an open box versus a black box.
+
+[[GL Mentor] Shubham Sharma] 19:53:59
+So next question from William. Can X one compassion be a function? Instead of just a number as a vertical or horizontal spread.
+
+[Prof. Munzer Dahleh] 19:54:09
+Right now it's not a function, it's a feature, a feature can be a function of multiple features, but it's a function of multiple features, but it's a feature.
+
+[Prof. Munzer Dahleh] 19:54:17
+So XX one or x 2. X itself, which is the, it can be a vector of multiple features.
+
+[Prof. Munzer Dahleh] 19:54:26
+So it's age or income or temperature or, you know, or an image or, you know, whatever, you know, a segment and image, all of these are features, right?
+
+[Prof. Munzer Dahleh] 19:54:36
+But you can define that feature as a function of other features. I mean, you can create that function yourself.
+
+[Prof. Munzer Dahleh] 19:54:43
+So you could say, I'm combining 2 features in one feature. So in that sense, the feature is a function, but it's not but it's a fixed function and you picked it and that's part of the feature design.
+
+[Prof. Munzer Dahleh] 19:54:55
+Or the feature engineering problem. Which I'm not getting into right now because that's also part of all machine learning.
+
+[Prof. Munzer Dahleh] 19:55:05
+You define new features out of existing features.
+
+[[GL Mentor] Shubham Sharma] 19:55:07
+How is the threshold chosen for the outcome? Specifically when we have binary outcomes and we have categorical features.
+
+[Prof. Munzer Dahleh] 19:55:18
+Okay, so. Let's say that we have. Just continuous features, the threshold is chosen from the regression that you use to separate the data.
+
+[Prof. Munzer Dahleh] 19:55:31
+That comes out of the algorithm. That's something I'll talk about next time. You know, how do we use continuous features to define a a a test function.
+
+[Prof. Munzer Dahleh] 19:55:40
+Right, so in principle you say x one and x 2 are 2 continuous features. I'm gonna say some for some A one X one plus A 2 x 2, right? I wrote that down before.
+
+[Prof. Munzer Dahleh] 19:55:51
+So some like A one or theta one X one time.
+
+[Prof. Munzer Dahleh] 19:55:56
+Then I want x one plus theta 2 x 2 is greater than some constant. All of these parameters theta one, theta 2, and the constant will be determined to separate the data.
+
+[Prof. Munzer Dahleh] 19:56:07
+Okay, that's how the threshold is chosen the same way as optimizing the parameter. 31.
+
+[Prof. Munzer Dahleh] 19:56:13
+Okay, and so that's in the continuous. I'm gonna get that next time in the discrete time.
+
+[Prof. Munzer Dahleh] 19:56:20
+There's really simple function. X one is either, you know, it has categorical data and I'm asking, is X one, you know, one or 0 right it's in the case of just binary is it 0 or one Very simple, there's no threshold.
+
+[Prof. Munzer Dahleh] 19:56:36
+Are you 0 or are you a one? Right. Okay. Now, if I have a mix of continuing with and discrete, then the, the, should be converted that discrete and that's where we bin it into different variables, right?
+
+[Prof. Munzer Dahleh] 19:56:53
+So then I take x one, for example, I'm interested in x one being your age. Can you as variable, I have any number, but then I can say anyone between 0 to 2020 to 40, 40 60.
+
+[Prof. Munzer Dahleh] 19:57:04
+So how do I been? There are also different ways you can bend that and create these. Subsets, right?
+
+[Prof. Munzer Dahleh] 19:57:12
+You know, you can do it using quantized, you can do it just by uniformly billing everything from 0 to 100 the different techniques for doing that.
+
+[Prof. Munzer Dahleh] 19:57:18
+This is all the sort of turning this into a practical way. Of solving problems, again, not that different from any other machine learning algorithm.
+
+[[GL Mentor] Shubham Sharma] 19:57:29
+So Michael's question, are decisionary classifiers better suited for problems with multiple discrete categories?
+
+[[GL Mentor] Shubham Sharma] 19:57:37
+Then the previous algorithms that we have learned.
+
+[Prof. Munzer Dahleh] 19:57:41
+As soon as for problems that have multiple categories, yes, but as opposed to what?
+
+[[GL Mentor] Shubham Sharma] 19:57:46
+Let's come back to the previous one, previous algorithms that we have learned.
+
+[Prof. Munzer Dahleh] 19:57:51
+Yeah, yeah, and if you have categorical data, then decision trees are very suited for that.
+
+[[GL Mentor] Shubham Sharma] 19:57:57
+Can decision tree model? Any function or they are suitable only for certain types of problems or functions.
+
+[Prof. Munzer Dahleh] 19:58:05
+I mean in principle they can they can mobile any function. They have that complexity. They're You can do by.
+
+[Prof. Munzer Dahleh] 19:58:14
+I mean, I'm just gonna say any function. They are very general.
+
+[[GL Mentor] Shubham Sharma] 19:58:21
+How big can a distant tree be for a large data set? Is there a limit? Our big complex decision trees as accurate or do we need to normalize or limit the number of classifiers to make more accurate.
+
+[[GL Mentor] Shubham Sharma] 19:58:34
+So, that's what we're going to do.
+
+[Prof. Munzer Dahleh] 19:58:35
+So I think this is a really good question for next time. One is it's not the size of the data is the number of features that matter, right?
+
+[Prof. Munzer Dahleh] 19:58:45
+And the more data I have, the better. I mean, I didn't have A 1 million data points on symptoms of disease that the symptoms are of the same.
+
+[Prof. Munzer Dahleh] 19:58:54
+Of the same size, the more data, the better, decision tree doesn't care. It's not gonna make it more complicated to do that.
+
+[Prof. Munzer Dahleh] 19:59:01
+But if I have a huge feature space and I'm now trying to figure out which feature I'm going to use and so forth then the complexity becomes harder.
+
+[Prof. Munzer Dahleh] 19:59:09
+If I use all the features all the way, I may overfit. And so all of that stuff is going to come next time.
+
+[Prof. Munzer Dahleh] 19:59:16
+So we're going to talk about. The fact that I over fit and the fact that there are ways in which I can mitigate that.
+
+[[GL Mentor] Shubham Sharma] 19:59:24
+Isn't decision tree just combination of multiple linear integration based on certain values of independent variables?
+
+[Prof. Munzer Dahleh] 19:59:31
+It's not really that because it's logically done, right? It's a it's a sequential aspect to this.
+
+[Prof. Munzer Dahleh] 19:59:39
+So if x one is above theta. Then there's another question. If x one is less than theta, then I have another question.
+
+[Prof. Munzer Dahleh] 19:59:46
+So this F then, that gives me a boolean function. It's not just a multiple linear function, it's combined at the same time.
+
+[Prof. Munzer Dahleh] 19:59:53
+So it's different.
+
+[[GL Mentor] Shubham Sharma] 19:59:57
+Will the decision point like more than 30 that you made? Would be changed if it is found to be wrong and how to prove the decision point is right or not.
+
+[Prof. Munzer Dahleh] 20:00:10
+Okay, so yes, of course the decision point, whether it's 30 or not 30, should come out of the algorithm that you built and if you're
+
+[Prof. Munzer Dahleh] 20:00:22
+If you do the classifier, right, it should find the 30 as well. So that's part of the design.
+
+[Prof. Munzer Dahleh] 20:00:27
+So it's not, yeah, and then. How you prove when you look at the, you look at the classification error and the test paper will talk about.
+
+[[GL Mentor] Shubham Sharma] 20:00:40
+Design trees look like hierarchical, in making. One needs to decide before moving forward.
+
+[[GL Mentor] Shubham Sharma] 20:00:46
+On the decision trees. I think this is more of a comment. So next question is, is there a guidance on how far from the root to the label, which is on the leaf node?
+
+[[GL Mentor] Shubham Sharma] 20:00:56
+How much distance? There should be between the root node and the leaf node to make sure that the tree does not become poorly complex.
+
+[Prof. Munzer Dahleh] 20:01:05
+This is kind of like the hyper parameter, which is the depth of the tree and and that's something that you have.
+
+[Prof. Munzer Dahleh] 20:01:12
+Control over and you can optimize. So There is no rule for how big that should be, but it is part of the parameters you optimize.
+
+[[GL Mentor] Shubham Sharma] 20:01:24
+Okay, so that's all the questions that we have for now.
+
+[Prof. Munzer Dahleh] 20:01:26
+Great. Okay, thank you. Alright, so.
+
+[Prof. Munzer Dahleh] 20:01:34
+So let's go ahead and spend. Sometime now trying to understand how do we learn a decision tree from data.
+
+[Prof. Munzer Dahleh] 20:01:43
+And in order to do this, I am going to use an example that is for this lecture and next lecture that is actually quite simple that allows us to do the computation by hand.
+
+[Prof. Munzer Dahleh] 20:01:55
+So I am, you know, this is not necessarily a very, realistic. I mean, it is a realistic example, but it is not.
+
+[Prof. Munzer Dahleh] 20:02:04
+Complex enough to do a lot of the statistical analysis on it and so forth. But we understand how the concepts are.
+
+[Prof. Munzer Dahleh] 20:02:10
+Are laid out for this particular example. So this example is about deciding a waiting time. It's weird that since.
+
+[Prof. Munzer Dahleh] 20:02:20
+A waiting time at the restaurant, okay?
+
+[Prof. Munzer Dahleh] 20:02:25
+And, so basically for every customer that comes in and I have 12 customers over here, okay, I collected data based on the a bunch of features or attributes that either have to do with the weather or have to do with the restaurant or have to do with them.
+
+[Prof. Munzer Dahleh] 20:02:43
+Okay, so this data can be say in principle collected for these 12 customers and then we know for these 12 customers whether they waited for a table or one.
+
+[Prof. Munzer Dahleh] 20:02:54
+The objective of this decision tree is to then create a mapping between this attributes or features. To a decision whether a person weighs or not.
+
+[Prof. Munzer Dahleh] 20:03:07
+Fairly straightforward. Use their collective data to create this function. So what is this data? We have 10 features here.
+
+[Prof. Munzer Dahleh] 20:03:17
+And these features, as I said, describe different things. So for example, does there exist an alternative?
+
+[Prof. Munzer Dahleh] 20:03:26
+Restaurant is an important feature. Does the restaurant have a bar that we can wait on? Is it a weekend or is it a week day?
+
+[Prof. Munzer Dahleh] 20:03:37
+Are you hungry? Is an important feature. Do you see other people in the restaurant? It's also important, is the price high or not?
+
+[Prof. Munzer Dahleh] 20:03:46
+And some of these features, by the way, are binary and some are higher than that. So for example, if you look at the alternative yes or no bar yes and no Hungary, yes and no.
+
+[Prof. Munzer Dahleh] 20:04:02
+But patrons for example, I have multiple outcomes. It can be empty. It can be there are some people or it can be full.
+
+[Prof. Munzer Dahleh] 20:04:09
+So there's 3 outcomes. price is the same, you know, kind of cheap, moderate and expensive.
+
+[Prof. Munzer Dahleh] 20:04:15
+Then I have raining, yes or no, that's an important feature. Have you made reservations?
+
+[Prof. Munzer Dahleh] 20:04:24
+The type of restaurant, that's multiple. I have French, Italian, tired, but I have 4 possible outcomes for this particular data.
+
+[Prof. Munzer Dahleh] 20:04:32
+And then weight estimate. Wait estimate is like you arrive and then somebody does you okay get away from 0 to 10 min versus 10 to 30 min.
+
+[Prof. Munzer Dahleh] 20:04:44
+Said 60 min or above 60 min. So that's we this data was collected based on these features and at the same time the outcome is yes the person will wait.
+
+[Prof. Munzer Dahleh] 20:04:55
+Know the person will leave.
+
+[Prof. Munzer Dahleh] 20:04:59
+Okay, so I have, that my 12 data points. Only 12 customers that I have and so I'm gonna build decision trees based on this.
+
+[Prof. Munzer Dahleh] 20:05:08
+Okay. Now just highlight some of the issues of how do you build the tree. How do you calculate the error and then what are the techniques for optimizing the tree?
+
+[Prof. Munzer Dahleh] 20:05:18
+And I want to do that for this particular data set because as I said, it's sort of straightforward to do this computation.
+
+[Prof. Munzer Dahleh] 20:05:26
+No, the, that we have just to make sure that everyone in the same, same page is that we have this place.
+
+[Prof. Munzer Dahleh] 20:05:35
+Of feature space or the variables that we base a decision on is in the space X. So, we the way we think about it is that for every customer X is in some capital X and this is in itself a vector.
+
+[Prof. Munzer Dahleh] 20:05:51
+So in here each customer has 10 variables. So each customer X 3, for example, has a value for each one of these features.
+
+[Prof. Munzer Dahleh] 20:06:03
+So if I read x 3 Customer 3. Winter restaurant, there was no alternative restaurant.
+
+[Prof. Munzer Dahleh] 20:06:11
+This restaurant had a bar. It was not a weekend. The person wasn't hungry. When they got to the bar, it had some people, it was cheap, it wasn't raining.
+
+[Prof. Munzer Dahleh] 20:06:21
+They make a reservation. Essentially this was a burger place and the person told them. Basically, almost no waiting time, 0 to 10 min, and then they state.
+
+[Prof. Munzer Dahleh] 20:06:31
+Gee, so what happened is for that particular customer, I have that vector features well-defined.
+
+[Prof. Munzer Dahleh] 20:06:38
+I have the values for each one of those, right? The outcome is also why is an element of some white in this particular case weight or not weight.
+
+[Prof. Munzer Dahleh] 20:06:47
+Believe. Okay. And I'm trying to build a decision room. For every sequence of features that I have, I'd like to tell you what the outcome is and I want this decision rule to have a small error.
+
+[Prof. Munzer Dahleh] 20:07:01
+As much as possible. Okay? And this is the process that we call generalization. I won't be, I want the.
+
+[Prof. Munzer Dahleh] 20:07:09
+Function to have small error. Even outside the data set that I have. I want it to be predictive.
+
+[Prof. Munzer Dahleh] 20:07:17
+I want to say when someone comes in with these features, I want to predict whether that person waits or leaves.
+
+[Prof. Munzer Dahleh] 20:07:27
+Alright, so here's a possible tree that I can come up with. It doesn't use all the features, but it uses some of the features.
+
+[Prof. Munzer Dahleh] 20:07:33
+And the 3 has depth to the question that was asked before. It basically asked 2 questions. Okay, so it has that.
+
+[Prof. Munzer Dahleh] 20:07:41
+The first question says, did you make reservations? Okay, and the answer could be yes or could be no.
+
+[Prof. Munzer Dahleh] 20:07:49
+If the answer is yes, you may do this invasion. Let's ask whether the person, whether whether it's raining or not.
+
+[Prof. Munzer Dahleh] 20:07:54
+Okay, and now if it's raining I would say wait and if it's not raining I would say Okay, and if you didn't make reservation, I'm gonna ask you're hungry or not.
+
+[Prof. Munzer Dahleh] 20:08:06
+If you're hungry, I would say leave. And if you're not hungry, I would say wait.
+
+[Prof. Munzer Dahleh] 20:08:08
+It's a very simple decision tree. I'm gonna admit to you and I say I built this tree without looking at the data.
+
+[Prof. Munzer Dahleh] 20:08:14
+I just built it. I, I just suggested this. Is it a good tree or not? How do we know that this is a good tree or not?
+
+[Prof. Munzer Dahleh] 20:08:22
+Well, based on the data, we can see if it classifies well or not by populating our data.
+
+[Prof. Munzer Dahleh] 20:08:29
+And here I want to show you that populating the data through a model is very, very simple. The evaluation process.
+
+[Prof. Munzer Dahleh] 20:08:36
+Whether a dataset fits the, you know, what the out, you know, what the outcome based on this particular tree is fairly simple.
+
+[Prof. Munzer Dahleh] 20:08:43
+Right. So how do we do that? Well, again, we Calculate the misclassification error.
+
+[Prof. Munzer Dahleh] 20:08:50
+As I said, for the data set is the sequence XIYI. Which is for each customer, what are their features?
+
+[Prof. Munzer Dahleh] 20:08:58
+And what's the outcome today? Came up with and we went to calculate what we call the empirical error and the empirical error counts how often this function is wrong.
+
+[Prof. Munzer Dahleh] 20:09:12
+This is how often it's wrong. So I know the value, I know what you've done.
+
+[Prof. Munzer Dahleh] 20:09:17
+And then I looked at what the function does, my tree, the function is my tree. How does it classify you?
+
+[Prof. Munzer Dahleh] 20:09:24
+And I count how often it made a mistake. Okay, that's really what I have in this and then I know So let's do that.
+
+[Prof. Munzer Dahleh] 20:09:33
+Let's do that for this tree. Okay, so again, I came up with this 3. What I need to do now is for the 12 data points to classify them where they lie.
+
+[Prof. Munzer Dahleh] 20:09:43
+And see if they made an error or not. Let's do that what you know a couple and then see if it works okay So.
+
+[Prof. Munzer Dahleh] 20:09:52
+So here we have. X one, first of all, did the person make reservation?
+
+[Prof. Munzer Dahleh] 20:09:59
+Yes. They made reservations. Then the next question was, is it raining or not? And if it's not raining, then we said leave.
+
+[Prof. Munzer Dahleh] 20:10:07
+Okay, but actually they stayed so x one
+
+[Prof. Munzer Dahleh] 20:10:16
+Oh.
+
+[Prof. Munzer Dahleh] 20:10:21
+Okay, so X one. Comes in here. X one actually. So waited, right, or left at that.
+
+[Prof. Munzer Dahleh] 20:10:33
+X one waited and so X one waiting so that was a good outcome over here. Let's do another one and then see what happens, okay?
+
+[Prof. Munzer Dahleh] 20:10:42
+So, let's do.
+
+[Prof. Munzer Dahleh] 20:10:47
+Let's do x 5. Okay.
+
+[Prof. Munzer Dahleh] 20:10:50
+So x 5, again, the population is. Okay. Okay, I'm gonna do another one.
+
+[Prof. Munzer Dahleh] 20:10:59
+Let me do X 4. X 4 did not make reservations. Okay, then I have to ask the question, are they hungry?
+
+[Prof. Munzer Dahleh] 20:11:06
+And if they're hungry, then yes, they're hungry. Then they should stay. So X 4 is here.
+
+[Prof. Munzer Dahleh] 20:11:14
+Now, what, what was the outcome of X 4?
+
+[Prof. Munzer Dahleh] 20:11:21
+Let's see, so small. Okay, X 4 is.
+
+[Prof. Munzer Dahleh] 20:11:28
+Wait, yes, so that was also, that's all for it. So what I'm doing is I'm taking each one of these data points populating through this decision tree, populating through this decision tree, a very simple exercise, populating through this decision tree, a very simple exercise, linear, populating through this decision tree, a very simple exercise, linear algorithm. It's not complicated.
+
+[Prof. Munzer Dahleh] 20:11:43
+And then I put them all and here's what I discover. Is. Oh, explorers.
+
+[Prof. Munzer Dahleh] 20:11:50
+I thought it said stay.
+
+[Prof. Munzer Dahleh] 20:11:58
+. Oh, no. Yeah, as far as it weights, I'm sure that I double check this one, okay, x.
+
+[Prof. Munzer Dahleh] 20:12:08
+Oh yes, m is, okay, sorry. So I've been flipping down. I said, yes, And no means wait.
+
+[Prof. Munzer Dahleh] 20:12:16
+Okay. So all I'm doing is I'm basically putting these data points where they belong. So, so X is leave.
+
+[Prof. Munzer Dahleh] 20:12:24
+I've flipped it. So yes, M is leave. So X one is here, x 4 is here, and all these data points.
+
+[Prof. Munzer Dahleh] 20:12:31
+Classified in the right place. I just go through every data point and classify through the decision trip.
+
+[Prof. Munzer Dahleh] 20:12:36
+And now I check how many were misclassified.
+
+[Prof. Munzer Dahleh] 20:12:41
+And I'll find out that in fact, 5 of the ones that I added the data set that I have have been misclassified by this particular tree.
+
+[Prof. Munzer Dahleh] 20:12:50
+That's, you know, it said that they should leave. And they waited. Okay? So, you know, so for example,
+
+[Prof. Munzer Dahleh] 20:13:02
+Ex 7 is misclassified, you know, and then you can just go through the datasets.
+
+[Prof. Munzer Dahleh] 20:13:07
+And see which ones we discuss. So 5 out of 12 discussed part is a very bad error. This is a bad error.
+
+[Prof. Munzer Dahleh] 20:13:14
+Of course, I mean, this is not a realistic example. But 5 out of 12 is almost half of the data is being wrong.
+
+[Prof. Munzer Dahleh] 20:13:21
+That's not a very good. Decision tree. But you see what is going on is that we built the tree somehow and then we populate the data.
+
+[Prof. Munzer Dahleh] 20:13:29
+Could be the whole data could be just the test data to evaluate whether we've done a good job or not.
+
+[Prof. Munzer Dahleh] 20:13:36
+That's all what is going on with this decision tree. Here's another decision tree where I built it in a more sophisticated way.
+
+[Prof. Munzer Dahleh] 20:13:45
+In this case, I didn't, I did look at the data. This was actually the algorithm.
+
+[Prof. Munzer Dahleh] 20:13:49
+And the best feature it gave me at the beginning was the estimated waiting time. Okay, and remember that had 4 outcomes, 0 to 1010 to 30, 30 to 60 and above 16.
+
+[Prof. Munzer Dahleh] 20:14:02
+And then based on each one of those, there was a different question. So based on, for example, if you're waiting times, you is to tend essentially no waiting time.
+
+[Prof. Munzer Dahleh] 20:14:13
+It asked is the other people in there. And notice the outcome. If they're not, it says leave.
+
+[Prof. Munzer Dahleh] 20:14:19
+And if it's full, it's easily. But if there's some you wait.
+
+[Prof. Munzer Dahleh] 20:14:26
+If the waiting is from 10 to 30. Again, you know, if you're hungry, you wait if you're not hungry.
+
+[Prof. Munzer Dahleh] 20:14:33
+Then you look if there's an alternative restaurant and then you do that. Again, if you know, so the tree is is interesting, you know, if the way you talk to 30 to 60, then you may want to leave if you're hungry and wait, you're not hungry and so forth.
+
+[Prof. Munzer Dahleh] 20:14:48
+Okay, and then if above 16 just you.
+
+[Prof. Munzer Dahleh] 20:14:51
+Notice that this 3 for the most part has level 2. Yeah, but in this part here has the level 3 and that's okay.
+
+[Prof. Munzer Dahleh] 20:15:00
+So decision trees don't have the old branch in the same level. Sometimes you satisfy the you stop.
+
+[Prof. Munzer Dahleh] 20:15:05
+This has level one, this has level 2, depth and this is 3. The overall depth of the tree is 3.
+
+[Prof. Munzer Dahleh] 20:15:11
+Because it has one branch that is 3, but it can be variable in terms of different branches. We can populate the data again for this guy and see, you know, where each one of these guys fall.
+
+[Prof. Munzer Dahleh] 20:15:25
+And again, you, you can do that. I don't want to do this exercise, but then basically you see where each group data falls.
+
+[Prof. Munzer Dahleh] 20:15:33
+Okay, and you can look at the misclassification. And then this classification error in this case is only 2 out of the data points out of the 12 data points.
+
+[Prof. Munzer Dahleh] 20:15:42
+Was this guy's part. So that's that's actually a pretty good outcome, which means that this 3 is better than the previous trip.
+
+[Prof. Munzer Dahleh] 20:15:50
+I mean it is possible with this particular example to get a 0 of this class. That you can actually sort out all the data exactly right.
+
+[Prof. Munzer Dahleh] 20:15:59
+And we'll show you that in a. Okay, but the point is Again, I built a tree.
+
+[Prof. Munzer Dahleh] 20:16:04
+I didn't tell you how to build it. I'm evaluated using the data. I can't, that's classification error.
+
+[Prof. Munzer Dahleh] 20:16:11
+This is the point of this particular exercise. Just 1 point to think about as we were doing this is why we're doing all of this is not so much to just classify the data that we have.
+
+[Prof. Munzer Dahleh] 20:16:22
+But to really build a predictor. So it's more than just getting our dealer right, you know, so you can give me a large data set and I will be able to bucket it out, bucketed in a way where this group was in this one, this group goes in that one and so forth.
+
+[Prof. Munzer Dahleh] 20:16:38
+But what I'm trying to do in this particular decision tree is also built a predictor okay what does that mean it means that if I have A D set that is not in my set.
+
+[Prof. Munzer Dahleh] 20:16:49
+I'll predict what the outcome is going to be through the decision tree. And what I would like to be able to do is to have this prediction to have 0 problem.
+
+[Prof. Munzer Dahleh] 20:16:58
+It is small property. That is, I don't want to make an enter in this particular prediction.
+
+[Prof. Munzer Dahleh] 20:17:05
+I want to make it clear to you that you know in general when we build models of things Some things are naturally.
+
+[Prof. Munzer Dahleh] 20:17:16
+Wrong like in in the say or there's a natural uncertainty in the outdoor so for example Let's say that I'm trying to detect whether you have a violent infection versus a bacterial infection.
+
+[Prof. Munzer Dahleh] 20:17:31
+Right? So then typically the bacteria infection people run. Higher temperatures and longer time. And also have more headaches.
+
+[Prof. Munzer Dahleh] 20:17:43
+And sometimes have sore throat and so forth. One in the viral infection they do have to fever but doesn't run that long they may not have any any so forth they may not feel as sick and it's etc.
+
+[Prof. Munzer Dahleh] 20:18:00
+But it's not always the case that that separation exists. So you could have a bacterial infection that you don't have a sort of throw.
+
+[Prof. Munzer Dahleh] 20:18:09
+And you have a avoid infection with a soft throat and headaches, right? So that the phenomenon based on these features has randomness.
+
+[Prof. Munzer Dahleh] 20:18:17
+The only deciding factor is an actual bacterial test, a growth test that you take a sample of the blog and you grow it and see whether you happen to get an infection.
+
+[Prof. Munzer Dahleh] 20:18:26
+Right? And so, and so before you get to that particular test. There's randomness in the outcome itself.
+
+[Prof. Munzer Dahleh] 20:18:33
+And so you expect some error. Right? And so when you predict the new data set, you also predict an error.
+
+[Prof. Munzer Dahleh] 20:18:40
+So I just wanted to make sure that, you know, understanding these errors, it's not always that we're seeking a 0 error because it's 0 error may not be possible.
+
+[Prof. Munzer Dahleh] 20:18:47
+Given the set of features we're looking at. But given the features that I have, you know, a certain function can incur a certain probability of error.
+
+[Prof. Munzer Dahleh] 20:18:56
+And I don't wanna do worse than that particular probability of error based on that function. And when we get the function that gets me the best possible match of x.
+
+[Prof. Munzer Dahleh] 20:19:06
+F of x, equal to y. That is, I'm trying to find the function that does the match in the best possible way I can.
+
+[Prof. Munzer Dahleh] 20:19:15
+So the statistically oriented or you know interested in the probabilistic aspect of things think of X and Y, the probabilistic aspect of things, think of X and Y, the probabilistic aspect of things, think of X and Y, the feature and the outcome being governed by a joint probability distribution.
+
+[Prof. Munzer Dahleh] 20:19:28
+And what we're trying to do is to find F that minimizes the probability of f of x not equal to r.
+
+[Prof. Munzer Dahleh] 20:19:34
+That's all we're trying to do.
+
+[Prof. Munzer Dahleh] 20:19:37
+But we always work with empirical estimates and so in general we have no way of computing these probabilities.
+
+[Prof. Munzer Dahleh] 20:19:44
+We don't know what they are, so we only work with the critical estimates and that's the whole point of what we we try to compute.
+
+[Prof. Munzer Dahleh] 20:19:51
+So, where the way we do the learning of So how do we actually learn from the data? The first thing we do is separate the data and to test data and training there.
+
+[Prof. Munzer Dahleh] 20:20:02
+That's what we call testeraposcopic validation of testing. So training data is the data I used to build the decision tree.
+
+[Prof. Munzer Dahleh] 20:20:10
+The test data is what I will test. My outcome on. And it's important like linear regression like anything else, the test data is not used in the training so that you have a way of assessing something in an independent way.
+
+[Prof. Munzer Dahleh] 20:20:27
+Okay, so I will train the model based on the training data. And then we'll test it on the on the test, or the cross validation data.
+
+[Prof. Munzer Dahleh] 20:20:37
+And I usually use 80 20 split between training and testing. If you have a lot more data you can do 70 30.
+
+[Prof. Munzer Dahleh] 20:20:43
+Do 50 50 if you're like, yeah, a part of data. Now, the learning is really simple because it's sequential.
+
+[Prof. Munzer Dahleh] 20:20:52
+Where the hardest part of it is understanding what feature do you want to use when. Okay, but if I had the sequence of features I wanted to use the way I would classify is fairly simple.
+
+[Prof. Munzer Dahleh] 20:21:05
+You know, so the way I would do it, so, bear with me is really very simple.
+
+[Prof. Munzer Dahleh] 20:21:11
+You pick a feature. Okay, you pick a feature. Let's say that we picked a feature XM what is that feature let me call it feature M
+
+[Prof. Munzer Dahleh] 20:21:24
+Feature and maybe, temperature. Okay, and now what I do based on this feature, I take my data.
+
+[Prof. Munzer Dahleh] 20:21:31
+And I spit my data into the feature of yes. So I have temperature or no.
+
+[Prof. Munzer Dahleh] 20:21:41
+Okay, so what I've done as I said before is I split the data. My data sets.
+
+[Prof. Munzer Dahleh] 20:21:47
+Had this feature in it, that one feature I separated the data based on that particular feature.
+
+[Prof. Munzer Dahleh] 20:21:54
+No, I have 2 data sets. One data set over here, data set one.
+
+[Prof. Munzer Dahleh] 20:22:01
+And data set too.
+
+[Prof. Munzer Dahleh] 20:22:06
+Now I can do the same thing. On each data set with a new feature. So now maybe I'll ask if you have a headache or not have a headache.
+
+[Prof. Munzer Dahleh] 20:22:13
+So I, you know, so the next feature is headache.
+
+[Prof. Munzer Dahleh] 20:22:23
+Maybe I'll ask the same question on both, maybe not. I don't have that same question, right?
+
+[Prof. Munzer Dahleh] 20:22:28
+So headache over here and then here is Okay, yes. And no. Okay, here I may have a different, different feature.
+
+[Prof. Munzer Dahleh] 20:22:39
+You know, I ask a different question. And I keep doing that, right? So really the the building of the tree is about getting data.
+
+[Prof. Munzer Dahleh] 20:22:48
+Every time you pick a feature, you split the data sets. So I split one way here. And now on this new dataset, I split it again.
+
+[Prof. Munzer Dahleh] 20:22:57
+And then on that you said, again, not really hard to figure out how to continue to build. The data that the 3 and I can split in different ways because I will pick different features for different groups on each side until I stop.
+
+[Prof. Munzer Dahleh] 20:23:12
+And when I stopped, that's it. I stopped, I stood here, maybe now I stop. That's it.
+
+[Prof. Munzer Dahleh] 20:23:16
+I'm not gonna drill anymore. That's a hyper parameter or maybe I used up all my features or I used up all my data.
+
+[Prof. Munzer Dahleh] 20:23:25
+I stop, okay? Now when I stop, I decide a label over here.
+
+[Prof. Munzer Dahleh] 20:23:33
+So when I'm done, I need to decide on this group of people, what am I going to say?
+
+[Prof. Munzer Dahleh] 20:23:38
+Are they? Why equals one or 0? Are they, what's the outcome? Bacterial or viral.
+
+[Prof. Munzer Dahleh] 20:23:45
+Cancer or no cancer? The cat or the dog? I labeled that's it. And the way I will leave that group is by the majority.
+
+[Prof. Munzer Dahleh] 20:23:53
+So I look at that group and see what is the majority of that group. What's their outcome?
+
+[Prof. Munzer Dahleh] 20:23:58
+I have them. And I'm saying the majority is bacterial infection in that group, majority is a violent infection.
+
+[Prof. Munzer Dahleh] 20:24:06
+Okay, so to recap.
+
+[Prof. Munzer Dahleh] 20:24:10
+As long as I know how to, the missing piece in here is how do I know how to pick the feature and each level.
+
+[Prof. Munzer Dahleh] 20:24:18
+But once I know, which I'm gonna tell you in about 5, 10 min, but before I tell you that, find out the feature, it's a matter of splitting.
+
+[Prof. Munzer Dahleh] 20:24:28
+Split with one feature. I got 2 groups, split to another feature, in your groups until I'm done and then I label.
+
+[Prof. Munzer Dahleh] 20:24:36
+And the older I do, things matters. And the point is that if I use different features at different orders, I can generate so many different random trees.
+
+[Prof. Munzer Dahleh] 20:24:46
+In fact, I can if I don't allow you to repeat a feature and the number of features says M, then I have m factorial different decision trees I can build.
+
+[Prof. Munzer Dahleh] 20:24:56
+Why? Because I can use one, then I can use the minus one and then minus 2 and so forth, right?
+
+[Prof. Munzer Dahleh] 20:25:03
+So that there's an explosion in the size or the number of feet of trees that I can generate.
+
+[Prof. Munzer Dahleh] 20:25:10
+Alright, so that's the techniques and as I said and this is just rewriting the same thing and the point is that at the end we use the majority rule to try to put the label on the at the end so Here's an example of what I did.
+
+[Prof. Munzer Dahleh] 20:25:26
+I, I, And the first 3 I. Use the feature reservation. Yes or no, and then I used rain, yes and no, and then I'm done.
+
+[Prof. Munzer Dahleh] 20:25:37
+I labeled based on the majority group. And now I see how well the street does on. On the test sample.
+
+[Prof. Munzer Dahleh] 20:25:45
+That's how I built the tree. Okay, the real question in all of this without going into the with the real question is how do I know which one to pick?
+
+[Prof. Munzer Dahleh] 20:25:56
+How do I pick this part? How do I know at each level? Out of all the features I have, which feature that I have.
+
+[Prof. Munzer Dahleh] 20:26:03
+The intuition for this. Is that I want to build the feature. That separates the data in the best possible way.
+
+[Prof. Munzer Dahleh] 20:26:11
+That is, intuitively speaking, if you're looking for the first feature to decide whether it's a bacterial infection or a viral infection.
+
+[Prof. Munzer Dahleh] 20:26:21
+You may wanna say that, did you have a high temperature? This is not a high temperature.
+
+[Prof. Munzer Dahleh] 20:26:28
+Most people with the high temperature and acetal infection and most people with some temperature are not too high have a violent effect.
+
+[Prof. Munzer Dahleh] 20:26:36
+Okay, what I'm looking for is the feature that splits the best possible way. So the most people with one outcome go to the right.
+
+[Prof. Munzer Dahleh] 20:26:44
+And the other people with another autopilot to the left. If I can do that, then I need maybe to dig further into the next and third feature and so forth.
+
+[Prof. Munzer Dahleh] 20:26:53
+But the way I write the features is by having them separate this outcome as much as possible. That notion of purity.
+
+[Prof. Munzer Dahleh] 20:27:04
+The purity needs to be captured by a score and that's why we use information based purity measures like entropy and GE and so forth.
+
+[Prof. Munzer Dahleh] 20:27:13
+So I'm gonna get to that in a in a minute but let's pause for a second.
+
+[Prof. Munzer Dahleh] 20:27:17
+So the way I would pick the features would be in the in the last. 20 min of the chorus, but right now let's stop and ask some questions about how do we.
+
+[Prof. Munzer Dahleh] 20:27:26
+About the learning of God. Of a decision tree.
+
+[Prof. Munzer Dahleh] 20:27:50
+It's something it will come up if not.
+
+[Prof. Munzer Dahleh] 20:28:05
+Okay, let me let me scan the questions. I can see anyone coming up to do this.
+
+[Prof. Munzer Dahleh] 20:28:22
+Okay, so how do you decide which is the first feature? As I said, I'm going to tell you right now.
+
+[Prof. Munzer Dahleh] 20:28:35
+There you go.
+
+[Prof. Munzer Dahleh] 20:28:45
+Sorry, I'm just reading and you're adding yourself. Yes, you got the right answer.
+
+[Prof. Munzer Dahleh] 20:28:52
+I misguided the X one. I misread the tree. So you have your Are you constructing this fees by try and error did you use programmatically?
+
+[Prof. Munzer Dahleh] 20:29:03
+Right, so that's a good question. As I said, I try to construct the tree, the first 3 to actually just be I guess so that I can get a battery so I can tell you.
+
+[Prof. Munzer Dahleh] 20:29:12
+How to compute this classification error and saying this classification was a bad thing. But then the next 3 I did that in using algorithmically and I will be using impurity measures.
+
+[Prof. Munzer Dahleh] 20:29:24
+To actually give you the best 3 for this particular example of later.
+
+[Prof. Munzer Dahleh] 20:29:29
+This question about boosting and answer about boosting, boosting will be discussed next time.
+
+[Prof. Munzer Dahleh] 20:29:42
+Okay, there's a question about adapting a model. Of course, I mean, Data changes, model changes, right?
+
+[Prof. Munzer Dahleh] 20:29:52
+And so,
+
+[Prof. Munzer Dahleh] 20:29:57
+Right? Data changes and model changes. And so, you know, over time, I think you have to update the models that you have so that your your account and so we always have.
+
+[Prof. Munzer Dahleh] 20:30:11
+Model change. I mean, you know, remember, remember, you know, if we were trying to classify outcomes of COVID-19, I think we.
+
+[Prof. Munzer Dahleh] 20:30:18
+For example, started learning a lot more about the symptoms and the contagion and so forth over time.
+
+[Prof. Munzer Dahleh] 20:30:24
+And so we could do a lot more. To in doing that than than just simply stay with the stagnant model.
+
+[Prof. Munzer Dahleh] 20:30:43
+Again, what's that? CITY of selecting a feature to the data coming up next.
+
+[Prof. Munzer Dahleh] 20:30:53
+You suggest that doing a feature extraction of reduction. Before doing the decision tree. You couldn't do that.
+
+[Prof. Munzer Dahleh] 20:31:01
+You could do this, in the value decomposition of the features to try to extract the features that are best.
+
+[Prof. Munzer Dahleh] 20:31:07
+However, I mean, I think it's not necessary because a lot of what goes on, I mean a lot of that.
+
+[Prof. Munzer Dahleh] 20:31:16
+No.
+
+[Prof. Munzer Dahleh] 20:31:20
+Yeah.
+
+[Prof. Munzer Dahleh] 20:31:26
+Yeah, so, The singular value composition may allow you to extract some of the data but At the same time, I think it's not necessary because the impurity measure sort of ranks the important set for you and so You don't have to necessarily reduce the data set, but it is possible to do that and it could be useful.
+
+[Prof. Munzer Dahleh] 20:31:47
+And if you have a really high dimension I mean a high number of of feature.
+
+[Prof. Munzer Dahleh] 20:31:56
+Is the class label that the class label is not a hyper parameter? The class table is the outcome of the classification.
+
+[Prof. Munzer Dahleh] 20:32:05
+So what you do with the X's is you create the classifiers and then at the end you label the last thing as whether the outcome.
+
+[Prof. Munzer Dahleh] 20:32:15
+Is one or 0. Right, and that kind of thing. Okay, we'll we'll see that again.
+
+[Prof. Munzer Dahleh] 20:32:25
+How do you feel comfortable between whether you should use 80 20 for the data or 70 30? I think it's a question of how much data you have and the question of how much data depends on how many features you have.
+
+[Prof. Munzer Dahleh] 20:32:38
+So there's some measures of this like looking at. conversions rates of these trees and then trying to predict how much data you need to get a good tree level.
+
+[Prof. Munzer Dahleh] 20:32:53
+But easy to kind of sort of like try to eyeball it based on the applications that you have, but there are some Some guarantees, but there tend to be way too conservative and you would end up having to have way too much data than is necessary to learn the model.
+
+[Prof. Munzer Dahleh] 20:33:11
+Okay, a lot of questions about how to keep the feature.
+
+[Prof. Munzer Dahleh] 20:33:19
+Would this be a good choice for classification of topics based on several words in a headline yet?
+
+[Prof. Munzer Dahleh] 20:33:27
+Yes, you can do that. Can you assign weights to features?
+
+[Prof. Munzer Dahleh] 20:33:34
+You can. You can assign weights to the to the label class at the end. You can do even logistics on it.
+
+[Prof. Munzer Dahleh] 20:33:45
+So you can assume that. There's a probability of picking the right answer at the end but But yeah, I mean, it's, it's a little complicated to do that.
+
+[Prof. Munzer Dahleh] 20:34:01
+. Okay. Can you, okay, again, there's a lot of good. I, I think, some of these questions that, we will be able to get to much better, I think, some of these questions that, we will be able to get to much better, by answering.
+
+[Prof. Munzer Dahleh] 20:34:13
+Understanding what impurity is and how we use entropy methods. And so that me get there and then we would have a session after which we can ask all these questions for that.
+
+[Prof. Munzer Dahleh] 20:34:23
+Okay, so I'm gonna skip now. I did a couple of questions that I think will be answered.
+
+[Prof. Munzer Dahleh] 20:34:29
+In the next part of the lecture.
+
+[Prof. Munzer Dahleh] 20:34:38
+You, the outcome, you can, you can automate the validation of the outcome during that. The training, you know, you don't have to do anything.
+
+[Prof. Munzer Dahleh] 20:34:46
+Okay. Okay, so then last part is the information gain and it's a question. Really of how I pick the features.
+
+[Prof. Munzer Dahleh] 20:34:58
+Intuitively as I said. I want to pick a feature that will make the outcome as homogeneous as possible.
+
+[Prof. Munzer Dahleh] 20:35:05
+That is, I'm gonna say. Feature X when it's 0 the outcome is one thing and when it's one it outcome is another thing.
+
+[Prof. Munzer Dahleh] 20:35:15
+I want to be able to do that as much as possible. How do I score the homogeneity of an outcome?
+
+[Prof. Munzer Dahleh] 20:35:20
+That the notion The notion that we use for scoring, a, a, is a notion of entropy.
+
+[Prof. Munzer Dahleh] 20:35:26
+And it comes from information theory, from compression that basically entropy and physics and basically entropy measures a level of homogeneity.
+
+[Prof. Munzer Dahleh] 20:35:38
+Of an outcome of a probabilistic outcome. So that's kind of try to understand. Yeah,
+
+[Prof. Munzer Dahleh] 20:35:44
+Intuitively what that is. Let's think of a of a coin flip.
+
+[Prof. Munzer Dahleh] 20:35:51
+Where there's a probability of head equals to P, which means the probability of tail. Is equal to one minus p.
+
+[Prof. Munzer Dahleh] 20:35:59
+So if the probability of head is point 3, then the probability of 10 is 0. Is the public is half of the head then probability of 10 is a.
+
+[Prof. Munzer Dahleh] 20:36:07
+Right, we always think of flipping a coin is half and half, but this is a coin that may be biased.
+
+[Prof. Munzer Dahleh] 20:36:13
+So now the question is this. If the probability of ahead is equal to. 0. What do I expect to see every time I flip the coin?
+
+[Prof. Munzer Dahleh] 20:36:30
+I expect to see Tale all the time. Tale, tail, tail, tail, tail. Because the problem even has 0.
+
+[Prof. Munzer Dahleh] 20:36:37
+Ahead, will occur with probability 0. Never, right? And so I will see tail all the time.
+
+[Prof. Munzer Dahleh] 20:36:43
+Is the outcome homogeneous? Extremely homogeneous, right? Because it's tail all the time.
+
+[Prof. Munzer Dahleh] 20:36:50
+Same thing, the probability of ahead is equal to one. I would expect the tosses. To equal to one.
+
+[Prof. Munzer Dahleh] 20:36:59
+All the time, the task is equal to heads all the time. Alright, but, do I ever see a tail?
+
+[Prof. Munzer Dahleh] 20:37:06
+No, because the probability is equal to one. Is the account outcome homogeneous the answer is yes.
+
+[Prof. Munzer Dahleh] 20:37:12
+How about when P's equal to point 5? Well, sometimes I see head sometimes as he tells.
+
+[Prof. Munzer Dahleh] 20:37:18
+I see as many heads as tails as the number of toses increases is very, very. Random. I can't tell you anything.
+
+[Prof. Munzer Dahleh] 20:37:27
+I cannot bet on it. It's 50 50. And then I get the stuff in between. What if the probability of ahead is equal to point 3?
+
+[Prof. Munzer Dahleh] 20:37:34
+Well, if it's point 3, then if I toss 5 times I don't know what will happen, but if I tossed a hundred times I expect to see a lot more tail, 70 more tail, 70 tails and 30 heads roughly around those numbers.
+
+[Prof. Munzer Dahleh] 20:37:50
+If I do a thousand, I expect closer to a ratio of point 7 and point 3. Right? So the point is then I can bet on the tail because I know that there'll be more tails than head.
+
+[Prof. Munzer Dahleh] 20:38:00
+So it's less. It's it's not fully homogeneous, but it's not totally random.
+
+[Prof. Munzer Dahleh] 20:38:05
+It's more homogeneous a little bit more homogeneous, right? So this measure of homogeneity can be captured in terms of an entropy, which is.
+
+[Prof. Munzer Dahleh] 20:38:13
+Calculated this way, it's basically for the coin toss It's pee log p and one minus p times log one minus p over negative signs.
+
+[Prof. Munzer Dahleh] 20:38:27
+So this coming in general, like this, the general formula is that if you have a random variable and the random variable.
+
+[Prof. Munzer Dahleh] 20:38:33
+Can have outcomes. Z one, Z 2, Z 3 and so forth, then you look at the probability of ZI and then you compute this formula.
+
+[Prof. Munzer Dahleh] 20:38:43
+I. Log of CI, over all possible outcomes This is the measure. If you look at the picture for the, the graph.
+
+[Prof. Munzer Dahleh] 20:38:52
+Of the.
+
+[Prof. Munzer Dahleh] 20:38:56
+I'm sorry, if you look at the graph of the coin toss, you see the level of what the entropy is.
+
+[Prof. Munzer Dahleh] 20:39:03
+So at p equals 0, it's 0. And peak was one in 0. It's says that there is no randomness.
+
+[Prof. Munzer Dahleh] 20:39:11
+In the random variable that I have. But the randomness increases until it gets to point 5 where I see the maximum randomness.
+
+[Prof. Munzer Dahleh] 20:39:19
+So entropy. Measures the randomness of this homogeneity. The smaller the entropy, the less the more homogeneous the outcome is.
+
+[Prof. Munzer Dahleh] 20:39:27
+As I said, for p equals 0. Entropy is equal to 0 and I know that the outcome is extremely homogeneous.
+
+[Prof. Munzer Dahleh] 20:39:36
+And that's really what interview was all about. Other than measure of the randomness of a random variable.
+
+[Prof. Munzer Dahleh] 20:39:41
+And so what we're trying to do is to say, look, I mean, if you use a feature, use a feature so that based on this feature the outcome is as homogeneous as possible.
+
+[Prof. Munzer Dahleh] 20:39:53
+Right? And that's really what the entropy as a measure. It's a measure or a score of the level of the.
+
+[Prof. Munzer Dahleh] 20:40:03
+And it comes from physics.
+
+[Prof. Munzer Dahleh] 20:40:04
+So what is the point of the feature and the output, right? So now I'm gonna just kind of give you an idea of estimation in general and and if those of you who are rusting your probability you may have to do some of this computation at home, right?
+
+[Prof. Munzer Dahleh] 20:40:21
+So when I, I look at why as an outcome and why depends on this variable. X that I'm used to predict the outcome Y.
+
+[Prof. Munzer Dahleh] 20:40:35
+I'm trying to figure out which one of the variables I want to use. Okay. So. The point for us is is observing X.
+
+[Prof. Munzer Dahleh] 20:40:45
+Giving me a lot of information about why. Because I mean estimation in general is about observing observing something to estimate something else.
+
+[Prof. Munzer Dahleh] 20:40:55
+So what do I observe to give me the most information about the outcome? Probability theory we call that conditional problem.
+
+[Prof. Munzer Dahleh] 20:41:03
+Okay, that is what variable I condition why on that gives me the most information about Y.
+
+[Prof. Munzer Dahleh] 20:41:11
+See what I'm saying? So I wanted to know if I have. If, if I'm looking at a dog or a cat, what variable?
+
+[Prof. Munzer Dahleh] 20:41:21
+Tells the most information is it their ears, their nose, their mouth, like what information, what variable that I can observe gives the most information about the outcome of a dollar account.
+
+[Prof. Munzer Dahleh] 20:41:33
+What is the variable that gives the most important information about someone having cancer or not? I want to pick that variable first.
+
+[Prof. Munzer Dahleh] 20:41:43
+So from a probabilistic point of view, it says that Basically condition on this particular variable if you condition in this particular variable, then the entropy reduces.
+
+[Prof. Munzer Dahleh] 20:41:55
+Okay, so let's think about this. Okay, so as I said, some of you who are asking your probability may have to do this calculation at home.
+
+[Prof. Munzer Dahleh] 20:42:04
+I have 2 outcomes. Y equals 0, y equals one. Okay. And I have an observable, which is X.
+
+[Prof. Munzer Dahleh] 20:42:14
+But before I observe X, if I just looked at the outcome of Y 0, Y one, I looked at the and the whole population.
+
+[Prof. Munzer Dahleh] 20:42:22
+I would get half of them are in y equals 0 and half of them y was one why because irrespective of x here x is equal to 0 or x is equal to one, the outcome is 1 8 and 3.
+
+[Prof. Munzer Dahleh] 20:42:35
+So this 4 adds. And 3 8 and 4 when it's when okay so half my population is our Hey, have my population, for example, that are ill, have bacterial infection and half of the population have violent infection.
+
+[Prof. Munzer Dahleh] 20:42:53
+The entropy of this group is very, very high. The entropy is equal to one.
+
+[Prof. Munzer Dahleh] 20:42:58
+It's totally random. Just looking at why there's no bias, half of the population have bacteria infection have the population have No, I'm asking, would observing the variable X.
+
+[Prof. Munzer Dahleh] 20:43:11
+Reduce the century. So If I, if the variable X is the height of the of the person.
+
+[Prof. Munzer Dahleh] 20:43:24
+Okay, chances are chances are no information will be communicated. Right? Because x, if x is the high, has nothing to do with you carrying a virus on a bacterial infection.
+
+[Prof. Munzer Dahleh] 20:43:38
+But if X, for example, is the temperature, being very high versus not too high, that may have information about.
+
+[Prof. Munzer Dahleh] 20:43:46
+About with that its bacteria infection or or not. So in this example over here, if I told you x is equal to 0, Okay, so let's say that the temperature is low.
+
+[Prof. Munzer Dahleh] 20:43:58
+Can you tell me something about the outcome? Of course, if I know, tell you x is equal to 0.
+
+[Prof. Munzer Dahleh] 20:44:03
+Most people are Y was one. They have outcome one. If I tell you x is equal to one.
+
+[Prof. Munzer Dahleh] 20:44:11
+Then most people have outcome 0. By observing X. You got a lot of information. You get a lot of information. Why?
+
+[Prof. Munzer Dahleh] 20:44:19
+Because when I tell you x is equal to 0, the majority of people have outcome one. I tell you x is equal to one, majority of people have outcome 0.
+
+[Prof. Munzer Dahleh] 20:44:29
+So you see that observing X is really helpful. So that's a good feature. It separates the data, makes it more homogeneous.
+
+[Prof. Munzer Dahleh] 20:44:37
+How is that captured in the entropy calculation? We have to see the conditional entropy of y on x.
+
+[Prof. Munzer Dahleh] 20:44:44
+What's the conditional entropy of y and x? That's the computation we will have to do empirically to compare which XI should pick.
+
+[Prof. Munzer Dahleh] 20:44:52
+To give me the best. Of entropy. The interview was very, very high because everybody was either one or the other.
+
+[Prof. Munzer Dahleh] 20:44:58
+Then I observe X how much do I string can buy. That's the calculation that we make. That's the the
+
+[Prof. Munzer Dahleh] 20:45:08
+The impurity measure that that house compute, okay? So from a mathematical point of view, if I condition in x equals 0, now the 2 outcomes I have is either 0 or one and each occur with what each occur with probability one.
+
+[Prof. Munzer Dahleh] 20:45:26
+Okay, so if x is equal to 0, then the space I have is simply this guy occurs with probability one.
+
+[Prof. Munzer Dahleh] 20:45:34
+Okay, one. And this guy occurs with 3 fourths. Why is that? Because we normalize.
+
+[Prof. Munzer Dahleh] 20:45:40
+We normalize the sum of these 2 is half. I divide everything by half. Sorry, 1 8 over one half is one fourth and 3 is over one half is 3 4.
+
+[Prof. Munzer Dahleh] 20:45:49
+The entropy of one fourth and 3, 4 is smaller than half and half. So when x is equal to 0, I compute the entropy.
+
+[Prof. Munzer Dahleh] 20:45:59
+When x is equal to one, I compute the entropy. And then the reduction based on observing X is combining the 2.
+
+[Prof. Munzer Dahleh] 20:46:09
+Okay, so that's the calculation we do. We look at the entropy of why when x is equal to 0.
+
+[Prof. Munzer Dahleh] 20:46:16
+We look at the entropy of why when x is equal to one. Okay, that is the group of X's.
+
+[Prof. Munzer Dahleh] 20:46:23
+When I split the data by x is equal to 0, how, what's the entropy of y?
+
+[Prof. Munzer Dahleh] 20:46:30
+When I split the data x equal to one was the interview. Why? And then to compute the entropy, I could I mix them up.
+
+[Prof. Munzer Dahleh] 20:46:35
+By combining them through. You know, how many of the X's I have, which in this case happen now.
+
+[Prof. Munzer Dahleh] 20:46:42
+It's always the case that when you condition you to use the entropy, but it may not reduce a biop, maybe reduce it by 0.
+
+[Prof. Munzer Dahleh] 20:46:50
+The conditional entropy is always just the natural entropy, but do you could reduce it by a substantial amount.
+
+[Prof. Munzer Dahleh] 20:46:56
+So here the entropy went from one to point 8 1 2, which actually is not an unreasonable amount of reduction.
+
+[Prof. Munzer Dahleh] 20:47:02
+It's a pretty good amount of reduction. But the entropy is a steep curve.
+
+[Prof. Munzer Dahleh] 20:47:07
+So that's really what we do to compute using conditional entropy. So let's, let's do this example based on on the problem that we have.
+
+[Prof. Munzer Dahleh] 20:47:16
+And the impunity, the information gain, the information get is how much more I reduce the entropy, right?
+
+[Prof. Munzer Dahleh] 20:47:23
+So So the initial entropy was HY and then When I add XI reduce it by H.
+
+[Prof. Munzer Dahleh] 20:47:32
+Y, minus HY, given X. So ideally what I'm trying to do here is I'm trying to minimize this as much as possible.
+
+[Prof. Munzer Dahleh] 20:47:39
+I want this to be very very small. I want once I condition an X to remove all randomness.
+
+[Prof. Munzer Dahleh] 20:47:45
+Of the problem. I can do that. I'm gonna reduce the randomness of the problem. Okay.
+
+[Prof. Munzer Dahleh] 20:47:54
+Informative about why I may make this this quantity equal to 0. If x is independent of y, it gives no information about y, then this guy is equal to the same thing as h of y.
+
+[Prof. Munzer Dahleh] 20:48:08
+Okay, this is what I wanna be. I want X to be as informative about YI don't want X to be independent.
+
+[Prof. Munzer Dahleh] 20:48:16
+So kind of Victoria is a simple example.
+
+[Prof. Munzer Dahleh] 20:48:21
+I give you a sense of a William function, right? I've got I have 2 variables x one and x 2 and the outcomes y.
+
+[Prof. Munzer Dahleh] 20:48:29
+And this is the table. If. If. If x one is true, true and x 2 is true, then you can see that.
+
+[Prof. Munzer Dahleh] 20:48:38
+Actually, this table tells me what value of x one and x 2 will provide y. So here's an example.
+
+[Prof. Munzer Dahleh] 20:48:45
+If x one is true and x 2 is false, y is always true. And if, X one is false and this one is true, then this is false and we can read the table.
+
+[Prof. Munzer Dahleh] 20:48:56
+Okay, so if I look at why itself I have 5 through and 3. Fourth. So it's not completely homogeneous.
+
+[Prof. Munzer Dahleh] 20:49:08
+In general, true is more than false. Okay, so its entropy is not equal to one, it's entropy somewhere smaller than one.
+
+[Prof. Munzer Dahleh] 20:49:16
+It's still not that homogeneous but it's not exactly random okay now the question is Do I observe X one first or X 2?
+
+[Prof. Munzer Dahleh] 20:49:28
+The I drill by X one or a drill by X 2? Or the I, you know, start my tree with X one or X 2.
+
+[Prof. Munzer Dahleh] 20:49:33
+Notice why happens when I have X one. If I ask for X one, how much of the entropy of YI would use?
+
+[Prof. Munzer Dahleh] 20:49:40
+I looked. Why? Because when X one is true, automatically Y is true.
+
+[Prof. Munzer Dahleh] 20:49:48
+Every time x one is true, y is true. That is this part over here. Reduces to 0 entropy.
+
+[Prof. Munzer Dahleh] 20:49:58
+Now, when X one is false, only one error.
+
+[Prof. Munzer Dahleh] 20:50:03
+And that is. Okay? So it's only one that is false but then there is true but there is no force.
+
+[Prof. Munzer Dahleh] 20:50:10
+So it's not a completely homogeneous but it's almost homogeneous, not false.
+
+[Prof. Munzer Dahleh] 20:50:14
+So it's not a completely homogeneous, but it's almost homogeneous has one pattern.
+
+[Prof. Munzer Dahleh] 20:50:14
+So if I used X one as my first feature, I have. Complete knowledge of y if x one is true.
+
+[Prof. Munzer Dahleh] 20:50:23
+And I have a good idea about Wi-Fi.
+
+[Prof. Munzer Dahleh] 20:50:28
+If I used x 2 and the other hand, I don't get that kind of clarity. When x 2 is true, It's good.
+
+[Prof. Munzer Dahleh] 20:50:36
+I get, 3 times. 3, 3 out of 4, true, but then one is false.
+
+[Prof. Munzer Dahleh] 20:50:43
+That's not bad. If x is x 2 is true, I get quite a bit of information.
+
+[Prof. Munzer Dahleh] 20:50:46
+But if it's 2 is false, 50 50. I've had no information. So this is the better X one is better to split the data.
+
+[Prof. Munzer Dahleh] 20:50:56
+And that's how I use entropy as a, As a model, I want you to think, is information about This particular feature splits the data in the most homogeneous way as possible.
+
+[Prof. Munzer Dahleh] 20:51:09
+That's really what we do. So we compute the score for every data port. Okay? So the the algorithm would be simply pick the pick the feature.
+
+[Prof. Munzer Dahleh] 20:51:19
+So one of the. Elements of the vector features. Okay, let's split the data based on that.
+
+[Prof. Munzer Dahleh] 20:51:26
+Okay, so, every data point. So we split the data so there are the outcomes when this guy is equal to 0 and then the outcomes when x is equal to one.
+
+[Prof. Munzer Dahleh] 20:51:37
+So these are the 2 sides of the tree. So XM is the feature over here and this is one and this is 0 and this is the 2 sides of the tree.
+
+[Prof. Munzer Dahleh] 20:51:45
+Okay, and now, and now we see is. S what's the entropy of S one?
+
+[Prof. Munzer Dahleh] 20:51:53
+What's the interview? And then we combine them to see how much of the entropy will be used by.
+
+[Prof. Munzer Dahleh] 20:52:00
+By splitting by X.
+
+[Prof. Munzer Dahleh] 20:52:04
+And that's how we score that particular feature. We do that for every feature at every level. So I have a linear search every at every level for all the features that I have.
+
+[Prof. Munzer Dahleh] 20:52:14
+And then I combine them based on the number of elements, okay, the probability of each Sui, which means the number of elements, then the ratio of splits between us for and.
+
+[Prof. Munzer Dahleh] 20:52:26
+Okay. So that's really the the algorithm for for scoring. Let's do some examples and see if we can actually get a good idea for this.
+
+[Prof. Munzer Dahleh] 20:52:35
+So back to our example of the waiting time for the
+
+[Prof. Munzer Dahleh] 20:52:40
+If I use. A feature like alternative on the data. The data, by the way, was half of the data, have the and and have the data left.
+
+[Prof. Munzer Dahleh] 20:52:52
+So the original outcome space was very random. Okay, it was basically 50. So now suppose I look at one feature which is the existing of an alternative restaurant.
+
+[Prof. Munzer Dahleh] 20:53:05
+And see if that actually has any determination in terms of where people leave or stay. But actually, we see that if the alternative, yes, there is an alternative, half the people stayed and half the people left.
+
+[Prof. Munzer Dahleh] 20:53:19
+And the alternative is no, half the people stayed and half the people left. It was already random and with this feature everything is random.
+
+[Prof. Munzer Dahleh] 20:53:27
+We had no no value. No, no gain, information gain is 0 and this is a terrible feature to use at this first level.
+
+[Prof. Munzer Dahleh] 20:53:37
+I think given data level is not very good.
+
+[Prof. Munzer Dahleh] 20:53:41
+A weekend. Which I'm just quoting here by Friday. Is is the weekend a good measure for whether people stay or leave?
+
+[Prof. Munzer Dahleh] 20:53:50
+So he is what we have. If it's a weekend or Friday, 2 people, leave and 3 stay.
+
+[Prof. Munzer Dahleh] 20:54:01
+And, 3 people and if no, then 3 people live in first day. So there is a change.
+
+[Prof. Munzer Dahleh] 20:54:07
+For sure, right? That is a change. But the change is,
+
+[Prof. Munzer Dahleh] 20:54:16
+Right? But the change is not that drastic. But that there is a reduction of. Of entropy because the entropy is not as random.
+
+[Prof. Munzer Dahleh] 20:54:26
+There's some information that we're getting if people stay or if it's a weekend or another weekend.
+
+[Prof. Munzer Dahleh] 20:54:30
+Is some information but the information is not complete. Okay, and so
+
+[Prof. Munzer Dahleh] 20:54:39
+And so what we do, we compute the entropy associated with this. How do we compute the entropy?
+
+[Prof. Munzer Dahleh] 20:54:46
+Here with this. Well, this is the data. These on the, this is the data split based on whether there is a weekend or not.
+
+[Prof. Munzer Dahleh] 20:54:54
+We compute the entropy of this split. That has basically on one side 2 fifth and 3 fifths.
+
+[Prof. Munzer Dahleh] 20:55:01
+And the entropy that in here is 3 7 and 4 7.
+
+[Prof. Munzer Dahleh] 20:55:06
+Okay, so we compute the entropy of one side, we could put the entropy at the other side and then we combine them.
+
+[Prof. Munzer Dahleh] 20:55:14
+Okay. And again, you can do the computation. The 2 fifths entropy is 1 9 7.9 9 and then you combine them based in the size of B.
+
+[Prof. Munzer Dahleh] 20:55:25
+2 sets and you see the information. Get the information again is not very high and this is not a great split.
+
+[Prof. Munzer Dahleh] 20:55:30
+Okay, so. and so, you know, so, but it's just shows you the computation for what has to do.
+
+[Prof. Munzer Dahleh] 20:55:39
+Okay, and so I can do the entropy for estimated time and you can see that this is a much better entropy because I mean here almost homogeneous and this is fully homogeneous and so really this did UN estimated time actually gives me the most reduction in entropy and then if you do this algorithm reducing entropy at every step you actually get an and a 0 mis-classification error in 2
+
+[Prof. Munzer Dahleh] 20:56:06
+steps. Okay, because you're using the feature that gives you the most homogeneous outcome.
+
+[Prof. Munzer Dahleh] 20:56:16
+And we see that if we start with estimated error and go with that, you know, whether there are customers, if there are.
+
+[Prof. Munzer Dahleh] 20:56:23
+It's a bar, if it's a weekend and nothing here. Using this particular algorithm gets me into a 0 of this classification error.
+
+[Prof. Munzer Dahleh] 20:56:32
+On this, on this calculation example, this example is not. Statistical, but in this example, I get there, you know, in 2 steps.
+
+[Prof. Munzer Dahleh] 20:56:46
+Which is great. And that's sort of the idea of. Of this entropy. Entropy is not the only way to score homogeneity.
+
+[Prof. Munzer Dahleh] 20:56:51
+You can score opportunity by using genie index, gene index is kind of like instead of doing log in here So it's BX log PX.
+
+[Prof. Munzer Dahleh] 20:56:59
+You put in. One minus px, which is. I, an approximation of one over p log BX around 0.
+
+[Prof. Munzer Dahleh] 20:57:09
+So it's a different measure, but it still has the same property that If, if things are homogeneous close to 0 and if things are not homogeneous is close to one, right?
+
+[Prof. Munzer Dahleh] 20:57:25
+And so, and so people use that because it doesn't have logs, it may be a little easier.
+
+[Prof. Munzer Dahleh] 20:57:26
+And Gene, X, index also has sometimes different, nicer properties than, than.
+
+[Prof. Munzer Dahleh] 20:57:33
+The entropy that entropy comes from maximum likelihood that is connected very much to statistical properties of learning and so depending on your interest you may use one versus the other.
+
+[Prof. Munzer Dahleh] 20:57:45
+So me just kind of quickly I know that we're within minutes before we end. The last part was you know so what I've shown you is how to interpret this decision trees And then we talked about learning these ones, learning a decision tree from the data, idea of the learning is to minimize this classification error.
+
+[Prof. Munzer Dahleh] 20:58:06
+I told you what that means, probabilistically, that we're trying to create a function that is predictive in nature.
+
+[Prof. Munzer Dahleh] 20:58:12
+And, and so forth. And the question is how do we build? Well, it really is just a matter of selecting the right feature at every level.
+
+[Prof. Munzer Dahleh] 20:58:20
+Once you know the feature at every level, you know how to spin the data exactly, Mark. Okay, and so it's a sequence sequential recursive recursive way of splitting the data and every level you use the feature that gives me the most homogeneous.
+
+[Prof. Munzer Dahleh] 20:58:37
+This is greedy because it optimizes at these each level and it doesn't optimize multiple levels.
+
+[Prof. Munzer Dahleh] 20:58:44
+But it is actually simple in the sense that the computation needed at every level is just a linear in the function of remaining features.
+
+[Prof. Munzer Dahleh] 20:58:53
+So I don't have to do, permutations and products and permutations and that kind of stuff.
+
+[Prof. Munzer Dahleh] 20:59:01
+As every, every step is simple to Okay, so with that I stop and then now I think maybe we have.
+
+[Prof. Munzer Dahleh] 20:59:06
+Mentor joining us so we can answer more questions. . One
+
+[[GL Mentor] Shubham Sharma] 20:59:22
+Okay. So thanks, Dot. Process for the. Interesting lecture we also have with us, Ankit.
+
+[[GL Mentor] Shubham Sharma] 20:59:31
+Good morning.
+
+[[GL Mentor] Ankit Agrawal] 20:59:34
+Hello Shaba. Hello, Professor.
+
+[Prof. Munzer Dahleh] 20:59:37
+How are you?
+
+[[GL Mentor] Shubham Sharma] 20:59:37
+How are you doing?
+
+[[GL Mentor] Ankit Agrawal] 20:59:39
+Yeah, how are you guys seeing?
+
+[[GL Mentor] Shubham Sharma] 20:59:43
+Okay, alright, so Let's get started. I can see the are some questions which are still left unanswered.
+
+[[GL Mentor] Ankit Agrawal] 20:59:43
+Great. Okay.
+
+[[GL Mentor] Shubham Sharma] 20:59:50
+So there was a question. Bye Tashmir, how do we decide which feature is more important than the other?
+
+[[GL Mentor] Shubham Sharma] 20:59:59
+Example, estimated wait time is more important. Than Hungary. Does it require domain knowledge or a data scientist should be able to classify themselves?
+
+[[GL Mentor] Shubham Sharma] 21:00:09
+Based on the available features as to which one should be the most important.
+
+[[GL Mentor] Ankit Agrawal] 21:00:15
+So, Did you work a lot with domain experts? If there are specific properties of the data that, if there are specific properties of the data that, that cannot be identified directly with using some models, that, that cannot be identified directly with using some models, but, in, this use case we know that decision trees are able to give us
+
+[[GL Mentor] Ankit Agrawal] 21:00:36
+feature selection or a feature importance is to us, right? So we can use our splitting criteria like entropy information, GANE or GDE index and build the tree and at the end we can extract feature importance is to identify which features are important based on the data that we have at hand.
+
+[[GL Mentor] Ankit Agrawal] 21:00:54
+So in, in real world, a lot of times, domain experts can give us some information about, features being important, but, our data may not reflect that property.
+
+[[GL Mentor] Ankit Agrawal] 21:01:07
+So it's still important to build a model and look at the feature importance just to see what the data is actually speaking to us or what we are important according to the data we have at hand.
+
+[Prof. Munzer Dahleh] 21:01:19
+Well, I mean, I think to add to this, I think you always want to think of this process as 2 steps, right?
+
+[Prof. Munzer Dahleh] 21:01:25
+What I call the feature mining. And then the building of the model. Right? So at the beginning and it's gonna have to figure out what are the important features for the problem I'm looking at.
+
+[Prof. Munzer Dahleh] 21:01:36
+You know, I mean, that's of course, as I said, this is domain expertise. You know, if I'm looking at.
+
+[Prof. Munzer Dahleh] 21:01:44
+Cancer or I'm looking at illness and so forth I mean You know, someone has to tell me what are the features that matter and then we start collecting the data for those.
+
+[Prof. Munzer Dahleh] 21:01:53
+And sometimes we mind the data and we try to see other features. And we put them in the model anyway.
+
+[Prof. Munzer Dahleh] 21:01:58
+To see, for example, if you can extract some relevance that maybe others didn't notice and so forth.
+
+[Prof. Munzer Dahleh] 21:02:05
+Then once I have the features, I have the process of building the model, then I have to quantify which is the feature that is the most important for the classification.
+
+[Prof. Munzer Dahleh] 21:02:13
+And that's kind of the entropy and the information methods. It's kind of the 2 steps and then they interact and they go back and forth because if you build a model, the best possible model you could build and you couldn't really classify the data very well on your test data.
+
+[Prof. Munzer Dahleh] 21:02:28
+You're gonna go back and search for better features or engineer new features, right? It doesn't stop.
+
+[[GL Mentor] Shubham Sharma] 21:02:41
+And had a question with respect to the metric recall. Is the recall used by car manufacturers to recall their car for a defective product in real life.
+
+[[GL Mentor] Ankit Agrawal] 21:02:50
+I So recall does not necessarily, any in the context of how the statement is being raised.
+
+[[GL Mentor] Ankit Agrawal] 21:03:01
+It seems like recall, recall directly does not imply any column of a product, right? I mean, it's a metric of evaluation of false negatives.
+
+[[GL Mentor] Ankit Agrawal] 21:03:09
+In your predictions. So if you have defined your classification task and if your, false negative value is very high, then the idea is that you want to minimize your, you want to maximize your recall.
+
+[[GL Mentor] Ankit Agrawal] 21:03:25
+So if, if you have too many false negatives in whatever outcome you're trying to get, then yes, that can be done.
+
+[[GL Mentor] Ankit Agrawal] 21:03:34
+But, in, the, facing of that statement, recall does not necessarily mean recalling of a product.
+
+[[GL Mentor] Ankit Agrawal] 21:03:41
+It just implies to having very if you have had a very high false negatives in your predictions then you want to optimize for the recall value.
+
+[[GL Mentor] Ankit Agrawal] 21:03:53
+So I don't know how that would directly relate to the calling. Cars in because of manufacturing defects in this case.
+
+[[GL Mentor] Shubham Sharma] 21:04:05
+I guess maybe it's like this that you, you have a classification model that is classifying a defective product as positive.
+
+[[GL Mentor] Shubham Sharma] 21:04:14
+So then the recall in that case would be basically how many percentage of defective products is the model actually able to identify?
+
+[[GL Mentor] Shubham Sharma] 21:04:23
+So yeah, in that sense, I think that would the recall value would define the. Of products that might need it to be recalled Hey, because, that are getting identified by the algorithm as defective.
+
+[[GL Mentor] Ankit Agrawal] 21:04:43
+It could be. Yeah, without knowing exactly what the problem definition stands and what recall in this context means it's very hard to say if it directly, relates to recalling the product or not.
+
+[[GL Mentor] Ankit Agrawal] 21:04:59
+Right, because having a very low precision while you are having very high false positive score also lead to recalling the products, right?
+
+[[GL Mentor] Ankit Agrawal] 21:05:08
+So I mean. It's very hard to identify that it directly associates to the recall of classification versus recalling of the product itself.
+
+[[GL Mentor] Shubham Sharma] 21:05:21
+Right. Okay, so let's move on to the next question.
+
+[[GL Mentor] Shubham Sharma] 21:05:30
+So Tina has a question. Aren't you trying to minimize coloniality between features at each level?
+
+[Prof. Munzer Dahleh] 21:05:42
+I mean, yeah, yeah, I mean, of course,
+
+[Prof. Munzer Dahleh] 21:05:47
+Yes, I mean the answer is yes, if the feature is is classifying the data the same way I don't want to use it at every level.
+
+[Prof. Munzer Dahleh] 21:05:55
+And so I mean the reality I'm not doing this minimization directly. But that's when it comes out as a byproduct of the scoring algorithm because once I split the data based on one feature.
+
+[Prof. Munzer Dahleh] 21:06:09
+Another say exactly called linear feature does nothing. So,'re not going to be selected. This is, you know, so we will not reduce the entropy further and I have to use a different feature.
+
+[Prof. Munzer Dahleh] 21:06:21
+So, so yes. In principle that is true.
+
+[[GL Mentor] Shubham Sharma] 21:06:26
+Next question, would overfitting be a consequence of a greater depth of the tree?
+
+[[GL Mentor] Ankit Agrawal] 21:06:32
+Yes, as the depth of the tree increases the risk of, overfitting increases greatly because we are expanding the tree right we are creating more number of splits at each level so the complexity of the trees get increasing rapidly as you increase the depth of the tree.
+
+[[GL Mentor] Ankit Agrawal] 21:06:49
+So, I think we talk about including and stuff in the next session, but, pruning and limiting the number, the depth of the tree, or limiting how many, examples we need to split the node.
+
+[[GL Mentor] Ankit Agrawal] 21:07:03
+These are some ways of controlling overfitting for tree based algorithms in general. So the answer is yes.
+
+[[GL Mentor] Shubham Sharma] 21:07:12
+So Lou has a question, would you suggest that running a feature analysis and reduction would be a first step?
+
+[[GL Mentor] Shubham Sharma] 21:07:19
+In deciding the decision 3 nodes. And it seems that we are using 3 to classify users into groups.
+
+[[GL Mentor] Shubham Sharma] 21:07:24
+Do we test if that assignment is correct with clustering?
+
+[[GL Mentor] Ankit Agrawal] 21:07:32
+We can run feature engineering before building decision trees but yeah in as professor mentioned earlier that decision 3 should implicitly do that for us right if there are highly correlated features that decision 3 should be able to capture that and we, remove some of the dependencies automatically.
+
+[[GL Mentor] Ankit Agrawal] 21:07:53
+So even if we did not do feature selection ahead of time, decision 3 should still work. Right, we have seen that decision to be requires very little data preparation like handling of missing values or removing co-linear features from the data.
+
+[[GL Mentor] Ankit Agrawal] 21:08:08
+So in that context, it's not necessary if you're using decision tree to do that, but it is recommended to do it.
+
+[[GL Mentor] Ankit Agrawal] 21:08:15
+Ahead of time because in real world you tend to build multiple model simultaneously. So if you have done features selection ahead of time, then you can build all the model.
+
+[[GL Mentor] Ankit Agrawal] 21:08:26
+Consistently across that data and evaluate them and compare them in a more fair manner. So it is recommended to do that.
+
+[[GL Mentor] Ankit Agrawal] 21:08:33
+Is it necessary? The answer is not. Can you repeat the second part of that question?
+
+[[GL Mentor] Shubham Sharma] 21:08:39
+Right, so, the second part is that it seems that we are using the tree to classify users into groups.
+
+[[GL Mentor] Shubham Sharma] 21:08:47
+Do we test if that assignment is correct with clustering?
+
+[[GL Mentor] Ankit Agrawal] 21:08:53
+So the answer would be no, we don't, we have evaluation metrics as, we mentioned earlier, right?
+
+[[GL Mentor] Ankit Agrawal] 21:09:01
+Like accuracy, precision, recall. Those are the methods based on which we can evaluate the results of a decision tree.
+
+[[GL Mentor] Ankit Agrawal] 21:09:09
+We don't need to use clustering to verify those results. Clustering is an unsupervised learning method.
+
+[[GL Mentor] Ankit Agrawal] 21:09:17
+So, and it also uses distances as the metric to group people and find a similarities versus here we are not using distances as a metric.
+
+[[GL Mentor] Ankit Agrawal] 21:09:25
+So. Clustering the results that you get using clustering maybe different than the results you get from a decision tree based algorithm, right?
+
+[[GL Mentor] Ankit Agrawal] 21:09:37
+Because they are supervised learning versus unsupervised learning methods. And the way of grouping the data is very different in both methods.
+
+[[GL Mentor] Ankit Agrawal] 21:09:45
+So the answer to that is no, we do not verify the results using.
+
+[[GL Mentor] Ankit Agrawal] 21:09:55
+Okay.
+
+[[GL Mentor] Shubham Sharma] 21:09:57
+In the decision 3, when performing the binary decision making, what's the best way to select or do the selection process utilizing the features?
+
+[[GL Mentor] Shubham Sharma] 21:10:06
+In other words to come up with the best outcome and build on to the decision tree until we come up with the final model.
+
+[[GL Mentor] Ankit Agrawal] 21:10:15
+So, in practice, we have seen that Ginny index seems to work really well as a splitting criteria.
+
+[[GL Mentor] Ankit Agrawal] 21:10:25
+So, usually we use genie index and that is the default value if you import Python library and you build that on a data set, teeny index is considered as the default value to build the decision trees i think that That's result does not come necessarily from building out the model, but also doing hyper parameter tuning.
+
+[[GL Mentor] Ankit Agrawal] 21:10:50
+So like controlling the depth of the tree and evaluating the model on different depths is. Probably going to help.
+
+[[GL Mentor] Ankit Agrawal] 21:10:58
+Decide what model is the best model. I don't necessarily think that building out the decision trees all the way to the end and evaluating based on that property is going to be a good idea.
+
+[[GL Mentor] Shubham Sharma] 21:11:17
+Pashanth has a question when we split based on the greedy algorithm to get the biggest groupings.
+
+[[GL Mentor] Shubham Sharma] 21:11:23
+Do we split based on the final outcome or the feature itself? Example weight or not. Or raining or not.
+
+[[GL Mentor] Ankit Agrawal] 21:11:32
+We do it per feature. So entropy is calculated based on every, like, so we, we basically think of a one feature at a time and then we create the different splits based on that information that we captured on each feature, right?
+
+[[GL Mentor] Ankit Agrawal] 21:11:47
+So it's not based on the final outcome. Because it's a recursive process at each level.
+
+[[GL Mentor] Ankit Agrawal] 21:11:53
+And as Professor mentioned during the lecture that it's a local search problem, right? So at every level you pass every feature to it and see how which one gives you the best splits for that specific feature at a time.
+
+[[GL Mentor] Ankit Agrawal] 21:12:05
+So we do it per feature not based on the final outcome.
+
+[Prof. Munzer Dahleh] 21:12:06
+. Just
+
+[Prof. Munzer Dahleh] 21:12:10
+Right, so but to be precise. For each feature. And entropy is computed on the outcome after staying in that feature, right?
+
+[Prof. Munzer Dahleh] 21:12:19
+So So if you split on X. You look at all the Y's for X is equal to 0, all the Y's for X equal to one, you compute the entropies of those, right?
+
+[Prof. Munzer Dahleh] 21:12:30
+So, so there is this intermediate splitting of the Y's that is used for computing the entropy.
+
+[Prof. Munzer Dahleh] 21:12:37
+Yes, correct. And one feature.
+
+[[GL Mentor] Shubham Sharma] 21:12:42
+Sawa Mika has a question. What renders the entropy to have a negative value?
+
+[[GL Mentor] Ankit Agrawal] 21:12:49
+So the equation of entropy already has a negative sign in front of it, right? Negative or summation of probability of X times log of probability of X.
+
+[[GL Mentor] Ankit Agrawal] 21:12:58
+So that brings that's why we are also minimizing the entropy because of that negative sign in front of it.
+
+[[GL Mentor] Ankit Agrawal] 21:13:05
+Because entropy directly code is the impurity that we are capturing in within our splits right of our data set so that's where the negative comes from in terms of entropy.
+
+[Prof. Munzer Dahleh] 21:13:22
+But the actual entropy. It doesn't have, So, Exactly. I mean, we put it in name.
+
+[[GL Mentor] Ankit Agrawal] 21:13:28
+Yeah, yeah, yeah, but the way to think about what makes it negative is the sign that comes in calculation that there is a negative sign in front of the summation.
+
+[[GL Mentor] Ankit Agrawal] 21:13:38
+But yeah, overall the entropy is supposed to be positive.
+
+[[GL Mentor] Shubham Sharma] 21:13:46
+What is the genie index for and is there a general guideline to use to you? To use which one in which scenario.
+
+[[GL Mentor] Ankit Agrawal] 21:13:57
+Gene index is essentially a way of again, computing the purity or the impurity of a feature within the tree, right?
+
+[[GL Mentor] Ankit Agrawal] 21:14:07
+So just like entropy and information gain, we can also use variants. As a measure, that's another property of, a data set that we can use to build the trees.
+
+[[GL Mentor] Ankit Agrawal] 21:14:19
+So there are many different properties that are available and gene index is one of them. If you have a lot of features, then it is recommended to use GDI index because Gene index does not have the conditional probability, estimations that we usually do in entropy and in information gain.
+
+[[GL Mentor] Ankit Agrawal] 21:14:37
+So if you have a lot of features that it is recommended to do gene index, but if you have a tree that is going to be relatively small in size, then you can get away with doing entropy or mutual information in that in that case.
+
+[[GL Mentor] Ankit Agrawal] 21:14:51
+At least that's how I have been actually using decision trees and other variants in practice.
+
+[[GL Mentor] Shubham Sharma] 21:14:59
+And what are the criteria to use the decision tree versus other types of classifiers?
+
+[[GL Mentor] Ankit Agrawal] 21:15:07
+Okay. So, I think we kind of went over the advantages and disadvantages of decision trees, right?
+
+[[GL Mentor] Ankit Agrawal] 21:15:15
+Decision 3, So other type of classification algorithms would be, let's say, logistic regression or cane nearest neighbors or, Bayesian models unless we go into neural network space.
+
+[[GL Mentor] Shubham Sharma] 21:15:18
+Okay.
+
+[[GL Mentor] Ankit Agrawal] 21:15:31
+So decision trees are very easy to construct. And all the advantages that we solve for decision 3 that it works very similar to how human brain works very similar to how human brain works and stuff like that it works very similar to how a human brain works and stuff like that still apply to decision trees, a human brain works and, a human brain works and, stuff like that still apply to decision trees, but if you have a lot of,
+
+[[GL Mentor] Ankit Agrawal] 21:15:47
+continuous variables in your data, but if you have a lot of, continuous variables in your data, it is recommended not to use the decision trees, but if you have a lot of continuous variables in your data, it is recommended not to use the decision tree because decision tree are slightly biased towards having categorical variables in data, meaning that they create more, better results when a lot of features in your data set are
+
+[[GL Mentor] Ankit Agrawal] 21:16:03
+categorical in nature. So if that's not the case, then it is recommended to use other models.
+
+[[GL Mentor] Ankit Agrawal] 21:16:09
+Also, a decision trees create what we call as ensemble methods like classifiers like so they will create multiple linear classifiers to separate the data.
+
+[[GL Mentor] Ankit Agrawal] 21:16:21
+So the definition of what the classifiers look like can get very complicated. If you needed a single nonlinear classifier, then you might want to try out other methods.
+
+[[GL Mentor] Ankit Agrawal] 21:16:30
+Right. So, that is another way of deciding when to use other methods. In practice, at least from what I've seen, decision tree is not used a lot.
+
+[[GL Mentor] Ankit Agrawal] 21:16:43
+Usually we would use some sort of an ensemble model like Extra Goose or light blue scad boost or like random forest, something like that as a version to be used in practice, something like that as a version to be used in practice.
+
+[[GL Mentor] Ankit Agrawal] 21:16:59
+And we'll talk more about that in the next session about interpretability and non-interpretability of models.
+
+[[GL Mentor] Ankit Agrawal] 21:17:03
+And then it becomes a little bit more easier to decide which model we want to use in practice.
+
+[Prof. Munzer Dahleh] 21:17:09
+I think that you touched on very important point at the end, which is the interpretability of the model and how important that is and I think that that in itself has been has become a really critical issue with these genetic sort of types models, especially in problems like health care.
+
+[Prof. Munzer Dahleh] 21:17:29
+And people are concerned about decisions made without understanding why the decision was made. You know, and what was the critical factor and why you know and and And so, in some of the methods, we're gonna talk about that on Wednesday and some of the methods are great and they are built on these different types of classifiers.
+
+[Prof. Munzer Dahleh] 21:17:49
+But they very quickly start losing interpretability. And so, you know, kind of like maybe I'll take another start with this question and say You know, when I had situations and I need to build a predictive model, I probably tried a lot of different techniques.
+
+[Prof. Munzer Dahleh] 21:18:07
+I didn't just do one. I didn't just pick decision trees and then do it. I probably started with linear regression first.
+
+[Prof. Munzer Dahleh] 21:18:13
+You know, that's my first thing that I would do and see if linear regression gets the answer.
+
+[Prof. Munzer Dahleh] 21:18:19
+It's like maybe 80% of the time linear regression got me the answer I want. You know, but then our situations where it didn't and and and and the question is whether I'm working on trying to extract the last 5% of the of the learning problem versus I'm trying to get a sense of which way they're going to go either right or left you know and so I I think that sometimes you
+
+[Prof. Munzer Dahleh] 21:18:44
+may want to know all of these different methods and run them in a progressive way to try to understand what each gives you before you decide which is the one that you're going to rely on for the prediction.
+
+[[GL Mentor] Ankit Agrawal] 21:18:55
+Yeah, in practice, we call it a baseline model, right? We run one basic model to set a baseline first and then progressively build other models to compare it to the baseline results and see which model gives us the best results in that in that context.
+
+[[GL Mentor] Ankit Agrawal] 21:19:11
+So yeah.
+
+[[GL Mentor] Ankit Agrawal] 21:19:15
+Okay.
+
+[[GL Mentor] Shubham Sharma] 21:19:15
+Okay, so next question is our card and decision trees the same thing.
+
+[[GL Mentor] Ankit Agrawal] 21:19:22
+Card essentially stands for a group of 3 based algorithms. I think I answered that in the chat as well that it stands for classification and regression trees.
+
+[[GL Mentor] Ankit Agrawal] 21:19:32
+So all the tree based algorithms that can perform both classification and regression tasks, they are essentially the part of classification of the card algorithms, right?
+
+[[GL Mentor] Ankit Agrawal] 21:19:43
+And decision trees part of that, category, yes.
+
+[[GL Mentor] Ankit Agrawal] 21:19:47
+They don't mean the same thing. Decision tree is part of card algorithms.
+
+[[GL Mentor] Shubham Sharma] 21:19:54
+So next question, how does the decision tree handle outliers? Do we have to remove them to make them work better?
+
+[[GL Mentor] Ankit Agrawal] 21:20:04
+Again, it kinda goes back to the same question of data. Handling, that we answered before, right?
+
+[[GL Mentor] Ankit Agrawal] 21:20:11
+It is recommended to deal with outliers ahead of time because you're building multiple model simultaneously so it will be helpful for all of them.
+
+[[GL Mentor] Ankit Agrawal] 21:20:19
+But in practice, a decision tree will be able to identify the outliers at some point it will extract some cut off criteria that anything over this should be an outlier and create a separate branch for it.
+
+[[GL Mentor] Ankit Agrawal] 21:20:33
+In your tree as it is. So it should be able to detect that outlier. All the outliers in your data and create separate branches according to that split.
+
+[[GL Mentor] Ankit Agrawal] 21:20:44
+That feature which leads to these outliers will probably be much further down. Within the tree in the depth itself.
+
+[[GL Mentor] Ankit Agrawal] 21:20:51
+So, it, decision tree should be able to identify, but it is recommended to perform outlier detection beforehand.
+
+[[GL Mentor] Ankit Agrawal] 21:20:57
+If that answers that question.
+
+[Prof. Munzer Dahleh] 21:21:00
+And I always feel obligated to throw in one remark about outliers. That's really critical and that is you know, this is a tricky thing outliers.
+
+[Prof. Munzer Dahleh] 21:21:13
+It's a data point. And I think people feel sometimes, too much in liberty of removing points that don't fit the data and they don't fit the model very well because it doesn't fit them all very well.
+
+[Prof. Munzer Dahleh] 21:21:26
+It's gonna be careful. What that means to you. You know, data is important. Sometimes the outlier is a low probability event that happens once in a while.
+
+[Prof. Munzer Dahleh] 21:21:37
+And it just your data didn't capture it enough times but in fact it's a real thing and it's part of the distribution.
+
+[Prof. Munzer Dahleh] 21:21:43
+So one has to be very, very careful about this data that doesn't fit my model, hence it's an outlier.
+
+[Prof. Munzer Dahleh] 21:21:49
+I think, I think, yes, I agree with, that was said earlier, you know, what I had said about how you think about it and so forth.
+
+[Prof. Munzer Dahleh] 21:21:56
+But always be cautious, you know, you're gonna verify statistically that you're removing something that truly doesn't look like came out of the data that looks like you know very different from any other data point that is in there, not that it's different from the model that you built.
+
+[[GL Mentor] Shubham Sharma] 21:22:19
+Next question from Adriana. How do we measure the predictable importance.
+
+[[GL Mentor] Ankit Agrawal] 21:22:29
+So in there, in at least Python and for decision trees, there is a method called dot feature underscore importance is underscore and it kind of builds you this nice little plot of showing the feature.
+
+[[GL Mentor] Ankit Agrawal] 21:22:46
+Importances of each each feature in in in mathematically speaking it it it is computed based on whatever the criteria you're selecting to create the decision tree and how what is the priority of that particular feature being used to create the split right as the node occurs higher, towards the root of the decision 3, the feature importance of that particular feature is higher.
+
+[[GL Mentor] Ankit Agrawal] 21:23:12
+Compared to when they occur further down in the depth of the tree. So that's how you would, measure the feature importance.
+
+[[GL Mentor] Ankit Agrawal] 21:23:22
+But if you were just looking for code, then there is a method called dot feature underscore importance is underscore and that should give you the numeric value of the feature importance of each feature in your data.
+
+[[GL Mentor] Shubham Sharma] 21:23:38
+So, Colin has a question. Toby has a question. Is entropy a measure of accuracy of the results based on a feature?
+
+[[GL Mentor] Ankit Agrawal] 21:23:48
+So I think I answered this in the chat as well that accuracy is not the best term to define over here.
+
+[[GL Mentor] Ankit Agrawal] 21:23:55
+We consider purity versus impurity of the feature itself in proportion to the label that we are trying to predict as entropy is a measure of that, right?
+
+[[GL Mentor] Ankit Agrawal] 21:24:08
+And similarly, mutual information gain, and, gene index are also a measure of that purity or impurity of that feature node with respect to the labels that we have.
+
+[[GL Mentor] Ankit Agrawal] 21:24:20
+Accuracy at least in that terms don't doesn't make much sense to me as a word to define entropy.
+
+[[GL Mentor] Ankit Agrawal] 21:24:29
+But maybe there is some relationship there, but, for me, I've always thought about it as a purity versus impurity of a node.
+
+[[GL Mentor] Shubham Sharma] 21:24:42
+So, again, Edina has a request. Can you share some references or books? That can help understand if boundaries better apart from the one already shared.
+
+[[GL Mentor] Shubham Sharma] 21:24:53
+Which was Bremen, Friedman, also in.
+
+[[GL Mentor] Ankit Agrawal] 21:25:00
+I have to think about this one. I usually just refer to the Wikipedia page for the most parts.
+
+[[GL Mentor] Ankit Agrawal] 21:25:09
+Yeah, I, I mean, maybe Professor has some other resources that can be helpful, but for me Wikipedia has been mostly a very good resource to understand the mathematical details of these algorithms.
+
+[[GL Mentor] Shubham Sharma] 21:25:32
+Okay, so.
+
+[[GL Mentor] Shubham Sharma] 21:25:37
+Next question. Here is.
+
+[[GL Mentor] Shubham Sharma] 21:25:43
+Classification and decision tree outcomes look similar. Yes or no? So how will we choose the correct algorithm?
+
+[[GL Mentor] Shubham Sharma] 21:25:52
+I guess we have already discussed that.
+
+[[GL Mentor] Shubham Sharma] 21:25:56
+He would have a question since we are selecting the features from where to start. Do you think using dimension reduction before that would be a good idea?
+
+[[GL Mentor] Ankit Agrawal] 21:26:07
+So.
+
+[[GL Mentor] Ankit Agrawal] 21:26:12
+Good. So, dimensionality reduction, the whole point of doing dimensionality reduction is to remove the, features that are highly correlated to each other, right?
+
+[[GL Mentor] Ankit Agrawal] 21:26:27
+But also there is another importance of dimensionality. Reduction that it helps us, reduce the computational cost of our algorithms in the future. Right.
+
+[[GL Mentor] Ankit Agrawal] 21:26:35
+And we already talked about how decision trees is a local search algorithm at each level of the tree.
+
+[[GL Mentor] Ankit Agrawal] 21:26:44
+We are iteratively looking for what is the best next split across all the features. So it if you have a lot of features and you wanted to control.
+
+[[GL Mentor] Ankit Agrawal] 21:26:53
+The computational time or the resources that it needs to build an optimal model, then yes, you should perform dimensionality reduction ahead of time.
+
+[[GL Mentor] Ankit Agrawal] 21:27:02
+And then obviously which type of dimensionality reduction you perform depends on many, many different factors, right?
+
+[[GL Mentor] Ankit Agrawal] 21:27:08
+One of the factors we talked about was interpretability versus non-interpretability as well. So, and also, if you perform dimensionality reduction ahead of time, it can help you with, building other models.
+
+[[GL Mentor] Ankit Agrawal] 21:27:22
+And evaluating the models fairly with respect to each other. So I think the answer to this question for me would be depends.
+
+[[GL Mentor] Ankit Agrawal] 21:27:30
+If you have a lot of features and you have limited amount of resources or time to build and evaluate models than spending some time doing dimensionality reduction ahead of time.
+
+[[GL Mentor] Ankit Agrawal] 21:27:40
+Is beneficial in that context.
+
+[[GL Mentor] Shubham Sharma] 21:27:46
+So, MAYLAN had a question. Is the class label, which is in the final lease, a hyper parameter?
+
+[[GL Mentor] Ankit Agrawal] 21:27:54
+No, number of labels are, already part of our training data, right? So in our training, in our data set, the number of distinct values that are present in our label column is the total number of labels that are possible, right?
+
+[[GL Mentor] Ankit Agrawal] 21:28:10
+At least for classification tasks. So it's not a hyper parameter. It's something that your model is predicting.
+
+[[GL Mentor] Ankit Agrawal] 21:28:15
+So we need to know that ahead of time.
+
+[[GL Mentor] Ankit Agrawal] 21:28:19
+For classification problems.
+
+[[GL Mentor] Shubham Sharma] 21:28:22
+Erika has a question. Once you use a feature, you cannot use it again. Is that correct?
+
+[[GL Mentor] Ankit Agrawal] 21:28:31
+So in decision tree, that's an interesting question. My immediate answer is no.
+
+[[GL Mentor] Ankit Agrawal] 21:28:41
+I mean, once the feature is used, you, you have already extracted, all the information that is associated with that feature, right?
+
+[[GL Mentor] Ankit Agrawal] 21:28:50
+Its relationship and it's a purity versus the impurity. So there is no real need to use that feature again going forward.
+
+[[GL Mentor] Ankit Agrawal] 21:28:59
+But when we talk about, but the feature, so imagine that there are 2 different features that were part of 2 different, at the same level with, 2 different sides of the tree, right?
+
+[[GL Mentor] Ankit Agrawal] 21:29:13
+Then that feature that occurred on the left part may not have already occurred on the right part of the tree.
+
+[[GL Mentor] Ankit Agrawal] 21:29:18
+So it can be used on the right part of that sub tree. Again, right? So in that context, the features can be reused, but at the same level of the tree, the features should not cannot be used after they have been used once.
+
+[[GL Mentor] Shubham Sharma] 21:29:40
+Okay, I guess we don't have any new questions.
+
+[Prof. Munzer Dahleh] 21:29:46
+Okay.
+
+[[GL Mentor] Shubham Sharma] 21:29:47
+So, Naman is asking. That's a comment. A little out of context question, but I have often seen time and space complexity formulas.
+
+[[GL Mentor] Shubham Sharma] 21:29:55
+Will we be discussing it at some point or are they used in practical applications for algorithm selection?
+
+[[GL Mentor] Ankit Agrawal] 21:30:02
+So I don't think we will be. Discussing it here. I think, that comes from like evaluation of like basic algorithms.
+
+[[GL Mentor] Ankit Agrawal] 21:30:14
+Like it's a domain of computer science where you want to understand what is the computational cost or the time or the space requirements of an algorithm.
+
+[[GL Mentor] Ankit Agrawal] 21:30:23
+I mean, I don't think we will directly be discussing them in this course unless Professor has some comments about it.
+
+[Prof. Munzer Dahleh] 21:30:30
+No, I think so.
+
+[[GL Mentor] Ankit Agrawal] 21:30:31
+If you, it's part of your slides in the future, but. Continental costs, including time and space, plays a very important role in terms of deciding your resource allocation, run times, how long a project will take to complete and so on and so forth.
+
+[[GL Mentor] Ankit Agrawal] 21:30:49
+It's an important metric in real world to decide what algorithms you use, how much testing you can do or how how much evaluation you can do before deployments and so on and so forth.
+
+[[GL Mentor] Ankit Agrawal] 21:31:00
+But, I think it comes from a different branch of computer science, which is like algorithms and understanding time and space complexities of the algorithms not necessarily directly related to these.
+
+[[GL Mentor] Ankit Agrawal] 21:31:13
+Right. So.
+
+[Prof. Munzer Dahleh] 21:31:15
+Yeah. Yeah. Okay, I think I have to run. Sorry.
+
+[Prof. Munzer Dahleh] 21:31:20
+Thank you all for the attention. I see on Wednesday.
+
+[[GL Mentor] Shubham Sharma] 21:31:23
+Yeah. Thanks for that. Also, we have user the time that we had. So let's conclude today's session.
+
+[[GL Mentor] Ankit Agrawal] 21:31:24
+I.
+
+[[GL Mentor] Shubham Sharma] 21:31:29
+Thank you very much. Thanks a lot, Ankit. For sharing your experience and your insights.
+
+[Prof. Munzer Dahleh] 21:31:31
+Thanks.
+
+[[GL Mentor] Ankit Agrawal] 21:31:31
+Yeah. No worries. Bye. Take care
+
+[[GL Mentor] Shubham Sharma] 21:31:34
+Bye bye and see you on Wednesday.
+

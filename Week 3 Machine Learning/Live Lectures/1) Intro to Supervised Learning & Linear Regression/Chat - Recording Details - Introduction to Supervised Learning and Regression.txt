@@ -1,0 +1,1052 @@
+19:04:19 From Sidrat Tasawoor Kanth To Everyone:
+	Good Afternoon from Netherlands 🙂
+19:05:04 From Ali Dawar Abbas To Everyone:
+	Good morning
+19:05:27 From Shel Randall To All Panelists:
+	The slides are not in the dashboard. Do I need to log off and back on again or something?
+19:10:46 From Talal Rahim To Everyone:
+	Is the Unit of Analysis a patient?
+19:10:56 From Shadane Ferraro To Everyone:
+	good morning ☺️
+19:11:15 From simona tenaglia To Everyone:
+	y are labels?
+19:12:36 From Hassan Alsawadi To All Panelists:
+	Yes, they are.
+19:12:51 From Hassan Alsawadi To Everyone:
+	Yes, they are.
+19:13:48 From ashish kumar To Everyone:
+	how big a training dataset typically is?
+19:14:15 From Shel Randall To Everyone:
+	Ashish - in reality it is HUGE; millions of records
+19:14:30 From ashish kumar To Everyone:
+	TY!
+19:15:28 From Yasu Guerra To Everyone:
+	Those model are built by ourself? or are they preset?
+19:15:29 From Hassan Alsawadi To Everyone:
+	But in many times couples of thousands are just enough, in my opinion!
+19:16:07 From Shel Randall To Everyone:
+	Want to find the "least-wrong" model
+19:16:22 From Louis Reid To Everyone:
+	Can we use time series data in regression and classification methods?
+19:16:37 From Alisher Jardemaliyev To Everyone:
+	25-30% training, 70% testing
+19:17:01 From Samuel Wright To Everyone:
+	What’s the theory around models being wrong?
+19:17:17 From Raj Desikavinayagompillai To Everyone:
+	How do u select data for training and for training. Which dataset makes sense for each of the above
+19:17:22 From Judith Marrugo To Everyone:
+	How to filter the correct amount of data?
+19:17:43 From gilberto scotacci To Everyone:
+	@Raj depends if you are working with time series or not
+19:17:57 From Joshua Coleman To Everyone:
+	@Samuel, error analysis/theory.  There is error associated with any model
+19:18:00 From simona tenaglia To Everyone:
+	is there a relation with econometrics?
+19:18:04 From gilberto scotacci To Everyone:
+	and if you are working with big data
+19:18:53 From Raj Desikavinayagompillai To Everyone:
+	Thx gilberto
+19:19:56 From Hassan Alsawadi To Everyone:
+	@Judith I believe it depends on the problem, so usually I spend some time understanding the business or problem with the client, and based on that I query or filter the needed data.
+19:20:15 From ashish kumar To Everyone:
+	does regression always have 1 Y?
+19:20:34 From Samuel Wright To Everyone:
+	@JC correct isn’t that’s why we do the -/+ error rate to get close to being as true as possible.. thanks
+19:21:25 From Talal Rahim To Everyone:
+	What is “I”? Unit of analysis?
+19:21:44 From Jeremy Boccabello To Everyone:
+	so at the basic level there is only one dependent variable
+19:22:00 From Johnson Oguntuase To Everyone:
+	Could Y, as 1-dension mean Y (size = n by 1)?
+19:22:10 From Hassan Alsawadi To Everyone:
+	Nice question, Ashish! Thank you professor for the answer.
+19:22:45 From Shel Randall To Everyone:
+	a.k.a. dot product
+19:23:15 From Joshua Coleman To Everyone:
+	@Shel - Cross
+19:23:28 From Hajime Taniguchi To Everyone:
+	Pure math 🤣
+19:23:44 From Neha Purohit To All Panelists:
+	What X transpose Y represents intuitively?
+19:23:53 From Shel Randall To Everyone:
+	Joshua - no its a dot product
+19:24:05 From Johnson Oguntuase To Everyone:
+	dimension
+19:24:27 From Stephany Gochuico To Everyone:
+	What does "T" signify in X(T)Y ?
+19:24:36 From Joshua Coleman To Everyone:
+	ah right, scalar
+19:24:51 From Talal Rahim To Everyone:
+	i as in X_i
+19:24:53 From Omar Alsaid Sulaiman To Everyone:
+	@stephany transpose
+19:24:53 From Sophia Arellano To Everyone:
+	@stephany is transpost
+19:24:55 From Shilpa Murthy To All Panelists:
+	@Stephanu transpore
+19:25:07 From Hassan Alsawadi To Everyone:
+	Can time series problems be formulated as regression?
+19:25:26 From Daniel Gibson To Everyone:
+	@Talal, it is the “i”th element.  So x4 would be the 4th element.
+19:25:28 From Raj Desikavinayagompillai To Everyone:
+	Can u repeat what is difference between second data record vs second component of a vector X
+19:25:37 From Neha Purohit To Everyone:
+	What X transpose Y repsents intuitively?
+19:25:48 From gilberto scotacci To Everyone:
+	@Hassan Alsawadi you can formulate as time series but you have to construct features that are times dependent
+19:26:11 From Daniel Gibson To Everyone:
+	@Raj bolded X2 is the second row (a vector), normal X2 is the 2nd value in the vector (a scalar).
+19:26:50 From Omar Alsaid Sulaiman To Everyone:
+	@neha since vector X = n×1, and vector Y=n×1, we get the transpose of X to flip the dimensions, X^T=1×n, then we can multiply them to get a scalar aka 1×1
+19:27:14 From Hassan Alsawadi To Everyone:
+	Thank you, prof. Tsitsiklis.
+19:27:25 From Raj Desikavinayagompillai To Everyone:
+	It is like a column (component)
+19:28:10 From Alisher Jardemaliyev To Everyone:
+	what do you mean by black box?
+19:28:22 From Raj Desikavinayagompillai To Everyone:
+	Thanks Daniel
+19:28:28 From Moderator - Ankit Agrawal To All Panelists:
+	Q: Can we use time series data in regression and classification methods?	A: Basic methods in time series analysis are regression based with respect to ACF and PACF plots. Think of time series as a special and more complex case of regression
+19:28:33 From Himansu Jena To Everyone:
+	Does X have a name other than value?
+19:28:49 From Rishi Khanna To Everyone:
+	Question - In example like change in Normal Blood Pressure range with time (140/70 vs 130/80 earlier), do we change the historic labels?
+19:29:09 From Hassan Alsawadi To Everyone:
+	I see, thanks, @Giberto.
+19:29:37 From Shilpa Murthy To All Panelists:
+	@rishi you add another record with a new time (x) not change historical record
+19:29:57 From Shel Randall To Everyone:
+	Rishi - in reality, every encounter with a patient is one record. one patient may have many encounters with data that can be compared
+19:30:17 From Moderator - Ankit Agrawal To All Panelists:
+	Q: Those model are built by ourself? or are they preset?	A: Models are available through different libraries but in practice, we may need to understand and modify the available models to work for specific business use cases
+19:31:03 From Eric White To Everyone:
+	so they are spending $10 for every $1 in sales?
+19:31:36 From Moderator - Ankit Agrawal To All Panelists:
+	Q: Could Y, as 1-dension mean Y (size = n by 1)?	A: Yes. For most regression and classification tasks, Y is of shape (n,1) but when we talk about advanced methods like neural networks, Y can be of shape (n,k) where k>=1
+19:31:58 From Megha Sharma To Everyone:
+	So here X is independent variable and Y is dependent on X?
+19:31:59 From Eric White To Everyone:
+	might be different denominations
+19:32:00 From Johan Goedkoop To Everyone:
+	could be different units size
+19:32:24 From Sophia Arellano To Everyone:
+	could be percentage even
+19:32:38 From alberto chico To All Panelists:
+	in this examples the space is 2 dimensions?
+19:33:13 From Lev Sukherman To All Panelists:
+	How to check what channel affect sales the most?
+19:33:29 From Mauricio Maldonado To Everyone:
+	so do we need to do some scalling first?
+19:34:02 From Daniel Gibson To Everyone:
+	@Mauricio, not necessarily
+19:34:15 From Talal Rahim To Everyone:
+	What is each record? A month? A market? A product?
+19:34:28 From Daniel Gibson To Everyone:
+	Markets
+19:35:19 From Shel Randall To Everyone:
+	Talal - each record is likely "an event"
+19:36:08 From Johan Goedkoop To Everyone:
+	more eyeballs via tv
+19:36:30 From Javier Marquez To Everyone:
+	An Eigenvector?
+19:36:58 From Samit Thakur To Everyone:
+	It's the 'total' sales, even though the comparison is with respect to a single channel at a time
+19:37:01 From Daniel Gibson To Everyone:
+	Some markets are well impacted by Newspaper: low cost/high impact
+19:37:10 From Bryan Olivera Lona To All Panelists:
+	TV looks more like two log curves surounding a random distribution
+19:37:18 From Barbara Timm-Brock To Everyone:
+	Each record is a market with the 3 x values of spend and a y value of sales
+19:37:20 From Lev Sukherman To All Panelists:
+	You can use MLE or
+19:37:22 From Varuni Rao To Everyone:
+	what does the slope of the line signify?
+19:37:39 From Daniel Gibson To Everyone:
+	@Varuni the sales of units/dollar
+19:37:46 From Shilpa Murthy To All Panelists:
+	@varuni how much y corresponds to x
+19:37:47 From Hassan Alsawadi To Everyone:
+	Professor, I heard a lot the term Regression Analysis, what does this analysis include? Only fitting the line?
+19:38:17 From Varuni Rao To Everyone:
+	thank you
+19:38:39 From Pierce Ruggles To Everyone:
+	note the slopes are deceptive since the x axis is scaled differently
+19:39:01 From Lev Sukherman To All Panelists:
+	To build the line of best fit you can use OLS or MLE
+19:39:04 From Yasu Guerra To Everyone:
+	Doing this methods can extract the sweetpoint on spending for each of the advertisement?
+19:39:11 From Daniel Gibson To Everyone:
+	@Pierce  good catch!
+19:39:24 From Mackenzie Hunt To Everyone:
+	Would we ever scale the data or, just consider observed range?
+19:39:39 From Soumyo Banerjee To All Panelists:
+	Practically - we should probably classify the market (small, medium, large, etc - based on population, demographics, etc.) and then predict
+19:39:50 From Shel Randall To Everyone:
+	Pierce - not deceptive if you expect the "Rate" units
+19:40:07 From Pierce Ruggles To Everyone:
+	right, just visually deceptive, not mathematically
+19:40:17 From Jeremy Boccabello To Everyone:
+	Galton used “regression” in the sense of “regressing towards the mean” - describing central tendency of the data, but over time it has just come to describe this process of fitting to a line (linear regression)
+19:40:38 From Shel Randall To Everyone:
+	if the plot is distance vs time the slope is "km per hour" … an expected rate unit
+19:41:04 From Daniel Gibson To Everyone:
+	Regression in general means “going backwards”.  In this case it is going backwards from data to “principle”
+19:44:39 From Megha Sharma To Everyone:
+	Sorry prof..can you please explain “g” again?
+19:45:12 From Judith Marrugo To Everyone:
+	G is the model ?
+19:45:21 From Joshua Coleman To Everyone:
+	for a linear regression 'g' is just the slop
+19:45:23 From Alisher Jardemaliyev To Everyone:
+	so squared error and mean squared error are inferential statistic's concepts?
+19:45:27 From Raj Desikavinayagompillai To Everyone:
+	Definition of good is subjective. Each person may have their own definitions
+19:45:30 From Daniel Gibson To Everyone:
+	@Megha g is a function. For linear, it is y = mx + b
+19:45:38 From Lev Sukherman To All Panelists:
+	G = ax + b
+19:45:41 From Todd Nitkin To Everyone:
+	is g the slope?
+19:45:48 From Daniel Gibson To Everyone:
+	@Todd no.
+19:45:52 From Shilpa Murthy To All Panelists:
+	G is a function
+19:46:20 From Lev Sukherman To All Panelists:
+	@Todd G = mx + b, b - intersept, m - slope
+19:46:23 From Louis Reid To Everyone:
+	Is it the r (correlation) times SD?
+19:46:23 From Megha Sharma To Everyone:
+	@Daniel thanks what is “b”?
+19:46:35 From Daniel Gibson To Everyone:
+	@Megha offset
+19:46:43 From Shilpa Murthy To All Panelists:
+	@megha b is the y intercept. Value. Of y when x = 0
+19:46:46 From Samit Thakur To Everyone:
+	Over fitting error!
+19:46:55 From Daniel Gibson To Everyone:
+	m = slope b = where the line crosses the y-axis
+19:46:57 From Megha Sharma To Everyone:
+	Ok thanks @Daniel
+19:47:03 From Talal Rahim To Everyone:
+	No, that would be overfitting
+19:47:14 From Varuni Rao To Everyone:
+	So, how do we decide when we select linear and when we select non-linear model?
+19:47:40 From Bryan Olivera Lona To All Panelists:
+	You starting feeding noise into the model if you try to minimize the error to 0
+19:47:43 From Swati Chandna To All Panelists:
+	Professor Question - If you have multiple independent variables (X) will you hvae multiple g one for each combination of different Xs ?
+19:47:51 From Sophia Arellano To Everyone:
+	With the proxy, we Will se how well the function describe the points
+19:47:52 From Daniel Gibson To Everyone:
+	@Varuni, in my experience, you look at the data and pick a function which looks best.  Sometimes lines, sometimes parabolas, sometimes sinusoids
+19:48:06 From Lev Sukherman To All Panelists:
+	@Varuni Rao you have to decide linear or non-linear depends on your data
+19:48:12 From Varuni Rao To Everyone:
+	Thanks @Daniel
+19:48:45 From Hend Alqaderi To All Panelists:
+	Should we test for normality first like in classical statistics?
+19:48:47 From Sujasha Gupta To Everyone:
+	What is theta 0. Is it the bias?
+19:49:13 From Swati Chandna To All Panelists:
+	Professor Question - Can you please give an example of Theta?
+19:49:24 From Daniel Gibson To Everyone:
+	@Sujasha, theta is slope for each variable in the linear model
+19:49:37 From Laura G To All Panelists:
+	Why is X0 = 1?
+19:49:37 From Shel Randall To Everyone:
+	looks like Fourier analysis
+19:50:11 From Varuni Rao To Everyone:
+	Why do we have a 1 in the X vector?
+19:50:19 From Daniel Gibson To Everyone:
+	@Shel, yes, fitting to a sum of sinusoids
+19:50:25 From gilberto scotacci To Everyone:
+	its the slope
+19:50:28 From Sellathurai Sriganesha To All Panelists:
+	Is n=m?
+19:50:47 From Sellathurai Sriganesha To Everyone:
+	Is n
+19:50:56 From Sharad Widhani To Everyone:
+	Why do we need Theta 0?
+19:51:01 From Dom Lazara To Everyone:
+	Is there a concept of 'outliers' in our data set? For example, a particular value Xi in our data is a real point, that may not be indicative of the actual trend.
+19:51:04 From Vidhya Shankarraman To Everyone:
+	do we need thata 0
+19:51:08 From Sellathurai Sriganesha To Everyone:
+	Is n=m?
+19:51:21 From Daniel Gibson To Everyone:
+	Theta 0 is the sales without advertising in the example case.
+19:51:32 From Laura G To All Panelists:
+	Is that equal to an identity matrix?
+19:51:57 From Soundarya Daliparthy To All Panelists:
+	m is the number of features, and n is the number of records/data points
+19:52:07 From gilberto scotacci To Everyone:
+	theta 0 needs to represent the intercept*
+19:52:17 From Moderator - Ankit Agrawal To All Panelists:
+	Q: Why is X0 = 1?	A: We write Yhat = Theta^T X (in matrix and vector form). To capture the Theta_0, we write X_0=1
+19:52:40 From Alisher Jardemaliyev To Everyone:
+	So basically theta is unknown parameter that we are trying to predict in this context?
+19:53:04 From Samit Thakur To Everyone:
+	thera 0 is a constant, and the intersept
+19:53:08 From Daniel Gibson To Everyone:
+	@Alisher, basically, but it is a set of parameters
+19:53:10 From Sujasha Gupta To Everyone:
+	Thank you @Gilberto.
+19:53:37 From Moderator - Ankit Agrawal To All Panelists:
+	Q: Is there a concept of 'outliers' in our data set? For example, a particular value Xi in our data is a real point, that may not be indicative of the actual trend.	A: Yes outlier detection and handling is usually done during EDA as discussed in Week 1. If outliers are present, the regression model will be affected by the outlier
+19:54:02 From Lev Sukherman To All Panelists:
+	@Alisher we are trying to predict all thetas to form the line of the best fit
+19:54:09 From Jaime Romanini To Everyone:
+	nable G would be theta 1 in multidimension or D[g]?
+19:54:41 From Moderator - Ankit Agrawal To All Panelists:
+	Q: do we need thata 0	A: It is a modeling choice. We can force the linear regression to pass through origin by setting X_0 = 0. The slope of the line/plane will be different depending on whether the intercept is present or not
+19:54:46 From Chris Tecca To All Panelists:
+	So for a linear predictive regression (y=mx+b) , theta 0 = B and theta 1 = M ?
+19:55:15 From Lev Sukherman To All Panelists:
+	@Jamie theta is just standard annotation, you can use any other symbol. Like gamma, omega, lambda
+19:55:23 From EUNICE HERNANDEZ To Everyone:
+	Is it still used frecquently?
+19:55:32 From Judith Marrugo To Everyone:
+	The line is the True ?
+19:56:02 From Omar Alsaid Sulaiman To Everyone:
+	derivative
+19:56:03 From Megha Sharma To Everyone:
+	So the below black line is error or residual according to the mathematical formula..right?
+19:56:10 From Sophia Arellano To Everyone:
+	Judith the line is the best feit for the data
+19:56:21 From Sophia Arellano To Everyone:
+	fit*
+19:56:26 From Daniel Gibson To Everyone:
+	General Question for Later:  Given the robustness of computers and information systems, has it become more common to just use the ranges of the existing data as opposed to regressing?  What I mean is, just taking the empirical range of Y’s for any given X bold?
+19:56:46 From Moderator - Ankit Agrawal To All Panelists:
+	Q: So for a linear predictive regression (y=mx+b) , theta 0 = B and theta 1 = M ?	A: theta_0 = b and theta_1=m (I don't know why you capitalized them)
+19:57:20 From Samit Thakur To Everyone:
+	Python libraries will remember the formulas for you!
+19:58:04 From Samit Thakur To Everyone:
+	Slope = 0
+19:58:05 From Hassan Alsawadi To Everyone:
+	How can I take the inverse of a matrix that is not square?
+19:59:41 From Alisher Jardemaliyev To Everyone:
+	so we use squared error and squared mean error to calculate the accuracy of our model? and we use ordinary least squares to calculate best fitting line?
+19:59:42 From Moderator - Ankit Agrawal To All Panelists:
+	Q: How can I take the inverse of a matrix that is not square?	A: (X^T)(X) is a square matrix. The inverse may still not exist if the product is not a full rank matrix
+19:59:51 From Angelo Rossetti To Everyone:
+	No
+19:59:55 From Sharad Widhani To Everyone:
+	Is 2.94 = Theta?
+19:59:56 From Eric Camhi To Everyone:
+	so there is no reason to spend money on newspaper ads?
+20:00:10 From Shel Randall To Everyone:
+	Hassan : yes. a horizontal vector becomes vertical when transposed
+20:00:17 From Jaime Romanini To Everyone:
+	The H function in the past slide is?
+20:00:17 From Soumyo Banerjee To All Panelists:
+	Should they even spend any money on Newspaper Ads?
+20:00:23 From Angelo Rossetti To Everyone:
+	TV and Radio are absorbing most of the variation so the impact that NewsP has becomes irrelevant when those two other are present
+20:00:25 From Rishi Khanna To Everyone:
+	at least, we know that newspaper will not impact sales at all?
+20:00:28 From Daniel Gibson To Everyone:
+	@Sharad Theta0 = 2.94, Theta1 = 0.046, Theta2 = 0.19, Theta3 = -0.001
+20:00:31 From Raj Desikavinayagompillai To Everyone:
+	How was theta calculated
+20:01:00 From Ewan Innes To Everyone:
+	So lowest error range and high R squared for best regression
+20:01:22 From Bryan Olivera Lona To All Panelists:
+	Sharad, Theta is a vector, composed of all the coefficients that minimize the error in the function
+20:01:30 From Hassan Alsawadi To Everyone:
+	Is there a relationship between the coefficients of a fitted linear equation and Pearson correlation?
+20:01:46 From Samit Thakur To Everyone:
+	p-value for the second case is slightly higher than 5%
+20:01:57 From Bernardo Serafin To Everyone:
+	Trade-off effect on the variables
+20:02:12 From Daniel Gibson To Everyone:
+	@Samit, it is not a p-value
+20:02:59 From Hassan Alsawadi To Everyone:
+	Some scientific packages provide confidence intervals of the coefficients, how are they computed?
+20:03:16 From Samit Thakur To Everyone:
+	@Daniel - so what is it? It is denying the first set of result that newspaper advs don't matter as compared to the radio and TV
+20:03:56 From Hassan Alsawadi To Everyone:
+	How to deal with multicollinearity while doing regression analysis?
+20:03:59 From Daniel Gibson To Everyone:
+	It is the estimate of the slope of the hypothesized line that relates the amount of sales you would get for each dollar you spend in advertising.
+20:04:07 From Neha Purohit To Everyone:
+	To reach to conclusion Do we do regression on multiple samples?
+20:04:08 From Sandra Garcia To Everyone:
+	Due to the News results as negative, wouldn't it be a more reliable model if News is dropped and it's only considers TV and Radio?
+20:04:25 From Karolina Palka To Everyone:
+	Question: Very high-level, what ratio of actual live data problems is linear in nature or gives good result with linear regression?
+20:04:48 From Javier Marquez To Everyone:
+	the best slope, the best prediction?
+20:04:56 From Daniel Gibson To Everyone:
+	@Karolina, I’m not sure that is known, but many people use it anyway, in my experience.
+20:05:12 From Ricardo Vides To Everyone:
+	what are the requirements to be able to run a regression method? i.e. having a normal distribution?
+20:06:01 From Talal Rahim To Everyone:
+	Is the consistency result the same as CLT?
+20:06:01 From Michael Miller To Everyone:
+	do you ever get an ambiguous red line (maybe more than 1)?
+20:07:00 From Mira Singh To Everyone:
+	Bootstrapping method for sampling can be used for this?
+20:07:14 From Eric Camhi To Everyone:
+	Can we break down the data set into more data sets?
+20:07:16 From Daniel Gibson To Everyone:
+	@Michael, given that the fitting equation is a line (e.g. a derivative of a parabola, only one answer is possible.
+20:07:19 From Fredy Vigo To Everyone:
+	can we set two functions for different ranges?
+20:07:35 From Moderator - Ankit Agrawal To Everyone:
+	Q: Very high-level, what ratio of actual live data problems is linear in nature or gives good result with linear regression?	A: A lot of problems are solved using Linear regression methods. Sometimes, when we talk about the complexity of models and interpretability, linear regression becomes the only choice (even if it doesn't produce the best results). I have deployed several regression solutions while working in Finance industry.
+20:07:58 From Raj Desikavinayagompillai To Everyone:
+	How was theta calculated
+20:08:00 From Michael Miller To Everyone:
+	Thanks @Daniel
+20:08:05 From William Gross To Everyone:
+	since the samples are random do we ever run the possibility that the samples are the same? For example, if we do random 1-10 the people could both get 7
+20:08:10 From Karolina Palka To Everyone:
+	Thanks @Ankit
+20:08:18 From Shel Randall To Everyone:
+	The world is flat? :)
+20:08:54 From Alisher Jardemaliyev To Everyone:
+	so we use squared error and squared mean error to calculate how far off the predictions are of our model? and we use ordinary least squares to calculate best fitting line to best represent the relationship between variables?
+20:08:55 From Samit Thakur To Everyone:
+	Shel - The world is a normal distribution :)
+20:09:15 From Shel Randall To Everyone:
+	Samit - hardly normal. :)
+20:10:07 From Samit Thakur To Everyone:
+	😂
+20:11:23 From alberto chico To All Panelists:
+	Does it give you the same result either of those methods
+20:11:27 From alberto chico To All Panelists:
+	?
+20:11:32 From Moderator - Ankit Agrawal To Everyone:
+	Q: so we use squared error and squared mean error to calculate how far off the predictions are of our model? and we use ordinary least squares to calculate best fitting line to best represent the relationship between variables?	A: You are on the right track. We use OLS and MSE to perform Gradient Descent method (computing partial derivative) and gradually optimize the values of Theta(s)
+20:12:22 From Moderator - Ankit Agrawal To Everyone:
+	Q: Does it give you the same result either of those methods	A: Yes, the result of OLS method and MLE method is exactly the same.
+20:13:05 From Sharon Kuang To Everyone:
+	Which method is more popular?
+20:13:27 From Raj Desikavinayagompillai To Everyone:
+	How is theta calculated
+20:14:22 From Bernardo Serafin To Everyone:
+	At a conceptual level how do you make a difference if there's a trade-off between my variables, they aren't correlated or one enhances the other?
+20:14:49 From Jaime Romanini To Everyone:
+	The mentioned H is?
+20:15:32 From Mario Lemos To All Panelists:
+	It is a good procedure to work with two simple to insure that the result does not change?
+20:15:43 From Louis Reid To Everyone:
+	Is theta really the correlation times SD?
+20:15:53 From Laura G To All Panelists:
+	I recently heard a tutor from Faculty comments that a vector with dimension 17 (17 variables) is considered a high dimensionality dataset and has to undergo PCA. I disagree - is there a criteria to denominate if a a dataset is high dimensionality or not?
+20:16:06 From Shilpa Murthy To All Panelists:
+	Q: To find the model with maximum likelihood we calculate the model for which the empirical risk is minimum?
+20:16:24 From Varuni Rao To Everyone:
+	How big should the sample be in comparison to the population to develop a model that predicts the population well?
+20:16:51 From Krish Sasmal To All Panelists:
+	Why do we square for the error ?
+20:17:41 From Glauco Stephan To Everyone:
+	Can one draw any parallel between the Central Limit Theorem, regarding: theta hat and theta for the population?
+20:17:55 From Taylor Olson To Everyone:
+	For max likelihood - how is the probability of Y less than 1 ? (Since the Y is observed and in the dataset, isn’t the probability 1?)
+20:18:06 From Alisher Jardemaliyev To Everyone:
+	So we try to find theta during our training by using gradient descend or OLS? and then use the optimal theta to make predictions? last question sorry
+20:18:32 From Varuni Rao To Everyone:
+	because -ve errors cancel out the =ve error giving a wrong impression of 0 error
+20:18:33 From Hugo Escandon To Everyone:
+	Is it a good practice to discard features (that are correletad) in order to determine Y? and therefore have a smaller X vector
+20:18:35 From Samit Thakur To Everyone:
+	We square the errors, since it takes care of supressing the two extreme values better
+20:18:48 From Paula Valverde To Everyone:
+	Removing outliers before linear regression is important, isn’t it?
+20:18:48 From Tripureswar Chattopadhaya To Everyone:
+	to take the deviation away and that is why the deviation is squared
+20:18:56 From Shilpa Murthy To Everyone:
+	To find model with maximum likelihood do we use the pdf for W (error) and minimize the empirical risk?
+20:19:03 From Moderator - Ankit Agrawal To Everyone:
+	Q: Why do we square for the error ?	A: The error can be positive or negative. We don't want the error to be underestimated so we can take absolute value or square the error. We have both methods as viable choices although absolute value solution is harder to compute
+20:19:52 From Johan Goedkoop To Everyone:
+	Greece will save us
+20:21:06 From Neha Purohit To Everyone:
+	How was the probability function derived in second approach where we assumed world is linear and tried finding theta
+20:21:07 From Samit Thakur To Everyone:
+	Squaring of errors also helps in amplifying the differences among the points more, leading to better results
+20:21:08 From Moderator - Ankit Agrawal To Everyone:
+	Q: So we try to find theta during our training by using gradient descend or OLS? and then use the optimal theta to make predictions? last question sorry	A: Gradient descent is an algorithm (calculus based mathematical approach) to minimize the OLS
+20:22:07 From Shilpa Murthy To Everyone:
+	mean
+20:22:43 From Shilpa Murthy To Everyone:
+	regression
+20:22:58 From Moderator - Ankit Agrawal To Everyone:
+	Q: Is it a good practice to discard features (that are correletad) in order to determine Y? and therefore have a smaller X vector	A: Yes. There are methods like Forward selection, backward selection, VIF, regression analysis, etc to do just that.
+20:24:58 From Hugo Escandon To Everyone:
+	what would be a good/acceptable value for R2?
+20:25:28 From Johan Goedkoop To Everyone:
+	cool that the combination has better R2
+20:25:31 From Moderator - Ankit Agrawal To Everyone:
+	Q: Removing outliers before linear regression is important, isn’t it?	A: Yes it is recommended. The outliers will have a high error and when we do MSE, we square that error making the overall error much worse.
+20:27:26 From Marcin Ladowski To All Panelists:
+	Is there any indication in R2 to overfitting?
+20:28:05 From Ewan Innes To Everyone:
+	So ideally R sq close(ish) to 1  except if data is noisy then all bets are off :) ?
+20:28:42 From Shel Randall To Everyone:
+	Ewan - yep
+20:28:53 From Hassan Alsawadi To Everyone:
+	What does it mean when I say the model is structural?
+20:31:25 From Bas van Andel To Everyone:
+	What did 'true value (*)' refer to again? The target?
+20:31:50 From Lev Sukherman To All Panelists:
+	@Bas yes
+20:32:15 From Lev Sukherman To All Panelists:
+	Theta hat is a prediction
+20:32:20 From Daniel Gibson To Everyone:
+	@Bas the actual “hidden” value that we’re estimating with our stats approaches.
+20:32:41 From Alisher Jardemaliyev To Everyone:
+	can we use to p value to test accuracy of our theta?
+20:32:54 From Johnson Oguntuase To Everyone:
+	What is the function E
+20:33:20 From Jose Rojas To Everyone:
+	Expected Value
+20:33:57 From Lev Sukherman To All Panelists:
+	@Johnson we can use Mathew Correlation Coefficient
+20:33:59 From Daniel Gibson To Everyone:
+	@Johnson he said “average”, I think.
+20:34:59 From Shel Randall To Everyone:
+	E = means squared error
+20:37:21 From Jose Rojas To Everyone:
+	E[X] = expected value of X / for the normal distribution is the mean
+20:37:29 From Louis Reid To Everyone:
+	SE= standard deviation divided by square root of the sample number
+20:39:05 From David Enck To Everyone:
+	if covariance gets high enough don't we have multicollinearity between parameters?
+20:41:08 From Louis Reid To Everyone:
+	Do you have to know the standard deviation of the sample?
+20:41:20 From Samit Thakur To Everyone:
+	3 SD for 99%
+20:41:46 From Lev Sukherman To All Panelists:
+	@Samit 3 SD for 99.7%
+20:42:00 From Talal Rahim To Everyone:
+	theta
+20:42:01 From Jaime Romanini To Everyone:
+	CI
+20:42:05 From Daniel Gibson To Everyone:
+	CI
+20:42:05 From Helena Monteiro To Everyone:
+	CI
+20:42:05 From Sidrat Tasawoor Kanth To Everyone:
+	theta hat
+20:42:08 From Filippo Caviglioni To Everyone:
+	CI
+20:42:08 From Jens Müller To Everyone:
+	theta
+20:42:08 From Talal Rahim To Everyone:
+	theta_^
+20:42:10 From Neha Purohit To Everyone:
+	theta
+20:42:10 From Alberto Chico To All Panelists:
+	theta star
+20:42:12 From Vikas Srivastava To Everyone:
+	Theta hat
+20:42:12 From Judith Marrugo To Everyone:
+	0.05
+20:42:12 From Rahul Kumar To Everyone:
+	CI
+20:42:13 From Megha Sharma To Everyone:
+	0j
+20:42:14 From Mackenzie Hunt To Everyone:
+	P
+20:42:14 From drashti darji To Everyone:
+	p
+20:42:15 From Bryan Olivera Lona To All Panelists:
+	Theta hat
+20:42:17 From Louis Reid To Everyone:
+	theta
+20:42:20 From Shannon Perez To Everyone:
+	Theta ^
+20:42:21 From Javier Marquez To Everyone:
+	theta
+20:42:21 From Sujasha Gupta To Everyone:
+	theta hat
+20:42:21 From shikha sharma To Everyone:
+	theta
+20:42:22 From Mauricio Maldonado To Everyone:
+	CI
+20:42:23 From Daniel Gibson To Everyone:
+	start is actual, and not variable
+20:42:24 From Hassan Alsawadi To Everyone:
+	CI
+20:42:25 From Alfred Baumbusch To Everyone:
+	theta star
+20:42:27 From David Enck To Everyone:
+	theta hat the estimates
+20:42:30 From Shilpa Murthy To Everyone:
+	Theta hat
+20:42:30 From Mackenzie Hunt To Everyone:
+	hat
+20:42:31 From Bernardo Serafin To Everyone:
+	Theta hat
+20:42:33 From Nohelia Osorio To Everyone:
+	theta hat
+20:42:33 From EUNICE HERNANDEZ To Everyone:
+	theta hat
+20:42:33 From Yasir Maqbool To Everyone:
+	theta hat
+20:42:36 From Lev Sukherman To All Panelists:
+	Theta hat
+20:42:39 From Soundarya Daliparthy To Everyone:
+	theta hat
+20:42:41 From Tripureswar Chattopadhaya To Everyone:
+	Theta Hat
+20:42:42 From Roman Neuhauser To Everyone:
+	theta hat
+20:42:42 From abdramane bathily To Everyone:
+	theta hat
+20:42:42 From Shilpa Murthy To Everyone:
+	Theta hat is random because of the random dataset from population
+20:43:27 From Daniel Gibson To Everyone:
+	The confidence window oscillates around theta*
+20:44:14 From Moderator - Ankit Agrawal To Everyone:
+	Q: What did 'true value (*)' refer to again? The target?	A: The actual labels for the sample data
+20:44:19 From Javier Marquez To Everyone:
+	By your Example Random Quantity could be Speed of light in sea water
+20:44:35 From Daniel Gibson To Everyone:
+	Will 95% of all of the data be captured within the lines formed by theta_hat +/- sigma*2?
+20:44:38 From Louis Reid To Everyone:
+	theta hat is the null hypothesis
+20:44:38 From Bernardo Serafin To Everyone:
+	95% certainty our predictor is the accurate one.
+20:44:42 From David Craig To Everyone:
+	So theta hat is, in essence,  a probability statistic?
+20:44:49 From Megha Sharma To Everyone:
+	What does CI covering up theta hat or not represents or interpreted?
+20:46:42 From Louis Reid To Everyone:
+	Type 1 errir
+20:46:43 From Leandro Mbarak To Everyone:
+	5% of the time
+20:46:56 From Shannon Perez To Everyone:
+	5%
+20:47:08 From Louis Reid To Everyone:
+	Type 1 or Type 2 error
+20:47:42 From Shel Randall To Everyone:
+	we can just call it "delusional" ?
+20:47:53 From puneet jhajj To All Panelists:
+	This is Type 1 error
+20:48:34 From puneet jhajj To All Panelists:
+	As reject null hypothesis when it is true
+20:48:52 From Alisher Jardemaliyev To Everyone:
+	left tail, less than 5%
+20:48:58 From Lev Sukherman To All Panelists:
+	Two tail test?
+20:49:35 From Hugo Escandon To Everyone:
+	could it be one tail? or does it have to be two-tail?
+20:49:50 From Daniel Gibson To Everyone:
+	@Hugo, depends on your hypothesis
+20:50:07 From Barbara Timm-Brock To Everyone:
+	Isn't it left tail 2.5%?
+20:50:19 From Daniel Gibson To Everyone:
+	@Barbara, yes, both together are 5%
+20:50:33 From David Enck To Everyone:
+	right, could be one tail if 1 sided hyp test or the altnative is only in one direction
+20:50:44 From Hugo Escandon To Everyone:
+	if its one tail. that is 5%, its is 2 tail each one is 2.5%
+20:51:45 From Thiago Soares To Everyone:
+	What is the intercept?
+20:52:06 From Daniel Gibson To Everyone:
+	@Thiago, the sales without advertisement
+20:52:25 From Samit Thakur To Everyone:
+	Intercept is the organic sales increase, without any advertisement.
+20:52:27 From Leandro Mbarak To Everyone:
+	in this case it is usefull to delete newspaper column and repeat the analysis?
+20:53:18 From Louis Reid To Everyone:
+	You can reject the null but can't say the alternative is true
+20:53:34 From Thiago Soares To Everyone:
+	Got it
+20:54:17 From Shel Randall To Everyone:
+	"I've never seen a million dollars."
+20:54:29 From Eric Camhi To Everyone:
+	Can you explain again how we see if there is an effect or not?
+20:54:29 From Daniel Gibson To Everyone:
+	Or measurement technique is too noisy.
+20:55:45 From Samit Thakur To Everyone:
+	Professor is the mistake in the journals intentional (to successfully publish the paper with a convenient p-value)
+20:57:17 From Hend Alqaderi To All Panelists:
+	Is ML prediction model more accurate than classic OLS linear regression?
+20:57:20 From Samit Thakur To Everyone:
+	The Green Jelly Bean example
+20:58:13 From Shilpa Murthy To Everyone:
+	It is 95% within the band
+20:58:29 From Daniel Gibson To Everyone:
+	@Samit, it is also the words used to describe the outcomes given the p-values.  Just because you did not “get your p-value” doesn’t mean that the results are not significant, just because you did get it, doesn’t mean that it is truly significant.
+20:59:05 From Samit Thakur To Everyone:
+	Thank you @Daniel
+20:59:38 From Neha Purohit To Everyone:
+	Why’s “W” will be bigger that variance of theta?
+21:00:49 From Eric Camhi To Everyone:
+	Can you explain again how we see if there is an effect or not?
+21:00:51 From Daniel Gibson To Everyone:
+	Why would the band not capture 95% of the data?
+21:01:14 From Mikael Friederich To Everyone:
+	when is it not safe to consider the "world is linear" for a specific problem?
+21:01:35 From Samit Thakur To Everyone:
+	Thank you Professor!
+21:01:52 From Shel Randall To Everyone:
+	I'm always surprised at how many PhD physics people do not understand freshman level statistics.
+21:02:08 From Shilpa Murthy To Everyone:
+	@Daniel the band captures the line of theta with 95% confidence level, the population regression may also not capture data accurately. Also sampling will not assure that 95% points are within that band
+21:02:18 From Daniel Gibson To Everyone:
+	@Shel, outside of engineering, this is the case.
+21:02:36 From Hassan Alsawadi To Everyone:
+	Thank you professor, I wish you a good day!
+21:02:37 From JOSE TORRES To Everyone:
+	Could you re explain the difference between CI regression line and CI expected values range?
+21:02:39 From Peter Ohmes To Everyone:
+	May I see the slide with the confidence interval and error band breakdown again?
+21:02:40 From Varuni Rao To Everyone:
+	Thank you Professor! Fantastic session.
+21:02:46 From Mikael Friederich To Everyone:
+	Thank you!
+21:02:50 From Arturo Gudiño Chong To Everyone:
+	Thank you!
+21:02:53 From Sophia Heller To All Panelists:
+	Thank you!
+21:02:53 From ankita srivastava To All Panelists:
+	Thankyou professor
+21:02:54 From melanie rebosa To All Panelists:
+	Thank you!
+21:02:54 From Pierce Ruggles To Everyone:
+	Thank you
+21:02:54 From selvaraj durairaj To Everyone:
+	thanks
+21:02:55 From Bryan Olivera Lona To All Panelists:
+	Thank you!
+21:02:56 From Iwan Müller To Everyone:
+	thank you
+21:02:56 From drashti darji To Everyone:
+	Thank you prof. have a nice day!
+21:02:56 From Dom Lazara To Everyone:
+	Thank you Professor!
+21:02:57 From Bernardo Serafin To Everyone:
+	Thank you so much professor.
+21:02:57 From Talal Rahim To Everyone:
+	Thank yo
+21:02:57 From Chloe Liban To Everyone:
+	thank you!
+21:02:58 From Sharon Kuang To Everyone:
+	Thank you
+21:02:58 From Dave Medina To All Panelists:
+	Thank you Professor!
+21:02:58 From Alberto Chico To All Panelists:
+	Thank you professor
+21:02:58 From Rahul Kumar To Everyone:
+	Thank You
+21:02:59 From Lev Sukherman To All Panelists:
+	Thanks
+21:02:59 From Johannes Oberhofer Lomeli To Everyone:
+	Thank you!
+21:02:59 From Claudia Enriquez To Everyone:
+	Thank you!
+21:02:59 From Hugo Escandon To Everyone:
+	TY
+21:03:00 From Marisol Santillan To Everyone:
+	thank you!
+21:03:00 From Michael Wahnich To Everyone:
+	thank you
+21:03:00 From Samuel Wright To Everyone:
+	Thank you john
+21:03:01 From abdramane bathily To Everyone:
+	thank you
+21:03:01 From Louis Reid To Everyone:
+	Thank you
+21:03:01 From Ewan Innes To Everyone:
+	Great Session. Thank You
+21:03:01 From Ryan Salazar To Everyone:
+	Thank you!
+21:03:02 From Yadira Del Rio To All Panelists:
+	Thank you, great Lecture!!!
+21:03:02 From Sandra Garcia To Everyone:
+	Thank you!
+21:03:02 From Lita Miranda To All Panelists:
+	thank you, Professor
+21:03:02 From Johnson Oguntuase To Everyone:
+	Thanks!
+21:03:03 From Sophie Voisin To Everyone:
+	Thank you
+21:03:03 From Rishi Khanna To Everyone:
+	Thanks a lot Professor
+21:03:03 From Damian Novo To Everyone:
+	Thank you.
+21:03:03 From Bryan Olivera Lona To All Panelists:
+	Interesting discussion
+21:03:04 From Shannon Perez To All Panelists:
+	Thank you!
+21:03:05 From Lalit Vyas To Everyone:
+	Thanks a lot, Prof.
+21:03:05 From Juan Camilo Pérez To Everyone:
+	Thank you
+21:03:06 From Vanessa Larissi To All Panelists:
+	thank you
+21:03:06 From David Enck To Everyone:
+	Thank you professor
+21:03:06 From Fernando Matias Gonzalez To Everyone:
+	Thank you!
+21:03:06 From Himansu Jena To Everyone:
+	Thank You Professor.
+21:03:06 From Mauricio Maldonado To Everyone:
+	Thank you professor!
+21:03:07 From Valerie Miller To Everyone:
+	Thank you. Very illuminating.
+21:03:07 From Roman Neuhauser To Everyone:
+	thank you
+21:03:07 From Han H To Everyone:
+	Thank you Professor!
+21:03:07 From Jaime Romanini To Everyone:
+	Thanks you very much
+21:03:08 From Jose Rojas To Everyone:
+	Thank you!
+21:03:08 From Srinivas Annam To Everyone:
+	Thank you professor
+21:03:09 From Paula Valverde To Everyone:
+	Thank you professor!!
+21:03:09 From Zainab Saccal To All Panelists:
+	Thank you so much
+21:03:09 From Jens Müller To Everyone:
+	Thank you very much :-)
+21:03:10 From Shilpa Gokhale To Everyone:
+	Thank you!
+21:03:11 From Marcin Ladowski To All Panelists:
+	Thank you Prof. Great class!
+21:03:13 From Adithya Parvatam To Everyone:
+	Thank you professor
+21:03:14 From Ganesh Govvala To Everyone:
+	Thank You
+21:03:15 From Saritha Patrick To All Panelists:
+	Thank you!
+21:03:15 From Ali Malçok To Everyone:
+	thank you, Professor
+21:03:16 From Jaime Romanini To Everyone:
+	Excelent class
+21:03:17 From Helena Monteiro To Everyone:
+	Thank you, great lecture!
+21:03:18 From Glauco Stephan To Everyone:
+	Thanks a lot
+21:03:19 From shikha sharma To Everyone:
+	Thank You Professor!
+21:03:19 From Matthew Tramel To Everyone:
+	Thank you
+21:03:21 From Veronica Tangiri To Everyone:
+	Thank you.
+21:03:21 From Jason Cuevas To Everyone:
+	Thank you
+21:03:23 From Megha Sharma To Everyone:
+	Thank you Professor
+21:03:25 From Mike D. To Everyone:
+	thank you!!!
+21:03:26 From Tracy Katz To Everyone:
+	Thank you!
+21:03:27 From Robbie Hemmings To Everyone:
+	great Job
+21:03:34 From Shilpa Murthy To Everyone:
+	Thank you prof
+21:03:36 From zoeen janjua To Everyone:
+	thankyou
+21:03:36 From Fredy Vigo To Everyone:
+	thank you Professor
+21:03:50 From Bryan Olivera Lona To All Panelists:
+	Q: What is the difference between variance and covariance?
+21:03:59 From subhra roy To All Panelists:
+	Thank you professor
+21:03:59 From Rachana Kotian To Everyone:
+	Thank you Professsor
+21:04:10 From Judith Marrugo To Everyone:
+	Thank you Professor
+21:04:24 From Naveen Yeddula To Everyone:
+	Thank you Professor
+21:04:41 From Minya Liang To Everyone:
+	is neuro networks an example of blackbox AI?
+21:04:42 From JOSE TORRES To Everyone:
+	Could you explain the difference between CI regression line and CI expected values range?
+21:04:49 From Michael Miller To Everyone:
+	Thanks Professor
+21:05:00 From Snehal Chavda To Everyone:
+	Thank you
+21:05:04 From Alberto Chico To All Panelists:
+	After the course what is a good way to get deeper understanding on the math we have seen today?
+21:05:06 From vidya chalamcharla To Everyone:
+	Thanks Professor
+21:05:18 From Yogesh Kadam To All Panelists:
+	Thank you
+21:05:25 From Mario Lemos To All Panelists:
+	Thank Professor
+21:05:52 From Oumar Ndiaye To All Panelists:
+	Can you come back to R-square
+21:06:17 From Daniel Gibson To Everyone:
+	“Bias” is used in some context for signals (e.g. offset)
+21:06:38 From Shel Randall To All Panelists:
+	FYI: slides still not on dashboard
+21:07:25 From Rishi Khanna To Everyone:
+	Why did Theta 0 changed when we took only Newspaper or Only TV?
+21:07:33 From Bryan Olivera Lona To All Panelists:
+	I guess theta 0 might be the “neutral” state of the variable of interest, meaning, what is It’s usual value when all the Roger variables are not interactivo with it (if they are ratio variables meaning 0 is their center value)
+21:08:36 From Rishi Khanna To Everyone:
+	Will be very bad for Print Media industry 😀
+21:09:06 From Bryan Olivera Lona To All Panelists:
+	Q: How did R squared came about? Seems like an arbitrary parameter
+21:09:12 From Daniel Gibson To Everyone:
+	Some markets are responsive to newspaper, you will just need another technique to determine where you advertise with newspaper.
+21:09:38 From Sophia Arellano To Everyone:
+	Regressions are only for univariables? because you could not expect to find the best fit for more tan one variable at teh same time right?
+21:09:47 From Sophia Arellano To Everyone:
+	Linear regression I mean
+21:10:04 From Daniel Gibson To Everyone:
+	@Sophia, the example here had 3 variables.
+21:10:49 From Jaime Romanini To Everyone:
+	Great class Professor!
+21:10:49 From Varuni Rao To Everyone:
+	so -ve theta implies investigate more?
+21:11:23 From Daniel Gibson To Everyone:
+	@Varuni, given that there were some high sales with low $ in newspaper, I would be keen to look.
+21:12:08 From Varuni Rao To Everyone:
+	makes sense @Daniel. thanks
+21:12:59 From Louis Reid To Everyone:
+	Does the standard deviation of the sample need to be a known statistic to do this?
+21:13:03 From simona tenaglia To Everyone:
+	dependent variables need to be normally distributed?
+21:13:04 From Jaime Romanini To Everyone:
+	Could be a Good technique to Split in cluster and do several regressions in the case of diferent notable behaviors of Y
+21:13:29 From Javier Marquez To Everyone:
+	How can be reduced the bias in the linear models?, if the bias is too high, linear models has to detached?
+21:14:37 From Sophia Arellano To Everyone:
+	@Daniel but you dont merge those in one plot
+21:14:58 From Sophia Arellano To Everyone:
+	you run a regression for one variable but maybe my question is dump haha
+21:15:22 From Sophia Arellano To Everyone:
+	I think its kind of obvious you only have two dimensions
+21:15:27 From Lamine Ndiaye To Everyone:
+	For multicollinearity, I think we don't know at the beginning but if there is, we can use the Variance Inflation Factor. Is it correct?
+21:15:45 From [GL Mentor] Shubham Sharma To All Panelists:
+	Albberto Q: After the course what is a good way to get deeper understanding on the math we have seen today? A: Elements of Statistical Learning and Introduction to statistical learning by Tibshirani, Hastie
+21:16:11 From [GL Mentor] Shubham Sharma To Everyone:
+	Albberto Q: After the course what is a good way to get deeper understanding on the math we have seen today? A: Books - Elements of Statistical Learning and Introduction to statistical learning by Tibshirani, Hastie
+21:17:31 From Yasir Maqbool To Everyone:
+	some people use AUC and Roc to measure. How do you see in comparison to R square and mse?
+21:17:52 From Hend Alqaderi To All Panelists:
+	Is multicollinearity an issue in machine learning
+21:18:51 From Shilpa Murthy To Everyone:
+	@Sophia regarding multivariable, I remember the prof mentioning that it maybe used in neural networks to calculate two or more regressions at the same time
+21:19:00 From Shilpa Murthy To Everyone:
+	If I remember correctly
+21:20:01 From Moderator - Ankit Agrawal To Everyone:
+	@Yasir: We use AUC/ ROC for classification tasks
+21:20:46 From Sophia Arellano To Everyone:
+	@Shilpa TY I thik i Will wait for neural networks to come
+21:21:01 From David Craig To Everyone:
+	95% confidence level is the accepted norm for social-science research.  Is this, based on this morning's lecture, suffice for the large-picture business world? (Even if the particle physicist would scoff?
+21:24:07 From Michael Miller To Everyone:
+	Con you please confirm the Live class schedule this week.
+21:26:46 From Tripureswar Chattopadhaya To Everyone:
+	Thanks for the lecture session
+21:27:10 From Sumeet Deshpande To Everyone:
+	Intra vs. Inter component variance
+21:29:30 From Eric Camhi To Everyone:
+	Can you explain again how we see if there is an effect or not with theta 0
+21:29:32 From Sumeet Deshpande To Everyone:
+	2D (Newspaper alone) vs. 4D (when all medias are considered)?
+21:30:15 From Eric Camhi To Everyone:
+	Can you explain again how we see if there is an effect or not with theta 0
+21:30:24 From Shilpa Murthy To Everyone:
+	thanks
+21:30:28 From Hugo Escandon To Everyone:
+	TY for this lecture
+21:30:30 From Louis Reid To Everyone:
+	Thank you
+21:30:32 From Gabriel Signorelli To Everyone:
+	thanks
+21:30:33 From Samit Thakur To Everyone:
+	Yes, the addition of new variable, changes the entire ecosystem (similar to the team-forming exercise!)
+21:30:33 From ankita srivastava To All Panelists:
+	Thankyou professor..
+21:30:33 From Sumeet Deshpande To Everyone:
+	Thank you Professor, Ankit and Shubham !!!
+21:30:34 From Leandro Mbarak To Everyone:
+	Thank you for a very insightful class professor.
+21:30:35 From Dom Lazara To Everyone:
+	In the example we were trying to find the best fit linear representation of the real world. Does it always make sense to use all of the data in our sample, or perhaps it might make sense to srcub out certain outliers?
+21:30:38 From Ketan Kamdar To Everyone:
+	thx
+21:30:38 From Charles O'Donnell To Everyone:
+	Brilliant explanations, thank you.
+21:30:38 From Honglian GUO To Everyone:
+	Thank you for you all
+21:30:40 From Arturo Gudiño Chong To Everyone:
+	Thanks!
+21:30:40 From Lamine Ndiaye To Everyone:
+	Thank you very much!
+21:30:41 From Csaba Tamas To Everyone:
+	Thank you
+21:30:41 From Judes Jean-Baptite To All Panelists:
+	thanks
+21:30:43 From Santosh Reddy To Everyone:
+	Thank you
+21:30:43 From Mayda Alkhaldi To Everyone:
+	Thank you Professor!
+21:30:44 From Jimena Silva To Everyone:
+	thanks!
+21:30:46 From Jeremy Boccabello To Everyone:
+	thank you very much
+21:30:46 From Stan Ikpe To All Panelists:
+	thank you!
+21:30:47 From Luis Marcano To Everyone:
+	thanks
+21:30:48 From Mayda Alkhaldi To Everyone:
+	Thanks everyone 🙂
+21:30:48 From Samit Thakur To Everyone:
+	Thank you professors, Ankit and Subham!
+21:30:49 From Han H To Everyone:
+	Thank you!
+21:30:51 From Santiago Arroyo To Everyone:
+	Thank you
+21:30:51 From Alberto Chico To Everyone:
+	thank you
+21:30:52 From Rahul Kumar To Everyone:
+	Thank You
+21:30:53 From Zainab Saccal To Everyone:
+	Thank you professor for everything, brilliant
+21:30:53 From shikha sharma To Everyone:
+	Thank You!
+21:30:53 From Stephany Gochuico To Everyone:
+	Thank you professors !
+21:30:54 From Johannes Oberhofer Lomeli To Everyone:
+	Yes, thanks you so much!
+21:30:54 From Maâmar M To Everyone:
+	Thanks
+21:30:55 From Jens Müller To Everyone:
+	Thank you. Very good presentation + discussion :-)
+21:30:56 From Erin Copeland To All Panelists:
+	Thank you!
+21:30:56 From Rishi Khanna To Everyone:
+	Great great session. Thanks a lot Professor and Mentors
+21:30:57 From Lalit Vyas To Everyone:
+	Amazing session today!
+21:30:57 From Megha Sharma To Everyone:
+	Thank you professor, Ankit and Shunbham
+21:30:58 From Shadane Ferraro To Everyone:
+	thank you
+21:30:58 From EUNICE HERNANDEZ To Everyone:
+	Thanks somuch profesor for an excellent lectura and for staying to answer allquestions. Thanks Ankit and
+21:30:58 From Dom Lazara To Everyone:
+	thank you.
+21:30:58 From Sophia Heller To All Panelists:
+	Thank you!
+21:30:58 From simona tenaglia To Everyone:
+	thanks a lot
+21:30:59 From Poonam Gupta To All Panelists:
+	thank you
+21:30:59 From Merrill Kashiwabara To All Panelists:
+	Thanks!
+21:31:00 From Oumar Ndiaye To All Panelists:
+	Thanks
+21:31:00 From Kalyan Gorrepati To Everyone:
+	Thank you Professor !
+21:31:03 From Ricardo Vides To Everyone:
+	thank you!
+21:31:05 From Jaime Romanini To Everyone:
+	Thanks you
+21:31:07 From Daniel Bautista To Everyone:
+	Thank you
